@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
@@ -16,18 +15,10 @@ import { useOffSetTop } from 'src/hooks/use-off-set-top';
 
 import { bgBlur } from 'src/theme/css';
 
-import Logo from 'src/components/logo';
-import Label from 'src/components/label';
-
 import NavMobile from './nav/mobile';
-import NavDesktop from './nav/desktop';
 import { HEADER } from '../config-layout';
-import Searchbar from '../common/searchbar';
-import { navConfig } from './config-navigation';
 import HeaderShadow from '../common/header-shadow';
-import SettingsButton from '../common/settings-button';
 import { NavBasicDesktop } from 'src/components/nav-basic';
-import Iconify from 'src/components/iconify';
 import { Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------

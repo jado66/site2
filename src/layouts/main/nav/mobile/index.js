@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
@@ -15,9 +14,8 @@ import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
 import Scrollbar from 'src/components/scrollbar';
 
-import NavList from './nav-list';
 import { NAV } from '../../../config-layout';
-import { NavProps, NavBasicMobile } from 'src/components/nav-basic';
+import { NavBasicMobile } from 'src/components/nav-basic';
 
 // ----------------------------------------------------------------------
 

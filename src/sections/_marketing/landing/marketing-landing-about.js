@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 
 import { fShortenNumber } from 'src/utils/format-number';
 
-import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
