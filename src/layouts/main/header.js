@@ -7,6 +7,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import { useTheme } from '@mui/material/styles';
+import { Typography } from '@mui/material';
 
 import { paths } from 'src/routes/paths';
 
@@ -19,7 +20,6 @@ import NavMobile from './nav/mobile';
 import { HEADER } from '../config-layout';
 import HeaderShadow from '../common/header-shadow';
 import { NavBasicDesktop } from 'src/components/nav-basic';
-import { Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 

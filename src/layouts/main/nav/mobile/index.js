@@ -14,8 +14,8 @@ import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
 import Scrollbar from 'src/components/scrollbar';
 
-import { NAV } from '../../../config-layout';
 import { NavBasicMobile } from 'src/components/nav-basic';
+import { NAV } from '../../../config-layout';
 
 // ----------------------------------------------------------------------
 
