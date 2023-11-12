@@ -109,7 +109,33 @@ export default function Header({ headerOnDark }) {
         )}
       </Stack>
 
-      {!mdUp && <NavMobile data={navConfig} />}
+      {!mdUp && (
+        <NavMobile
+          data={[
+            {
+              title: 'Home',
+              path: '/',
+            },
+            { title: 'Get Started', path: '/get-started' },
+            {
+              title: 'Examples',
+              path: '/pages1',
+              children: [
+                { title: 'Solar', path: '/examples/solar' },
+                { title: 'AI Education', path: '/examples/ai-education' },
+              ],
+            },
+            {
+              title: 'Applications',
+              path: '/applications',
+            },
+            {
+              title: 'About Us',
+              path: '/about',
+            },
+          ]}
+        />
+      )}
     </>
   );
 

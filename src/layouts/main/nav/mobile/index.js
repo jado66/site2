@@ -17,6 +17,7 @@ import Scrollbar from 'src/components/scrollbar';
 
 import NavList from './nav-list';
 import { NAV } from '../../../config-layout';
+import { NavProps, NavBasicMobile } from 'src/components/nav-basic';
 
 // ----------------------------------------------------------------------
 
@@ -51,11 +52,7 @@ export default function NavMobile({ data }) {
         <Scrollbar>
           <Logo sx={{ mx: 2.5, my: 3 }} />
 
-          <List component="nav" disablePadding>
-            {data.map((list) => (
-              <NavList key={list.title} data={list} />
-            ))}
-          </List>
+          <NavBasicMobile data={data} />
 
           <Stack spacing={1.5} sx={{ p: 3 }}>
             <Button fullWidth variant="contained" color="inherit">
