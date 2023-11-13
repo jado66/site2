@@ -16,10 +16,10 @@ import { useOffSetTop } from 'src/hooks/use-off-set-top';
 
 import { bgBlur } from 'src/theme/css';
 
+import { NavBasicDesktop } from 'src/components/nav-basic';
 import NavMobile from './nav/mobile';
 import { HEADER } from '../config-layout';
 import HeaderShadow from '../common/header-shadow';
-import { NavBasicDesktop } from 'src/components/nav-basic';
 
 // ----------------------------------------------------------------------
 
