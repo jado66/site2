@@ -79,6 +79,8 @@ export const paths = {
   pricing02: '/pricing-02',
   payment: '/payment',
   support: '/support',
+  test: '/test',
+  getStarted: '/get-started',
   page404: '/error/404',
   page500: '/error/500',
   // Components
