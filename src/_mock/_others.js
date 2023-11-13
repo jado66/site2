@@ -102,7 +102,40 @@ export const _brandsColor = BRANDS_NAME.map((brand, index) => ({
 // ----------------------------------------------------------------------
 
 export const _faqs = [
-  'Sed augue ipsum, egestas nec, vestibulum et',
+  {
+    id: _mock.id(0),
+    question: 'What does the company do?',
+    answer:
+      'AMY Communicationsis a software company that specializes in creating AI solutions. We create custom AI models that can answer users questions using information that you provide. These AI assistants can be integrated  for use in Web Apps, Mobile Applications, Voice and SMS Applications.',
+  },
+  {
+    id: _mock.id(1),
+    question: 'What is the typical cost of a project?',
+    answer:
+      'The price of a product really depends. The resources required to build a custom solution for your needs will vary depending on the complexity of the project. We will work with you to determine the best solution for your needs and budget.',
+  },
+  {
+    id: _mock.id(2),
+    question: ' What types of applications can you build?',
+    answer:
+      'We can build AI applications for websites, mobile applications, email assistants, AI text (SMS) bots, and AI assistance for voice applications like automated voicemail assistants and customer service representatives.',
+  },
+  {
+    id: _mock.id(3),
+    question: ' Where is AMY Communications located? ',
+    answer:
+      "AMY Communications is a Utah company but it's developers are spread across the United States",
+  },
+  {
+    id: _mock.id(4),
+    question: 'What companies has AMY Communications worked with?',
+    answer:
+      'AMY Communications is a relatively new company but some of the team members have built custom software for the FBI, KBR and Sinch Voice.',
+  },
+];
+
+export const _faqs2 = [
+  'What is the typical cost of a project?',
   'alesuada adipiscing, dui vestibulum suscipit nulla quis orci.',
   'Ut varius tincidunt libero',
   'In ut quam vitae odio lacinia tincidunt.',
