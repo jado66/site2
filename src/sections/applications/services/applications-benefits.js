@@ -73,7 +73,7 @@ export default function ApplicationsBenefits() {
           }}
         >
           Transform customer communication with our AI-powered software. Streamline workflows, boost
-          productivity, and deliver personalized experiences at scale. Stay ahead in today's
+          productivity, and deliver personalized experiences at scale. Stay ahead in today&apos;s
           fast-paced world with our intuitive design and advanced features.
         </Typography>
 
