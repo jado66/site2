@@ -35,7 +35,7 @@ export default function Header({ headerOnDark }) {
       <Box sx={{ lineHeight: 0, position: 'relative' }}>
         {/* <Logo /> */}
         <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
-          J-Apps AI
+          Amy Communications
         </Typography>
       </Box>
 

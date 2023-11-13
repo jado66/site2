@@ -72,7 +72,7 @@ export default function MarketingLandingAbout() {
             </Typography>
 
             <Typography sx={{ color: 'text.secondary' }}>
-              At J-Apps AI Solutions, we specialize in using artificial intelligence to enhance
+              At AMY Communications, we specialize in using artificial intelligence to enhance
               communication. Our AI-powered tools automate customer support processes, optimize
               content creation strategies, and improve response times, allowing you to engage with
               your customers more effectively.

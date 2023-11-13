@@ -49,7 +49,7 @@ export default function MarketingLandingHero() {
             }}
           >
             <Typography variant="overline" sx={{ color: 'secondary.main' }}>
-              J-Apps AI Solutions
+              AMY Communications
             </Typography>
 
             <Typography variant="h1" sx={{ my: 3 }}>
@@ -57,7 +57,7 @@ export default function MarketingLandingHero() {
             </Typography>
 
             <Typography sx={{ color: 'text.secondary' }}>
-              J-Apps AI Solutions: Enhancing communication with artificial intelligence. Automate
+              AMY Communications: Enhancing communication with artificial intelligence. Automate
               customer support or optimize content creation. Join us today to unlock the full
               potential of AI in your communication strategies.
             </Typography>

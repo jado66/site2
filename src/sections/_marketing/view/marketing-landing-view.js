@@ -9,14 +9,16 @@ import {
   _pricingMarketing,
 } from 'src/_mock';
 
+import { useScroll } from 'framer-motion';
+
 import ScrollProgress from 'src/components/scroll-progress';
+import MainLayout from 'src/layouts/main';
 
 import MarketingLandingHero from '../landing/marketing-landing-hero';
 import MarketingLandingFaqs from '../landing/marketing-landing-faqs';
 import MarketingLandingAbout from '../landing/marketing-landing-about';
 import MarketingLandingProcess from '../landing/marketing-landing-process';
 import MarketingLandingServices from '../landing/marketing-landing-services';
-import MainLayout from 'src/layouts/main';
 
 // ----------------------------------------------------------------------
 
