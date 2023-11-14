@@ -16,11 +16,24 @@ import Logo from 'src/components/logo';
 import { HEADER } from '../config-layout';
 import HeaderShadow from './header-shadow';
 import SettingsButton from './settings-button';
+import { Button } from '@chatscope/chat-ui-kit-react';
 
 // ----------------------------------------------------------------------
 
-export default function HeaderSimple() {
+export default function HeaderSimple({ openChatbot, hideChatbot, showChatbot }) {
   const theme = useTheme();
+
+  const handleOpenChatbot = () => {
+    if (openChatbot) {
+      openChatbot();
+    }
+  };
+
+  const handleHideChatbot = () => {
+    if (hideChatbot) {
+      hideChatbot();
+    }
+  };
 
   const offset = useOffSetTop(HEADER.H_DESKTOP);
 
@@ -57,14 +70,15 @@ export default function HeaderSimple() {
         >
           <SettingsButton />
 
-          <Link
-            href={paths.support}
-            component={RouterLink}
-            color="inherit"
-            sx={{ typography: 'subtitle2' }}
-          >
-            Need help?
-          </Link>
+          {showChatbot ? (
+            <Button color="inherit" variant="contained" onClick={handleHideChatbot}>
+              Close Chat
+            </Button>
+          ) : (
+            <Button color="inherit" variant="contained" onClick={handleOpenChatbot}>
+              Chat With Amy
+            </Button>
+          )}
         </Stack>
       </Toolbar>
 

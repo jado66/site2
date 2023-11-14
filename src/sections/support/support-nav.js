@@ -80,7 +80,7 @@ export default function SupportNav({ topic, data, onChangeTopic, open, onClose }
         }}
       >
         <Typography variant="h4" paragraph>
-          Do you still need help?
+          Do you still Chat With Amy
         </Typography>
 
         <Typography variant="body2" sx={{ color: 'text.secondary', mb: 4 }}>

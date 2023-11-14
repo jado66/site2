@@ -1,4 +1,5 @@
 module.exports = {
+  reactStrictMode: false,
   trailingSlash: true,
   modularizeImports: {
     '@mui/material': {

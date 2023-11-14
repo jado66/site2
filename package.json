@@ -17,11 +17,13 @@
     "re:build-npm": "npm run rm:all && npm install && npm run build"
   },
   "dependencies": {
+    "@chatscope/chat-ui-kit-react": "^1.10.1",
     "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.3.2",
     "@iconify/react": "^4.1.1",
+    "@mui/core": "^5.0.0-alpha.54",
     "@mui/lab": "^5.0.0-alpha.149",
     "@mui/material": "^5.14.14",
     "@mui/system": "^5.14.14",
@@ -35,6 +37,7 @@
     "next": "^13.5.6",
     "nprogress": "^0.2.0",
     "numeral": "^2.0.6",
+    "openai": "^4.17.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-countup": "^6.4.2",

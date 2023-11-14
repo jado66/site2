@@ -19,8 +19,20 @@ import { NAV } from '../../../config-layout';
 
 // ----------------------------------------------------------------------
 
-export default function NavMobile({ data }) {
+export default function NavMobile({ data, openChatbot, hideChatbot, showChatbot }) {
   const pathname = usePathname();
+
+  const handleHideChatbot = () => {
+    if (hideChatbot) {
+      hideChatbot();
+    }
+  };
+
+  const handleOpenChatbot = () => {
+    if (openChatbot) {
+      openChatbot();
+    }
+  };
 
   const mobileOpen = useBoolean();
 
@@ -53,9 +65,15 @@ export default function NavMobile({ data }) {
           <NavBasicMobile data={data} />
 
           <Stack spacing={1.5} sx={{ p: 3 }}>
-            <Button fullWidth variant="contained" color="inherit">
-              Buy Now
-            </Button>
+            {showChatbot ? (
+              <Button color="inherit" sx={{ typography: 'subtitle2' }} onClick={handleHideChatbot}>
+                Close Chat
+              </Button>
+            ) : (
+              <Button color="inherit" sx={{ typography: 'subtitle2' }} onClick={handleOpenChatbot}>
+                Chat With Amy
+              </Button>
+            )}
           </Stack>
         </Scrollbar>
       </Drawer>

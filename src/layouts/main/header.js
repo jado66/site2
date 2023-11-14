@@ -23,7 +23,19 @@ import HeaderShadow from '../common/header-shadow';
 
 // ----------------------------------------------------------------------
 
-export default function Header({ headerOnDark }) {
+export default function Header({ headerOnDark, openChatbot, hideChatbot, showChatbot }) {
+  const handleOpenChatbot = () => {
+    if (openChatbot) {
+      openChatbot();
+    }
+  };
+
+  const handleHideChatbot = () => {
+    if (hideChatbot) {
+      hideChatbot();
+    }
+  };
+
   const theme = useTheme();
 
   const offset = useOffSetTop();
@@ -88,20 +100,25 @@ export default function Header({ headerOnDark }) {
         </Stack> */}
 
         {mdUp && (
-          <Button
-            variant="contained"
-            color="inherit"
-            href={paths.zoneStore}
-            target="_blank"
-            rel="noopener"
-          >
-            Get Started
-          </Button>
+          <>
+            {showChatbot ? (
+              <Button color="inherit" variant="contained" onClick={handleHideChatbot}>
+                Close Chat
+              </Button>
+            ) : (
+              <Button color="inherit" variant="contained" onClick={handleOpenChatbot}>
+                Chat With Amy
+              </Button>
+            )}
+          </>
         )}
       </Stack>
 
       {!mdUp && (
         <NavMobile
+          hideChatbot={hideChatbot}
+          showChatbot={showChatbot}
+          openChatbot={handleOpenChatbot}
           data={[
             {
               title: 'Home',

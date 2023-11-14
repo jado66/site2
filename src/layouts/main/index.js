@@ -7,6 +7,8 @@ import { usePathname } from 'src/routes/hooks';
 import Header from './header';
 import Footer from './footer';
 import { HEADER } from '../config-layout';
+import Chatbot from 'src/components/chat/Chatbot';
+import { useState } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -19,10 +21,25 @@ export default function MainLayout({ children }) {
 
   const actionPage = (arr) => arr.some((path) => pathname === path || pathname === `${path}/`);
 
+  const [showChatbot, setShowChatbot] = useState(true);
+
+  const openChatbot = () => {
+    setShowChatbot(true);
+  };
+
+  const hideChatbot = () => {
+    setShowChatbot(false);
+  };
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: 1 }}>
-      <Header headerOnDark={actionPage(pathsOnDark)} />
-
+      <Header
+        headerOnDark={actionPage(pathsOnDark)}
+        openChatbot={openChatbot}
+        hideChatbot={hideChatbot}
+        showChatbot={showChatbot}
+      />
+      <Chatbot showChatbot={showChatbot} hideChatbot={hideChatbot} />
       <Box
         component="main"
         sx={{
