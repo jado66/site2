@@ -3,7 +3,7 @@ import { generateResponse } from '../generate-response/generate-response';
 
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY }); // replace with your own API key
 
-export async function POST() {
+export async function POST(request) {
   const { threadId, message } = await request.json();
 
   try {
