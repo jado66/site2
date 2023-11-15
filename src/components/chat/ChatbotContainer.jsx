@@ -14,8 +14,8 @@ const ChatbotContainer = ({ children, showChatbot, hideChatbot }) => {
           display: showChatbot ? 'flex' : 'none',
           top: 0,
           right: 0,
-          mt: 7,
-          mr: 6,
+          mt: 8,
+          mr: 3,
           justifyContent: 'flex-end',
           zIndex: 8900,
         }}

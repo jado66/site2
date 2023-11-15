@@ -1,4 +1,4 @@
-import { generateResponse } from './generate-response';
+import { generateResponse } from '../generate-response/generate-response';
 import OpenAI from 'openai';
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY }); // replace with your own API key
 
