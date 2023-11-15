@@ -43,7 +43,7 @@ export const generateResponse = async (openai, assistantId, threadId, userMessag
       message: lastMessage,
       threadId,
     };
-  } else {
-    return null;
   }
+
+  return null;
 };

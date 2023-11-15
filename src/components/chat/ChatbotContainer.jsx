@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ChatbotContainer = ({ children, showChatbot }) => {
   const isDesktop = true;
-  //useMediaQuery('(min-width: 720px)');
+  // useMediaQuery('(min-width: 720px)');
 
   if (isDesktop) {
     return (
