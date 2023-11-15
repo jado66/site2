@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { useTheme } from '@mui/material/styles';
+import { Button } from '@chatscope/chat-ui-kit-react';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
@@ -16,7 +17,6 @@ import Logo from 'src/components/logo';
 import { HEADER } from '../config-layout';
 import HeaderShadow from './header-shadow';
 import SettingsButton from './settings-button';
-import { Button } from '@chatscope/chat-ui-kit-react';
 
 // ----------------------------------------------------------------------
 

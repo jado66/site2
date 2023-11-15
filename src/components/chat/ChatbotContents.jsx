@@ -39,11 +39,11 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
         setIsStoredMessages(true);
       }
       return;
-    } else {
-      console.log(botName);
-      sendInitialMessage();
     }
-  }, []);
+
+    console.log(botName);
+    sendInitialMessage();
+  }, [botName, sendInitialMessage]);
 
   useEffect(() => {
     if (messages.length <= 1) {
@@ -51,7 +51,7 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
     }
 
     localStorage.setItem(botName + '_messages', JSON.stringify(messages));
-  }, [messages]);
+  }, [messages, botName]);
 
   const sendInitialMessage = () => {
     console.log('sending initial message');
@@ -77,9 +77,9 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
 
   const grabStoredMessages = () => {
     const storedMessages = JSON.parse(localStorage.getItem(botName + '_messages'));
-    const threadId = localStorage.getItem(botName + '_threadId');
+    const storedThreadId = localStorage.getItem(botName + '_threadId');
     setMessages(storedMessages);
-    setThreadId(threadId);
+    setThreadId(storedThreadId);
     setIsStoredMessages(false);
   };
 
@@ -97,7 +97,7 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
 
     let responseObject = await fetch('/api/chat-bot/amy-response', {
       method: 'POST',
-      body: JSON.stringify({ threadId: threadId, message: message }),
+      body: JSON.stringify({ threadId, message }),
     });
     responseObject = await responseObject.json();
 
@@ -154,7 +154,7 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
     >
       <MainContainer>
         <ChatContainer>
-          <MessageList autoScrollToBottom={true} autoScrollToBottomOnMount={true}>
+          <MessageList autoScrollToBottom autoScrollToBottomOnMount>
             {messages.length === 0 && isStoredMessages && (
               <Message.CustomContent>
                 <div className="btn-group my-2 w-100" role="group" aria-label="Basic example">
@@ -235,7 +235,7 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
                 paddingRight: '0.2em',
               }}
               onClick={() => clearMessages(false, true)}
-            ></Button>
+            />
           </div>
         </ChatContainer>
       </MainContainer>
