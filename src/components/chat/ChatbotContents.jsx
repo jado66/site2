@@ -29,30 +29,6 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
 
   const [isStoredMessages, setIsStoredMessages] = useState(false);
 
-  // When botName changes, check if there are stored messages, if so, grab them
-  useEffect(() => {
-    // If there are no stored messages, check if there are stored messages
-    const storedMessages = JSON.parse(localStorage.getItem(botName + '_messages'));
-
-    if (storedMessages) {
-      if (storedMessages.length !== 0) {
-        setIsStoredMessages(true);
-      }
-      return;
-    }
-
-    console.log(botName);
-    sendInitialMessage();
-  }, [botName, sendInitialMessage]);
-
-  useEffect(() => {
-    if (messages.length <= 1) {
-      return;
-    }
-
-    localStorage.setItem(botName + '_messages', JSON.stringify(messages));
-  }, [messages, botName]);
-
   const sendInitialMessage = () => {
     console.log('sending initial message');
 
@@ -139,6 +115,30 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
       sendInitialMessage();
     }
   };
+
+  // When botName changes, check if there are stored messages, if so, grab them
+  useEffect(() => {
+    // If there are no stored messages, check if there are stored messages
+    const storedMessages = JSON.parse(localStorage.getItem(botName + '_messages'));
+
+    if (storedMessages) {
+      if (storedMessages.length !== 0) {
+        setIsStoredMessages(true);
+      }
+      return;
+    }
+
+    console.log(botName);
+    sendInitialMessage();
+  }, [botName, sendInitialMessage]);
+
+  useEffect(() => {
+    if (messages.length <= 1) {
+      return;
+    }
+
+    localStorage.setItem(botName + '_messages', JSON.stringify(messages));
+  }, [messages, botName]);
 
   return (
     <Stack
