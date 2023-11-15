@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
 import Chatbot from 'src/components/chat/Chatbot';
+import { usePathname } from 'src/routes/hooks';
+
 import Header from './header';
 import Footer from './footer';
 
-import { usePathname } from 'src/routes/hooks';
 import { HEADER } from '../config-layout';
 
 // ----------------------------------------------------------------------
