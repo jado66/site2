@@ -1,6 +1,8 @@
 async function pollStatus(openai, threadId, runId, pollingInterval) {
   const run = await openai.beta.threads.runs.retrieve(threadId, runId);
 
+  console.log('polling');
+
   if (run.status === 'completed') {
     // Handle completed status here
     console.log('Run completed');
