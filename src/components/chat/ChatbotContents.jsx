@@ -130,7 +130,7 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
 
     console.log(botName);
     sendInitialMessage();
-  }, [botName, sendInitialMessage]);
+  }, []);
 
   useEffect(() => {
     if (messages.length <= 1) {
