@@ -1,5 +1,6 @@
 import { createThread } from '../create-thread/create-thread';
 import { retrieveAssistant } from '../retrieve-assistant';
+import pollStatus from './poll-status';
 
 export const generateResponse = async (openai, assistantId, threadId, userMessage) => {
   if (!threadId) {
@@ -24,16 +25,7 @@ export const generateResponse = async (openai, assistantId, threadId, userMessag
 
   console.log('Run: ', run.id);
 
-  let runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id);
-
-  // Polling mechanism to see if runStatus is completed
-  // This should be made more robust.
-  const pollingInterval = 500;
-
-  while (runStatus.status !== 'completed') {
-    await new Promise((resolve) => setTimeout(resolve, pollingInterval));
-    runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id);
-  }
+  pollStatus(openai, threadId, run, 500);
 
   // Get the last assistant message from the messages array
   const messages = await openai.beta.threads.messages.list(threadId);
@@ -55,67 +47,3 @@ export const generateResponse = async (openai, assistantId, threadId, userMessag
     return null;
   }
 };
-
-// export async function POST(request) {
-//   const { threadId, assistantId } = await request.json();
-
-//   try {
-//     const assistant = await retrieveAssistant(openai, assistantId);
-
-//     if (!threadId) {
-//       const thread = await fetch('/api/chat-bot/create-thread').then((response) => response.json());
-//       threadId = thread.id;
-//     }
-
-//     const run = await openai.beta.threads.runs.create(threadId, {
-//       assistant_id: assistant.id,
-//       : 'Address the user as JD',
-//     });
-
-//     let runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id);
-
-//     // Polling mechanism to see if runStatus is completed
-//     // This should be made more robust.
-//     const pollingInterval = 500;
-
-//     while (runStatus.status !== 'completed') {
-//       await new Promise((resolve) => setTimeout(resolve, pollingInterval));
-//       runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id);
-//     }
-
-//     // Get the last assistant message from the messages array
-//     const messages = await openai.beta.threads.messages.list(threadId);
-
-//     // Find the last message for the current run
-//     const lastMessageForRun = messages.data
-//       .filter((message) => message.run_id === run.id && message.role === 'assistant')
-//       .pop();
-
-//     // If an assistant message is found, console.log() it
-//     if (lastMessageForRun) {
-//       const response = lastMessageForRun.content[0].text.value;
-
-//       return new Response(JSON.stringify(response), {
-//         status: 200,
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-//     } else {
-//       return new Response(JSON.stringify('No response'), {
-//         status: 200,
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-//     }
-//   } catch (error) {
-//     console.error(error); // this will print any error that occurs
-//     return new Response(JSON.stringify(error), {
-//       status: 400,
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     });
-//   }
-// }

@@ -1,1 +1,1 @@
-export const createThread = async (openaiInstance) => await openaiInstance.beta.threads.create();
+export const createThread = async (openaiInstance) => openaiInstance.beta.threads.create();

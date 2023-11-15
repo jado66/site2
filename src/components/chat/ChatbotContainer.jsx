@@ -2,7 +2,8 @@ import { Box, Card } from '@mui/material';
 import PropTypes from 'prop-types';
 
 const ChatbotContainer = ({ children, showChatbot }) => {
-  const isDesktop = true; //useMediaQuery('(min-width: 720px)');
+  const isDesktop = true;
+  //useMediaQuery('(min-width: 720px)');
 
   if (isDesktop) {
     return (
@@ -35,24 +36,24 @@ const ChatbotContainer = ({ children, showChatbot }) => {
         </Card>
       </Box>
     );
-  } else {
-    return (
-      <Box
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          height: '100vh',
-          width: '100vw',
-          p: 4,
-          bgcolor: 'white',
-          zIndex: 9,
-        }}
-      >
-        <Box sx={{ height: '100%', display: 'flex', justifyContent: 'flex-end' }}>{children}</Box>
-      </Box>
-    );
   }
+
+  return (
+    <Box
+      sx={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        height: '100vh',
+        width: '100vw',
+        p: 4,
+        bgcolor: 'white',
+        zIndex: 9,
+      }}
+    >
+      <Box sx={{ height: '100%', display: 'flex', justifyContent: 'flex-end' }}>{children}</Box>
+    </Box>
+  );
 };
 
 ChatbotContainer.propTypes = {
