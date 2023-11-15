@@ -25,7 +25,7 @@ export const generateResponse = async (openai, assistantId, threadId, userMessag
 
   console.log('Run: ', run.id);
 
-  pollStatus(openai, threadId, run, 500);
+  pollStatus(openai, threadId, run.id, 500);
 
   // Get the last assistant message from the messages array
   const messages = await openai.beta.threads.messages.list(threadId);

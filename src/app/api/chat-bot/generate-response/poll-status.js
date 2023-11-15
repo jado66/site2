@@ -1,5 +1,5 @@
-async function pollStatus(openai, threadId, run, pollingInterval) {
-  const run = await openai.beta.threads.runs.retrieve(threadId, run.id);
+async function pollStatus(openai, threadId, runId, pollingInterval) {
+  const run = await openai.beta.threads.runs.retrieve(threadId, runId);
 
   if (run.status === 'completed') {
     // Handle completed status here
@@ -8,7 +8,7 @@ async function pollStatus(openai, threadId, run, pollingInterval) {
   }
 
   await new Promise((resolve) => setTimeout(resolve, pollingInterval));
-  await pollStatus(); // Recursively call the function
+  await pollStatus(openai, threadId, runId, pollingInterval); // Recursively call the function
 }
 
 export default pollStatus;
