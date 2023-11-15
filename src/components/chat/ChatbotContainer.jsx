@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import { Box, Button, Typography, Card } from '@mui/material';
-import { Icon } from '@iconify/react';
+import { Box, Card } from '@mui/material';
+import PropTypes from 'prop-types';
 
-const ChatbotContainer = ({ children, showChatbot, hideChatbot }) => {
+const ChatbotContainer = ({ children, showChatbot }) => {
   const isDesktop = true; //useMediaQuery('(min-width: 720px)');
 
   if (isDesktop) {
@@ -54,6 +53,11 @@ const ChatbotContainer = ({ children, showChatbot, hideChatbot }) => {
       </Box>
     );
   }
+};
+
+ChatbotContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+  showChatbot: PropTypes.bool.isRequired,
 };
 
 export default ChatbotContainer;

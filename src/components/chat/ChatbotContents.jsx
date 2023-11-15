@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 // Import styles from chat-ui-kit-styles
-import styles from '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
+import _styles from '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { Icon } from '@iconify/react';
+import PropTypes from 'prop-types';
 
 // Import components from chat-ui-kit-react
 import {
@@ -12,17 +13,11 @@ import {
   Message,
   MessageInput,
   TypingIndicator,
-  MessageSeparator,
-  Avatar,
   SendButton,
-  AttachmentButton,
-  InfoButton,
-  MessageGroup,
-  CustomMessage,
 } from '@chatscope/chat-ui-kit-react';
 import Stack from '@mui/material/Stack';
 
-const ChatbotContents = ({ botName, virtualAssistantConfiguration, uuid }) => {
+const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
   const [isAmyTyping, setIsAmyTyping] = useState(false);
   const inputRef = useRef();
 
@@ -246,6 +241,11 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration, uuid }) => {
       </MainContainer>
     </Stack>
   );
+};
+
+ChatbotContents.propTypes = {
+  botName: PropTypes.string.isRequired,
+  virtualAssistantConfiguration: PropTypes.object.isRequired,
 };
 
 export default ChatbotContents;

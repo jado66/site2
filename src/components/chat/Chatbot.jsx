@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import PropTypes from 'prop-types';
 import ChatbotContainer from './ChatbotContainer';
 import ChatbotContents from './ChatbotContents';
 
@@ -34,6 +34,12 @@ const Chatbot = ({ botName, showChatbot, hideChatbot }) => {
       />
     </ChatbotContainer>
   );
+};
+
+Chatbot.propTypes = {
+  botName: PropTypes.string.isRequired,
+  showChatbot: PropTypes.bool.isRequired,
+  hideChatbot: PropTypes.func.isRequired,
 };
 
 export default Chatbot;
