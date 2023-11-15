@@ -1,4 +1,7 @@
 import { createThread } from './create-thread';
+import OpenAI from 'openai';
+
+const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY }); // replace with your own API key
 
 export async function GET() {
   try {

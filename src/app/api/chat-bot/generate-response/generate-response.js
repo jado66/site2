@@ -1,7 +1,7 @@
 import { createThread } from '../create-thread/create-thread';
 import { retrieveAssistant } from '../retrieve-assistant';
 
-export const generateResponse = async (openai, assistantId, threadId, message) => {
+export const generateResponse = async (openai, assistantId, threadId, userMessage) => {
   if (!threadId) {
     const thread = await createThread(openai);
     threadId = thread.id;
@@ -15,7 +15,7 @@ export const generateResponse = async (openai, assistantId, threadId, message) =
   // Pass in the user question into the existing thread
   await openai.beta.threads.messages.create(threadId, {
     role: 'user',
-    content: message,
+    content: userMessage,
   });
 
   const run = await openai.beta.threads.runs.create(threadId, {
@@ -45,10 +45,10 @@ export const generateResponse = async (openai, assistantId, threadId, message) =
   // If an assistant message is found, console.log() it
 
   if (lastMessageForRun) {
-    const message = lastMessageForRun.content[0].text.value;
+    const lastMessage = lastMessageForRun.content[0].text.value;
 
     return {
-      message,
+      message: lastMessage,
       threadId,
     };
   } else {
