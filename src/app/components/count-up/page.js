@@ -1,4 +1,4 @@
-import CountUpPageView from 'src/sections/examples/count-up-view';
+import CountUpPageView from 'src/sections/example-components/count-up-view';
 
 // ----------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-import LightboxView from 'src/sections/examples/lightbox-view';
+import LightboxView from 'src/sections/example-components/lightbox-view';
 
 // ----------------------------------------------------------------------
 

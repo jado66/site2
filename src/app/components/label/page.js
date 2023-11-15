@@ -1,4 +1,4 @@
-import LabelView from 'src/sections/examples/label-view';
+import LabelView from 'src/sections/example-components/label-view';
 
 // ----------------------------------------------------------------------
 

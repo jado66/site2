@@ -1,4 +1,4 @@
-import ScrollProgressView from 'src/sections/examples/scroll-progress-view';
+import ScrollProgressView from 'src/sections/example-components/scroll-progress-view';
 
 // ----------------------------------------------------------------------
 

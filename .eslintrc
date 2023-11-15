@@ -92,9 +92,7 @@
     ],
     // perfectionist
     // https://eslint-plugin-perfectionist.azat.io/
-    "perfectionist/sort-named-imports": [0],
     "perfectionist/sort-named-exports": [0],
-    "perfectionist/sort-exports": [0],
-    "perfectionist/sort-imports": [0]
+    "perfectionist/sort-exports": [0]
   }
 }

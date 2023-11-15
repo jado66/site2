@@ -1,4 +1,4 @@
-import ScrollView from 'src/sections/examples/scroll-view';
+import ScrollView from 'src/sections/example-components/scroll-view';
 
 // ----------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-import FormValidationView from 'src/sections/examples/form-validation-view';
+import FormValidationView from 'src/sections/example-components/form-validation-view';
 
 // ----------------------------------------------------------------------
 

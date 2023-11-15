@@ -1,4 +1,4 @@
-import CarouselView from 'src/sections/examples/carousel-view';
+import CarouselView from 'src/sections/example-components/carousel-view';
 
 // ----------------------------------------------------------------------
 

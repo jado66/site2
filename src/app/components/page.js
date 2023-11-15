@@ -1,4 +1,4 @@
-import ComponentsView from 'src/sections/examples/view';
+import ComponentsView from 'src/sections/example-components/view';
 
 // ----------------------------------------------------------------------
 

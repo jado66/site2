@@ -1,4 +1,4 @@
-import PlayerView from 'src/sections/examples/player-view';
+import PlayerView from 'src/sections/example-components/player-view';
 
 // ----------------------------------------------------------------------
 

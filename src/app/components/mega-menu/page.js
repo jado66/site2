@@ -1,4 +1,4 @@
-import MegaMenuView from 'src/sections/examples/mega-menu-view';
+import MegaMenuView from 'src/sections/example-components/mega-menu-view';
 
 // ----------------------------------------------------------------------
 

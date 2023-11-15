@@ -1,4 +1,4 @@
-import AnimateView from 'src/sections/examples/animate-view';
+import AnimateView from 'src/sections/example-components/animate-view';
 
 // ----------------------------------------------------------------------
 

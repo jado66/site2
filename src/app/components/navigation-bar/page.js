@@ -1,4 +1,4 @@
-import NavigationBarView from 'src/sections/examples/navigation-bar-view';
+import NavigationBarView from 'src/sections/example-components/navigation-bar-view';
 
 // ----------------------------------------------------------------------
 

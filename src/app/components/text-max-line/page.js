@@ -1,4 +1,4 @@
-import TextMaxLineView from 'src/sections/examples/text-max-line-view';
+import TextMaxLineView from 'src/sections/example-components/text-max-line-view';
 
 // ----------------------------------------------------------------------
 
