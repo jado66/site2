@@ -16,10 +16,11 @@ import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Zone UI Kit',
+  title: 'Amy Communications',
   description:
-    'The ZONE is built on top of MUI, a powerful library that provides flexible, customizable, and easy-to-use components.',
-  keywords: 'react,material,kit,application,dashboard,admin,template',
+    'Amy Communications is an Ai software company that provides Ai solutions for businesses.',
+  keywords:
+    'Ai, Artificial Intelligence, Machine Learning, Deep Learning, Data Science, Data Analytics, Data Engineering, Data Visualization, Data Warehousing, Data Mining, Data Modeling, Data Architecture, Data Governance, Data Quality, Data Security, Data Privacy, Data Ethics, Data Strategy, Data Management, Data Integration, Data Migration, Data Lake, Data Warehouse, Data Mart',
   themeColor: '#000000',
   manifest: '/manifest.json',
   viewport: { width: 'device-width', initialScale: 1, maximumScale: 1 },
