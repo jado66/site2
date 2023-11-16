@@ -34,7 +34,7 @@ export default function MarketingLandingView() {
 
       <MarketingLandingServices />
 
-      <MarketingLandingAbout />
+      {/* <MarketingLandingAbout /> */}
 
       <MarketingLandingProcess />
 
