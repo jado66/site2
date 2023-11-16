@@ -20,7 +20,7 @@ export default function MarketingAboutView() {
     <>
       <MarketingAbout />
 
-      <MarketingAboutOurVision />
+      {/* <MarketingAboutOurVision />
 
       <MarketingAboutCoreValues />
 
@@ -34,7 +34,7 @@ export default function MarketingAboutView() {
 
       <MarketingLandingFaqs />
 
-      <MarketingLandingFreeSEO />
+      <MarketingLandingFreeSEO /> */}
 
       <MarketingNewsletter />
     </>
