@@ -32,7 +32,7 @@ const SERVICES = [
     path: paths.marketing.services,
   },
   {
-    name: 'Voice Applicatoins',
+    name: 'Voice Applications',
     icon: '/assets/icons/service/ic_service_analysis.svg',
     content: 'Automated customer support or automated sales',
     path: paths.marketing.services,
