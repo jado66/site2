@@ -16,3 +16,19 @@
 .position-inherit {
   position: inherit !important;
 }
+
+.cs-message.cs-message--incoming > .cs-message__content-wrapper > .cs-message__content,
+.cs-message-input__content-editor-wrapper,
+.cs-message-input__content-editor {
+  background-color: #85a9f3 !important;
+}
+
+.cs-typing-indicator,
+.cs-button,
+.cs-typing-indicator__text {
+  color: #85a9f3 !important;
+}
+
+.cs-message.cs-message--outgoing > .cs-message__content-wrapper > .cs-message__content {
+  background-color: #1ad5a6 !important;
+}
