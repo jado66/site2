@@ -12,12 +12,13 @@ import MarketingTestimonial from '../testimonial/marketing-testimonial';
 import MarketingAboutOurVision from '../about/marketing-about-our-vision';
 import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
 import MarketingAboutCoreValues from '../about/marketing-about-core-values';
+import MainLayout from 'src/layouts/main';
 
 // ----------------------------------------------------------------------
 
 export default function MarketingAboutView() {
   return (
-    <>
+    <MainLayout>
       <MarketingAbout />
 
       {/* <MarketingAboutOurVision />
@@ -37,6 +38,6 @@ export default function MarketingAboutView() {
       <MarketingLandingFreeSEO /> */}
 
       <MarketingNewsletter />
-    </>
+    </MainLayout>
   );
 }

@@ -21,7 +21,7 @@ export default function MainLayout({ children }) {
 
   const actionPage = (arr) => arr.some((path) => pathname === path || pathname === `${path}/`);
 
-  const [showChatbot, setShowChatbot] = useState(true);
+  const [showChatbot, setShowChatbot] = useState(false);
 
   const openChatbot = () => {
     setShowChatbot(true);
