@@ -60,7 +60,12 @@ export default function Footer() {
     <Container sx={{ py: 8, textAlign: 'center' }}>
       <Logo single />
 
-      <Typography variant="caption" component="div" sx={{ color: 'text.secondary' }}>
+      <Typography
+        variant="caption"
+        id="rights-reserved-simple"
+        component="div"
+        sx={{ color: 'text.secondary', marginX: 'auto' }}
+      >
         AMY Communications © 2023. All rights reserved
       </Typography>
     </Container>
@@ -76,7 +81,7 @@ export default function Footer() {
           py: { xs: 8, md: 10 },
         }}
       >
-        <Grid container spacing={8} justifyContent={{ md: 'flex-start' }}>
+        <Grid container spacing={8} justifyContent={{ md: 'center' }}>
           <Grid xs={12} md={4}>
             <Stack alignItems="flex-start" spacing={3}>
               <Logo />
@@ -122,11 +127,11 @@ export default function Footer() {
           justifyContent="space-between"
           sx={{ py: 3, textAlign: 'center' }}
         >
-          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+          <Typography variant="caption" sx={{ color: 'text.secondary', marginX: 'auto' }}>
             AMY Communications © 2023. All rights reserved
           </Typography>
 
-          <Stack direction="row" spacing={3} justifyContent="center">
+          {/* <Stack direction="row" spacing={3} justifyContent="center">
             <Link variant="caption" sx={{ color: 'text.secondary' }}>
               Help Center
             </Link>
@@ -134,7 +139,7 @@ export default function Footer() {
             <Link variant="caption" sx={{ color: 'text.secondary' }}>
               Terms of Service
             </Link>
-          </Stack>
+          </Stack> */}
         </Stack>
       </Container>
     </>
@@ -180,7 +185,7 @@ export default function Footer() {
               <Stack spacing={2}>
                 <Stack spacing={1}>
                   <Typography variant="h6">Let’s stay in touch</Typography>
-                  <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                  <Typography variant="caption" sx={{ color: 'text.secondary', marginX: 'auto' }}>
                     Subscribe to our newsletter to receive latest articles to your inbox weekly.
                   </Typography>
                 </Stack>
@@ -233,11 +238,15 @@ export default function Footer() {
           justifyContent="space-between"
           sx={{ py: 3, textAlign: 'center' }}
         >
-          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+          <Typography
+            id="rights-reserved"
+            variant="caption"
+            sx={{ color: 'text.secondary', marginX: 'auto' }}
+          >
             AMY Communications © 2023. All rights reserved
           </Typography>
 
-          <Stack direction="row" spacing={3} justifyContent="center">
+          {/* <Stack direction="row" spacing={3} justifyContent="center">
             <Link variant="caption" sx={{ color: 'text.secondary' }}>
               Help Center
             </Link>
@@ -245,7 +254,7 @@ export default function Footer() {
             <Link variant="caption" sx={{ color: 'text.secondary' }}>
               Terms of Service
             </Link>
-          </Stack>
+          </Stack> */}
         </Stack>
       </Container>
     </>
