@@ -69,7 +69,7 @@ export default function GetStartedSteps() {
             Get Started
           </Typography>
 
-          <Typography variant="h2">Just 3 Easy Steps</Typography>
+          <Typography variant="h2">Just 4 Easy Steps</Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
             We have a simple 3-step process to get you started with our company, ensuring a
