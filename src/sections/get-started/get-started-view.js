@@ -1,32 +1,21 @@
 'use client';
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Switch from '@mui/material/Switch';
-import Divider from '@mui/material/Divider';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import { useScroll } from 'framer-motion';
+import ScrollProgress from 'src/components/scroll-progress';
+import GetStartedSteps from './landing/get-started-steps';
 
-import { paths } from 'src/routes/paths';
-
-import { useBoolean } from 'src/hooks/use-boolean';
-
-import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
-
-import ReactHookForm from './react-hook-form';
-import MarketingAbout from '../_marketing/about/marketing-about';
-import MainLayout from 'src/layouts/main';
-
+import GetStartedContactView from './landing/get-started-contact-view';
 // ----------------------------------------------------------------------
 
 export default function GetStartedView() {
-  const debug = useBoolean(true);
+  const { scrollYProgress } = useScroll();
 
   return (
-    <MainLayout>
-      <MarketingAbout />;
-    </MainLayout>
+    <>
+      <ScrollProgress scrollYProgress={scrollYProgress} />
+      <GetStartedSteps />;
+      <GetStartedContactView />
+    </>
   );
 }
 

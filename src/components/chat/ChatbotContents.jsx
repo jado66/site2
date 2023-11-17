@@ -71,7 +71,7 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
     setMsgInputValue('');
     inputRef.current.focus();
 
-    let responseObject = await fetch('/api/chat-bot/amy-response', {
+    let responseObject = await fetch('/_api/chat-bot/amy-response', {
       method: 'POST',
       body: JSON.stringify({ threadId, message }),
     });

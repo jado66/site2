@@ -11,7 +11,7 @@ const useSubscribe = () => {
     setSuccess(false);
 
     try {
-      const response = await fetch('/api/newsletter', {
+      const response = await fetch('/_api/newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
