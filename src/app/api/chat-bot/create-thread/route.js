@@ -4,7 +4,7 @@ import apiRequestOriginValidation from 'src/utils/api-request-origin-validation'
 
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY }); // replace with your own API key
 
-export async function GET() {
+export async function GET(request) {
   if (!apiRequestOriginValidation(request)) {
     return new Response(JSON.stringify({ error: 'Invalid origin' }), {
       status: 403,
