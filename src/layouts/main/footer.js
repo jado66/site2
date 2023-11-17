@@ -26,6 +26,7 @@ import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
 
 import { pageLinks, navConfig } from './config-navigation';
+import SubscribeWidget from 'src/sections/common-components/subscribe-widget';
 
 // ----------------------------------------------------------------------
 
@@ -75,7 +76,7 @@ export default function Footer() {
           py: { xs: 8, md: 10 },
         }}
       >
-        <Grid container spacing={8} justifyContent={{ md: 'space-between' }}>
+        <Grid container spacing={8} justifyContent={{ md: 'flex-start' }}>
           <Grid xs={12} md={4}>
             <Stack alignItems="flex-start" spacing={3}>
               <Logo />
@@ -95,23 +96,10 @@ export default function Footer() {
                 </Typography>
               </Stack>
 
-              <TextField
-                fullWidth
-                hiddenLabel
-                placeholder="Email address"
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <Button variant="contained" color="inherit" size="large" sx={{ mr: -1.25 }}>
-                        Subscribe
-                      </Button>
-                    </InputAdornment>
-                  ),
-                }}
-              />
+              <SubscribeWidget />
             </Stack>
           </Grid>
-          <Grid xs={12} md={4}>
+          {/* <Grid xs={12} md={4}>
             <Stack spacing={2} alignItems="center">
               <Typography variant="h6">Social Media</Typography>
               <Stack direction="row" alignItems="center">
@@ -122,7 +110,7 @@ export default function Footer() {
                 ))}
               </Stack>
             </Stack>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
       <Divider />
@@ -162,7 +150,7 @@ export default function Footer() {
           py: { xs: 8, md: 10 },
         }}
       >
-        <Grid container spacing={3} justifyContent={{ md: 'space-between' }}>
+        <Grid container spacing={3} justifyContent={{ md: 'flex-start' }}>
           <Grid xs={12} md={4}>
             <Stack spacing={{ xs: 3, md: 5 }}>
               <Stack alignItems="flex-start" spacing={3}>
@@ -193,27 +181,14 @@ export default function Footer() {
                 <Stack spacing={1}>
                   <Typography variant="h6">Let’s stay in touch</Typography>
                   <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                    Ubscribe to our newsletter to receive latest articles to your inbox weekly.
+                    Subscribe to our newsletter to receive latest articles to your inbox weekly.
                   </Typography>
                 </Stack>
 
-                <TextField
-                  fullWidth
-                  hiddenLabel
-                  placeholder="Email address"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <Button variant="contained" color="inherit" size="large" sx={{ mr: -1.25 }}>
-                          Subscribe
-                        </Button>
-                      </InputAdornment>
-                    ),
-                  }}
-                />
+                <SubscribeWidget />
               </Stack>
 
-              <Stack spacing={2}>
+              {/* <Stack spacing={2}>
                 <Typography variant="h6">Social</Typography>
                 <Stack direction="row" alignItems="center">
                   {_socials.map((social) => (
@@ -222,12 +197,12 @@ export default function Footer() {
                     </IconButton>
                   ))}
                 </Stack>
-              </Stack>
+              </Stack> */}
 
-              <Stack spacing={2}>
+              {/* <Stack spacing={2}>
                 <Typography variant="h6">Apps</Typography>
                 <AppStoreButton />
-              </Stack>
+              </Stack> */}
             </Stack>
           </Grid>
 

@@ -19,6 +19,7 @@ import MarketingLandingFaqs from '../landing/marketing-landing-faqs';
 import MarketingLandingAbout from '../landing/marketing-landing-about';
 import MarketingLandingProcess from '../landing/marketing-landing-process';
 import MarketingLandingServices from '../landing/marketing-landing-services';
+import MarketingNewsletter from '../marketing-newsletter';
 
 // ----------------------------------------------------------------------
 
@@ -43,6 +44,8 @@ export default function MarketingLandingView() {
       {/* <MarketingTeam members={_members} /> */}
 
       {/* <PricingMarketing plans={_pricingMarketing} /> */}
+
+      <MarketingNewsletter />
 
       <MarketingLandingFaqs />
       {/* 

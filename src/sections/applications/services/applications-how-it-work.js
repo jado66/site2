@@ -73,7 +73,7 @@ export default function ApplicationsHowItWork() {
             mb: { xs: 8, md: 10 },
           }}
         >
-          Nunc nonummy metus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis.
+          Explore the Project Steps and Get Started!
         </Typography>
 
         <Timeline position={mdUp ? 'alternate' : 'right'}>

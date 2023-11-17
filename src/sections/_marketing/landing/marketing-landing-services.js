@@ -49,48 +49,50 @@ const SERVICES = [
 
 export default function MarketingLandingServices() {
   return (
-    <Container
-      sx={{
-        py: { xs: 5, md: 10 },
-      }}
-    >
-      <Stack
-        spacing={3}
+    <Box sx={{ bgcolor: 'background.neutral', overflow: 'hidden' }}>
+      <Container
         sx={{
-          maxWidth: 480,
-          mb: { xs: 8, md: 5 },
-          mx: { xs: 'auto', md: 'unset' },
-          textAlign: { xs: 'center', md: 'unset' },
+          py: { xs: 5, md: 10 },
         }}
       >
-        <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-          Our Services
-        </Typography>
+        <Stack
+          spacing={3}
+          sx={{
+            maxWidth: 480,
+            mb: { xs: 8, md: 5 },
+            mx: { xs: 'auto', md: 'unset' },
+            textAlign: { xs: 'center', md: 'unset' },
+          }}
+        >
+          <Typography variant="overline" sx={{ color: 'text.disabled' }}>
+            Our Services
+          </Typography>
 
-        <Typography variant="h2">We Provide</Typography>
+          <Typography variant="h2">We Provide</Typography>
 
-        <Typography sx={{ color: 'text.secondary' }}>
-          Varius AI solutions not limited to the following:
-        </Typography>
-      </Stack>
+          <Typography sx={{ color: 'text.secondary' }}>
+            Varius AI solutions not limited to the following:
+          </Typography>
+        </Stack>
 
-      <Box
-        sx={{
-          gap: 4,
-          display: 'grid',
-          alignItems: 'center',
-          gridTemplateColumns: {
-            xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(4, 1fr)',
-          },
-        }}
-      >
-        {SERVICES.map((service, index) => (
-          <ServiceItem key={service.name} service={service} index={index} />
-        ))}
-      </Box>
-    </Container>
+        <Box
+          sx={{
+            gap: 4,
+            display: 'grid',
+            alignItems: 'center',
+            gridTemplateColumns: {
+              xs: 'repeat(1, 1fr)',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(4, 1fr)',
+            },
+          }}
+        >
+          {SERVICES.map((service, index) => (
+            <ServiceItem key={service.name} service={service} index={index} />
+          ))}
+        </Box>
+      </Container>
+    </Box>
   );
 }
 

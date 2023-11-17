@@ -31,63 +31,61 @@ export default function MarketingLandingFaqs() {
   );
 
   return (
-    <Box sx={{ bgcolor: 'background.neutral', overflow: 'hidden' }}>
-      <Container
-        sx={{
-          pt: { xs: 5, md: 10 },
-          pb: { xs: 10, md: 15 },
-        }}
-      >
-        <Grid container spacing={3} justifyContent="space-between" alignItems="center">
-          <Grid xs={12} md={6} lg={6}>
-            <Stack spacing={2} sx={{ mb: 5, textAlign: { xs: 'center', md: 'left' } }}>
-              <Typography variant="overline" color="text.disabled">
-                FAQS
-              </Typography>
+    <Container
+      sx={{
+        pt: { xs: 5, md: 10 },
+        pb: { xs: 10, md: 15 },
+      }}
+    >
+      <Grid container spacing={3} justifyContent="space-between" alignItems="center">
+        <Grid xs={12} md={6} lg={6}>
+          <Stack spacing={2} sx={{ mb: 5, textAlign: { xs: 'center', md: 'left' } }}>
+            <Typography variant="overline" color="text.disabled">
+              FAQS
+            </Typography>
 
-              <Typography variant="h2">Frequently Asked Questions</Typography>
-            </Stack>
+            <Typography variant="h2">Frequently Asked Questions</Typography>
+          </Stack>
 
-            {_faqs.map((faq) => (
-              <Accordion
-                key={faq.id}
-                expanded={expanded === faq.question}
-                onChange={handleChangeExpanded(faq.question)}
+          {_faqs.map((faq) => (
+            <Accordion
+              key={faq.id}
+              expanded={expanded === faq.question}
+              onChange={handleChangeExpanded(faq.question)}
+            >
+              <AccordionSummary
+                sx={{
+                  minHeight: 64,
+                  [`& .${accordionSummaryClasses.content}`]: {
+                    p: 0,
+                    m: 0,
+                  },
+                  [`&.${accordionSummaryClasses.expanded}`]: {
+                    bgcolor: 'action.selected',
+                  },
+                }}
               >
-                <AccordionSummary
-                  sx={{
-                    minHeight: 64,
-                    [`& .${accordionSummaryClasses.content}`]: {
-                      p: 0,
-                      m: 0,
-                    },
-                    [`&.${accordionSummaryClasses.expanded}`]: {
-                      bgcolor: 'action.selected',
-                    },
-                  }}
-                >
-                  <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                    {faq.question}
-                  </Typography>
+                <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                  {faq.question}
+                </Typography>
 
-                  <Iconify
-                    width={24}
-                    icon={expanded === faq.question ? 'carbon:subtract' : 'carbon:add'}
-                  />
-                </AccordionSummary>
+                <Iconify
+                  width={24}
+                  icon={expanded === faq.question ? 'carbon:subtract' : 'carbon:add'}
+                />
+              </AccordionSummary>
 
-                <AccordionDetails>{faq.answer}</AccordionDetails>
-              </Accordion>
-            ))}
-          </Grid>
-
-          {mdUp && (
-            <Grid xs={12} md={6} lg={5}>
-              <Image alt="faqs" src="/assets/illustrations/illustration_faqs.svg" />
-            </Grid>
-          )}
+              <AccordionDetails>{faq.answer}</AccordionDetails>
+            </Accordion>
+          ))}
         </Grid>
-      </Container>
-    </Box>
+
+        {mdUp && (
+          <Grid xs={12} md={6} lg={5}>
+            <Image alt="faqs" src="/assets/illustrations/illustration_faqs.svg" />
+          </Grid>
+        )}
+      </Grid>
+    </Container>
   );
 }

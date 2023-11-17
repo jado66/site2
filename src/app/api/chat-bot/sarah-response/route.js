@@ -1,9 +1,19 @@
 import OpenAI from 'openai';
 import { generateResponse } from '../generate-response/generate-response';
+import apiRequestOriginValidation from 'src/utils/api-request-origin-validation';
 
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY }); // replace with your own API key
 
 export async function POST(request) {
+  if (!apiRequestOriginValidation(request)) {
+    return new Response(JSON.stringify({ error: 'Invalid origin' }), {
+      status: 403,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
   const { threadId, message } = await request.json();
 
   try {
