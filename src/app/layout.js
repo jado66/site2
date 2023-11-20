@@ -12,6 +12,8 @@ import { LocalizationProvider } from 'src/locales';
 import ProgressBar from 'src/components/progress-bar';
 import { MotionLazy } from 'src/components/animate/motion-lazy';
 import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // ----------------------------------------------------------------------
 
@@ -62,6 +64,8 @@ export default function RootLayout({ children }) {
             }}
           >
             <ThemeProvider>
+              <ToastContainer />
+
               <MotionLazy>
                 <ProgressBar />
                 <SettingsDrawer />

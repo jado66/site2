@@ -48,6 +48,16 @@ export async function POST(request) {
   } catch (error) {
     console.error(error); // this will print any error that occurs
 
+    if (error.code === 'ETIMEDOUT' || error.code === 'ENOTFOUND') {
+      // Handle ETIMEDOUT error here
+      return new Response(JSON.stringify(error), {
+        status: 408,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    }
+
     if (error.status === 400) {
       return new Response(JSON.stringify(error), {
         status: 400,

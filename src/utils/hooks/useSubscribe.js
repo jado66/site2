@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const useSubscribe = () => {
   const [loading, setLoading] = useState(false);
@@ -11,7 +12,7 @@ const useSubscribe = () => {
     setSuccess(false);
 
     try {
-      const response = await fetch('/_api/newsletter', {
+      const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -21,11 +22,14 @@ const useSubscribe = () => {
 
       if (response.status === 200) {
         setSuccess(true);
+        toast.success('You have successfully subscribed to our newsletter.');
       } else {
         const error = await response.json();
 
-        if (error.status === 400) {
+        if (response.status === 400) {
           setError('This email is already subscribed.');
+        } else if (response.status === 408) {
+          setError('Request Timed Out. Looks like you are offline.');
         } else {
           const errorMessages = JSON.parse(error.response.text);
           setError('Error: ' + errorMessages.title);

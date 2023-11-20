@@ -17,6 +17,7 @@
   position: inherit !important;
 }
 
+/* CS Message Styling */
 .cs-message.cs-message--incoming > .cs-message__content-wrapper > .cs-message__content,
 .cs-message-input__content-editor-wrapper,
 .cs-message-input__content-editor {
@@ -31,4 +32,17 @@
 
 .cs-message.cs-message--outgoing > .cs-message__content-wrapper > .cs-message__content {
   background-color: #1ad5a6 !important;
+}
+
+/* Toasts */
+:root {
+  --toastify-color-progress-success: #1ad5a6;
+  --toastify-color-progress-error: #ff5630;
+}
+
+.Toastify__toast--success > .Toastify__toast-body > .Toastify__toast-icon {
+  display: none !important;
+}
+.Toastify__toast-body {
+  color: #637381 !important;
 }

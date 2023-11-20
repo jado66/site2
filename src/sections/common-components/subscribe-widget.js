@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import validateEmail from 'src/utils/validation/validate-email';
-import useSubscribe from 'src/utils/hooks/use-subscribe';
+import useSubscribe from 'src/utils/hooks/useSubscribe';
 import { LoadingButton } from '@mui/lab';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -8,11 +8,20 @@ import InputAdornment from '@mui/material/InputAdornment';
 const SubscribeWidget = () => {
   const [email, setEmail] = useState('');
   const [textFieldError, setTextFieldError] = useState(false);
-
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const { loading, error, subscribe } = useSubscribe();
 
   const handleChange = (event) => {
     setEmail(event.target.value);
+  };
+
+  const waitAndExecute = (time, callback) => {
+    setTimeout(callback, time);
+  };
+
+  const resetForm = () => {
+    setEmail('');
+    setHasSubmitted(true);
   };
 
   const handleSubmit = (event) => {
@@ -20,6 +29,7 @@ const SubscribeWidget = () => {
     if (validateEmail(email)) {
       subscribe(email);
       setTextFieldError(false);
+      waitAndExecute(500, resetForm);
       console.log('Email is valid');
     } else {
       console.log('Email is invalid');
@@ -33,7 +43,7 @@ const SubscribeWidget = () => {
     <TextField
       fullWidth
       hiddenLabel
-      placeholder="Enter your email"
+      placeholder={hasSubmitted ? 'You are subscribed!' : 'Enter your email'}
       value={email}
       onChange={handleChange}
       error={textFieldError || error} // Add error prop
