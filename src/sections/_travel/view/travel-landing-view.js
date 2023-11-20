@@ -17,10 +17,17 @@ import TravelLandingTourFeatured from '../landing/travel-landing-tour-featured';
 // import BlogTravelLandingLatestPosts from '../../blog/travel/travel-landing-posts';
 import TravelLandingFavoriteDestinations from '../landing/travel-landing-favorite-destinations';
 import TravelLayout from 'src/layouts/main/travelLayout';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { travelPageInstructionsToast } from 'src/utils/toasts';
 
 // ----------------------------------------------------------------------
 
 export default function TravelLandingView() {
+  useEffect(() => {
+    travelPageInstructionsToast();
+  }, []);
+
   return (
     <TravelLayout>
       <Box sx={{ position: 'relative' }}>

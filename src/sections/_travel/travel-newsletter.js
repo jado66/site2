@@ -13,6 +13,9 @@ import { useResponsive } from 'src/hooks/use-responsive';
 import { bgGradient } from 'src/theme/css';
 
 import Iconify from 'src/components/iconify';
+import { travelPageIsJustExampleToast } from 'src/utils/toasts';
+import { useState } from 'react';
+import { RouterLink } from 'src/routes/components';
 
 // ----------------------------------------------------------------------
 
@@ -20,6 +23,17 @@ export default function TravelNewsletter() {
   const theme = useTheme();
 
   const mdUp = useResponsive('up', 'md');
+
+  const [email, setEmail] = useState('');
+
+  const helperText = (
+    <>
+      <Typography variant="caption">
+        This is just a mock newsletter for the travel page example. You can sign up for our real
+        newsletter by going to our <RouterLink href="/">Home page</RouterLink>.
+      </Typography>
+    </>
+  );
 
   return (
     <Box
@@ -60,6 +74,9 @@ export default function TravelNewsletter() {
               <TextField
                 fullWidth
                 hiddenLabel
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                helperText={email !== '' && helperText}
                 placeholder="Enter your email"
                 InputProps={{
                   endAdornment: (
@@ -69,6 +86,7 @@ export default function TravelNewsletter() {
                         color="primary"
                         variant="contained"
                         sx={{ minWidth: 48, px: 0 }}
+                        onClick={travelPageIsJustExampleToast}
                       >
                         <Iconify icon="carbon:chevron-right" />
                       </Button>

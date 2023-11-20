@@ -7,7 +7,8 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import { useTheme } from '@mui/material/styles';
-import { Typography } from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
 
 import { paths } from 'src/routes/paths';
 
@@ -22,6 +23,7 @@ import { HEADER } from '../config-layout';
 import HeaderShadow from '../common/header-shadow';
 import { RouterLink } from 'src/routes/components';
 import Iconify from 'src/components/iconify';
+import { travelPageInstructionsToast } from 'src/utils/toasts';
 
 // ----------------------------------------------------------------------
 const mainNav = [
@@ -32,7 +34,7 @@ const mainNav = [
   { title: 'Get Started', path: '/get-started' },
   {
     title: 'Examples',
-    path: '/pages1',
+    path: '/examples',
     children: [
       { title: 'Travel', path: '/examples/travel' },
       { title: 'AI Education', path: '/examples/ai-education' },
@@ -94,6 +96,11 @@ const educationNav = [
   },
 ];
 
+const TravelInfoIcon = () => (
+  <IconButton onClick={travelPageInstructionsToast} sx={{ ml: 1, color: 'inherit' }}>
+    <Iconify icon="fluent:info-16-filled" sx={{ color: 'inherit' }} />
+  </IconButton>
+);
 export default function Header({
   headerOnDark,
   openChatbot,
@@ -139,9 +146,18 @@ export default function Header({
 
       <Box sx={{ lineHeight: 0, position: 'relative' }}>
         {/* <Logo /> */}
-        <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
-          {type === 'main' && 'Amy Communications'}
-          {type === 'travel' && 'Avelora Travel'}
+        <Typography
+          variant="h4"
+          component="div"
+          sx={{ flexGrow: 1, display: 'flex', alignItems: 'baseline' }}
+        >
+          {type === 'main' && 'AMY Communications'}
+          {type === 'travel' && (
+            <>
+              Avelora Travel
+              <TravelInfoIcon />
+            </>
+          )}
           {type === 'education' && 'AcaduPro'}
         </Typography>
       </Box>
@@ -180,7 +196,7 @@ export default function Header({
               </Button>
             ) : (
               <Button color="inherit" variant="contained" onClick={handleOpenChatbot}>
-                {type === 'main' && 'Open Chat'}
+                {type === 'main' && 'Chat with Amy'}
                 {type === 'travel' && 'Get Live Assistance'}
                 {type === 'education' && 'Open Chat'}
               </Button>
