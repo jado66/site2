@@ -10,6 +10,7 @@ import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 
 import TravelTourItem from '../list/travel-tour-item';
+import { travelPageIsJustExampleToast } from 'src/utils/toasts';
 
 // ----------------------------------------------------------------------
 
@@ -47,8 +48,7 @@ export default function TravelLandingTourFeatured({ tours }) {
 
       <Box sx={{ textAlign: 'center' }}>
         <Button
-          component={RouterLink}
-          href={paths.travel.tours}
+          onClick={travelPageIsJustExampleToast}
           size="large"
           variant="outlined"
           color="inherit"

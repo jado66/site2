@@ -10,6 +10,8 @@ import { RouterLink } from 'src/routes/components';
 import { fDate } from 'src/utils/format-time';
 
 import TextMaxLine from 'src/components/text-max-line';
+import { Button } from '@mui/material';
+import { travelPageIsJustExampleToast } from 'src/utils/toasts';
 
 // ----------------------------------------------------------------------
 
@@ -20,11 +22,11 @@ export default function TravelLandingPostItem({ post }) {
         {fDate(post.createdAt)}
       </Typography>
 
-      <Link component={RouterLink} href={paths.travel.post} sx={{ color: 'common.white' }}>
+      <Button onClick={travelPageIsJustExampleToast} sx={{ color: 'common.white' }}>
         <TextMaxLine variant="h5" sx={{ mt: 1, mb: 2 }}>
           {post.title}
         </TextMaxLine>
-      </Link>
+      </Button>
 
       <TextMaxLine variant="body2" sx={{ color: 'text.secondary' }}>
         {post.description}

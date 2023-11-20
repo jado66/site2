@@ -16,6 +16,7 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import Iconify from 'src/components/iconify';
 import TextMaxLine from 'src/components/text-max-line';
+import { travelPageIsJustExampleToast } from 'src/utils/toasts';
 
 // ----------------------------------------------------------------------
 
@@ -24,8 +25,7 @@ export default function TravelLandingToursByCity({ tours }) {
 
   const viewAllBtn = (
     <Button
-      component={RouterLink}
-      href={paths.travel.tours}
+      onClick={travelPageIsJustExampleToast}
       color="inherit"
       endIcon={<Iconify icon="carbon:chevron-right" />}
     >
@@ -96,10 +96,16 @@ function TourItem({ tour }) {
   const { coverUrl, location } = tour;
 
   return (
-    <Link component={RouterLink} href={paths.travel.tour} color="inherit" underline="none">
+    <Button
+      onClick={travelPageIsJustExampleToast}
+      color="inherit"
+      underline="none"
+      sx={{ p: 0, display: 'flex' }}
+    >
       <Paper
         variant="outlined"
         sx={{
+          flex: 1,
           p: 3,
           borderRadius: 2,
           cursor: 'pointer',
@@ -124,7 +130,7 @@ function TourItem({ tour }) {
           </Stack>
         </Stack>
       </Paper>
-    </Link>
+    </Button>
   );
 }
 

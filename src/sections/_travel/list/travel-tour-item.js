@@ -17,6 +17,8 @@ import { fCurrency } from 'src/utils/format-number';
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import TextMaxLine from 'src/components/text-max-line';
+import { travelPageIsJustExampleToast } from 'src/utils/toasts';
+import { Button } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -86,12 +88,24 @@ export default function TravelTourItem({ tour }) {
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           {location}
         </Typography>
-
-        <Link component={RouterLink} href={paths.travel.tour} color="inherit">
-          <TextMaxLine variant="h6" persistent>
+        <Button
+          onClick={travelPageIsJustExampleToast}
+          color="inherit"
+          variant="text"
+          sx={{
+            p: 0,
+            justifyContent: 'flex-start',
+            textDecoration: 'underline',
+            textTransform: 'none',
+            '&:hover': {
+              textDecoration: 'underline',
+            },
+          }}
+        >
+          <TextMaxLine variant="h6" persistent textAlign="left">
             {slug}
           </TextMaxLine>
-        </Link>
+        </Button>
       </Stack>
 
       <Divider sx={{ borderStyle: 'dashed' }} />

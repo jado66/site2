@@ -19,6 +19,8 @@ import ElearningHeroIllustration from 'src/assets/illustrations/elearning-hero-i
 
 import Iconify from 'src/components/iconify';
 import { PlayerDialog } from 'src/components/player';
+import { travelPageIsJustExampleToast } from 'src/utils/toasts';
+import { ButtonBase } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -85,10 +87,12 @@ export default function ElearningLandingHero() {
                   </Button>
 
                   <Stack direction="row" alignItems="center" sx={{ typography: 'h6' }}>
-                    <Fab size="medium" color="info" onClick={videoOpen.onTrue} sx={{ mr: 1 }}>
-                      <Iconify width={24} icon="carbon:play" />
-                    </Fab>
-                    Watch Video
+                    <ButtonBase onClick={travelPageIsJustExampleToast}>
+                      <Fab size="medium" color="info" onClick={videoOpen.onTrue} sx={{ mr: 1 }}>
+                        <Iconify width={24} icon="carbon:play" />
+                      </Fab>
+                      Watch Video
+                    </ButtonBase>
                   </Stack>
                 </Stack>
 

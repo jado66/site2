@@ -10,6 +10,7 @@ import Iconify from 'src/components/iconify';
 import FilterTime from './filter-time';
 import FilterGuests from './filter-guests';
 import FilterLocation from './filter-location';
+import { travelPageIsJustExampleToast } from 'src/utils/toasts';
 
 // ----------------------------------------------------------------------
 
@@ -78,6 +79,7 @@ export default function TravelFilters({ sx, ...other }) {
           flexShrink: 0,
           minWidth: { xs: 1, md: 48 },
         }}
+        onClick={travelPageIsJustExampleToast}
       >
         <Iconify icon="carbon:search" />
       </Button>

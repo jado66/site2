@@ -20,10 +20,87 @@ import { NavBasicDesktop } from 'src/components/nav-basic';
 import NavMobile from './nav/mobile';
 import { HEADER } from '../config-layout';
 import HeaderShadow from '../common/header-shadow';
+import { RouterLink } from 'src/routes/components';
+import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
+const mainNav = [
+  {
+    title: 'Home',
+    path: '/',
+  },
+  { title: 'Get Started', path: '/get-started' },
+  {
+    title: 'Examples',
+    path: '/pages1',
+    children: [
+      { title: 'Travel', path: '/examples/travel' },
+      { title: 'AI Education', path: '/examples/ai-education' },
+    ],
+  },
+  {
+    title: 'Applications',
+    path: '/applications',
+  },
+  {
+    title: 'About Us',
+    path: '/about',
+  },
+];
 
-export default function Header({ headerOnDark, openChatbot, hideChatbot, showChatbot }) {
+const travelNav = [
+  {
+    title: 'Home',
+    path: '/',
+  },
+  {
+    title: 'Tours',
+    path: '/',
+  },
+  {
+    title: 'Blog',
+    path: '/',
+  },
+  {
+    title: 'Bookings',
+    path: '/',
+  },
+  {
+    title: 'About Us',
+    path: '/',
+  },
+];
+
+const educationNav = [
+  {
+    title: 'Home',
+    path: '/',
+  },
+  {
+    title: 'Courses',
+    path: '/',
+  },
+  {
+    title: 'Blog',
+    path: '/',
+  },
+  {
+    title: 'Careers',
+    path: '/',
+  },
+  {
+    title: 'About Us',
+    path: '/',
+  },
+];
+
+export default function Header({
+  headerOnDark,
+  openChatbot,
+  hideChatbot,
+  showChatbot,
+  type = 'main',
+}) {
   const handleOpenChatbot = () => {
     if (openChatbot) {
       openChatbot();
@@ -42,12 +119,30 @@ export default function Header({ headerOnDark, openChatbot, hideChatbot, showCha
 
   const mdUp = useResponsive('up', 'md');
 
+  const navData = type === 'main' ? mainNav : type === 'travel' ? travelNav : educationNav;
+
   const renderContent = (
     <>
+      {type !== 'main' && (
+        <Box sx={{ mr: 5 }}>
+          <Button
+            component={RouterLink}
+            href="/"
+            variant="text"
+            sx={{ fontSize: '8pt', color: offset ? 'black' : 'common.white' }}
+          >
+            <Iconify width={16} icon="carbon:chevron-left" sx={{ mr: 1 }} />
+            Back
+          </Button>
+        </Box>
+      )}
+
       <Box sx={{ lineHeight: 0, position: 'relative' }}>
         {/* <Logo /> */}
         <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
-          Amy Communications
+          {type === 'main' && 'Amy Communications'}
+          {type === 'travel' && 'Avelora Travel'}
+          {type === 'education' && 'AcaduPro'}
         </Typography>
       </Box>
 
@@ -63,29 +158,7 @@ export default function Header({ headerOnDark, openChatbot, hideChatbot, showCha
               '& .icon': { display: 'none' },
             },
           }}
-          data={[
-            {
-              title: 'Home',
-              path: '/',
-            },
-            { title: 'Get Started', path: '/get-started' },
-            {
-              title: 'Examples',
-              path: '/pages1',
-              children: [
-                { title: 'Solar', path: '/examples/solar' },
-                { title: 'AI Education', path: '/examples/ai-education' },
-              ],
-            },
-            {
-              title: 'Applications',
-              path: '/applications',
-            },
-            {
-              title: 'About Us',
-              path: '/about',
-            },
-          ]}
+          data={navData}
         />
       ) : (
         // </Stack>
@@ -107,7 +180,9 @@ export default function Header({ headerOnDark, openChatbot, hideChatbot, showCha
               </Button>
             ) : (
               <Button color="inherit" variant="contained" onClick={handleOpenChatbot}>
-                Chat With Amy
+                {type === 'main' && 'Open Chat'}
+                {type === 'travel' && 'Get Live Assistance'}
+                {type === 'education' && 'Open Chat'}
               </Button>
             )}
           </>
@@ -119,29 +194,7 @@ export default function Header({ headerOnDark, openChatbot, hideChatbot, showCha
           hideChatbot={hideChatbot}
           showChatbot={showChatbot}
           openChatbot={handleOpenChatbot}
-          data={[
-            {
-              title: 'Home',
-              path: '/',
-            },
-            { title: 'Get Started', path: '/get-started' },
-            {
-              title: 'Examples',
-              path: '/pages1',
-              children: [
-                { title: 'Solar', path: '/examples/solar' },
-                { title: 'AI Education', path: '/examples/ai-education' },
-              ],
-            },
-            {
-              title: 'Applications',
-              path: '/applications',
-            },
-            {
-              title: 'About Us',
-              path: '/about',
-            },
-          ]}
+          data={navData}
         />
       )}
     </>

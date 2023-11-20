@@ -15,6 +15,7 @@ import Carousel, { useCarousel, CarouselDots, CarouselArrows } from 'src/compone
 
 import PostItem from './travel-landing-post-item';
 import PostItemCarousel from './travel-landing-post-item-carousel';
+import { travelPageIsJustExampleToast } from 'src/utils/toasts';
 
 // ----------------------------------------------------------------------
 
@@ -88,9 +89,8 @@ export default function TravelLandingPosts({ posts }) {
           >
             <Button
               color="primary"
-              component={RouterLink}
-              href={paths.travel.posts}
               endIcon={<Iconify icon="carbon:chevron-right" />}
+              onClick={travelPageIsJustExampleToast}
             >
               View All
             </Button>

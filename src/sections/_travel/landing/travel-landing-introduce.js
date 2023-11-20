@@ -12,23 +12,27 @@ import { useBoundingClientRect } from 'src/hooks/use-bounding-client-rect';
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import SvgColor from 'src/components/svg-color';
+import { travelPageIsJustExampleToast } from 'src/utils/toasts';
 
 // ----------------------------------------------------------------------
 
 const SUMMARY = [
   {
     title: 'Professional Tour Guides',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    description:
+      'Experience the expertise and knowledge of our professional tour guides who will enhance your travel experience with their insights and stories. Discover hidden gems and get a deeper understanding of the destinations you visit.',
     icon: '/assets/icons/ic_popularity.svg',
   },
   {
     title: 'Customer Satisfaction',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    description:
+      'Our top priority is ensuring your satisfaction. We go the extra mile to make sure every aspect of your trip is enjoyable and stress-free. From personalized itineraries to prompt customer support, we strive to exceed your expectations.',
     icon: '/assets/icons/ic_reputation.svg',
   },
   {
     title: 'Secure Payment',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    description:
+      'Rest assured that your payment is safe and secure with our trusted payment system. We prioritize the security of your financial information, allowing you to book your dream vacation with peace of mind.',
     icon: '/assets/icons/ic_secure_payment.svg',
   },
 ];
@@ -63,7 +67,8 @@ export default function TravelLandingIntroduce() {
           <Typography variant="h2">Explore A Different Way To Travel</Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
-            Cras ultricies mi eu turpis hendrerit fringilla. Nulla consequat massa quis enim.
+            Discover hidden gems, immerse yourself in local culture, and create unforgettable
+            memories with personalized attention and expert guides.
           </Typography>
         </Stack>
       </Container>
@@ -111,6 +116,7 @@ export default function TravelLandingIntroduce() {
               typography: 'subtitle1',
               '&:hover': { opacity: 0.72 },
             }}
+            onClick={travelPageIsJustExampleToast}
           >
             <Iconify icon="carbon:play" width={24} sx={{ mr: 1 }} /> Watch Video
           </Stack>

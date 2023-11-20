@@ -54,8 +54,9 @@ export default function TravelLandingSummary() {
         <Typography variant="h2">Fastest Way to Book over 450 Great Tours</Typography>
 
         <Typography sx={{ color: 'text.secondary' }}>
-          Since wire-frame renderings are relatively simple and fast to calculate, they are often
-          used in cases
+          Choose from over 450 great tours and create unforgettable experiences. Whether you're
+          seeking adventure, relaxation, or cultural immersion, we have the perfect tour for every
+          traveler. Start planning your dream getaway today!
         </Typography>
       </Stack>
 

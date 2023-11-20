@@ -18,6 +18,7 @@ import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import TextMaxLine from 'src/components/text-max-line';
 import Carousel, { useCarousel, CarouselDots } from 'src/components/carousel';
+import { travelPageIsJustExampleToast } from 'src/utils/toasts';
 
 // ----------------------------------------------------------------------
 
@@ -148,15 +149,16 @@ function CarouselItem({ tour }) {
         alignItems="center"
         sx={{
           zIndex: 9,
-          py: { xs: 20, md: 0 },
+          pt: { xs: 20, md: 2 },
+          pb: { xs: 10, md: 18 },
           position: { md: 'absolute' },
         }}
       >
-        <Typography variant="overline" sx={{ color: 'info.main', mb: 5 }}>
+        <Typography variant="overline" sx={{ mb: 5 }}>
           {tour.location}
         </Typography>
 
-        <Typography variant="h1" sx={{ maxWidth: 480 }}>
+        <Typography variant="h2" sx={{ maxWidth: 480 }}>
           {tour.slug}
         </Typography>
 
@@ -182,7 +184,12 @@ function CarouselItem({ tour }) {
           </Stack>
         </Stack>
 
-        <Button variant="contained" size="large" color="primary">
+        <Button
+          variant="contained"
+          size="large"
+          color="primary"
+          onClick={travelPageIsJustExampleToast}
+        >
           Book Now
         </Button>
       </Stack>

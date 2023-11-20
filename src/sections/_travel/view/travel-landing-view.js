@@ -14,14 +14,15 @@ import TravelLandingSummary from '../landing/travel-landing-summary';
 import TravelLandingIntroduce from '../landing/travel-landing-introduce';
 import TravelLandingToursByCity from '../landing/travel-landing-tours-by-city';
 import TravelLandingTourFeatured from '../landing/travel-landing-tour-featured';
-import BlogTravelLandingLatestPosts from '../../blog/travel/travel-landing-posts';
+// import BlogTravelLandingLatestPosts from '../../blog/travel/travel-landing-posts';
 import TravelLandingFavoriteDestinations from '../landing/travel-landing-favorite-destinations';
+import TravelLayout from 'src/layouts/main/travelLayout';
 
 // ----------------------------------------------------------------------
 
 export default function TravelLandingView() {
   return (
-    <>
+    <TravelLayout>
       <Box sx={{ position: 'relative' }}>
         <TravelLandingHero tours={_tours.slice(0, 5)} />
 
@@ -32,7 +33,7 @@ export default function TravelLandingView() {
             right: { md: 0 },
             bottom: { md: 0 },
             mx: { md: 'auto' },
-            pt: { xs: 3, md: 0 },
+            pt: { xs: 3, md: 2 },
             position: { md: 'absolute' },
           }}
         >
@@ -58,11 +59,9 @@ export default function TravelLandingView() {
 
       <TravelLandingToursByCity tours={_tours.slice(0, 8)} />
 
-      <BlogTravelLandingLatestPosts posts={_travelPosts.slice(2, 6)} />
-
       <TravelTestimonial testimonials={_testimonials} />
 
       <TravelNewsletter />
-    </>
+    </TravelLayout>
   );
 }
