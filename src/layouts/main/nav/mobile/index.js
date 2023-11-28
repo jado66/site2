@@ -9,6 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import { usePathname } from 'src/routes/hooks';
 
 import { useBoolean } from 'src/hooks/use-boolean';
+import Tooltip from '@mui/material/Tooltip';
 
 import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
@@ -22,16 +23,13 @@ import { NAV } from '../../../config-layout';
 export default function NavMobile({ data, openChatbot, hideChatbot, showChatbot }) {
   const pathname = usePathname();
 
-  const handleHideChatbot = () => {
-    if (hideChatbot) {
-      hideChatbot();
-    }
-  };
-
-  const handleOpenChatbot = () => {
-    if (openChatbot) {
+  const handleToggleChatbot = () => {
+    if (!showChatbot) {
       openChatbot();
+      return;
     }
+
+    hideChatbot();
   };
 
   const mobileOpen = useBoolean();
@@ -45,6 +43,10 @@ export default function NavMobile({ data, openChatbot, hideChatbot, showChatbot 
 
   return (
     <>
+      <IconButton sx={{ ml: 1, color: 'inherit' }} onClick={handleToggleChatbot}>
+        <Iconify icon="quill:chat" />
+      </IconButton>
+
       <IconButton onClick={mobileOpen.onTrue} sx={{ ml: 1, color: 'inherit' }}>
         <Iconify icon="carbon:menu" />
       </IconButton>
@@ -63,18 +65,6 @@ export default function NavMobile({ data, openChatbot, hideChatbot, showChatbot 
           <Logo sx={{ mx: 2.5, my: 3 }} />
 
           <NavBasicMobile data={data} />
-
-          <Stack spacing={1.5} sx={{ p: 3 }}>
-            {showChatbot ? (
-              <Button color="inherit" sx={{ typography: 'subtitle2' }} onClick={handleHideChatbot}>
-                Close Chat
-              </Button>
-            ) : (
-              <Button color="inherit" sx={{ typography: 'subtitle2' }} onClick={handleOpenChatbot}>
-                Chat With Amy
-              </Button>
-            )}
-          </Stack>
         </Scrollbar>
       </Drawer>
     </>

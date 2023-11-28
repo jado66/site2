@@ -37,7 +37,7 @@ const mainNav = [
     path: '/examples',
     children: [
       { title: 'Travel', path: '/examples/travel' },
-      { title: 'AI Education', path: '/examples/ai-education' },
+      { title: 'Education', path: '/examples/education' },
     ],
   },
   {
@@ -207,7 +207,7 @@ export default function Header({
 
       {!mdUp && (
         <NavMobile
-          hideChatbot={hideChatbot}
+          hideChatbot={handleHideChatbot}
           showChatbot={showChatbot}
           openChatbot={handleOpenChatbot}
           data={navData}

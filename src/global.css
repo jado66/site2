@@ -34,6 +34,16 @@
   background-color: #1ad5a6 !important;
 }
 
+.cs-message.cs-message--incoming,
+.cs-message.cs-message--outgoing {
+  border-radius: 10px !important;
+}
+
+.cs-message-list__scroll-wrapper {
+  padding: 1em !important;
+  padding-top: 1.2em !important;
+}
+
 /* Toasts */
 :root {
   --toastify-color-progress-success: #1ad5a6;

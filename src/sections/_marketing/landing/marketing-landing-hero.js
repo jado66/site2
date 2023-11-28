@@ -69,16 +69,16 @@ export default function MarketingLandingHero() {
               justifyContent={{ xs: 'center', md: 'unset' }}
               sx={{ mt: 5 }}
             >
-              <Button variant="contained" color="inherit" size="large">
+              <Button variant="contained" color="inherit" size="large" href="/get-started">
                 Get Started
               </Button>
 
-              <Stack direction="row" alignItems="center" sx={{ typography: 'h6' }}>
+              {/* <Stack direction="row" alignItems="center" sx={{ typography: 'h6' }}>
                 <Fab size="medium" sx={{ mr: 1 }}>
                   <Iconify width={24} icon="carbon:play" />
                 </Fab>
                 See Examples
-              </Stack>
+              </Stack> */}
             </Stack>
           </Grid>
 

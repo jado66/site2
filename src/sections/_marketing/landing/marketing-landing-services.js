@@ -133,7 +133,7 @@ function ServiceItem({ service, index }) {
         </TextMaxLine>
       </Stack>
 
-      <IconButton
+      {/* <IconButton
         component={RouterLink}
         href={path}
         color={
@@ -144,7 +144,7 @@ function ServiceItem({ service, index }) {
         }
       >
         <Iconify icon="carbon:direction-straight-right" />
-      </IconButton>
+      </IconButton> */}
     </Card>
   );
 }
