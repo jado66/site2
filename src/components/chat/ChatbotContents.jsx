@@ -60,11 +60,6 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
   };
 
   const handleSend = async (message) => {
-    // Blur the input element to close the mobile keyboard
-    if (inputRef.current) {
-      inputRef.current.blur();
-    }
-
     setIsAmyTyping(true);
     setMessages((prevstate) => [
       ...prevstate,
@@ -75,6 +70,11 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
     ]);
     setMsgInputValue('');
     inputRef.current.focus();
+
+    // Blur the input element to close the mobile keyboard
+    if (inputRef.current) {
+      inputRef.current.blur();
+    }
 
     let responseObject = await fetch('/api/chat-bot/amy-response', {
       method: 'POST',
