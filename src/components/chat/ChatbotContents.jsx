@@ -69,7 +69,7 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
       },
     ]);
     setMsgInputValue('');
-    inputRef.current.focus();
+    // inputRef.current.focus();
 
     // Blur the input element to close the mobile keyboard
     if (inputRef.current) {
