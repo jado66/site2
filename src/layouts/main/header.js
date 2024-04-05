@@ -31,9 +31,12 @@ const mainNav = [
     title: 'Home',
     path: '/',
   },
-  { title: 'Get Started', path: '/get-started' },
   {
-    title: 'Examples',
+    title: 'About',
+    path: '/about',
+  },
+  {
+    title: 'Services',
     path: '/examples',
     children: [
       { title: 'Travel', path: '/examples/travel' },
@@ -41,13 +44,10 @@ const mainNav = [
     ],
   },
   {
-    title: 'Applications',
+    title: 'Portfolio',
     path: '/applications',
   },
-  {
-    title: 'About Us',
-    path: '/about',
-  },
+  { title: 'Contact', path: '/get-started' },
 ];
 
 const travelNav = [
@@ -151,7 +151,7 @@ export default function Header({
           component="div"
           sx={{ flexGrow: 1, display: 'flex', alignItems: 'baseline' }}
         >
-          {type === 'main' && 'AMY Communications'}
+          {type === 'main' && 'Platinum Technologies'}
           {type === 'travel' && (
             <>
               Avelora Travel

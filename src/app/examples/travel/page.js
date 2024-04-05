@@ -2,7 +2,7 @@ import TravelLandingPage from 'src/app/travel/page';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'AMY Communications - Examples Travel',
+  title: 'Platinum Technologies - Examples Travel',
 };
 
 export default function MarketingServicesPage() {

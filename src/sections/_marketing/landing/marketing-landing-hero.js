@@ -24,13 +24,11 @@ export default function MarketingLandingHero() {
   return (
     <Box
       sx={{
-        ...bgGradient({
-          color: alpha(theme.palette.background.default, 0.9),
-          imgUrl: '/assets/background/overlay_1.jpg',
-        }),
         overflow: 'hidden',
       }}
     >
+      <VideoBackground />
+
       <Container
         sx={{
           py: 15,
@@ -39,38 +37,35 @@ export default function MarketingLandingHero() {
           height: { md: `100vh` },
         }}
       >
-        <Grid container columnSpacing={{ xs: 0, md: 10 }}>
+        <Grid container columnSpacing={{ xs: 0 }} flex={1}>
           <Grid
             xs={12}
-            md={6}
-            lg={5}
             sx={{
-              textAlign: { xs: 'center', md: 'left' },
+              textAlign: { xs: 'center' },
+              flex: { md: 1 },
             }}
           >
-            <Typography variant="overline" sx={{ color: 'secondary.main' }}>
-              AMY Communications
+            <Typography variant="overline" sx={{ color: 'secondary.main' }} textAlign="center">
+              Executive Website Development
             </Typography>
 
             <Typography variant="h1" sx={{ my: 3 }}>
-              Add AI to Your Communication
+              PLATINUM TECHNOLOGIES
             </Typography>
 
             <Typography sx={{ color: 'text.secondary' }}>
-              AMY Communications: Enhancing communication with artificial intelligence. Automate
-              customer support or optimize content creation. Join us today to unlock the full
-              potential of AI in your communication strategies.
+              We develop custom web applications utiziling the latest technologies
             </Typography>
 
             <Stack
               spacing={3}
               direction={{ xs: 'column', sm: 'row' }}
               alignItems={{ xs: 'center', md: 'unset' }}
-              justifyContent={{ xs: 'center', md: 'unset' }}
+              justifyContent={{ xs: 'center' }}
               sx={{ mt: 5 }}
             >
-              <Button variant="contained" color="inherit" size="large" href="/get-started">
-                Get Started
+              <Button variant="contained" color="inherit" size="large" href="/about">
+                Learn More
               </Button>
 
               {/* <Stack direction="row" alignItems="center" sx={{ typography: 'h6' }}>
@@ -81,19 +76,30 @@ export default function MarketingLandingHero() {
               </Stack> */}
             </Stack>
           </Grid>
-
-          {mdUp && (
-            <Grid xs={12} md={6} lg={7}>
-              <Image
-                visibleByDefault
-                disabledEffect
-                alt="marketing market"
-                src="/assets/illustrations/illustration_marketing_market.svg"
-              />
-            </Grid>
-          )}
         </Grid>
       </Container>
     </Box>
   );
 }
+
+const VideoBackground = () => {
+  return (
+    <video
+      autoPlay
+      muted
+      loop
+      style={{
+        position: 'absolute',
+        width: '100%',
+        left: '50%',
+        top: '50%',
+        height: '100%',
+        objectFit: 'cover',
+        transform: 'translate(-50%, -50%)',
+        zIndex: '-1',
+      }}
+    >
+      <source src="/assets/background/bob.mp4" type="video/mp4" />
+    </video>
+  );
+};

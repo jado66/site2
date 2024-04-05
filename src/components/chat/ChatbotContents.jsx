@@ -129,6 +129,7 @@ const ChatbotContents = ({ botName, virtualAssistantConfiguration }) => {
     if (storedMessages) {
       if (storedMessages.length !== 0) {
         setIsStoredMessages(true);
+        setMessages(storedMessages);
       }
       return;
     }

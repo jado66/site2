@@ -46,11 +46,11 @@ const preset01 = {
 
 const preset02 = {
   primary: {
-    lighter: '#D0FCE0',
-    light: '#72F2B9',
-    main: '#1AD5A6',
-    dark: '#0D9991',
-    darker: '#045966',
+    lighter: '#B5D8FF',
+    light: '#A6C8ED',
+    main: '#3274B0',
+    dark: '#094470',
+    darker: '#041A32',
     contrastText: grey[800],
   },
   secondary: {

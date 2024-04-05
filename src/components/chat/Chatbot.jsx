@@ -4,7 +4,7 @@ import ChatbotContainer from './ChatbotContainer';
 import ChatbotContents from './ChatbotContents';
 
 const virtualAssistantConfigurations = {
-  'AMY Communications': {
+  'Platinum Technologies': {
     name: 'Amy',
     avatar: 'https://i.imgur.com/7YTMFQp.png',
     context: [
@@ -23,7 +23,7 @@ const virtualAssistantConfigurations = {
 
 const Chatbot = ({ botName, showChatbot, hideChatbot }) => {
   const [virtualAssistantConfiguration, setVirtualAssistantConfiguration] = useState(
-    virtualAssistantConfigurations['AMY Communications']
+    virtualAssistantConfigurations['Platinum Technologies']
   );
 
   return (

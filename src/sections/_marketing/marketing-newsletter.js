@@ -30,10 +30,10 @@ export default function MarketingNewsletter({ sx, ...other }) {
             />
 
             <Stack spacing={1}>
-              <Typography variant="h4">Want Updates?</Typography>
+              <Typography variant="h4">Subscribe to Our Newsletter</Typography>
 
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                Subscribe to our newsletter to get updates on all our latest product releases.
+                Get updates on all our latest offerings.
               </Typography>
             </Stack>
           </Stack>

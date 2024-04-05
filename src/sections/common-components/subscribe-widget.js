@@ -64,7 +64,7 @@ const SubscribeWidget = () => {
               loading={loading}
               onClick={handleSubmit}
             >
-              Sign Up
+              Subscribe
             </LoadingButton>
           </InputAdornment>
         ),

@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import SvgColor from 'src/components/svg-color';
+import { Divider, List, ListItem } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -17,19 +18,48 @@ const SERVICES = [
   {
     name: 'Discovery and Planning',
     icon: '/assets/icons/ic_sketch_design.svg',
+    description: 'Phase one, Discovery and Planning includes...',
+    bullets: [
+      'Client Consultations',
+      'Discussing Needs',
+      'Gathering Requirements',
+      'Collaboritive Brainstorming',
+      'Determining Solutions',
+    ],
   },
   {
     name: 'Development',
     icon: '/assets/icons/ic_optimization.svg',
+    description: 'Phase two, Development includes...',
+    bullets: [
+      'Custom Design',
+      'Full-Stack Development',
+      'Regular Progress Reviews w/ Client',
+      'Feedback Loop between Principal Developer and Client Point of Contact',
+    ],
   },
   {
     name: 'Testing and Feedback',
     icon: '/assets/icons/ic_search.svg',
+    description: 'Phase three, Testing and Feedback includes...',
+    bullets: [
+      'Debugging',
+      'Product Refinement',
+      'Alpha/Beta Testing',
+      'Quality Assurance Confirmation',
+    ],
   },
-
   {
     name: 'Launch and Grow',
     icon: '/assets/icons/ic_analysis.svg',
+    description: 'Phase four, Launch and Grow includes...',
+    bullets: [
+      'Deployment',
+      'Dedicated Post-Launch Support',
+      'Ongoing Maintenance',
+      'Growth Strategies',
+      'Continued Development',
+    ],
   },
 ];
 
@@ -45,20 +75,21 @@ export default function MarketingLandingProcess() {
       <Stack
         spacing={3}
         sx={{
-          maxWidth: 480,
+          maxWidth: 600,
           mb: { xs: 8, md: 5 },
           mx: { xs: 'auto', md: 'unset' },
           textAlign: { xs: 'center', md: 'unset' },
         }}
       >
         <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-          Work Flow
+          Initial Launch
         </Typography>
 
-        <Typography variant="h2">Working Process</Typography>
+        <Typography variant="h2">Work Flow</Typography>
 
         <Typography sx={{ color: 'text.secondary' }}>
-          We have a well-defined process to develop your project from the ground up.
+          We offer a well-defined working porcess to streamline production and comprehensively
+          develop your project from the ground up.
         </Typography>
       </Stack>
 
@@ -114,9 +145,22 @@ function ServiceItem({ service, index }) {
         }}
       />
 
-      <Typography variant="h5" sx={{ mt: 3, textAlign: 'right' }}>
+      <Typography variant="h5" sx={{ mt: 3, textAlign: 'center' }}>
         {name}
       </Typography>
+      <Divider sx={{ my: 2 }} />
+
+      <Typography variant="body2" sx={{ textAlign: 'left' }} gutterBottom>
+        {service.description}
+      </Typography>
+
+      <List sx={{ width: '100%', maxWidth: 360, listStyleType: 'disc' }}>
+        {service.bullets.map((bullet) => (
+          <ListItem key={bullet}>
+            <Typography variant="body2">• {bullet}</Typography>
+          </ListItem>
+        ))}
+      </List>
     </Card>
   );
 }
