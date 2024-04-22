@@ -36,7 +36,7 @@ export default function MainLayout({ children }) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: 1 }}>
       <Header
-        headerOnDark={false}
+        headerOnDark={true}
         openChatbot={openChatbot}
         hideChatbot={hideChatbot}
         showChatbot={showChatbot}

@@ -53,6 +53,7 @@ export default function HeaderSimple({ openChatbot, hideChatbot, showChatbot }) 
             ...bgBlur({
               color: theme.palette.background.default,
             }),
+
             height: {
               md: HEADER.H_DESKTOP_OFFSET,
             },

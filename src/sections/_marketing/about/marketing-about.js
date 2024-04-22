@@ -1,3 +1,5 @@
+'use client';
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -80,11 +82,11 @@ export default function MarketingAbout() {
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          <Typography variant="h2">This page in development</Typography>
+          <Typography variant="h2">About</Typography>
 
-          <Typography sx={{ color: 'text.secondary' }}>Please check back later.</Typography>
+          {/* <Typography sx={{ color: 'text.secondary' }}>About.</Typography> */}
 
-          {/* <Typography sx={{ mt: 3, mb: 5, color: 'text.secondary' }}>
+          <Typography sx={{ mt: 3, mb: 5, color: 'text.secondary' }}>
             Vivamus consectetuer hendrerit lacus. Curabitur a felis in nunc fringilla tristique.
             Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit.
             <br />
@@ -92,50 +94,18 @@ export default function MarketingAbout() {
             Nam pretium turpis et arcu. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
             dignissim dolor, a pretium mi sem ut ipsum. Praesent venenatis metus at tortor pulvinar
             varius.
-          </Typography> */}
-          {/* 
+          </Typography>
+
           <Button
             variant="outlined"
             color="inherit"
             size="large"
             endIcon={<Iconify icon="carbon:chevron-right" />}
           >
-            Check Our Work
-          </Button> */}
+            Examples of Our Work
+          </Button>
         </Grid>
       </Grid>
-
-      {/* <Box
-        sx={{
-          mt: 10,
-          textAlign: 'center',
-          display: 'grid',
-          gap: { xs: 5, md: 8 },
-          gridTemplateColumns: {
-            xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(4, 1fr)',
-          },
-        }}
-      >
-        {SUMMARY.map((value, index) => (
-          <div key={value.title}>
-            <StyledIcon color={COLORS[index]}>
-              <Iconify icon={value.icon} width={48} />
-            </StyledIcon>
-
-            <Typography variant="h2" sx={{ mt: 2, mb: 1 }}>
-              <CountUp
-                start={value.total / 5}
-                end={value.total}
-                formattingFn={(newValue) => fShortenNumber(newValue)}
-              />
-            </Typography>
-
-            <Typography sx={{ color: 'text.secondary' }}>{value.title}</Typography>
-          </div>
-        ))}
-      </Box> */}
     </Container>
   );
 }

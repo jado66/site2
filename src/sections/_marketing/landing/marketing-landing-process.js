@@ -70,45 +70,52 @@ export default function MarketingLandingProcess() {
     <Container
       sx={{
         py: { xs: 5, md: 10 },
+        backgroundColor: (theme) => theme.palette.primary.darker,
+        maxWidth: '100% !important',
+        mx: 0,
+        color: 'common.white',
       }}
+      fullWidth
     >
-      <Stack
-        spacing={3}
-        sx={{
-          maxWidth: 600,
-          mb: { xs: 8, md: 5 },
-          mx: { xs: 'auto', md: 'unset' },
-          textAlign: { xs: 'center', md: 'unset' },
-        }}
-      >
-        <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-          Initial Launch
-        </Typography>
+      <Container maxWidth="lg">
+        <Stack
+          spacing={3}
+          sx={{
+            maxWidth: 600,
+            mb: { xs: 8, md: 5 },
+            mx: { xs: 'auto', md: 'unset' },
+            textAlign: { xs: 'center', md: 'unset' },
+          }}
+        >
+          <Typography variant="overline" sx={{ color: 'text.disabled' }}>
+            Initial Launch
+          </Typography>
 
-        <Typography variant="h2">Work Flow</Typography>
+          <Typography variant="h2">Work Flow</Typography>
 
-        <Typography sx={{ color: 'text.secondary' }}>
-          We offer a well-defined working porcess to streamline production and comprehensively
-          develop your project from the ground up.
-        </Typography>
-      </Stack>
+          <Typography sx={{ color: 'text.secondary' }}>
+            We offer a well-defined working porcess to streamline production and comprehensively
+            develop your project from the ground up.
+          </Typography>
+        </Stack>
 
-      <Box
-        sx={{
-          gap: 4,
-          display: 'grid',
-          alignItems: 'flex-end',
-          gridTemplateColumns: {
-            xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(4, 1fr)',
-          },
-        }}
-      >
-        {SERVICES.map((service, index) => (
-          <ServiceItem key={service.name} service={service} index={index} />
-        ))}
-      </Box>
+        <Box
+          sx={{
+            gap: 4,
+            display: 'grid',
+            alignItems: 'flex-end',
+            gridTemplateColumns: {
+              xs: 'repeat(1, 1fr)',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(4, 1fr)',
+            },
+          }}
+        >
+          {SERVICES.map((service, index) => (
+            <ServiceItem key={service.name} service={service} index={index} />
+          ))}
+        </Box>
+      </Container>
     </Container>
   );
 }

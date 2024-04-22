@@ -13,6 +13,9 @@ import { bgGradient } from 'src/theme/css';
 
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
+import withDelay, { DelayWrapper } from 'src/app/components/wrappers/withDelayWrapper';
+import withDelayWrapper from 'src/app/components/wrappers/withDelayWrapper';
+import { useState, useRef, useEffect } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -25,16 +28,19 @@ export default function MarketingLandingHero() {
     <Box
       sx={{
         overflow: 'hidden',
+        position: 'relative !important',
       }}
     >
       <VideoBackground />
-
       <Container
         sx={{
           py: 15,
           display: { md: 'flex' },
           alignItems: { md: 'center' },
           height: { md: `100vh` },
+          top: { md: 0 },
+          left: { md: 0 },
+          zIndex: 2,
         }}
       >
         <Grid container columnSpacing={{ xs: 0 }} flex={1}>
@@ -44,37 +50,38 @@ export default function MarketingLandingHero() {
               textAlign: { xs: 'center' },
               flex: { md: 1 },
             }}
+            display="flex"
+            flexDirection="column"
           >
-            <Typography variant="overline" sx={{ color: 'secondary.main' }} textAlign="center">
-              Executive Website Development
-            </Typography>
+            <DelayWrapper delay={18500}>
+              <Typography
+                variant="h1"
+                sx={{ color: 'white', mt: 2, fontWeight: 'bold', fontSize: '72px' }}
+                textAlign="center"
+              >
+                PLATINUM TECHNOLOGIES
+              </Typography>
 
-            <Typography variant="h1" sx={{ my: 3 }}>
-              PLATINUM TECHNOLOGIES
-            </Typography>
+              <Typography
+                variant="overline"
+                sx={{ color: 'white', marginTop: 22 }}
+                textAlign="center"
+              >
+                Executive Website Development
+              </Typography>
 
-            <Typography sx={{ color: 'text.secondary' }}>
-              We develop custom web applications utiziling the latest technologies
-            </Typography>
-
-            <Stack
-              spacing={3}
-              direction={{ xs: 'column', sm: 'row' }}
-              alignItems={{ xs: 'center', md: 'unset' }}
-              justifyContent={{ xs: 'center' }}
-              sx={{ mt: 5 }}
-            >
-              <Button variant="contained" color="inherit" size="large" href="/about">
-                Learn More
-              </Button>
-
-              {/* <Stack direction="row" alignItems="center" sx={{ typography: 'h6' }}>
-                <Fab size="medium" sx={{ mr: 1 }}>
-                  <Iconify width={24} icon="carbon:play" />
-                </Fab>
-                See Examples
-              </Stack> */}
-            </Stack>
+              <Stack
+                spacing={3}
+                direction={{ xs: 'column', sm: 'row' }}
+                alignItems={{ xs: 'center', md: 'unset' }}
+                justifyContent={{ xs: 'center' }}
+                sx={{ mt: 5 }}
+              >
+                <Button variant="contained" color="inherit" size="large" href="/about">
+                  Learn More
+                </Button>
+              </Stack>
+            </DelayWrapper>
           </Grid>
         </Grid>
       </Container>
@@ -83,23 +90,54 @@ export default function MarketingLandingHero() {
 }
 
 const VideoBackground = () => {
+  const [isVideoEnded, setVideoEnded] = useState(false);
+  const videoRef = useRef();
+
+  useEffect(() => {
+    const handleVideoEnd = () => {
+      setVideoEnded(true);
+    };
+
+    if (videoRef.current) {
+      videoRef.current.addEventListener('ended', handleVideoEnd);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.removeEventListener('ended', handleVideoEnd);
+      }
+    };
+  }, []);
+
   return (
-    <video
-      autoPlay
-      muted
-      loop
+    <div
       style={{
         position: 'absolute',
         width: '100%',
-        left: '50%',
-        top: '50%',
         height: '100%',
-        objectFit: 'cover',
+        overflow: 'hidden',
         transform: 'translate(-50%, -50%)',
-        zIndex: '-1',
+        top: '50%',
+        left: '50%',
+        zIndex: -1,
+        backgroundColor: isVideoEnded ? '#000' : 'transparent',
+        transition: 'backgroundColor 2s', // Change duration as needed
       }}
     >
-      <source src="/assets/background/bob.mp4" type="video/mp4" />
-    </video>
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        style={{
+          position: 'absolute',
+          width: '111.5%',
+          height: '100%',
+          objectFit: 'cover',
+          marginLeft: '-11.5%',
+        }}
+      >
+        <source src="/assets/background/bob.mp4" type="video/mp4" />
+      </video>
+    </div>
   );
 };

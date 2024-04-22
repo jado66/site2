@@ -195,8 +195,15 @@ export default function Header({
                 Close Chat
               </Button>
             ) : (
-              <Button color="inherit" variant="contained" onClick={handleOpenChatbot}>
-                {type === 'main' && 'Chat with Amy'}
+              <Button
+                color={offset ? 'inherit' : 'primary'}
+                sx={{
+                  color: 'white',
+                }}
+                variant="contained"
+                onClick={handleOpenChatbot}
+              >
+                {type === 'main' && 'Book a free consult'}
                 {type === 'travel' && 'Get Live Assistance'}
                 {type === 'education' && 'Open Chat'}
               </Button>

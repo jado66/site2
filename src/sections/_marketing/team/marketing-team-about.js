@@ -16,7 +16,7 @@ export default function MarketingTeamAbout({ members }) {
       }}
     >
       <Typography variant="h2" sx={{ textAlign: 'center' }}>
-        Great Team Is The Key
+        Highly Skilled Developers and Designers
       </Typography>
 
       <Typography
@@ -29,8 +29,8 @@ export default function MarketingTeamAbout({ members }) {
           color: 'text.secondary',
         }}
       >
-        Since wire-frame renderings are relatively simple and fast to calculate, they are often used
-        in cases
+        Meet the team of talented developers and designers who are passionate about creating the
+        best
       </Typography>
 
       <Box

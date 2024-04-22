@@ -94,57 +94,8 @@ export default function ApplicationsHero() {
               }}
             >
               <Typography variant="h1" sx={{ color: 'primary.main' }}>
-                AI Applications
+                Services
               </Typography>
-
-              <Typography sx={{ opacity: 0.72 }}>
-                Our team can help you to build AI applications that can help you to automate your
-                any type of customer facing communication
-              </Typography>
-            </Stack>
-
-            <Stack
-              spacing={2}
-              direction={{ xs: 'column', md: 'row' }}
-              alignItems={{ md: 'center' }}
-              justifyContent={{ md: 'center' }}
-            >
-              <Button
-                fullWidth={!mdUp}
-                color="primary"
-                size="large"
-                variant="contained"
-                sx={{ flexShrink: 0 }}
-              >
-                Web Chat
-              </Button>
-              <Button
-                fullWidth={!mdUp}
-                color="primary"
-                size="large"
-                variant="contained"
-                sx={{ flexShrink: 0 }}
-              >
-                Text (SMS)
-              </Button>
-              <Button
-                fullWidth={!mdUp}
-                color="primary"
-                size="large"
-                variant="contained"
-                sx={{ flexShrink: 0 }}
-              >
-                Voice
-              </Button>
-              <Button
-                fullWidth={!mdUp}
-                color="primary"
-                size="large"
-                variant="contained"
-                sx={{ flexShrink: 0 }}
-              >
-                Email
-              </Button>
             </Stack>
           </Grid>
         </Grid>

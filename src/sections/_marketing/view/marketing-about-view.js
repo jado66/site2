@@ -18,26 +18,25 @@ import MainLayout from 'src/layouts/main';
 
 export default function MarketingAboutView() {
   return (
-    <MainLayout>
+    <>
       <MarketingAbout />
-
-      {/* <MarketingAboutOurVision />
-
-      <MarketingAboutCoreValues />
-
-      <MarketingAboutStory />
 
       <MarketingTeamAbout members={_members} />
 
-      <MarketingAboutOurClients brands={_brandsColor} />
+      {/* <MarketingAboutOurVision /> */}
 
-      <MarketingTestimonial testimonials={_testimonials} />
+      <MarketingAboutCoreValues />
+
+      {/* <MarketingAboutStory /> */}
+
+      {/* <MarketingAboutOurClients brands={_brandsColor} /> */}
+
+      {/* <MarketingTestimonial testimonials={_testimonials} /> */}
+      <MarketingNewsletter />
 
       <MarketingLandingFaqs />
 
-      <MarketingLandingFreeSEO /> */}
-
-      {/* <MarketingNewsletter /> */}
-    </MainLayout>
+      <MarketingLandingFreeSEO />
+    </>
   );
 }

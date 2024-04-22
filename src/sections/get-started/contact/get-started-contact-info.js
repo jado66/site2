@@ -6,6 +6,12 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
+import {
+  inqueryEmail,
+  inqueryEmailLink,
+  inqueryPhoneLink,
+  inqueryPhoneText,
+} from 'src/constants/contact';
 
 // ----------------------------------------------------------------------
 
@@ -25,9 +31,9 @@ export default function GetStartedContactInfo() {
       <Stack spacing={2} alignItems="flex-start" direction="row">
         <Iconify width={28} icon="carbon:mobile" />
         <Stack spacing={0.5}>
-          <Typography variant="h6">Call us</Typography>
-          <Link color="inherit" variant="body2" href="tel:8012548871">
-            801.254.8871
+          <Typography variant="h6">Call or Text Us</Typography>
+          <Link color="inherit" variant="body2" href={inqueryPhoneLink}>
+            {inqueryPhoneText}
           </Link>
         </Stack>
       </Stack>
@@ -36,19 +42,19 @@ export default function GetStartedContactInfo() {
         <Iconify width={28} icon="carbon:email" />
         <Stack spacing={0.5}>
           <Typography variant="h6">Talk to us</Typography>
-          <Link color="inherit" variant="body2" href="mailto:JD@Japps.dev">
-            JD@Japps.dev
+          <Link color="inherit" variant="body2" href={inqueryEmailLink}>
+            {inqueryEmail}
           </Link>
         </Stack>
       </Stack>
 
-      <Stack spacing={2} alignItems="flex-start" direction="row">
+      {/* <Stack spacing={2} alignItems="flex-start" direction="row">
         <Iconify width={28} icon="carbon:time" />
         <Stack spacing={0.5}>
           <Typography variant="h6">Working Hours</Typography>
           <Typography variant="body2">Mon-Fri: 9 am — 6 pm, Mountain Time</Typography>
         </Stack>
-      </Stack>
+      </Stack> */}
     </Stack>
   );
 }

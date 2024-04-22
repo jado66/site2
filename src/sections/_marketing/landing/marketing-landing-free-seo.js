@@ -15,6 +15,12 @@ import { alpha, styled, useTheme } from '@mui/material/styles';
 import { bgGradient } from 'src/theme/css';
 
 import Iconify from 'src/components/iconify';
+import {
+  inqueryEmail,
+  inqueryEmailLink,
+  inqueryPhoneLink,
+  inqueryPhoneText,
+} from 'src/constants/contact';
 
 // ----------------------------------------------------------------------
 
@@ -71,13 +77,13 @@ export default function MarketingLandingFreeSEO() {
               variant="h1"
               component="h2"
               sx={{
-                color: 'primary.main',
+                color: 'common.white',
                 mb: { xs: 3, md: 8 },
                 textAlign: { xs: 'center', md: 'left' },
               }}
             >
-              Get Free
-              <br /> SEO Analysis
+              Book a Free
+              <br /> Consultation
             </Typography>
 
             <Stack
@@ -88,19 +94,21 @@ export default function MarketingLandingFreeSEO() {
             >
               <Iconify icon="carbon:email" width={24} sx={{ mr: 2 }} />
 
-              <Link color="inherit" href="mailto:hello@example.com">
-                hello@example.com
+              <Link color="inherit" href={inqueryEmailLink}>
+                {inqueryEmail}
               </Link>
             </Stack>
-
             <Stack
               direction="row"
               alignItems="center"
               justifyContent={{ xs: 'center', md: 'flex-start' }}
-              sx={{ color: 'common.white' }}
+              sx={{ color: 'common.white', mb: 2 }}
             >
-              <Iconify icon="carbon:location" width={24} sx={{ mr: 2 }} />
-              508 Bridle Avenue Newnan, GA 30263
+              <Iconify icon="carbon:phone" width={24} sx={{ mr: 2 }} />
+
+              <Link color="inherit" href={inqueryPhoneLink}>
+                Call or Text: {inqueryPhoneText}
+              </Link>
             </Stack>
           </Grid>
 
