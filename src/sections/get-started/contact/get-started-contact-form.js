@@ -144,7 +144,7 @@ export default function MarketingContactForm() {
           />
         </Stack>
 
-        <Stack spacing={5} sx={{ py: 2, px: 1, width: 1 }}>
+        <Stack spacing={5} sx={{ py: 2, px: 3, width: 1 }}>
           <Typography variant="overline" sx={{ color: 'text.disabled' }}>
             Your Budget: {fCurrency(values.budget[0])} - {fCurrency(values.budget[1])}
           </Typography>
@@ -152,8 +152,8 @@ export default function MarketingContactForm() {
           <RHFSlider
             name="budget"
             valueLabelDisplay="on"
-            min={0}
-            max={50000}
+            min={10000}
+            max={1000000}
             step={1000}
             valueLabelFormat={(value) => fCurrency(value)}
           />
