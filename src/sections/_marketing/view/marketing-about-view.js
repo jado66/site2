@@ -34,7 +34,7 @@ export default function MarketingAboutView() {
       {/* <MarketingTestimonial testimonials={_testimonials} /> */}
       <MarketingNewsletter />
 
-      <MarketingLandingFaqs />
+      {/* <MarketingLandingFaqs /> */}
 
       <MarketingLandingFreeSEO />
     </>

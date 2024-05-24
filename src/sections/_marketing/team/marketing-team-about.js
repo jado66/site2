@@ -16,7 +16,7 @@ export default function MarketingTeamAbout({ members }) {
       }}
     >
       <Typography variant="h2" sx={{ textAlign: 'center' }}>
-        Highly Skilled Developers and Designers
+        Highly Skilled Development Team
       </Typography>
 
       <Typography
@@ -29,8 +29,8 @@ export default function MarketingTeamAbout({ members }) {
           color: 'text.secondary',
         }}
       >
-        Meet the team of talented developers and designers who are passionate about creating the
-        best
+        Meet our team of highly skilled developers, graphic designers, project managers, and
+        technical experts.
       </Typography>
 
       <Box

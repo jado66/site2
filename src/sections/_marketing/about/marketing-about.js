@@ -87,13 +87,15 @@ export default function MarketingAbout() {
           {/* <Typography sx={{ color: 'text.secondary' }}>About.</Typography> */}
 
           <Typography sx={{ mt: 3, mb: 5, color: 'text.secondary' }}>
-            Vivamus consectetuer hendrerit lacus. Curabitur a felis in nunc fringilla tristique.
-            Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit.
+            If you are in the market for a cutting-edge, customized website to elevate your
+            business, you have come to the right place.
             <br />
             <br />
-            Nam pretium turpis et arcu. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl
-            dignissim dolor, a pretium mi sem ut ipsum. Praesent venenatis metus at tortor pulvinar
-            varius.
+            Platinum Technologies develops custom web applications, utilizing specialized software
+            and the latest web technology. We offer services and packages tailored to the needs of
+            corporate partners, established businesses, and funded start-up companies. Take a look
+            at our work and book a free consultation today to make your professional website stand
+            out with the support of our highly skilled developers.
           </Typography>
 
           <Button

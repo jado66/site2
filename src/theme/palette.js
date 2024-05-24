@@ -104,15 +104,15 @@ const base = {
 export function palette(mode) {
   const light = {
     ...base,
-    mode: 'light',
+    mode: 'dark',
     text: {
       primary: grey[800],
       secondary: grey[600],
       disabled: grey[500],
     },
     background: {
-      paper: '#FFFFFF',
-      default: '#FFFFFF',
+      paper: '#222222',
+      default: '#000000',
       neutral: grey[200],
     },
     action: {
@@ -140,5 +140,5 @@ export function palette(mode) {
     },
   };
 
-  return mode === 'light' ? light : dark;
+  return dark;
 }

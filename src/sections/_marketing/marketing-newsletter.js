@@ -33,7 +33,7 @@ export default function MarketingNewsletter({ sx, ...other }) {
               <Typography variant="h4">Subscribe to Our Newsletter</Typography>
 
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                Get updates on all our latest offerings.
+                Receive updates on our latest offerings.
               </Typography>
             </Stack>
           </Stack>

@@ -82,8 +82,8 @@ export default function MarketingLandingFreeSEO() {
                 textAlign: { xs: 'center', md: 'left' },
               }}
             >
-              Book a Free
-              <br /> Consultation
+              Schedule a <br />
+              Complimentary Consultation
             </Typography>
 
             <Stack

@@ -41,7 +41,7 @@ export default function MarketingAboutCoreValues() {
       }}
     >
       <Typography variant="h2" sx={{ mb: { xs: 8, md: 10 } }}>
-        Custopmer Satisfaction
+        Core Values
       </Typography>
 
       <Box

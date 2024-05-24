@@ -18,7 +18,7 @@ const SERVICES = [
   {
     name: 'Discovery and Planning',
     icon: '/assets/icons/ic_sketch_design.svg',
-    description: 'Phase one, Discovery and Planning includes...',
+    description: 'Phase 1',
     bullets: [
       'Client Consultations',
       'Discussing Needs',
@@ -30,7 +30,7 @@ const SERVICES = [
   {
     name: 'Development',
     icon: '/assets/icons/ic_optimization.svg',
-    description: 'Phase two, Development includes...',
+    description: 'Phase 2',
     bullets: [
       'Custom Design',
       'Full-Stack Development',
@@ -41,7 +41,7 @@ const SERVICES = [
   {
     name: 'Testing and Feedback',
     icon: '/assets/icons/ic_search.svg',
-    description: 'Phase three, Testing and Feedback includes...',
+    description: 'Phase 3',
     bullets: [
       'Debugging',
       'Product Refinement',
@@ -52,7 +52,7 @@ const SERVICES = [
   {
     name: 'Launch and Grow',
     icon: '/assets/icons/ic_analysis.svg',
-    description: 'Phase four, Launch and Grow includes...',
+    description: 'Phase 4',
     bullets: [
       'Deployment',
       'Dedicated Post-Launch Support',
@@ -128,6 +128,7 @@ function ServiceItem({ service, index }) {
   return (
     <Card
       sx={{
+        position: 'relative',
         p: 2,
         color: (theme) => theme.palette[COLORS[index]].darker,
         bgcolor: (theme) => theme.palette[COLORS[index]].light,
@@ -151,15 +152,17 @@ function ServiceItem({ service, index }) {
           opacity: 0.48,
         }}
       />
-
+      <Typography
+        variant="body2"
+        sx={{ textAlign: 'right', position: 'absolute', top: 0, right: 0, mt: 3, mr: 3 }}
+        gutterBottom
+      >
+        {service.description}
+      </Typography>
       <Typography variant="h5" sx={{ mt: 3, textAlign: 'center' }}>
         {name}
       </Typography>
       <Divider sx={{ my: 2 }} />
-
-      <Typography variant="body2" sx={{ textAlign: 'left' }} gutterBottom>
-        {service.description}
-      </Typography>
 
       <List sx={{ width: '100%', maxWidth: 360, listStyleType: 'disc' }}>
         {service.bullets.map((bullet) => (
