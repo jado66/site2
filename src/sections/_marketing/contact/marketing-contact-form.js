@@ -132,7 +132,7 @@ export default function MarketingContactForm() {
 
         <Stack spacing={5} sx={{ py: 2, width: 1 }}>
           <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-            Your Budget
+            Your Total Budget
           </Typography>
 
           <RHFSlider

@@ -84,7 +84,7 @@ export default function Footer() {
         <Grid container spacing={8} justifyContent={{ md: 'center' }}>
           <Grid xs={12} md={4}>
             <Stack alignItems="flex-start" spacing={3}>
-              <Logo />
+              <Logo single />
 
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 Your point of contact for AI communication solutions, designed to improve customer
