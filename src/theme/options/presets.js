@@ -48,8 +48,8 @@ const preset02 = {
   primary: {
     lighter: '#B5D8FF',
     light: '#A6C8ED',
-    main: '#3274B0',
-    dark: '#094470',
+    main: '#74a7d6',
+    dark: '#3274b0',
     darker: '#041A32',
     contrastText: grey[800],
   },

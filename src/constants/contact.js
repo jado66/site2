@@ -1,4 +1,4 @@
-export const inqueryEmail = 'inqueries@platinumtech.com';
-export const inqueryEmailLink = 'mailto:inqueries@platinumtech.com';
-export const inqueryPhoneText = '+1 (234) 567-890';
-export const inqueryPhoneLink = 'tel:+1234567890';
+export const inqueryEmail = 'Contact@PlatinumProgramming.com';
+export const inqueryEmailLink = 'mailto:contact@platinumprogramming.com';
+export const inqueryPhoneText = '+1 (385) 309-1356';
+export const inqueryPhoneLink = 'tel:+13853091356';

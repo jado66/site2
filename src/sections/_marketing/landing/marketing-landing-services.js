@@ -93,8 +93,7 @@ export default function MarketingLandingServices() {
             display: 'grid',
             alignItems: 'center',
             gridTemplateColumns: {
-              xs: 'repeat(1, 1fr)',
-              sm: 'repeat(2, 1fr)',
+              sm: 'repeat(1, 1fr)',
               md: 'repeat(2, 1fr)',
             },
           }}

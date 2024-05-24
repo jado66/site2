@@ -14,33 +14,7 @@ function Logo({ single = false, sx }) {
 
   const PRIMARY_MAIN = theme.palette.primary.main;
 
-  const singleLogo = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
-      fill="none"
-      viewBox="0 0 512 512"
-    >
-      <ellipse cx="405.143" cy="338.571" fill={PRIMARY_MAIN} rx="82.857" ry="82.857" />
-
-      <path
-        d="
-        M10,50
-        Q70,0 140,0
-        Q260,0 260,100
-        Q260,200 140,200
-        L10,200
-        Z
-        M140,200
-        Q260,200 260,300
-        Q260,400 140,400
-        L10,400 
-        L10,50
-      "
-      />
-    </svg>
-  );
+  const singleLogo = <h3>Platinum Programming</h3>;
 
   const fullLogo = (
     <svg
@@ -80,7 +54,7 @@ function Logo({ single = false, sx }) {
     >
       <Box
         sx={{
-          width: single ? 64 : 75,
+          // width: 150,
           lineHeight: 0,
           cursor: 'pointer',
           display: 'inline-flex',

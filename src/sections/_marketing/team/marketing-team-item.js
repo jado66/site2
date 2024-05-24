@@ -17,10 +17,6 @@ import { varHover, varTranHover } from 'src/components/animate';
 // ----------------------------------------------------------------------
 
 const StyledOverlay = styled('div')(({ theme }) => ({
-  ...bgGradient({
-    startColor: `${alpha(theme.palette.common.black, 0)} 0%`,
-    endColor: `${theme.palette.common.black} 75%`,
-  }),
   top: 0,
   left: 0,
   zIndex: 8,
@@ -45,7 +41,6 @@ export default function MarketingTeamItem({ member, ...other }) {
       <Box
         component={m.div}
         whileHover="hover"
-        variants={varHover(0.95)}
         transition={varTranHover()}
         sx={{ position: 'relative', borderRadius: 2, overflow: 'hidden' }}
       >
@@ -54,16 +49,10 @@ export default function MarketingTeamItem({ member, ...other }) {
             direction="row"
             justifyContent="center"
             sx={{ width: 1, zIndex: 9, bottom: 24, position: 'absolute' }}
-          >
-            {_socials.map((social) => (
-              <IconButton key={social.value} color="primary">
-                <Iconify icon={social.icon} />
-              </IconButton>
-            ))}
-          </Stack>
+          ></Stack>
         </StyledOverlay>
 
-        <m.div variants={varHover(1.15)} transition={varTranHover()}>
+        <m.div variants={varHover(1.05)} transition={varTranHover()}>
           <Image src={photo} alt={name} ratio="3/4" />
         </m.div>
       </Box>

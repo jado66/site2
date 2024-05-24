@@ -105,8 +105,7 @@ export default function MarketingLandingProcess() {
             display: 'grid',
             alignItems: 'flex-end',
             gridTemplateColumns: {
-              xs: 'repeat(1, 1fr)',
-              sm: 'repeat(2, 1fr)',
+              sm: 'repeat(1, 1fr)',
               md: 'repeat(4, 1fr)',
             },
           }}
