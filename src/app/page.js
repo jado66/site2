@@ -3,7 +3,7 @@ import MarketingLandingView from 'src/sections/_marketing/view/marketing-landing
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Platinum Technologies: Home',
+  title: 'Platinum Programming: Home',
 };
 
 export default function MarketingLandingPage() {

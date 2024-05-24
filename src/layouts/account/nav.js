@@ -133,6 +133,7 @@ export default function Nav({ open, onClose }) {
         renderContent
       ) : (
         <Drawer
+          anchor="top"
           open={open}
           onClose={onClose}
           PaperProps={{

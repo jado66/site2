@@ -91,7 +91,7 @@ export default function MarketingAbout() {
             business, you have come to the right place.
             <br />
             <br />
-            Platinum Technologies develops custom web applications, utilizing specialized software
+            Platinum Programming develops custom web applications, utilizing specialized software
             and the latest web technology. We offer services and packages tailored to the needs of
             corporate partners, established businesses, and funded start-up companies. Take a look
             at our work and book a free consultation today to make your professional website stand

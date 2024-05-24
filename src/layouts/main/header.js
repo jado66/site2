@@ -151,7 +151,7 @@ export default function Header({
           component="div"
           sx={{ flexGrow: 1, display: 'flex', alignItems: 'baseline' }}
         >
-          {type === 'main' && 'Platinum Technologies'}
+          {type === 'main' && 'Platinum Programming'}
           {type === 'travel' && (
             <>
               Avelora Travel

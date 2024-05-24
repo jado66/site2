@@ -59,7 +59,7 @@ export default function MarketingLandingHero() {
                 sx={{ color: 'white', mt: 2, fontWeight: 'bold', fontSize: '72px' }}
                 textAlign="center"
               >
-                PLATINUM TECHNOLOGIES
+                PLATINUM PROGRAMMING
               </Typography>
 
               <Typography

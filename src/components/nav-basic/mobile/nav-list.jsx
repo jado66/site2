@@ -50,7 +50,11 @@ export default function NavList({ data, depth, slotProps }) {
         //
         active={active}
         className={active ? 'active' : ''}
-        sx={depth === 1 ? slotProps?.rootItem : slotProps?.subItem}
+        sx={{
+          ...(depth === 1 ? slotProps?.rootItem : slotProps?.subItem),
+          textAlign: 'center',
+          position: 'relative', // Add this line
+        }}
       />
 
       {!!data.children && (

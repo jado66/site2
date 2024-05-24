@@ -17,6 +17,7 @@ import Scrollbar from 'src/components/scrollbar';
 
 import { NavBasicMobile } from 'src/components/nav-basic';
 import { NAV } from '../../../config-layout';
+import { SwipeableDrawer } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -51,22 +52,39 @@ export default function NavMobile({ data, openChatbot, hideChatbot, showChatbot 
         <Iconify icon="carbon:menu" />
       </IconButton>
 
-      <Drawer
+      <SwipeableDrawer
+        anchor="top"
         open={mobileOpen.value}
         onClose={mobileOpen.onFalse}
         PaperProps={{
           sx: {
             pb: 5,
-            width: NAV.W_VERTICAL,
+            textAlign: 'center',
+            // width: NAV.W_VERTICAL,
           },
         }}
       >
-        <Scrollbar>
-          <Logo sx={{ mx: 2.5, my: 3 }} />
+        <IconButton
+          edge="end"
+          color="inherit"
+          onClick={mobileOpen.onFalse}
+          sx={{
+            position: 'absolute',
+            right: 0,
+            marginTop: '20px',
+            marginRight: '24px',
+            top: 0,
+          }}
+        >
+          <Iconify icon="carbon:close-filled" />
+        </IconButton>
 
-          <NavBasicMobile data={data} />
-        </Scrollbar>
-      </Drawer>
+        {/* <Scrollbar> */}
+        <Logo sx={{ mx: 2.5, my: 3 }} />
+
+        <NavBasicMobile data={data} />
+        {/* </Scrollbar> */}
+      </SwipeableDrawer>
     </>
   );
 }

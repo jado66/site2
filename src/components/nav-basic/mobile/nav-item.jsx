@@ -30,7 +30,12 @@ const NavItem = forwardRef(
 
         {hasChild && (
           <Iconify
-            width={16}
+            style={{
+              position: 'absolute',
+              right: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+            }}
             className="arrow"
             icon={open ? 'eva:arrow-ios-downward-fill' : 'eva:arrow-ios-forward-fill'}
           />
@@ -137,7 +142,8 @@ const StyledNavItem = styled(ListItemButton, {
       fontSize: 13,
       minHeight: 32,
       color: theme.palette.text.secondary,
-      padding: theme.spacing(0, 1, 0, Number(depth) * 2 - 1),
+      padding: theme.spacing(0, 1, 0, Number(1) * 2 - 1),
+      paddingLeft: 0,
       '&:before': {
         content: '""',
         width: 1,

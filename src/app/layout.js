@@ -18,9 +18,9 @@ import 'react-toastify/dist/ReactToastify.css';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Platinum Technologies',
+  title: 'Platinum Programming',
   description:
-    'Platinum Technologies is an Ai software company that provides Ai solutions for businesses.',
+    'Platinum Programming is an Ai software company that provides Ai solutions for businesses.',
   keywords:
     'Ai, Artificial Intelligence, Machine Learning, Deep Learning, Data Science, Data Analytics, Data Engineering, Data Visualization, Data Warehousing, Data Mining, Data Modeling, Data Architecture, Data Governance, Data Quality, Data Security, Data Privacy, Data Ethics, Data Strategy, Data Management, Data Integration, Data Migration, Data Lake, Data Warehouse, Data Mart',
   themeColor: '#000000',

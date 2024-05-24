@@ -3,7 +3,7 @@ import GetStartedView from 'src/sections/get-started/get-started-view';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Platinum Technologies: About us',
+  title: 'Platinum Programming: About us',
 };
 
 export default function MarketingAboutPage() {

@@ -76,6 +76,8 @@ export default function NavList({ data, slotProps }) {
 
       {!!data.children && (
         <Drawer
+          // dropdown from top
+          anchor="top"
           open={openMenu}
           onClose={handleCloseMenu}
           slotProps={{

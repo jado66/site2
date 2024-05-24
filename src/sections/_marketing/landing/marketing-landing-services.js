@@ -49,7 +49,7 @@ const SERVICES = [
     caption: 'SMS Marketing, Email Marketing, Chatbots',
     icon: '/assets/icons/service/ic_service_bullhorn.svg',
     content:
-      '"Communication is key," and here at Platinum Technologies, we pride ourselves in automating clear and consistent communication with customers. Technical communications are different channels we can utilize to speak directly to each customer. We can create custom interfaces for your website using communication modalities such as email, text messaging, voice applications (incoming or outgoing calls), web chats using custom chatGPT models, and more.',
+      '"Communication is key," and here at Platinum Programming, we pride ourselves in automating clear and consistent communication with customers. Technical communications are different channels we can utilize to speak directly to each customer. We can create custom interfaces for your website using communication modalities such as email, text messaging, voice applications (incoming or outgoing calls), web chats using custom chatGPT models, and more.',
     path: paths.marketing.services,
   },
 ];
@@ -81,7 +81,7 @@ export default function MarketingLandingServices() {
 
           <Typography sx={{ color: 'text.secondary' }}>
             Our team of top-tier developers create custom web applications using the latest web
-            technologies. We offer services and packages tailored to the needs of coprate partners,
+            programming. We offer services and packages tailored to the needs of coprate partners,
             established businesses and funded start-ups. Make your prefessional website stand out
             with the support of our highly skilled develoeprs and specialized software.
           </Typography>

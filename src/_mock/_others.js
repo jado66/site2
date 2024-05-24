@@ -106,7 +106,7 @@ export const _faqs = [
     id: _mock.id(0),
     question: 'What does the company do?',
     answer:
-      'Platinum Technologiesis a software company that specializes in creating AI solutions. We create custom AI models that can answer users questions using information that you provide. These AI assistants can be integrated  for use in Web Apps, Mobile Applications, Voice and SMS Applications.',
+      'Platinum Programmingis a software company that specializes in creating AI solutions. We create custom AI models that can answer users questions using information that you provide. These AI assistants can be integrated  for use in Web Apps, Mobile Applications, Voice and SMS Applications.',
   },
   {
     id: _mock.id(1),
@@ -122,15 +122,15 @@ export const _faqs = [
   },
   {
     id: _mock.id(3),
-    question: ' Where is Platinum Technologies located? ',
+    question: ' Where is Platinum Programming located? ',
     answer:
-      "Platinum Technologies is a Utah company but it's developers are spread across the United States",
+      "Platinum Programming is a Utah company but it's developers are spread across the United States",
   },
   {
     id: _mock.id(4),
-    question: 'What companies has Platinum Technologies worked with?',
+    question: 'What companies has Platinum Programming worked with?',
     answer:
-      'Platinum Technologies is a relatively new company but some of the team members have built custom software for the FBI, KBR and Sinch Voice.',
+      'Platinum Programming is a relatively new company but some of the team members have built custom software for the FBI, KBR and Sinch Voice.',
   },
 ];
 
