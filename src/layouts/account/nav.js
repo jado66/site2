@@ -20,40 +20,41 @@ import { _mock } from 'src/_mock';
 
 import Iconify from 'src/components/iconify';
 import TextMaxLine from 'src/components/text-max-line';
+import { Button } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
 const navigations = [
   {
     title: 'Personal Info',
-    path: paths.eCommerce.account.personal,
+    path: 0,
     icon: <Iconify icon="carbon:user" />,
   },
   {
     title: 'Wishlist',
-    path: paths.eCommerce.account.wishlist,
+    path: 1,
     icon: <Iconify icon="carbon:favorite" />,
   },
   {
     title: 'Vouchers',
-    path: paths.eCommerce.account.vouchers,
+    path: 2,
     icon: <Iconify icon="carbon:cut-out" />,
   },
   {
     title: 'Orders',
-    path: paths.eCommerce.account.orders,
+    path: 3,
     icon: <Iconify icon="carbon:document" />,
   },
   {
     title: 'Payment',
-    path: paths.eCommerce.account.payment,
+    path: 4,
     icon: <Iconify icon="carbon:purchase" />,
   },
 ];
 
 // ----------------------------------------------------------------------
 
-export default function Nav({ open, onClose }) {
+export default function Nav({ open, onClose, setPage, page }) {
   const mdUp = useResponsive('up', 'md');
 
   const renderContent = (
@@ -99,7 +100,7 @@ export default function Nav({ open, onClose }) {
 
       <Stack sx={{ my: 1, px: 2 }}>
         {navigations.map((item) => (
-          <NavItem key={item.title} item={item} />
+          <NavItem key={item.title} item={item} page={page} setPage={setPage} />
         ))}
       </Stack>
 
@@ -156,15 +157,13 @@ Nav.propTypes = {
 
 // ----------------------------------------------------------------------
 
-function NavItem({ item }) {
-  const active = useActiveLink(item.path);
-
+function NavItem({ item, setPage, page }) {
   return (
     <Link
-      component={RouterLink}
+      component={Button}
       key={item.title}
-      href={item.path}
-      color={active ? 'primary' : 'inherit'}
+      onClick={() => setPage(item.path)}
+      color={page === item.path ? 'primary' : 'inherit'}
       underline="none"
     >
       <ListItemButton
@@ -179,7 +178,7 @@ function NavItem({ item }) {
           primary={item.title}
           primaryTypographyProps={{
             typography: 'body2',
-            ...(active && {
+            ...(page === item.path && {
               typography: 'subtitle2',
             }),
           }}

@@ -55,20 +55,40 @@ export const _socials = [
 // ----------------------------------------------------------------------
 
 const LAT_LONG = [
-  [33, 65],
-  [-12.5, 18.5],
-  [20.96, 26.27],
+  [40.7128, -74.006],
+  [36.180241, -115.124855],
+  [41.890629, -87.740623],
 ];
 
-export const _offices = ['Jordan', 'Canada', 'Portugal'].map((office, index) => ({
-  id: _mock.id(index),
-  country: office,
-  address: _mock.fullAddress(index),
-  phoneNumber: _mock.phoneNumber(index),
-  email: _mock.email(index),
-  photo: _mock.image.travel(index + 4),
-  latlng: LAT_LONG[index],
-}));
+export const _offices = [
+  {
+    id: _mock.id(0),
+    country: 'New York Office',
+    address: '64 S. Meadow Street Astoria, NY 11103',
+    phoneNumber: _mock.phoneNumber(0),
+    email: _mock.email(0),
+    photo: _mock.image.travel(0 + 4),
+    latlng: LAT_LONG[0],
+  },
+  {
+    id: _mock.id(1),
+    country: 'Las Vegas Office',
+    address: '4489 Sunrise Road, Las Vegas, NV 89119',
+    phoneNumber: '702-806-4854',
+    email: _mock.email(1),
+    photo: _mock.image.travel(1 + 4),
+    latlng: LAT_LONG[1],
+  },
+  {
+    id: _mock.id(2),
+    country: 'Chicago Office',
+    address: '1069 Cherry Camp Road, Chicago, IL 60647',
+    phoneNumber: '773-489-2522',
+    email: _mock.email(2),
+    photo: _mock.image.travel(2 + 4),
+    latlng: LAT_LONG[2],
+  },
+];
 
 // ----------------------------------------------------------------------
 

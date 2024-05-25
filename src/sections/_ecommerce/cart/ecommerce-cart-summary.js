@@ -63,7 +63,7 @@ export default function EcommerceCartSummary({ tax, total, subtotal, shipping, d
 
       <Button
         component={RouterLink}
-        href={paths.eCommerce.checkout}
+        href={'checkout'}
         size="large"
         variant="contained"
         color="inherit"

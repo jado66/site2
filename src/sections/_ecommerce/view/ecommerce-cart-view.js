@@ -46,13 +46,7 @@ export default function EcommerceCartView() {
         </Grid>
       </Grid>
 
-      <Button
-        component={RouterLink}
-        href={paths.eCommerce.products}
-        color="inherit"
-        startIcon={<Iconify icon="carbon:chevron-left" />}
-        sx={{ mt: 3 }}
-      >
+      <Button color="inherit" startIcon={<Iconify icon="carbon:chevron-left" />} sx={{ mt: 3 }}>
         Continue Shopping
       </Button>
     </Container>

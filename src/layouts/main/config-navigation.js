@@ -25,7 +25,7 @@ export const pageLinks = [
       { title: 'Tours', path: paths.travel.tours },
       { title: 'Tour', path: paths.travel.tour },
       { title: 'Checkout', path: paths.travel.checkout },
-      { title: 'Order Completed', path: paths.travel.orderCompleted },
+      { title: 'Order Completed', path: 'order-completed' },
       { title: 'Blog Posts', path: paths.travel.posts },
       { title: 'Blog Post', path: paths.travel.post },
       { title: 'About', path: paths.travel.about },

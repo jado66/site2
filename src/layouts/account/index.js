@@ -15,7 +15,7 @@ import Nav from './nav';
 
 // ----------------------------------------------------------------------
 
-export default function AccountLayout({ children }) {
+export default function AccountLayout({ setPage, children }) {
   const mdUp = useResponsive('up', 'md');
 
   const menuOpen = useBoolean();
@@ -62,7 +62,7 @@ export default function AccountLayout({ children }) {
             },
           }}
         >
-          <Nav open={menuOpen.value} onClose={menuOpen.onFalse} />
+          <Nav open={menuOpen.value} onClose={menuOpen.onFalse} setPage={setPage} />
 
           <Box
             sx={{

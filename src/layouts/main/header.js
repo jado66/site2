@@ -37,7 +37,7 @@ const mainNav = [
   },
   {
     title: 'Services',
-    path: '/examples',
+    path: '/services',
     children: [
       { title: 'Travel', path: '/examples/travel' },
       { title: 'Education', path: '/examples/education' },

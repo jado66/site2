@@ -28,7 +28,7 @@ import TravelCheckOutShippingForm from '../checkout/travel-check-out-shipping-fo
 
 // ----------------------------------------------------------------------
 
-export default function TravelCheckoutView() {
+export default function CheckoutView() {
   const router = useRouter();
 
   const sameBilling = useBoolean();
