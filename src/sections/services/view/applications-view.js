@@ -19,18 +19,34 @@ import CheckoutView from './checkout-view';
 import EcommerceCartView from 'src/sections/_ecommerce/view/ecommerce-cart-view';
 import EcommerceAccountPersonalView from 'src/sections/_ecommerce/view/ecommerce-account-personal-view';
 import AccountLayout from 'src/layouts/account';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import EcommerceAccountWishlistView from 'src/sections/_ecommerce/view/ecommerce-account-wishlist-view';
 import EcommerceAccountVouchersView from 'src/sections/_ecommerce/view/ecommerce-account-vouchers-view';
 import EcommerceAccountOrdersPage from 'src/sections/_ecommerce/view/ecommerce-account-orders-view';
 import EcommerceAccountPaymentView from 'src/sections/_ecommerce/view/ecommerce-account-payment-view';
 import ContactMap from 'src/components/map';
-import { Grid } from '@mui/material';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Grid,
+  Tab,
+  Tabs,
+  Typography,
+} from '@mui/material';
+import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 
+const AccountTabs = ['Personal Info', 'Wishlist', 'Vouchers', 'Orders', 'Payment'];
+
 export default function ServicesView() {
-  const [accountPage, setAccountPage] = useState(0);
+  const [accountPage, setAccountPage] = useState('Personal Info');
+
+  const handleChangeTab = useCallback((event, newValue) => {
+    setAccountPage(newValue);
+  }, []);
 
   const { scrollYProgress } = useScroll();
   return (
@@ -42,21 +58,56 @@ export default function ServicesView() {
           <ApplicationsHero />
         </Grid>
 
-        <CheckoutView />
+        <StyledAccordion title="Eccomerce Features">
+          <>
+            <CheckoutView />
 
-        <EcommerceCartView />
+            <EcommerceCartView />
+          </>
+        </StyledAccordion>
 
-        <AccountLayout setPage={setAccountPage} page={accountPage}>
-          {accountPage === 0 && <EcommerceAccountPersonalView />}
-          {accountPage === 1 && <EcommerceAccountWishlistView />}
-          {accountPage === 2 && <EcommerceAccountVouchersView />}
-          {accountPage === 3 && <EcommerceAccountOrdersPage />}
-          {accountPage === 4 && <EcommerceAccountPaymentView />}
-        </AccountLayout>
+        <StyledAccordion title="User Accounts">
+          <>
+            <Grid xs={12} md={6} lg={7} sx={{ mx: 'auto' }}>
+              <Tabs
+                value={accountPage}
+                scrollButtons="auto"
+                allowScrollButtonsMobile
+                onChange={handleChangeTab}
+                variant="fullWidth"
+                sx={{ mb: 3, display: 'flex', justifyContent: 'center', width: '100%' }}
+              >
+                {AccountTabs.map((category) => (
+                  <Tab key={category} value={category} label={category} />
+                ))}
+              </Tabs>
+            </Grid>
 
-        <Grid xs={12} md={6} lg={7} sx={{ mx: 'auto' }}>
-          <ContactMap offices={_offices} sx={{ borderRadius: 2 }} />
-        </Grid>
+            <Box
+              sx={{
+                flexGrow: 1,
+                pl: { md: 8 },
+                mx: 'auto',
+                width: { md: `calc(100% - ${280}px)` },
+              }}
+            >
+              {accountPage === 'Personal Info' && <EcommerceAccountPersonalView />}
+              {accountPage === 'Wishlist' && <EcommerceAccountWishlistView />}
+              {accountPage === 'Vouchers' && <EcommerceAccountVouchersView />}
+              {accountPage === 'Orders' && <EcommerceAccountOrdersPage />}
+              {accountPage === 'Payment' && <EcommerceAccountPaymentView />}
+            </Box>
+          </>
+        </StyledAccordion>
+
+        <StyledAccordion title="External Technology Integration">
+          <>
+            <Grid xs={12} md={6} lg={7} sx={{ mx: 'auto' }}>
+              <ContactMap offices={_offices} sx={{ borderRadius: 2 }} />
+            </Grid>
+          </>
+        </StyledAccordion>
+
         {/* <Applications /> */}
 
         {/* <ApplicationsInclude /> */}
@@ -68,3 +119,47 @@ export default function ServicesView() {
     </MainLayout>
   );
 }
+
+const StyledAccordion = ({ children, title }) => {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <>
+      <Accordion
+        sx={{
+          '&.Mui-expanded': {
+            marginY: 0,
+          },
+          width: '100%',
+        }}
+        PaperProps={{ marginTop: 0 }}
+        expanded={expanded}
+        onChange={() => setExpanded(!expanded)}
+      >
+        <AccordionSummary
+          aria-controls="panel1-content"
+          id="panel1-header"
+          sx={{
+            '& .MuiAccordionSummary-content': {
+              justifyContent: 'center',
+              alignItems: 'center',
+            },
+            display: 'flex',
+            width: '100%',
+          }}
+        >
+          <Typography variant="h4">{title}</Typography>
+          <Iconify
+            icon="tabler:chevron-up"
+            style={{
+              marginLeft: '1em',
+              transform: expanded ? 'rotate(0deg)' : 'rotate(180deg)',
+              transition: 'transform 0.3s ease',
+            }}
+          />
+        </AccordionSummary>
+        <AccordionDetails sx={{ my: 0 }}>{children}</AccordionDetails>
+      </Accordion>
+    </>
+  );
+};
