@@ -13,7 +13,7 @@ import { RouterLink } from 'src/routes/components';
 import Iconify from 'src/components/iconify';
 import SvgColor from 'src/components/svg-color';
 import TextMaxLine from 'src/components/text-max-line';
-import { Divider } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ const SERVICES = [
   {
     name: 'User Management',
     caption: 'Authentication',
-    icon: '/assets/icons/service/ic_service_seo.svg',
+    icon: '/assets/images/admin.jpg',
     content:
       'User management authentication gives you, in addition to selective team members, the tools and controls necessarily to confidently and securely manage your website. We can provide you with a login page connected to an authentication provider, a database where user information and password hashes (password backups) are stored. Authentication allows for protected pages within your website, so select sections and pages of your website can be inaccessible without login credentials. Sensitive webpages can be protected by login information only distributed to your team members with relevant roles. Website administrators can have exclusive access to different pages and functionality than general users.',
     path: paths.marketing.services,
@@ -31,7 +31,7 @@ const SERVICES = [
   {
     name: 'Data Management',
     caption: 'Database Integration',
-    icon: '/assets/icons/service/ic_service_mail.svg',
+    icon: '/assets/images/handshake.jpg',
     content:
       'Any successful business manages data, whether it be inventory data, sales reports, weather forecasts, customer information, or other organized data collections. Integrating a database into your website allows you to display relevant data, and we can also provide website administrators (or users, if applicable) with the proper tools to search, filter, sort, edit, delete, and manage company data, however they see fit.',
     path: paths.marketing.services,
@@ -39,7 +39,7 @@ const SERVICES = [
   {
     name: 'Connections',
     caption: 'API Integration',
-    icon: '/assets/icons/service/ic_service_analysis.svg',
+    icon: '/assets/images/card.jpg',
     content:
       'Are there services outside the scope of your website that you wish to connect with your site? Your business may benefit from connecting a payment processing app or social media platform to your website. For example, our clients commonly request that we connect the payment platform Stripe for billing or the social media platform Instagram directly to their website. The list of possible connections is extensive, but essentially, any outside connection from your website to another service or provider uses APIs. Our team of highly skilled web developers is capable of creating API integrations to facilitate the aforementioned web connections.',
     path: paths.marketing.services,
@@ -47,7 +47,7 @@ const SERVICES = [
   {
     name: 'Custom Communication',
     caption: 'SMS Marketing, Email Marketing, Chatbots',
-    icon: '/assets/icons/service/ic_service_bullhorn.svg',
+    icon: '/assets/images/connections.jpg',
     content:
       '"Communication is key," and here at Platinum Programming, we pride ourselves in automating clear and consistent communication with customers. Technical communications are different channels we can utilize to speak directly to each customer. We can create custom interfaces for your website using communication modalities such as email, text messaging, voice applications (incoming or outgoing calls), web chats using custom chatGPT models, and more.',
     path: paths.marketing.services,
@@ -127,15 +127,17 @@ function ServiceItem({ service, index }) {
         }),
       }}
     >
-      <SvgColor
-        src={icon}
-        sx={{
-          width: 88,
-          height: 88,
-          mx: 'auto',
-          color: (theme) => theme.palette[COLORS[index]].main,
-        }}
-      />
+      <ImageFade>
+        <img
+          src={icon}
+          sx={{
+            width: 88,
+            height: 88,
+            mx: 'auto',
+            color: (theme) => theme.palette[COLORS[index]].main,
+          }}
+        />
+      </ImageFade>
 
       <Stack spacing={1} sx={{ my: 5 }}>
         <TextMaxLine variant="h6">{name}</TextMaxLine>
@@ -172,4 +174,30 @@ ServiceItem.propTypes = {
     content: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   }),
+};
+
+const ImageFade = ({ children }) => {
+  return (
+    <Grid
+      sx={{
+        display: 'inline-block',
+        position: 'relative',
+        overflow: 'hidden',
+        '&::after': {
+          content: '""',
+          display: 'block',
+          height: '100%',
+          width: '100%',
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          background:
+            'linear-gradient(to right, #161C24 5%, transparent 10%, transparent 90%, #161C24 95%), linear-gradient(to bottom, #161C24 5%, transparent 10%, transparent 90%, #161C24 95%)',
+          pointerEvents: 'none',
+        },
+      }}
+    >
+      {children}
+    </Grid>
+  );
 };

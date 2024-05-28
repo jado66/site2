@@ -129,7 +129,7 @@ export default function CheckoutView() {
       }}
     >
       <Typography variant="h2" sx={{ mb: 5 }}>
-        Confirm and Pay
+        Confirm and Paddy
       </Typography>
 
       <FormProvider methods={methods} onSubmit={onSubmit}>

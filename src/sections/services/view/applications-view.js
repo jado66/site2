@@ -148,15 +148,17 @@ const StyledAccordion = ({ children, title }) => {
             width: '100%',
           }}
         >
-          <Typography variant="h4">{title}</Typography>
-          <Iconify
-            icon="tabler:chevron-up"
-            style={{
-              marginLeft: '1em',
-              transform: expanded ? 'rotate(0deg)' : 'rotate(180deg)',
-              transition: 'transform 0.3s ease',
-            }}
-          />
+          <Typography variant="h3">
+            {title}
+            <Iconify
+              icon="tabler:chevron-up"
+              style={{
+                marginLeft: '1em',
+                transform: expanded ? 'rotate(0deg)' : 'rotate(180deg)',
+                transition: 'transform 0.3s ease',
+              }}
+            />
+          </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ my: 0 }}>{children}</AccordionDetails>
       </Accordion>
