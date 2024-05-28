@@ -200,7 +200,7 @@ export default function Header({
                 variant="contained"
                 onClick={handleOpenChatbot}
               >
-                {type === 'main' && 'Book a free consult'}
+                {type === 'main' && 'Complimentary Consultation'}
                 {type === 'travel' && 'Get Live Assistance'}
                 {type === 'education' && 'Open Chat'}
               </Button>
