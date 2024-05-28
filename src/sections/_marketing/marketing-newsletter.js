@@ -24,8 +24,9 @@ export default function MarketingNewsletter({ sx, ...other }) {
             direction={{ xs: 'column', md: 'row' }}
             sx={{ textAlign: { xs: 'center', md: 'left' } }}
           >
-            <SvgColor
-              src="/assets/icons/ic_newsletter.svg"
+            <img
+              src="/assets/images/email.jpg"
+              height={80}
               sx={{ width: 80, height: 80, color: 'primary.main' }}
             />
 

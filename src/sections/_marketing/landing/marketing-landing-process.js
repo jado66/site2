@@ -17,7 +17,7 @@ const COLORS = ['primary', 'secondary', 'warning', 'success'];
 const SERVICES = [
   {
     name: 'Discovery and Planning',
-    icon: '/assets/icons/ic_sketch_design.svg',
+    image: '/assets/images/lightbulb.jpg',
     description: 'Phase 1',
     bullets: [
       'Client Consultations',
@@ -29,7 +29,7 @@ const SERVICES = [
   },
   {
     name: 'Development',
-    icon: '/assets/icons/ic_optimization.svg',
+    image: '/assets/images/webdev.jpg',
     description: 'Phase 2',
     bullets: [
       'Custom Design',
@@ -40,7 +40,7 @@ const SERVICES = [
   },
   {
     name: 'Testing and Feedback',
-    icon: '/assets/icons/ic_search.svg',
+    image: '/assets/images/feedback.jpg',
     description: 'Phase 3',
     bullets: [
       'Debugging',
@@ -51,7 +51,7 @@ const SERVICES = [
   },
   {
     name: 'Launch and Grow',
-    icon: '/assets/icons/ic_analysis.svg',
+    image: '/assets/images/new-product.jpg',
     description: 'Phase 4',
     bullets: [
       'Deployment',
@@ -122,7 +122,7 @@ export default function MarketingLandingProcess() {
 // ----------------------------------------------------------------------
 
 function ServiceItem({ service, index }) {
-  const { name, icon } = service;
+  const { name, image } = service;
 
   return (
     <Card
@@ -143,8 +143,8 @@ function ServiceItem({ service, index }) {
         }),
       }}
     >
-      <SvgColor
-        src={icon}
+      <img
+        src={image}
         sx={{
           width: 64,
           height: 64,
@@ -178,6 +178,6 @@ ServiceItem.propTypes = {
   index: PropTypes.number,
   service: PropTypes.shape({
     name: PropTypes.string,
-    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    image: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   }),
 };
