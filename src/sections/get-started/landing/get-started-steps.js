@@ -5,14 +5,10 @@ import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
 
 import { paths } from 'src/routes/paths';
-import { RouterLink } from 'src/routes/components';
 
-import Iconify from 'src/components/iconify';
-import SvgColor from 'src/components/svg-color';
-import TextMaxLine from 'src/components/text-max-line';
+import { CardContent, CardMedia } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -20,26 +16,26 @@ const COLORS = ['primary', 'secondary', 'success', 'warning'];
 
 const STEPS = [
   {
-    name: 'Contact Us',
-    icon: '/assets/icons/service/ic_service_mail.svg',
+    name: 'Contact',
+    image: '/assets/images/contact.jpg',
     content: 'Fill out the contact form below and we will get back to you within 24 hours',
     path: paths.marketing.services,
   },
   {
     name: 'Discuss Requirements',
-    icon: '/assets/icons/service/ic_service_analysis.svg',
+    image: '/assets/images/discuss.jpg',
     content: 'We will discuss your requirements and provide a quote',
     path: paths.marketing.services,
   },
   {
     name: 'Get Started',
-    icon: '/assets/icons/service/ic_service_seo.svg',
+    image: '/assets/images/get-started.jpg',
     content: 'After the quote is accepted, we will get started on your project',
     path: paths.marketing.services,
   },
   {
     name: 'Constant Communication',
-    icon: '/assets/icons/service/ic_service_bullhorn.svg',
+    image: '/assets/images/constant.jpg',
     content:
       'We will keep you updated on the progress of your project, taking your feedback into account',
     path: paths.marketing.services,
@@ -101,50 +97,31 @@ export default function GetStartedSteps() {
 // ----------------------------------------------------------------------
 
 function ServiceItem({ service, index }) {
-  const { name, icon, content, path } = service;
+  const { name, image, content, path } = service;
 
   return (
     <Card
       sx={{
-        px: 4,
-        py: 5,
         textAlign: 'center',
         ...(index === 1 && {
-          py: { xs: 5, md: 8 },
+          pb: { xs: 5, md: 8 },
         }),
         ...(index === 2 && {
-          py: { xs: 5, md: 10 },
+          pb: { xs: 5, md: 10 },
           boxShadow: (theme) => ({ md: theme.customShadows.z24 }),
         }),
       }}
     >
-      <SvgColor
-        src={icon}
-        sx={{
-          width: 88,
-          height: 88,
-          mx: 'auto',
-          color: (theme) => theme.palette[COLORS[index]].main,
-        }}
-      />
+      <CardMedia component="img" alt={name} image={image} sx={{ height: 150, mx: 'auto' }} />
 
-      <Stack spacing={1} sx={{ my: 5 }}>
-        <Typography variant="h6">{name}</Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {content}
-        </Typography>
-      </Stack>
-
-      <IconButton
-        component={RouterLink}
-        href={path}
-        color={
-          (index === 0 && 'primary') ||
-          (index === 1 && 'secondary') ||
-          (index === 2 && 'success') ||
-          'warning'
-        }
-      ></IconButton>
+      <CardContent sx={{ px: 4, py: 5 }}>
+        <Stack spacing={1} sx={{ my: 5 }}>
+          <Typography variant="h6">{name}</Typography>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            {content}
+          </Typography>
+        </Stack>
+      </CardContent>
     </Card>
   );
 }
@@ -155,6 +132,6 @@ ServiceItem.propTypes = {
     name: PropTypes.string,
     path: PropTypes.string,
     content: PropTypes.string,
-    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    image: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   }),
 };
