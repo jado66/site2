@@ -3,7 +3,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import { useTheme } from '@mui/material/styles';
-import { Chart } from 'src/components/chart/Chart';
+import dynamic from 'next/dynamic';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const useChartOptions = () => {
   const theme = useTheme();
