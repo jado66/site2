@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 
 import SvgColor from 'src/components/svg-color';
 import { Divider, List, ListItem } from '@mui/material';
+import { ImageFade } from 'src/components/image/ImageFade';
+import { useTheme } from '@mui/system';
 
 // ----------------------------------------------------------------------
 
@@ -124,13 +126,15 @@ export default function MarketingLandingProcess() {
 function ServiceItem({ service, index }) {
   const { name, image } = service;
 
+  const theme = useTheme();
+
   return (
     <Card
       sx={{
         position: 'relative',
         p: 2,
         color: (theme) => theme.palette[COLORS[index]].darker,
-        bgcolor: (theme) => theme.palette[COLORS[index]].light,
+        bgcolor: (theme) => theme.palette[COLORS[index]].lighter,
         boxShadow: (theme) => `-8px 12px 32px 0px ${alpha(theme.palette[COLORS[index]].main, 0.2)}`,
         ...(index === 1 && {
           mb: { md: 2.5 },
@@ -143,14 +147,16 @@ function ServiceItem({ service, index }) {
         }),
       }}
     >
-      <img
-        src={image}
-        sx={{
-          width: 64,
-          height: 64,
-          opacity: 0.48,
-        }}
-      />
+      <ImageFade color={theme.palette[COLORS[index]].lighter}>
+        <img
+          src={image}
+          sx={{
+            width: 64,
+            height: 64,
+            opacity: 0.48,
+          }}
+        />
+      </ImageFade>
       <Typography
         variant="body2"
         sx={{ textAlign: 'right', position: 'absolute', top: 0, right: 0, mt: 3, mr: 3 }}

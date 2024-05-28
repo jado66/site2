@@ -30,6 +30,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
+  Divider,
   Grid,
   Tab,
   Tabs,
@@ -61,6 +62,8 @@ export default function ServicesView() {
         <StyledAccordion title="Eccomerce Features">
           <>
             <CheckoutView />
+
+            <Divider sx />
 
             <EcommerceCartView />
           </>

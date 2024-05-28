@@ -14,6 +14,7 @@ import Iconify from 'src/components/iconify';
 import SvgColor from 'src/components/svg-color';
 import TextMaxLine from 'src/components/text-max-line';
 import { Divider, Grid } from '@mui/material';
+import { ImageFade } from 'src/components/image/ImageFade';
 
 // ----------------------------------------------------------------------
 
@@ -174,30 +175,4 @@ ServiceItem.propTypes = {
     content: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   }),
-};
-
-const ImageFade = ({ children }) => {
-  return (
-    <Grid
-      sx={{
-        display: 'inline-block',
-        position: 'relative',
-        overflow: 'hidden',
-        '&::after': {
-          content: '""',
-          display: 'block',
-          height: '100%',
-          width: '100%',
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          background:
-            'linear-gradient(to right, #161C24 5%, transparent 10%, transparent 90%, #161C24 95%), linear-gradient(to bottom, #161C24 5%, transparent 10%, transparent 90%, #161C24 95%)',
-          pointerEvents: 'none',
-        },
-      }}
-    >
-      {children}
-    </Grid>
-  );
 };
