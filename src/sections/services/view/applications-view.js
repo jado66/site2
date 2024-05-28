@@ -32,11 +32,20 @@ import {
   Box,
   Divider,
   Grid,
+  Stack,
   Tab,
   Tabs,
   Typography,
+  alpha,
 } from '@mui/material';
 import Iconify from 'src/components/iconify';
+import LoginBackgroundView from 'src/sections/auth/login-background-view';
+import { bgGradient } from 'src/theme/css';
+import { useTheme } from '@mui/system';
+import VerifyView from 'src/sections/auth/verify-view';
+import RegisterBackgroundView from 'src/sections/auth/register-background-view';
+import ForgotPasswordView from 'src/sections/auth/forgot-password-view';
+import { AnalyticsTrafficSources } from 'src/sections/analytics/TrafficSources';
 
 // ----------------------------------------------------------------------
 
@@ -44,6 +53,9 @@ const AccountTabs = ['Personal Info', 'Wishlist', 'Vouchers', 'Orders', 'Payment
 
 export default function ServicesView() {
   const [accountPage, setAccountPage] = useState('Personal Info');
+  const [loginPage, setLoginPage] = useState('login');
+
+  const theme = useTheme();
 
   const handleChangeTab = useCallback((event, newValue) => {
     setAccountPage(newValue);
@@ -51,13 +63,19 @@ export default function ServicesView() {
 
   const { scrollYProgress } = useScroll();
   return (
-    <MainLayout>
+    <>
       <Grid container>
         <ScrollProgress scrollYProgress={scrollYProgress} />
 
         <Grid xs={12}>
           <ApplicationsHero />
         </Grid>
+
+        <StyledAccordion title="Data and Analytics">
+          <>
+            <AnalyticsTrafficSources />
+          </>
+        </StyledAccordion>
 
         <StyledAccordion title="Eccomerce Features">
           <>
@@ -66,6 +84,77 @@ export default function ServicesView() {
             <Divider sx />
 
             <EcommerceCartView />
+          </>
+        </StyledAccordion>
+
+        <StyledAccordion title="Login and Sign-Up Flows">
+          <>
+            <Stack
+              alignItems="center"
+              justifyContent="center"
+              sx={{
+                mx: -2,
+                py: 12,
+                minHeight: '100vh',
+              }}
+            >
+              <Stack
+                spacing={4}
+                sx={{
+                  p: 4,
+                  width: 1,
+                  mx: 'auto',
+                  flexShrink: 0,
+                  maxWidth: 400,
+                  borderRadius: 2,
+                  bgcolor: 'background.default',
+                  boxShadow: theme.customShadows.z24,
+                  textAlign: { xs: 'center', md: 'left' },
+                }}
+              >
+                {loginPage === 'login' && (
+                  <LoginBackgroundView
+                    onRegisterClick={() => setLoginPage('register')}
+                    onForgotPasswordClick={() => setLoginPage('forgot')}
+                  />
+                )}
+                {loginPage === 'register' && (
+                  <RegisterBackgroundView onLoginClick={() => setLoginPage('login')} />
+                )}
+                {loginPage === 'forgot' && (
+                  <ForgotPasswordView onLoginClick={() => setLoginPage('login')} />
+                )}
+              </Stack>
+            </Stack>
+
+            <Divider />
+
+            <Stack
+              alignItems="center"
+              justifyContent="center"
+              sx={{
+                mx: -2,
+                py: 12,
+                minHeight: '100vh',
+              }}
+            >
+              <Stack
+                spacing={4}
+                sx={{
+                  p: 4,
+                  width: 1,
+                  mx: 'auto',
+                  flexShrink: 0,
+                  maxWidth: 400,
+                  borderRadius: 2,
+                  bgcolor: 'background.default',
+                  boxShadow: theme.customShadows.z24,
+                  textAlign: { xs: 'center', md: 'left' },
+                }}
+              >
+                <VerifyView />
+              </Stack>
+            </Stack>
           </>
         </StyledAccordion>
 
@@ -119,7 +208,7 @@ export default function ServicesView() {
 
         {/* <ApplicationsHowItWork /> */}
       </Grid>
-    </MainLayout>
+    </>
   );
 }
 

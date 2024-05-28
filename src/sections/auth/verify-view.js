@@ -86,8 +86,6 @@ export default function VerifyView() {
       </Typography>
 
       <Link
-        component={RouterLink}
-        href={paths.loginCover}
         color="inherit"
         variant="subtitle2"
         sx={{
@@ -95,6 +93,7 @@ export default function VerifyView() {
           mx: 'auto',
           alignItems: 'center',
           display: 'inline-flex',
+          cursor: 'pointer',
         }}
       >
         <Iconify icon="carbon:chevron-left" width={16} sx={{ mr: 1 }} />

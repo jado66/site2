@@ -1,6 +1,5 @@
 'use client';
 
-
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -19,7 +18,7 @@ import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
 // ----------------------------------------------------------------------
 
-export default function ForgotPasswordView() {
+export default function ForgotPasswordView({ onLoginClick }) {
   const ForgotPasswordSchema = Yup.object().shape({
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
   });
@@ -82,8 +81,7 @@ export default function ForgotPasswordView() {
       </FormProvider>
 
       <Link
-        component={RouterLink}
-        href={paths.loginCover}
+        onClick={onLoginClick}
         color="inherit"
         variant="subtitle2"
         sx={{
@@ -91,6 +89,7 @@ export default function ForgotPasswordView() {
           mx: 'auto',
           alignItems: 'center',
           display: 'inline-flex',
+          cursor: 'pointer',
         }}
       >
         <Iconify icon="carbon:chevron-left" width={16} sx={{ mr: 1 }} />

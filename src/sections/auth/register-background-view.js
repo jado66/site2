@@ -23,7 +23,7 @@ import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
 // ----------------------------------------------------------------------
 
-export default function RegisterBackgroundView() {
+export default function RegisterBackgroundView({ onLoginClick }) {
   const passwordShow = useBoolean();
 
   const RegisterSchema = Yup.object().shape({
@@ -76,12 +76,7 @@ export default function RegisterBackgroundView() {
 
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
         {`Already have an account? `}
-        <Link
-          component={RouterLink}
-          href={paths.loginBackground}
-          variant="subtitle2"
-          color="primary"
-        >
+        <Link onClick={onLoginClick} variant="subtitle2" color="primary" sx={{ cursor: 'pointer' }}>
           Login
         </Link>
       </Typography>
