@@ -13,6 +13,7 @@ import MarketingAboutOurVision from '../about/marketing-about-our-vision';
 import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
 import MarketingAboutCoreValues from '../about/marketing-about-core-values';
 import MainLayout from 'src/layouts/main';
+import GetStartedSteps from 'src/sections/get-started/landing/get-started-steps';
 
 // ----------------------------------------------------------------------
 
@@ -26,6 +27,8 @@ export default function MarketingAboutView() {
       {/* <MarketingAboutOurVision /> */}
 
       <MarketingAboutCoreValues />
+
+      <GetStartedSteps />
 
       {/* <MarketingAboutStory /> */}
 

@@ -6,6 +6,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import SvgColor from 'src/components/svg-color';
 import SubscribeWidget from '../common-components/subscribe-widget';
+import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 export default function MarketingNewsletter({ sx, ...other }) {
@@ -24,11 +25,7 @@ export default function MarketingNewsletter({ sx, ...other }) {
             direction={{ xs: 'column', md: 'row' }}
             sx={{ textAlign: { xs: 'center', md: 'left' } }}
           >
-            <img
-              src="/assets/images/email.jpg"
-              height={80}
-              sx={{ width: 80, height: 80, color: 'primary.main' }}
-            />
+            <Iconify icon="clarity:email-line" style={{ width: 80, height: 80, color: '#19FDFC' }} />
 
             <Stack spacing={1}>
               <Typography variant="h4">Subscribe to Our Newsletter</Typography>

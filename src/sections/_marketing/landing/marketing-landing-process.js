@@ -72,7 +72,7 @@ export default function MarketingLandingProcess() {
     <Container
       sx={{
         py: { xs: 5, md: 10 },
-        backgroundColor: (theme) => theme.palette.primary.darker,
+        // backgroundColor: (theme) => theme.palette.primary.darker,
         maxWidth: '100% !important',
         mx: 0,
         color: 'common.white',
@@ -108,7 +108,7 @@ export default function MarketingLandingProcess() {
             alignItems: 'flex-end',
             gridTemplateColumns: {
               sm: 'repeat(1, 1fr)',
-              md: 'repeat(4, 1fr)',
+              md: 'repeat(2, 1fr)',
             },
           }}
         >
@@ -146,7 +146,7 @@ function ServiceItem({ service, index }) {
         }),
       }}
     >
-      <CardMedia sx={{ height: 150 }} image={image} />
+      <CardMedia sx={{ height: 250 }} image={image} />
       <CardContent sx={{ p: 2, pt: 0 }}>
         <Typography
           variant="body2"

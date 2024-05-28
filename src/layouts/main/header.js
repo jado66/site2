@@ -45,9 +45,9 @@ const mainNav = [
   },
   {
     title: 'Portfolio',
-    path: '/applications',
+    path: '/portfolio',
   },
-  { title: 'Contact', path: '/get-started' },
+  { title: 'Contact', path: '/contact' },
 ];
 
 const travelNav = [

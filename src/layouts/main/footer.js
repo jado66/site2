@@ -27,6 +27,7 @@ import Iconify from 'src/components/iconify';
 
 import { pageLinks, navConfig } from './config-navigation';
 import SubscribeWidget from 'src/sections/common-components/subscribe-widget';
+import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
 
 // ----------------------------------------------------------------------
 
@@ -58,6 +59,8 @@ export default function Footer() {
 
   const simpleFooter = (
     <Container sx={{ py: 8, textAlign: 'center' }}>
+      <MarketingNewsletter />
+
       <Logo single />
 
       <Typography
@@ -260,7 +263,7 @@ export default function Footer() {
     </>
   );
 
-  return <footer>{isHome ? simpleFooter : simplifiedMainFooter}</footer>;
+  return <footer>{simpleFooter} </footer>;
 }
 
 // ----------------------------------------------------------------------

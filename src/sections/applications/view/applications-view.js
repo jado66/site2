@@ -21,7 +21,7 @@ import ApplicationsHowItWork from '../services/applications-how-it-work';
 export default function ApplicationsView() {
   const { scrollYProgress } = useScroll();
   return (
-    <MainLayout>
+    <>
       <ScrollProgress scrollYProgress={scrollYProgress} />
 
       <ApplicationsHero />
@@ -33,6 +33,6 @@ export default function ApplicationsView() {
       <ApplicationsBenefits />
 
       <ApplicationsHowItWork />
-    </MainLayout>
+    </>
   );
 }
