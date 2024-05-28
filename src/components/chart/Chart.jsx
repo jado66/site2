@@ -1,3 +1,5 @@
+'use client';
+
 import ApexChart from 'react-apexcharts';
 import { alpha } from '@mui/system/colorManipulator';
 import { styled } from '@mui/material/styles';
