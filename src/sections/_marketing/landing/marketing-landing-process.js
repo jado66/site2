@@ -8,7 +8,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import SvgColor from 'src/components/svg-color';
-import { Divider, List, ListItem } from '@mui/material';
+import { CardContent, CardMedia, Divider, List, ListItem } from '@mui/material';
 import { ImageFade } from 'src/components/image/ImageFade';
 import { useTheme } from '@mui/system';
 
@@ -132,7 +132,6 @@ function ServiceItem({ service, index }) {
     <Card
       sx={{
         position: 'relative',
-        p: 2,
         color: (theme) => theme.palette[COLORS[index]].darker,
         bgcolor: (theme) => theme.palette[COLORS[index]].lighter,
         boxShadow: (theme) => `-8px 12px 32px 0px ${alpha(theme.palette[COLORS[index]].main, 0.2)}`,
@@ -147,35 +146,28 @@ function ServiceItem({ service, index }) {
         }),
       }}
     >
-      <ImageFade color={theme.palette[COLORS[index]].lighter}>
-        <img
-          src={image}
-          sx={{
-            width: 64,
-            height: 64,
-            opacity: 0.48,
-          }}
-        />
-      </ImageFade>
-      <Typography
-        variant="body2"
-        sx={{ textAlign: 'right', position: 'absolute', top: 0, right: 0, mt: 3, mr: 3 }}
-        gutterBottom
-      >
-        {service.description}
-      </Typography>
-      <Typography variant="h5" sx={{ mt: 3, textAlign: 'center' }}>
-        {name}
-      </Typography>
-      <Divider sx={{ my: 2 }} />
+      <CardMedia sx={{ height: 150 }} image={image} />
+      <CardContent sx={{ p: 2, pt: 0 }}>
+        <Typography
+          variant="body2"
+          sx={{ textAlign: 'right', position: 'absolute', top: 0, right: 0, mt: 3, mr: 3 }}
+          gutterBottom
+        >
+          {service.description}
+        </Typography>
+        <Typography variant="h5" sx={{ mt: 3, textAlign: 'center' }}>
+          {name}
+        </Typography>
+        <Divider sx={{ my: 2 }} />
 
-      <List sx={{ width: '100%', maxWidth: 360, listStyleType: 'disc' }}>
-        {service.bullets.map((bullet) => (
-          <ListItem key={bullet}>
-            <Typography variant="body2">• {bullet}</Typography>
-          </ListItem>
-        ))}
-      </List>
+        <List sx={{ width: '100%', maxWidth: 360, listStyleType: 'disc' }}>
+          {service.bullets.map((bullet) => (
+            <ListItem key={bullet}>
+              <Typography variant="body2">• {bullet}</Typography>
+            </ListItem>
+          ))}
+        </List>
+      </CardContent>
     </Card>
   );
 }

@@ -13,7 +13,7 @@ import { RouterLink } from 'src/routes/components';
 import Iconify from 'src/components/iconify';
 import SvgColor from 'src/components/svg-color';
 import TextMaxLine from 'src/components/text-max-line';
-import { Divider, Grid } from '@mui/material';
+import { CardMedia, Divider, Grid } from '@mui/material';
 import { ImageFade } from 'src/components/image/ImageFade';
 
 // ----------------------------------------------------------------------
@@ -116,19 +116,20 @@ function ServiceItem({ service, index }) {
   return (
     <Card
       sx={{
-        px: 4,
-        py: 5,
+        //
         textAlign: 'center',
-        ...(index === 1 && {
-          py: { xs: 5, md: 8 },
-        }),
+        ...(index === 1 &&
+          {
+            // py: { xs: 5, md: 8 },
+          }),
         ...(index === 2 && {
-          py: { xs: 5, md: 10 },
+          // py: { xs: 5, md: 10 },
           boxShadow: (theme) => ({ md: theme.customShadows.z24 }),
         }),
       }}
     >
-      <ImageFade>
+      <CardMedia sx={{ height: 300 }} image={icon} />
+      {/* <ImageFade>
         <img
           src={icon}
           sx={{
@@ -138,9 +139,9 @@ function ServiceItem({ service, index }) {
             color: (theme) => theme.palette[COLORS[index]].main,
           }}
         />
-      </ImageFade>
+      </ImageFade> */}
 
-      <Stack spacing={1} sx={{ my: 5 }}>
+      <Stack spacing={1} sx={{ my: 5, px: 4, py: 5 }}>
         <TextMaxLine variant="h6">{name}</TextMaxLine>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           {caption}
