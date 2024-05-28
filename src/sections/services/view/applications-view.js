@@ -46,6 +46,7 @@ import VerifyView from 'src/sections/auth/verify-view';
 import RegisterBackgroundView from 'src/sections/auth/register-background-view';
 import ForgotPasswordView from 'src/sections/auth/forgot-password-view';
 import { AnalyticsTrafficSources } from 'src/sections/analytics/TrafficSources';
+import { AnalyticsVisitsByCountry } from 'src/sections/analytics/TrafficByCountry';
 
 // ----------------------------------------------------------------------
 
@@ -73,7 +74,58 @@ export default function ServicesView() {
 
         <StyledAccordion title="Data and Analytics">
           <>
-            <AnalyticsTrafficSources />
+            <AnalyticsTrafficSources
+              chartSeries={[
+                {
+                  name: 'Organic',
+                  data: [45, 40, 37, 41, 42, 45, 42],
+                },
+                {
+                  name: 'Marketing',
+                  data: [19, 26, 22, 19, 22, 24, 28],
+                },
+              ]}
+            />
+            <AnalyticsVisitsByCountry
+              visits={[
+                {
+                  id: 'us',
+                  name: 'United States',
+                  seoPercentage: 40,
+                  value: 31200,
+                },
+                {
+                  id: 'uk',
+                  name: 'United Kingdom',
+                  seoPercentage: 47,
+                  value: 12700,
+                },
+                {
+                  id: 'ru',
+                  name: 'Russia',
+                  seoPercentage: 65,
+                  value: 10360,
+                },
+                {
+                  id: 'ca',
+                  name: 'Canada',
+                  seoPercentage: 23,
+                  value: 5749,
+                },
+                {
+                  id: 'de',
+                  name: 'Germany',
+                  seoPercentage: 45,
+                  value: 2932,
+                },
+                {
+                  id: 'es',
+                  name: 'Spain',
+                  seoPercentage: 56,
+                  value: 200,
+                },
+              ]}
+            />
           </>
         </StyledAccordion>
 

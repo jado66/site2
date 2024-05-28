@@ -80,7 +80,7 @@ export const AnalyticsTrafficSources = (props) => {
 
   return (
     <Card>
-      <CardHeader sx={{ pb: 0 }} title="Traffic Sources" />
+      <CardHeader sx={{ pb: 0 }} title="Web Traffic Sources" />
       <CardContent sx={{ pt: 0 }}>
         <Chart height={400} options={chartOptions} series={chartSeries} type="bar" />
       </CardContent>
