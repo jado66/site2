@@ -359,7 +359,7 @@ export default function ApplicationsInclude() {
         with your business in mind.
       </Typography>
 
-      <Typography variant="h3" sx={{ mb: { xs: 4, md: 6 } }}>
+      <Typography variant="h3" sx={{ my: 6 }}>
         Communication Channels
       </Typography>
 
@@ -370,7 +370,6 @@ export default function ApplicationsInclude() {
           display: 'grid',
           gridTemplateColumns: {
             xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
             md: 'repeat(3, 1fr)',
           },
         }}
@@ -380,7 +379,7 @@ export default function ApplicationsInclude() {
         ))}
       </Box>
 
-      <Typography variant="h3" sx={{ my: { xs: 4, md: 6 } }}>
+      <Typography variant="h3" sx={{ my: 6 }}>
         Secure Logins and Accounts
       </Typography>
 
@@ -395,8 +394,8 @@ export default function ApplicationsInclude() {
 
           '& > :not(style)': {
             // Selects all direct children except those with the "style" element type, allowing us to uniformly style the children
-            minWidth: ['33.33%'], // Sets minimum widths per breakpoint. 100% on extra small screens, 50% on small screens, and 33.33% on medium screens.
-            maxWidth: ['33.33%'], // Sets max widths the same as min widths, ensuring uniform size across devices
+            minWidth: ['100%', '33.33%'],
+            maxWidth: ['100%', '33.33%'],
           },
         }}
       >
@@ -405,7 +404,7 @@ export default function ApplicationsInclude() {
         ))}
       </Box>
 
-      <Typography variant="h3" sx={{ my: { xs: 4, md: 6 } }}>
+      <Typography variant="h3" sx={{ my: 6 }}>
         Third Party Integrations
       </Typography>
 
@@ -416,7 +415,6 @@ export default function ApplicationsInclude() {
           display: 'grid',
           gridTemplateColumns: {
             xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
             md: 'repeat(3, 1fr)',
           },
         }}
@@ -438,8 +436,8 @@ export default function ApplicationsInclude() {
 
           '& > :not(style)': {
             // Selects all direct children except those with the "style" element type, allowing us to uniformly style the children
-            minWidth: ['33.33%'], // Sets minimum widths per breakpoint. 100% on extra small screens, 50% on small screens, and 33.33% on medium screens.
-            maxWidth: ['33.33%'], // Sets max widths the same as min widths, ensuring uniform size across devices
+            minWidth: ['100%', '33.33%'],
+            maxWidth: ['100%', '33.33%'],
           },
         }}
       >
@@ -448,7 +446,7 @@ export default function ApplicationsInclude() {
         ))}
       </Box>
 
-      <Typography variant="h3" sx={{ my: { xs: 4, md: 6 } }}>
+      <Typography variant="h3" sx={{ my: 6 }}>
         Data Management &amp; Visualization
       </Typography>
 
@@ -459,7 +457,6 @@ export default function ApplicationsInclude() {
           display: 'grid',
           gridTemplateColumns: {
             xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
             md: 'repeat(3, 1fr)',
           },
         }}
