@@ -85,15 +85,15 @@ export default function RegisterBackgroundView({ onLoginClick }) {
 
   const renderSocials = (
     <Stack direction="row" spacing={2}>
-      <Button fullWidth size="large" color="inherit" variant="outlined">
+      <Button fullWidth size="large" color="inherit" variant="outlined" disabled>
         <Iconify icon="logos:google-icon" width={24} />
       </Button>
 
-      <Button fullWidth size="large" color="inherit" variant="outlined">
+      <Button fullWidth size="large" color="inherit" variant="outlined" disabled>
         <Iconify icon="carbon:logo-facebook" width={24} sx={{ color: '#1877F2' }} />
       </Button>
 
-      <Button color="inherit" fullWidth variant="outlined" size="large">
+      <Button color="inherit" fullWidth variant="outlined" size="large" disabled>
         <Iconify icon="carbon:logo-github" width={24} sx={{ color: 'text.primary' }} />
       </Button>
     </Stack>
@@ -102,39 +102,42 @@ export default function RegisterBackgroundView({ onLoginClick }) {
   const renderForm = (
     <FormProvider methods={methods} onSubmit={onSubmit}>
       <Stack spacing={2.5}>
-        <RHFTextField name="fullName" label="Full Name" />
+        <Stack spacing={{ xs: 2.5, md: 2 }} direction="row" sx={{ width: 1 }}>
+          <RHFTextField name="fullName" label="Full Name" />
+          <RHFTextField name="email" label="Email address" />
+        </Stack>
 
-        <RHFTextField name="email" label="Email address" />
+        <Stack spacing={{ xs: 2.5, md: 2 }} direction="row" sx={{ width: 1 }}>
+          <RHFTextField
+            name="password"
+            label="Password"
+            type={passwordShow.value ? 'text' : 'password'}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={passwordShow.onToggle} edge="end">
+                    <Iconify icon={passwordShow.value ? 'carbon:view' : 'carbon:view-off'} />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
 
-        <RHFTextField
-          name="password"
-          label="Password"
-          type={passwordShow.value ? 'text' : 'password'}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton onClick={passwordShow.onToggle} edge="end">
-                  <Iconify icon={passwordShow.value ? 'carbon:view' : 'carbon:view-off'} />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-
-        <RHFTextField
-          name="confirmPassword"
-          label="Confirm Password"
-          type={passwordShow.value ? 'text' : 'password'}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton onClick={passwordShow.onToggle} edge="end">
-                  <Iconify icon={passwordShow.value ? 'carbon:view' : 'carbon:view-off'} />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
+          <RHFTextField
+            name="confirmPassword"
+            label="Confirm Password"
+            type={passwordShow.value ? 'text' : 'password'}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={passwordShow.onToggle} edge="end">
+                    <Iconify icon={passwordShow.value ? 'carbon:view' : 'carbon:view-off'} />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Stack>
 
         <LoadingButton
           fullWidth

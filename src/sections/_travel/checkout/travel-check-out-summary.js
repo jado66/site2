@@ -36,6 +36,9 @@ export default function TravelCheckOutSummary({
 
   const { coverUrl, slug, ratingNumber, totalReviews, price, tourGuide } = tour;
 
+  const totalGuests = guests.children + guests.adults;
+  const totalPrice = price * totalGuests;
+
   return (
     <Card>
       <Box
@@ -165,7 +168,7 @@ export default function TravelCheckOutSummary({
       <Stack spacing={3} sx={{ p: 3 }}>
         <Stack spacing={1} direction="row" alignItems="center" justifyContent="space-between">
           <Typography variant="h5">Total</Typography>
-          <Typography variant="h5">{fCurrency(price)}</Typography>
+          <Typography variant="h5">{fCurrency(totalPrice)}</Typography>
         </Stack>
 
         <LoadingButton

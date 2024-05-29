@@ -122,14 +122,16 @@ export default function CheckoutView() {
 
   return (
     <Container
+      style={{ marginTop: '50%' }}
       sx={{
         overflow: 'hidden',
         pt: 5,
+        mt: '50% !important',
         pb: { xs: 8, md: 15 },
       }}
     >
       <Typography variant="h2" sx={{ mb: 5 }}>
-        Confirm and Paddy
+        Confirm and Pay
       </Typography>
 
       <FormProvider methods={methods} onSubmit={onSubmit}>

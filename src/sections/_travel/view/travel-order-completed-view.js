@@ -21,7 +21,7 @@ import TravelOrderCompletedSummary from '../order-completed/travel-order-complet
 
 const _mockTour = _tours[1];
 
-export default function TravelOrderCompletedView() {
+export default function TravelOrderCompletedView({ onClickBack }) {
   const mdUp = useResponsive('up', 'md');
 
   return (
@@ -33,12 +33,21 @@ export default function TravelOrderCompletedView() {
         display: 'grid',
         alignItems: 'flex-start',
         gridTemplateColumns: { md: 'repeat(2, 1fr)' },
+        bgcolor: (theme) => theme.palette.grey[800],
       }}
     >
-      {mdUp && <Image alt="cover" src={_mockTour.coverUrl} ratio="3/4" sx={{ borderRadius: 2 }} />}
+      {mdUp && (
+        <Image
+          alt="cover"
+          src={_mockTour.coverUrl}
+          ratio="3/4"
+          sx={{ borderRadius: 2 }}
+          onClick={(e) => e.stopPropagation()}
+        />
+      )}
 
-      <Stack spacing={5}>
-        <Typography variant="h2">Completed 🎉</Typography>
+      <Stack spacing={5} onClick={(e) => e.stopPropagation()}>
+        <Typography variant="h2">Order Completed </Typography>
 
         <TravelOrderCompletedInfo tour={_mockTour} />
 
@@ -46,14 +55,13 @@ export default function TravelOrderCompletedView() {
 
         <Stack spacing={2.5} direction={{ xs: 'column', md: 'row' }} justifyContent="center">
           <Button
-            component={RouterLink}
-            href="/"
             variant="outlined"
             size="large"
             color="inherit"
+            onClick={onClickBack}
             startIcon={<Iconify icon="carbon:chevron-left" />}
           >
-            Back Home
+            Back
           </Button>
 
           <Button
