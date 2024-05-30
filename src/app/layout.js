@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
             }}
           >
             <ThemeProvider>
-              <ToastContainer />
+              <ToastContainer theme="dark" />
 
               <MotionLazy>
                 <ProgressBar />

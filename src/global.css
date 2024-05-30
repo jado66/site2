@@ -50,9 +50,13 @@
   --toastify-color-progress-error: #ff5630;
 }
 
+.Toastify__toast {
+  border: 1px solid white;
+}
+
 .Toastify__toast--success > .Toastify__toast-body > .Toastify__toast-icon {
   display: none !important;
 }
 .Toastify__toast-body {
-  color: #637381 !important;
+  color: #ffffff !important;
 }

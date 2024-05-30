@@ -14,6 +14,8 @@ import { fShortenNumber } from 'src/utils/format-number';
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import CountUp from 'src/components/count-up';
+import { bgGradient } from 'src/theme/css';
+import { useTheme } from '@mui/system';
 
 // ----------------------------------------------------------------------
 
@@ -58,56 +60,64 @@ const StyledIcon = styled('div', {
 // ----------------------------------------------------------------------
 
 export default function MarketingAbout() {
+  const theme = useTheme();
   const mdUp = useResponsive('up', 'md');
 
   return (
-    <Container
+    <Box
       sx={{
-        pt: { xs: 5, md: 10 },
-        pb: 10,
+        ...bgGradient({
+          color: alpha(theme.palette.grey[900], 0),
+          imgUrl: '/assets/images/about.jpg',
+        }),
+        overflow: 'hidden',
+        py: { xs: 10, md: 5 },
       }}
     >
-      <Grid container spacing={3} justifyContent="space-between" alignItems="center">
-        {mdUp && (
-          <Grid xs={12} md={6} lg={5}>
-            <Image alt="teams" src="/assets/illustrations/illustration_teams.svg" />
-          </Grid>
-        )}
+      <Container
+        sx={{
+          pt: { xs: 5, md: 10 },
+          pb: 10,
+        }}
+      >
+        <Grid container spacing={3} justifyContent="space-between" alignItems="center">
+          {mdUp && <Grid xs={12} md={6} lg={5}></Grid>}
 
-        <Grid
-          xs={12}
-          md={6}
-          lg={6}
-          sx={{
-            textAlign: { xs: 'center', md: 'left' },
-          }}
-        >
-          <Typography variant="h2">About</Typography>
-
-          {/* <Typography sx={{ color: 'text.secondary' }}>About.</Typography> */}
-
-          <Typography sx={{ mt: 3, mb: 5, color: 'text.secondary' }}>
-            If you are in the market for a cutting-edge, customized website to elevate your
-            business, you have come to the right place.
-            <br />
-            <br />
-            Platinum Programming develops custom web applications, utilizing specialized software
-            and the latest web technology. We offer services and packages tailored to the needs of
-            corporate partners, established businesses, and funded start-up companies. Take a look
-            at our work and book a free consultation today to make your professional website stand
-            out with the support of our highly skilled developers.
-          </Typography>
-
-          <Button
-            variant="outlined"
-            color="inherit"
-            size="large"
-            endIcon={<Iconify icon="carbon:chevron-right" />}
+          <Grid
+            xs={12}
+            md={6}
+            lg={6}
+            sx={{
+              textAlign: { xs: 'center', md: 'left' },
+            }}
           >
-            Examples of Our Work
-          </Button>
+            <Typography variant="h2">About</Typography>
+
+            {/* <Typography sx={{ color: 'text.secondary' }}>About.</Typography> */}
+
+            <Typography sx={{ mt: 3, mb: 5, color: 'text.secondary' }}>
+              If you are in the market for a cutting-edge, customized website to elevate your
+              business, you have come to the right place.
+              <br />
+              <br />
+              Platinum Programming develops custom web applications, utilizing specialized software
+              and the latest web technology. We offer services and packages tailored to the needs of
+              corporate partners, established businesses, and funded start-up companies. Take a look
+              at our work and book a free consultation today to make your professional website stand
+              out with the support of our highly skilled developers.
+            </Typography>
+
+            <Button
+              variant="outlined"
+              color="inherit"
+              size="large"
+              endIcon={<Iconify icon="carbon:chevron-right" />}
+            >
+              Examples of Our Work
+            </Button>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Box>
   );
 }

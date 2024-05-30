@@ -48,6 +48,13 @@ const NavItem = forwardRef(
       </StyledNavItem>
     );
 
+    if (!path)
+      return (
+        <Link color="inherit" underline="none">
+          {renderContent}
+        </Link>
+      );
+
     if (externalLink)
       return (
         <Link href={path} target="_blank" rel="noopener" color="inherit" underline="none">

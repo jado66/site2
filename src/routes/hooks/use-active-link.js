@@ -3,6 +3,10 @@ import { usePathname } from 'next/navigation';
 // ----------------------------------------------------------------------
 
 export function useActiveLink(path, deep = true) {
+  if (!path) {
+    return false;
+  }
+
   const pathname = usePathname();
 
   const checkPath = path.startsWith('#');

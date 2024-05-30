@@ -103,18 +103,31 @@ export default function MarketingLandingProcess() {
 
         <Box
           sx={{
-            gap: 4,
             display: 'grid',
-            alignItems: 'flex-end',
+            gap: 4,
             gridTemplateColumns: {
               sm: 'repeat(1, 1fr)',
               md: 'repeat(2, 1fr)',
             },
+            alignItems: 'start',
           }}
         >
-          {SERVICES.map((service, index) => (
-            <ServiceItem key={service.name} service={service} index={index} />
-          ))}
+          <Box>
+            {SERVICES.map(
+              (service, index) =>
+                index % 2 === 0 && (
+                  <ServiceItem key={service.name} service={service} index={index} />
+                )
+            )}
+          </Box>
+          <Box sx={{ transform: 'translateY(575px)' }}>
+            {SERVICES.map(
+              (service, index) =>
+                index % 2 !== 0 && (
+                  <ServiceItem key={service.name} service={service} index={index} />
+                )
+            )}
+          </Box>
         </Box>
       </Container>
     </Container>
@@ -132,18 +145,8 @@ function ServiceItem({ service, index }) {
     <Card
       sx={{
         position: 'relative',
-        color: (theme) => theme.palette[COLORS[index]].darker,
-        bgcolor: (theme) => theme.palette[COLORS[index]].lighter,
-        boxShadow: (theme) => `-8px 12px 32px 0px ${alpha(theme.palette[COLORS[index]].main, 0.2)}`,
-        ...(index === 1 && {
-          mb: { md: 2.5 },
-        }),
-        ...(index === 2 && {
-          mb: { md: 5 },
-        }),
-        ...(index === 3 && {
-          mb: { md: 7.5 },
-        }),
+        height: '550px',
+        mb: '575px',
       }}
     >
       <CardMedia sx={{ height: 250 }} image={image} />

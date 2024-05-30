@@ -36,16 +36,15 @@ const mainNav = [
     path: '/about',
   },
   {
-    title: 'Services',
-    path: '/services',
-    children: [
-      { title: 'Travel', path: '/examples/travel' },
-      { title: 'Education', path: '/examples/education' },
-    ],
-  },
-  {
     title: 'Portfolio',
     path: '/portfolio',
+  },
+  {
+    title: 'Example Sites',
+    children: [
+      { title: 'Travel', path: '/examples/travel' },
+      // { title: 'Education', path: '/examples/education' },
+    ],
   },
   { title: 'Contact', path: '/contact' },
 ];
@@ -136,7 +135,7 @@ export default function Header({
             component={RouterLink}
             href="/"
             variant="text"
-            sx={{ fontSize: '8pt', color: offset ? 'black' : 'common.white' }}
+            sx={{ fontSize: '8pt', color: offset ? 'common.white' : 'common.white' }}
           >
             <Iconify width={16} icon="carbon:chevron-left" sx={{ mr: 1 }} />
             Back

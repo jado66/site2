@@ -1,4 +1,4 @@
-import { Button, Card, Dialog, Divider, IconButton } from '@mui/material';
+import { Button, Card, Dialog, Divider, Grid, IconButton, Stack } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -11,6 +11,8 @@ import { LoginPlusSignUpFlow } from './applications/LoginPlusSignUpFlow';
 import Iconify from 'src/components/iconify/iconify';
 import CheckoutView from 'src/sections/services/view/checkout-view';
 import { Checkout } from './applications/Checkout';
+import { _offices } from 'src/_mock';
+import ContactMap from 'src/components/map';
 
 // ----------------------------------------------------------------------
 
@@ -330,6 +332,27 @@ export default function ApplicationsInclude() {
             <LoginPlusSignUpFlow handleClose={handleClose} />
           )}
           {currentDemoId === 'payment-integration' && <Checkout handleClose={handleClose} />}
+
+          {currentDemoId === 'google-maps-integration' && (
+            // <Grid xs={12} md={6} lg={7} sx={{ mx: 'auto' }}>
+            <Stack
+              direction="column"
+              alignItems="center"
+              display="flex"
+              justifyContent="center"
+              sx={{
+                height: '100%',
+                width: '50% ',
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Typography variant="h3" gutterBottom>
+                Custom Google Map Integration
+              </Typography>
+              <ContactMap offices={_offices} sx={{ borderRadius: 2, width: 1 }} />
+            </Stack>
+            // </Grid>
+          )}
           <IconButton
             onClick={handleClose}
             sx={{

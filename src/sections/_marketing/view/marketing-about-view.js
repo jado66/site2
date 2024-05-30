@@ -14,13 +14,14 @@ import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
 import MarketingAboutCoreValues from '../about/marketing-about-core-values';
 import MainLayout from 'src/layouts/main';
 import GetStartedSteps from 'src/sections/get-started/landing/get-started-steps';
+import MarketingLandingAboutHero from '../landing/marketing-landing-about-hero';
 
 // ----------------------------------------------------------------------
 
 export default function MarketingAboutView() {
   return (
     <>
-      <MarketingAbout />
+      <MarketingLandingAboutHero />
 
       <MarketingTeamAbout members={_members} />
 

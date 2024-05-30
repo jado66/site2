@@ -85,12 +85,12 @@ export const mapStyle = [
   {
     featureType: 'water',
     elementType: 'all',
-    stylers: [{ color: '#eaf6f8' }, { visibility: 'on' }],
+    stylers: [{ color: '#000000' }, { visibility: 'on' }],
   },
   {
     featureType: 'water',
     elementType: 'geometry.fill',
-    stylers: [{ color: '#c7eced' }],
+    stylers: [{ color: '#000000' }],
   },
   {
     featureType: 'water',
