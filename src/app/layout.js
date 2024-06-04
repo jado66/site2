@@ -20,9 +20,9 @@ import 'react-toastify/dist/ReactToastify.css';
 export const metadata = {
   title: 'Platinum Programming',
   description:
-    'Platinum Programming is an Ai software company that provides Ai solutions for businesses.',
+    'Platinum Programming is a premier software development company specializing in professional web and custom application development. Leveraging next-gen technologies such as NextJs and React, our agency provides top-notch front-end development solutions. With a team of JavaScript professionals adept at full-stack programming and JS frameworks, we deliver digital transformation services using cutting-edge technology. Our DevOps practices and Agile methodologies ensure high-quality code standards and efficient project delivery. Choose us for reliable coding solutions with modern web technologies and scalable software.',
   keywords:
-    'Ai, Artificial Intelligence, Machine Learning, Deep Learning, Data Science, Data Analytics, Data Engineering, Data Visualization, Data Warehousing, Data Mining, Data Modeling, Data Architecture, Data Governance, Data Quality, Data Security, Data Privacy, Data Ethics, Data Strategy, Data Management, Data Integration, Data Migration, Data Lake, Data Warehouse, Data Mart',
+    'Platinum Programming, Software Development Company, Professional Web Development, Enterprise Software Solutions, Custom Web Application Development, NextJs Development, React Web Development, Frontend Development Agency, JavaScript Professionals, Full Stack JavaScript, JS Frameworks Experts, Digital Transformation Services, Cutting Edge Technology Solutions, DevOps Practices, Agile Methodologies, High Quality Code Standards, Experienced Developers, Reliable Coding Solutions, Modern Web Technologies, Scalable Software',
   themeColor: '#000000',
   manifest: '/manifest.json',
   viewport: { width: 'device-width', initialScale: 1, maximumScale: 1 },
