@@ -80,7 +80,7 @@ export default function NavMobile({ data, openChatbot, hideChatbot, showChatbot 
         </IconButton>
 
         {/* <Scrollbar> */}
-        <Logo sx={{ mx: 2.5, my: 3 }} single />
+        <Logo sx={{ mx: 2.5, my: 3 }} single size={35} imageStyle={{ marginLeft: '9px' }} />
 
         <NavBasicMobile data={data} />
         {/* </Scrollbar> */}

@@ -9,39 +9,15 @@ import { RouterLink } from 'src/routes/components';
 
 // ----------------------------------------------------------------------
 
-function Logo({ single = false, sx }) {
+function Logo({ single = false, size = 50, sx, imageStyle }) {
   const theme = useTheme();
 
   const PRIMARY_MAIN = theme.palette.primary.main;
 
-  const singleLogo = <h3>Platinum Programming</h3>;
+  const fullLogo = <img src="/assets/logo/LogoFull.png" width={'150px'} height={'150px'} />;
 
-  const fullLogo = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
-      fill="none"
-      viewBox="0 0 512 512"
-    >
-      <ellipse cx="405.143" cy="338.571" fill={PRIMARY_MAIN} rx="82.857" ry="82.857" />
-
-      <path
-        d="
-        M10,50
-        Q70,0 140,0
-        Q260,0 260,100
-        Q260,200 140,200
-        L10,200
-        Z
-        M140,200
-        Q260,200 260,300
-        Q260,400 140,400
-        L10,400 
-        L10,50
-      "
-      />
-    </svg>
+  const singleLogo = (
+    <img src="/assets/logo/Logo.png" width={size} height={size} style={imageStyle} />
   );
 
   return (

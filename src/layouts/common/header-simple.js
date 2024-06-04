@@ -60,7 +60,7 @@ export default function HeaderSimple({ openChatbot, hideChatbot, showChatbot }) 
           }),
         }}
       >
-        <Logo />
+        <Logo imageStyle={{ marginLeft: '9px' }} />
 
         <Stack
           spacing={1}

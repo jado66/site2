@@ -61,13 +61,13 @@ export default function Footer() {
     <Container sx={{ py: 8, textAlign: 'center' }}>
       <MarketingNewsletter />
 
-      <Logo single />
+      <Logo />
 
       <Typography
         variant="caption"
         id="rights-reserved-simple"
         component="div"
-        sx={{ color: 'text.secondary', marginX: 'auto' }}
+        sx={{ color: 'text.secondary', marginX: 'auto', mt: 3 }}
       >
         Platinum Programming © 2024. All rights reserved
       </Typography>

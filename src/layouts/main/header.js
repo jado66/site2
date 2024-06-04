@@ -24,6 +24,7 @@ import HeaderShadow from '../common/header-shadow';
 import { RouterLink } from 'src/routes/components';
 import Iconify from 'src/components/iconify';
 import { travelPageInstructionsToast } from 'src/utils/toasts';
+import Logo from 'src/components/logo';
 
 // ----------------------------------------------------------------------
 const mainNav = [
@@ -148,9 +149,14 @@ export default function Header({
         <Typography
           variant="h4"
           component="div"
-          sx={{ flexGrow: 1, display: 'flex', alignItems: 'baseline' }}
+          sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}
         >
-          {type === 'main' && 'Platinum Programming'}
+          {type === 'main' && (
+            <>
+              <Logo single size={25} sx={{ mr: 1 }} />
+              Platinum Programming
+            </>
+          )}
           {type === 'travel' && (
             <>
               Avelora Travel
