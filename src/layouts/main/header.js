@@ -153,7 +153,7 @@ export default function Header({
         >
           {type === 'main' && (
             <>
-              <Logo single size={25} sx={{ mr: 1 }} />
+              <Logo single size={18} sx={{ mr: 1, mt: 0.4 }} />
               Platinum Programming
             </>
           )}

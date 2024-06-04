@@ -44,9 +44,9 @@ export default function NavMobile({ data, openChatbot, hideChatbot, showChatbot 
 
   return (
     <>
-      <IconButton sx={{ ml: 1, color: 'inherit' }} onClick={handleToggleChatbot}>
+      {/* <IconButton sx={{ ml: 1, color: 'inherit' }} onClick={handleToggleChatbot}>
         <Iconify icon="quill:chat" />
-      </IconButton>
+      </IconButton> */}
 
       <IconButton onClick={mobileOpen.onTrue} sx={{ ml: 1, color: 'inherit' }}>
         <Iconify icon="carbon:menu" />
@@ -80,7 +80,7 @@ export default function NavMobile({ data, openChatbot, hideChatbot, showChatbot 
         </IconButton>
 
         {/* <Scrollbar> */}
-        <Logo sx={{ mx: 2.5, my: 3 }} single size={35} imageStyle={{ marginLeft: '9px' }} />
+        <Logo sx={{ mx: 2.5, my: 3 }} single size={25} imageStyle={{ marginLeft: '9px' }} />
 
         <NavBasicMobile data={data} />
         {/* </Scrollbar> */}

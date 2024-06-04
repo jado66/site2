@@ -14,10 +14,10 @@ function Logo({ single = false, size = 50, sx, imageStyle }) {
 
   const PRIMARY_MAIN = theme.palette.primary.main;
 
-  const fullLogo = <img src="/assets/logo/LogoFull.png" width={'150px'} height={'150px'} />;
+  const fullLogo = <img src="/assets/logo/LogoFull.png" width={'229px'} height={'150px'} />;
 
   const singleLogo = (
-    <img src="/assets/logo/Logo.png" width={size} height={size} style={imageStyle} />
+    <img src="/assets/logo/Logo.png" width={size * 1.97} height={size} style={imageStyle} />
   );
 
   return (
