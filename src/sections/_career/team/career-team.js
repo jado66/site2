@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 import CareerTeamItem from './career-team-item';
+import { Grid } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -32,20 +33,31 @@ export default function CareerTeam({ members }) {
         </Typography>
       </Stack>
 
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: {
-            xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(4, 1fr)',
-          },
-        }}
-      >
-        {members.map((member) => (
-          <CareerTeamItem key={member.id} member={member} />
-        ))}
-      </Box>
+      <Grid container>
+
+        <Grid xs = {3}>
+          <CareerTeamItem key={members[0].id} member={members[0]} />
+        </Grid>
+
+        <Grid xs = {9}>
+          Bio Bio bio 
+        </Grid>
+
+        <Grid xs = {9}>
+        Bio Bio bio 
+
+        </Grid>
+
+        <Grid xs = {3}>
+        <CareerTeamItem key={members[1].id} member={members[1]} />
+
+        </Grid>
+
+
+      </Grid>
+
+      
+     
     </Stack>
   );
 }

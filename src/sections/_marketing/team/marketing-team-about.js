@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import MarketingTeamItem from './marketing-team-item';
+import { Grid } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -33,22 +34,33 @@ export default function MarketingTeamAbout({ members }) {
         technical experts.
       </Typography>
 
-      <Box
-        sx={{
-          columnGap: 3,
-          display: 'grid',
-          rowGap: { xs: 4, md: 5 },
-          gridTemplateColumns: {
-            xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(4, 1fr)',
-          },
-        }}
-      >
-        {members.map((member) => (
-          <MarketingTeamItem key={member.id} member={member} />
-        ))}
-      </Box>
+      <Grid container>
+
+        <Grid md = {3} xs = {12}>
+          <MarketingTeamItem key={members[0].id} member={members[0]}/>
+        </Grid>
+
+        <Grid md = {9} xs = {12} p = {5}>
+          Bio Bio bio 
+        </Grid>
+
+
+         
+          <Grid md = {9} xs = {12} p = {5} mt = {6} display={{xs:'none', md:'block'}}>
+            Bio Bio bio 
+          </Grid>
+
+          <Grid md = {3} xs = {12} mt = {6}>
+            <MarketingTeamItem key={members[1].id} member={members[1]}/>
+          </Grid>
+          <Grid md = {9} xs = {12} p = {5} mt = {6} display={{xs:'block', md:'none'}}>
+            Bio Bio bio 
+          </Grid>
+          
+      </Grid>
+
+
+   
     </Container>
   );
 }
