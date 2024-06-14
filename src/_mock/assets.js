@@ -258,7 +258,7 @@ export const _phoneNumbers = [
 // ----------------------------------------------------------------------
 
 export const _roles = [
-  'Principal Engineer',
+  'Cheif Technologogical Officer - CTO',
   'Project Manager',
   'Marketing Director',
   'UX/UI Designer',

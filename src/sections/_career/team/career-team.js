@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 
 import CareerTeamItem from './career-team-item';
 import { Grid } from '@mui/material';
+import { jdBio, laraeBio } from 'src/constants/bios';
 
 // ----------------------------------------------------------------------
 
@@ -40,11 +41,11 @@ export default function CareerTeam({ members }) {
         </Grid>
 
         <Grid xs = {9}>
-          Bio Bio bio 
+          {jdBio}
         </Grid>
 
         <Grid xs = {9}>
-        Bio Bio bio 
+          {laraeBio}
 
         </Grid>
 
