@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import MarketingTeamItem from './marketing-team-item';
-import { Grid } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -36,26 +36,30 @@ export default function MarketingTeamAbout({ members }) {
 
       <Grid container>
 
-        <Grid md = {3} xs = {12}>
+        <Grid md = {4} xs = {12}>
           <MarketingTeamItem key={members[0].id} member={members[0]}/>
         </Grid>
 
-        <Grid md = {9} xs = {12} p = {5}>
+        <Grid md = {8} xs = {12} p = {5}>
           Bio Bio bio 
         </Grid>
 
+        <Grid xs = {12} my = {6} display={{xs:'none', md:'block'}}>
+          <Divider/>
+        </Grid>
 
-         
-          <Grid md = {9} xs = {12} p = {5} mt = {6} display={{xs:'none', md:'block'}}>
-            Bio Bio bio 
-          </Grid>
+        
 
-          <Grid md = {3} xs = {12} mt = {6}>
-            <MarketingTeamItem key={members[1].id} member={members[1]}/>
-          </Grid>
-          <Grid md = {9} xs = {12} p = {5} mt = {6} display={{xs:'block', md:'none'}}>
-            Bio Bio bio 
-          </Grid>
+        <Grid md = {8} xs = {12} p = {5} display={{xs:'none', md:'block'}}>
+          Bio Bio bio 
+        </Grid>
+
+        <Grid md = {4} xs = {12} >
+          <MarketingTeamItem key={members[1].id} member={members[1]}/>
+        </Grid>
+        <Grid md = {8} xs = {12} p = {5} display={{xs:'block', md:'none'}}>
+          Bio Bio bio 
+        </Grid>
           
       </Grid>
 
