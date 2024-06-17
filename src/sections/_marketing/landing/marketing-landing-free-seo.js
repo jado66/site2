@@ -74,7 +74,7 @@ export default function MarketingLandingFreeSEO() {
     phoneNumber: '',
     company: '',
     website: '',
-    budget: [2000, 10000],
+    budget: [40000, 100000],
     message: '',
   };
 
@@ -88,7 +88,12 @@ export default function MarketingLandingFreeSEO() {
     control,
     handleSubmit,
     formState: { isSubmitting },
+    watch,
   } = methods;
+
+  const selectedApplications = watch("applications");
+
+  const isOtherApplicationSelected = selectedApplications.includes('Other');
 
   const onSubmit = handleSubmit(async (data) => {
     try {
@@ -144,7 +149,7 @@ export default function MarketingLandingFreeSEO() {
             <Stack spacing={2} alignItems="flex-start" direction="row">
               <Iconify width={28} icon="carbon:mobile" />
               <Stack spacing={0.5}>
-                <Typography variant="h6">Call or text us</Typography>
+                <Typography variant="h6">Call or Text</Typography>
                 <Link color="inherit" variant="body2" href={inqueryPhoneLink}>
                   {inqueryPhoneText}
                 </Link>
@@ -154,7 +159,7 @@ export default function MarketingLandingFreeSEO() {
             <Stack spacing={2} alignItems="flex-start" direction="row">
               <Iconify width={28} icon="carbon:email" />
               <Stack spacing={0.5}>
-                <Typography variant="h6">Talk to us</Typography>
+                <Typography variant="h6">Email</Typography>
                 <Link color="inherit" variant="body2" href={inqueryEmailLink}>
                   {inqueryEmail}
                 </Link>
@@ -170,8 +175,11 @@ export default function MarketingLandingFreeSEO() {
                   direction={{ xs: 'column', md: 'row' }}
                   sx={{ width: 1 }}
                 >
-                  <RHFTextField name="firstName" label="First Name" />
-                  <RHFTextField name="lastName" label="Last Name" />
+                  <RHFTextField name="name" label="Name" />
+                  <RHFTextField name="company" label="Company Name" />
+
+                                    
+
                 </Stack>
 
                 <Stack
@@ -179,20 +187,11 @@ export default function MarketingLandingFreeSEO() {
                   spacing={{ xs: 2.5, md: 2 }}
                   sx={{ width: 1 }}
                 >
-                  <RHFTextField name="email" label="Email" />
                   <RHFTextField name="phoneNumber" label="Phone number" />
+                  <RHFTextField name="email" label="Email" />
                 </Stack>
-                <Stack
-                  direction={{ xs: 'column', md: 'row' }}
-                  spacing={{ xs: 2.5, md: 2 }}
-                  sx={{ width: 1 }}
-                >
-                  <RHFTextField name="company" label="Company" />
-
-                  <RHFTextField name="website" label="Website" />
-                </Stack>
-
-                <Stack spacing={1} sx={{ py: 2, width: 1 }}>
+                
+                <Stack spacing={1} sx={{ pt: 2, width: 1 }}>
                   <Typography variant="overline" sx={{ color: 'text.disabled' }}>
                     Areas of Interest
                   </Typography>
@@ -245,7 +244,19 @@ export default function MarketingLandingFreeSEO() {
                   />
                 </Stack>
 
-                <Stack spacing={5} sx={{ width: 1 }}>
+                {
+                  isOtherApplicationSelected && (
+                    <Stack
+                      direction={{ xs: 'column', md: 'row' }}
+                      spacing={{ xs: 2.5, md: 2 }}
+                      sx={{ width: 1 }}
+                    >
+                      <RHFTextField name="other" label="Other Interests"/>
+                    </Stack>
+                  )
+                }
+                
+                <Stack spacing={5} sx={{ width: 1, mt:2 }}>
                   <Typography variant="overline" sx={{ color: 'text.disabled' }}>
                     Project Budget
                   </Typography>
@@ -253,8 +264,8 @@ export default function MarketingLandingFreeSEO() {
                   <RHFSlider
                     name="budget"
                     valueLabelDisplay="on"
-                    max={20000}
-                    step={1000}
+                    max={500000}
+                    step={5000}
                     valueLabelFormat={(value) => fCurrency(value)}
                   />
                 </Stack>

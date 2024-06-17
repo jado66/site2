@@ -31,7 +31,7 @@ export default function MarketingContactInfo() {
       <Stack spacing={2} alignItems="flex-start" direction="row">
         <Iconify width={28} icon="carbon:mobile" />
         <Stack spacing={0.5}>
-          <Typography variant="h6">Call or text us</Typography>
+          <Typography variant="h6">Call or Text</Typography>
           <Link color="inherit" variant="body2" href={inqueryPhoneLink}>
             {inqueryPhoneText}
           </Link>
@@ -41,7 +41,7 @@ export default function MarketingContactInfo() {
       <Stack spacing={2} alignItems="flex-start" direction="row">
         <Iconify width={28} icon="carbon:email" />
         <Stack spacing={0.5}>
-          <Typography variant="h6">Talk to us</Typography>
+          <Typography variant="h6">Email</Typography>
           <Link color="inherit" variant="body2" href={inqueryEmailLink}>
             {inqueryEmail}
           </Link>

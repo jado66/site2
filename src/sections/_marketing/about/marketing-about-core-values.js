@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import { borderRadius } from '@mui/system';
 
 import SvgColor from 'src/components/svg-color';
 
@@ -9,23 +10,23 @@ import SvgColor from 'src/components/svg-color';
 const CORE_VALUES = [
   {
     title: 'Innovation',
-    description: 'Aenean urna dictum adipiscing nec, cras quisque.',
-    icon: '/assets/icons/ic_agreement.svg',
+    description: "Innovation in business is the heartbeat of progress, propelling organizations forward in an ever-evolving marketplace. It's the creative engine that drives companies to develop groundbreaking products, services, and processes that redefine industries and meet evolving customer needs. From pioneering technological advancements to reimagining traditional business models, Platinum Programming innovatively fosters agility, competitiveness, and sustainability.  In today's dynamic landscape, businesses that prioritize innovation not only stay relevant but also carve out new opportunities for growth and success. That's why our team dares to challenge the status quo, embrace change, and cultivate a culture where fresh ideas flourish.",
+    icon: '/assets/images/innovation.jpg',
   },
   {
     title: 'Customer Satisfaction',
-    description: 'Aenean urna dictum adipiscing nec, cras quisque.',
-    icon: '/assets/icons/ic_transparency.svg',
+    description: "At Platinum Programming, we strive to provide you with competitive customer service and complete customer satisfaction. We believe that key factors contributing to customer satisfaction in web development include quality assurance, usability, reliability, and maintenance. Quality Assurance - Delivering bug-free, error-free software. Usability - Ensuring intuitive interfaces and smooth user experiences. Reliability - Building a positive reputation through consistently reliable services. Maintenance - Minimizing the need for ongoing fixes and updates. To prioritize customer satisfaction, we keep an open line of communication between our clients and project manager to ensure that client expectations are being met.",
+    icon: '/assets/images/satisfaction.jpg',
   },
   {
     title: 'Integrity',
-    description: 'Aenean urna dictum adipiscing nec, cras quisque.',
-    icon: '/assets/icons/ic_reputation.svg',
+    description: "Integrity is the cornerstone of every successful business, including Platinum Programming.  It serves as the bedrock of trust between our team and our clients, and it encompasses a commitment to honesty, transparency, and ethical conduct in all business dealings. Upholding integrity means adhering to moral principles even when faced with difficult decisions, maintaining consistency between words and actions, and taking responsibility for mistakes. We believe that businesses built on integrity foster long-lasting relationships with customers, employees, suppliers, and the wider community. They prioritize fairness, respect, and accountability, creating a culture of trust and credibility that forms the foundation for sustainable growth and positive impact. In a world where credibility is invaluable, integrity isn't just a choice—it's a strategic imperative for thriving in the modern marketplace.",
+    icon: '/assets/images/integrity.jpg',
   },
   {
     title: 'Collaboration',
-    description: 'Aenean urna dictum adipiscing nec, cras quisque.',
-    icon: '/assets/icons/ic_popularity.svg',
+    description: "At Platinum Programming, collaboration is the catalyst for synergy, driving collective success through the pooling of diverse talents, resources, and perspectives. Our business transcends organizational boundaries, fostering partnerships both within and outside the company to achieve shared goals. Whether it's teams collaborating on projects, departments aligning their efforts, or businesses forming strategic alliances, collaboration cultivates innovation, efficiency, and adaptability. By leveraging the strengths of each participant, our collaboration unlocks new opportunities, accelerates problem-solving, and enhances decision-making processes. In today's interconnected world, businesses that embrace collaboration not only tap into a wealth of expertise but also foster a culture of teamwork, mutual respect, and continuous learning, propelling them towards sustained growth and competitiveness.",
+    icon: '/assets/images/collaboration.jpg',
   },
 ];
 
@@ -56,14 +57,17 @@ export default function MarketingAboutCoreValues() {
         }}
       >
         {CORE_VALUES.map((value) => (
-          <Box key={value.title}>
-            <SvgColor
+          <Box key={value.title}
+          >
+            <img
               src={value.icon}
-              sx={{
-                width: 64,
-                height: 64,
+              style={{
+                hheight: 180,
+                width: 'auto', // This will adjust the width automatically keeping aspect ratio
+                objectFit: 'contain', // This makes sure the image is scaled properly without losing its aspect ratio
                 mx: 'auto',
                 color: 'primary.main',
+                borderRadius: '16px'
               }}
             />
 

@@ -15,6 +15,8 @@ import MarketingAboutCoreValues from '../about/marketing-about-core-values';
 import MainLayout from 'src/layouts/main';
 import GetStartedSteps from 'src/sections/get-started/landing/get-started-steps';
 import MarketingLandingAboutHero from '../landing/marketing-landing-about-hero';
+import MarketingAboutMissionStatement from '../about/marketing-about-mission-statement';
+import MarketingAboutPartnerLogos from '../about/marketing-about-partners';
 
 // ----------------------------------------------------------------------
 
@@ -23,9 +25,14 @@ export default function MarketingAboutView() {
     <>
       <MarketingLandingAboutHero />
 
+
+      <MarketingAboutMissionStatement />
+
       <MarketingTeamAbout members={_members} />
 
       {/* <MarketingAboutOurVision /> */}
+
+      <MarketingAboutPartnerLogos />
 
       <MarketingAboutCoreValues />
 

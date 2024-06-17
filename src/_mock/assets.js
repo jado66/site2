@@ -258,8 +258,8 @@ export const _phoneNumbers = [
 // ----------------------------------------------------------------------
 
 export const _roles = [
-  'Cheif Technologogical Officer - CTO',
-  'Project Manager',
+  'Chief Executive Officer & Principal Engineer',
+  'Chief Operations Officer',
   'Marketing Director',
   'UX/UI Designer',
   'Q/A Engineer',

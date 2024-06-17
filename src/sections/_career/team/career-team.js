@@ -1,3 +1,8 @@
+
+
+// DO NOT USE ME
+
+
 import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
@@ -41,17 +46,18 @@ export default function CareerTeam({ members }) {
         </Grid>
 
         <Grid xs = {9}>
-          {jdBio}
+          <Typography variant='body2'>
+            {jdBio}
+          </Typography>
+          
         </Grid>
 
         <Grid xs = {9}>
           {laraeBio}
-
         </Grid>
 
         <Grid xs = {3}>
-        <CareerTeamItem key={members[1].id} member={members[1]} />
-
+          <CareerTeamItem key={members[1].id} member={members[1]} />
         </Grid>
 
 
