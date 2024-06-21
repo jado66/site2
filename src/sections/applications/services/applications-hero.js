@@ -74,10 +74,10 @@ export default function ApplicationsHero() {
       sx={{
         ...bgGradient({
           startColor: `${alpha(theme.palette.common.black, 0)} 0%`,
-          endColor: `${theme.palette.common.black} 75%`,
-          imgUrl: '/assets/images/marketing/marketing_services_hero.jpg',
+          endColor: `${theme.palette.common.black} 100%`,
+          imgUrl: '/assets/stock-photos/services.jpeg',
         }),
-        py: { xs: 15, md: 20 },
+        py: { xs: 20, md: 30 },
       }}
     >
       <Container>
@@ -94,7 +94,7 @@ export default function ApplicationsHero() {
               }}
             >
               <Typography variant="h1" sx={{ color: 'primary.main' }}>
-                Services
+                Our Services
               </Typography>
             </Stack>
           </Grid>

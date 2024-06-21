@@ -1,0 +1,19 @@
+/* Banner.css */
+.banner {
+    background: /* Your banner background */;
+    /* ... other styles ... */
+  }
+  
+.company-name {
+    font-family: 'Arial', sans-serif; /* Example font */
+    font-size: 96px; /* Adjust as needed */
+    background: linear-gradient(to top, #00BFFF, #FFFFFF, #00BFFF);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text; /* Standard property */
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+  }

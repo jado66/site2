@@ -17,6 +17,8 @@ import withDelay, { DelayWrapper } from 'src/app/components/wrappers/withDelayWr
 import withDelayWrapper from 'src/app/components/wrappers/withDelayWrapper';
 import { useState, useRef, useEffect } from 'react';
 
+
+import './banner.css'
 // ----------------------------------------------------------------------
 
 export default function MarketingLandingHero() {
@@ -53,11 +55,12 @@ export default function MarketingLandingHero() {
             display="flex"
             flexDirection="column"
           >
-            <DelayWrapper delay={18500}>
+            <DelayWrapper delay={18500} className = 'banner'>
               <Typography
                 variant="h1"
-                sx={{ color: 'white', mt: 2, fontWeight: 'bold', fontSize: '72px' }}
+                sx={{ color: 'white', mt: -14, fontWeight: 'bold', fontSize: '96px' }}
                 textAlign="center"
+                className = 'company-name'
               >
                 PLATINUM PROGRAMMING
               </Typography>
@@ -136,7 +139,7 @@ const VideoBackground = () => {
           marginLeft: '-11.5%',
         }}
       >
-        <source src="/assets/background/bob.mp4" type="video/mp4" />
+        <source src="/assets/stock-photos/platinum-programming.mp4" type="video/mp4" />
       </video>
     </div>
   );
