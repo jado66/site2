@@ -17,13 +17,13 @@ const COLORS = ['primary', 'secondary', 'success', 'warning'];
 const STEPS = [
   {
     name: 'Contact',
-    image: '/assets/images/contact.jpg',
+    image: '/assets/stock-photos/contact.jpeg',
     content: 'Fill out the contact form below and we will get back to you within 24 hours',
     path: paths.marketing.services,
   },
   {
     name: 'Discuss Requirements',
-    image: '/assets/images/discuss.jpg',
+    image: '/assets/stock-photos/discuss.jpeg',
     content: 'We will discuss your requirements and provide a quote',
     path: paths.marketing.services,
   },
@@ -35,7 +35,7 @@ const STEPS = [
   },
   {
     name: 'Constant Communication',
-    image: '/assets/images/constant.jpg',
+    image: '/assets/stock-photos/constant.jpeg',
     content:
       'We will keep you updated on the progress of your project, taking your feedback into account',
     path: paths.marketing.services,

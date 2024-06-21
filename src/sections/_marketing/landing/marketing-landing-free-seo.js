@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
@@ -8,19 +6,14 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import { inputBaseClasses } from '@mui/material/InputBase';
-import { inputLabelClasses } from '@mui/material/InputLabel';
 import { alpha, styled, useTheme } from '@mui/material/styles';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { fCurrency } from 'src/utils/format-number';
 import * as Yup from 'yup';
-import { useForm, Controller } from 'react-hook-form';
-import LoadingButton from '@mui/lab/LoadingButton';
 import { _tags } from 'src/_mock';
 import ToggleButton, { toggleButtonClasses } from '@mui/material/ToggleButton';
+import { useFormik } from 'formik';
 
 import { bgGradient } from 'src/theme/css';
-import FormProvider, { RHFSlider, RHFTextField } from 'src/components/hook-form';
 
 import Iconify from 'src/components/iconify';
 import {
@@ -29,10 +22,12 @@ import {
   inqueryPhoneLink,
   inqueryPhoneText,
 } from 'src/constants/contact';
+import useSendRequestForm from 'src/utils/hooks/useSendRequestForm';
+import { Slider } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export const _applications = [
+export const _services = [
   {
     label: 'Chatbot',
     iconifyIcon: 'bx:bot',
@@ -58,57 +53,50 @@ export const _applications = [
 
 export default function MarketingLandingFreeSEO() {
   const MarketingContactSchema = Yup.object().shape({
-    services: Yup.array().required().min(1, 'Services field must have at least 1 items'),
+    services: Yup.array(),
     email: Yup.string().required('Email is required').email('That is not an email'),
-    firstName: Yup.string().required('First Name is required'),
-    lastName: Yup.string().required('Last Name is required'),
-    phoneNumber: Yup.string().required('Phone Number is required'),
-    compnany: Yup.string().required('Compnany is required'),
-    website: Yup.string().required('Website is required'),
+    name: Yup.string().required('Name is required'),
+    phoneNumber: Yup.string(),
+    company: Yup.string()
   });
 
-  const defaultValues = {
-    applications: [],
-    name: '',
-    email: '',
-    phoneNumber: '',
-    company: '',
-    website: '',
-    budget: [40000, 100000],
-    message: '',
-  };
+  const { loading, error, success, sendRequestFormByEmail } = useSendRequestForm();
 
-  const methods = useForm({
-    resolver: yupResolver(MarketingContactSchema),
-    defaultValues,
-  });
-
-  const {
-    reset,
-    control,
-    handleSubmit,
-    formState: { isSubmitting },
-    watch,
-  } = methods;
-
-  const selectedApplications = watch("applications");
-
-  const isOtherApplicationSelected = selectedApplications.includes('Other');
-
-  const onSubmit = handleSubmit(async (data) => {
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      reset();
-      console.log('DATA', data);
-    } catch (error) {
-      console.error(error);
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      services: [],
+      email: '',
+      phoneNumber: '',
+      budget: [40000, 100000],
+      message: '',
+    },
+    validationSchema: MarketingContactSchema,
+    validateOnChange: true,
+    validateOnBlur: true,
+    onSubmit: async (values) => {
+      await sendRequestFormByEmail(values);
     }
   });
 
-  const getSelected = (selectedItems, item) =>
-    selectedItems.includes(item)
-      ? selectedItems.filter((value) => value !== item)
-      : [...selectedItems, item];
+  const handleServicesChange = (service) => {
+    formik.setFieldValue('services', 
+      formik.values.services.includes(service)
+        ? formik.values.services.filter(app => app !== service)
+        : [...formik.values.services, service]
+    );
+  };
+
+  const submitForm = async () => {
+    const errors = await formik.validateForm();
+     
+    if (Object.keys(errors).length === 0) {
+      alert("Success: " + JSON.stringify(formik.values));
+      formik.handleSubmit();
+    } else {
+      alert("Errors: " + JSON.stringify(errors));
+    }
+  }
 
   const theme = useTheme();
 
@@ -132,54 +120,38 @@ export default function MarketingLandingFreeSEO() {
           }}
           justifyContent="space-between"
         >
-          <Grid xs={12} md={5}>
-            <Typography
-              variant="h1"
-              component="h2"
-              sx={{
-                color: 'common.white',
-                mb: { xs: 3, md: 8 },
-                textAlign: { xs: 'center', md: 'left' },
-              }}
-            >
-              Schedule a <br />
-              Complimentary Consultation
-            </Typography>
-
-            <Stack spacing={2} alignItems="flex-start" direction="row">
-              <Iconify width={28} icon="carbon:mobile" />
-              <Stack spacing={0.5}>
-                <Typography variant="h6">Call or Text</Typography>
-                <Link color="inherit" variant="body2" href={inqueryPhoneLink}>
-                  {inqueryPhoneText}
-                </Link>
-              </Stack>
-            </Stack>
-
-            <Stack spacing={2} alignItems="flex-start" direction="row">
-              <Iconify width={28} icon="carbon:email" />
-              <Stack spacing={0.5}>
-                <Typography variant="h6">Email</Typography>
-                <Link color="inherit" variant="body2" href={inqueryEmailLink}>
-                  {inqueryEmail}
-                </Link>
-              </Stack>
-            </Stack>
-          </Grid>
-
+          {/* Assuming InfoColumn is defined elsewhere */}
+          {InfoColumn}
+        
           <Grid xs={12} md={6}>
-            <FormProvider methods={methods} onSubmit={onSubmit}>
+            <form>
               <Stack spacing={2.5} alignItems="flex-start">
                 <Stack
                   spacing={{ xs: 2.5, md: 2 }}
                   direction={{ xs: 'column', md: 'row' }}
                   sx={{ width: 1 }}
                 >
-                  <RHFTextField name="name" label="Name" />
-                  <RHFTextField name="company" label="Company Name" />
-
-                                    
-
+                  <TextField
+                    name="name"
+                    label="Name"
+                    fullWidth
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.name && Boolean(formik.errors.name)}
+                    helperText={formik.touched.name && formik.errors.name}
+                  />
+                   <TextField
+                    name="email"
+                    label="Email"
+                    fullWidth
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                  />
+                         
                 </Stack>
 
                 <Stack
@@ -187,106 +159,170 @@ export default function MarketingLandingFreeSEO() {
                   spacing={{ xs: 2.5, md: 2 }}
                   sx={{ width: 1 }}
                 >
-                  <RHFTextField name="phoneNumber" label="Phone number" />
-                  <RHFTextField name="email" label="Email" />
+                  <TextField
+                    name="phoneNumber"
+                    label="Phone number"
+                    fullWidth
+                    value={formik.values.phoneNumber}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
+                    helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
+                  />
+                  <TextField
+                      name="company"
+                      label="Company Name"
+                      fullWidth
+                      value={formik.values.company}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={formik.touched.company && Boolean(formik.errors.company)}
+                      helperText={formik.touched.company && formik.errors.company}
+                    />     
                 </Stack>
                 
                 <Stack spacing={1} sx={{ pt: 2, width: 1 }}>
                   <Typography variant="overline" sx={{ color: 'text.disabled' }}>
                     Areas of Interest
                   </Typography>
-                  <Controller
-                    name="applications"
-                    control={control}
-                    render={({ field, fieldState: { error } }) => (
-                      <div>
-                        <Stack direction="row" flexWrap="wrap" spacing={2}>
-                          {_applications.map((application) => (
-                            <ToggleButton
-                              {...field}
-                              key={application.label}
-                              color="standard"
-                              selected={field.value?.includes(application.label)}
-                              onChange={() =>
-                                field.onChange(getSelected(field.value, application.label))
-                              }
-                              sx={{
-                                py: 0.5,
-                                px: 1,
-                                typography: 'body2',
-                                [`&.${toggleButtonClasses.selected}`]: {
-                                  bgcolor: 'text.primary',
-                                  borderColor: 'transparent',
-                                  color: (theme) =>
-                                    theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
-                                  '&:hover': {
-                                    bgcolor: 'text.primary',
-                                  },
-                                },
-                              }}
-                            >
-                              {application.label}
-
-                              {application.iconifyIcon && (
-                                <Iconify icon={application.iconifyIcon} sx={{ ml: 1.5 }} />
-                              )}
-                            </ToggleButton>
-                          ))}
-                        </Stack>
-
-                        {!!error && (
-                          <FormHelperText error sx={{ px: 2 }}>
-                            {error?.message}
-                          </FormHelperText>
-                        )}
-                      </div>
-                    )}
-                  />
+                  <div>
+                    <Stack direction="row" flexWrap="wrap" spacing={2}>
+                      {_services.map((services) => (
+                        <ToggleButton
+                          key={services.label}
+                          color="standard"
+                          selected={formik.values.services.includes(services.label)}
+                          onChange={() => handleServicesChange(services.label)}
+                          sx={{
+                            py: 0.5,
+                            px: 1,
+                            typography: 'body2',
+                            [`&.${toggleButtonClasses.selected}`]: {
+                              bgcolor: 'text.primary',
+                              borderColor: 'transparent',
+                              color: (theme) =>
+                                theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
+                              '&:hover': {
+                                bgcolor: 'text.primary',
+                              },
+                            },
+                          }}
+                        >
+                          {services.label}
+                          {services.iconifyIcon && <Iconify icon={services.iconifyIcon} sx={{ ml: 1.5 }} />}
+                        </ToggleButton>
+                      ))}
+                    </Stack>
+                   
+                  </div>
                 </Stack>
 
-                {
-                  isOtherApplicationSelected && (
-                    <Stack
-                      direction={{ xs: 'column', md: 'row' }}
-                      spacing={{ xs: 2.5, md: 2 }}
-                      sx={{ width: 1 }}
-                    >
-                      <RHFTextField name="other" label="Other Interests"/>
-                    </Stack>
-                  )
-                }
+                {formik.values.services.includes('Other') && (
+                  <Stack
+                    direction={{ xs: 'column', md: 'row' }}
+                    spacing={{ xs: 2.5, md: 2 }}
+                    sx={{ width: 1 }}
+                  >
+                    <TextField
+                      name="other"
+                      label="Other Interests"
+                      fullWidth
+                      value={formik.values.other}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={formik.touched.other && Boolean(formik.errors.other)}
+                      helperText={formik.touched.other && formik.errors.other}
+                    />
+                  </Stack>
+                )}
                 
                 <Stack spacing={5} sx={{ width: 1, mt:2 }}>
                   <Typography variant="overline" sx={{ color: 'text.disabled' }}>
                     Project Budget
                   </Typography>
 
-                  <RHFSlider
+                  <Slider
                     name="budget"
                     valueLabelDisplay="on"
                     max={500000}
                     step={5000}
+                    value={formik.values.budget}
                     valueLabelFormat={(value) => fCurrency(value)}
+                    onChange={(_, newValue) => formik.setFieldValue('budget', newValue)}
                   />
+                 
                 </Stack>
 
-                <RHFTextField name="message" label="Message" multiline rows={2} />
+                <TextField
+                  name="message"
+                  label="Message"
+                  fullWidth
+                  multiline
+                  value={formik.values.message}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={formik.touched.message && Boolean(formik.errors.message)}
+                  helperText={formik.touched.message && formik.errors.message}
+                />
               </Stack>
 
-              <LoadingButton
+              <Button
                 size="large"
                 color="inherit"
-                type="submit"
+                type="button"
                 variant="contained"
-                loading={isSubmitting}
                 sx={{ mt: 3 }}
+                onClick={submitForm}
+                disabled={
+                  !formik.touched.name ||
+                  !formik.touched.email ||
+                  !!formik.errors.name ||
+                  !!formik.errors.email
+                }
               >
                 Send Request
-              </LoadingButton>
-            </FormProvider>
+              </Button>
+            </form>
           </Grid>
         </Grid>
       </Container>
     </Box>
   );
 }
+
+const InfoColumn = (
+  <Grid xs={12} md={5}>
+    <Typography
+      variant="h1"
+      component="h2"
+      sx={{
+        color: 'common.white',
+        mb: { xs: 3, md: 8 },
+        textAlign: { xs: 'center', md: 'left' },
+      }}
+    >
+      Schedule a <br />
+      Complimentary Consultation
+    </Typography>
+
+    <Stack spacing={2} alignItems="flex-start" direction="row">
+      <Iconify width={28} icon="carbon:mobile" />
+      <Stack spacing={0.5}>
+        <Typography variant="h6">Call or Text</Typography>
+        <Link color="inherit" variant="body2" href={inqueryPhoneLink}>
+          {inqueryPhoneText}
+        </Link>
+      </Stack>
+    </Stack>
+
+    <Stack spacing={2} alignItems="flex-start" direction="row">
+      <Iconify width={28} icon="carbon:email" />
+      <Stack spacing={0.5}>
+        <Typography variant="h6">Email</Typography>
+        <Link color="inherit" variant="body2" href={inqueryEmailLink}>
+          {inqueryEmail}
+        </Link>
+      </Stack>
+    </Stack>
+  </Grid>
+)

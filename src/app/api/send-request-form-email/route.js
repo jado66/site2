@@ -1,4 +1,5 @@
 import apiRequestOriginValidation from 'src/utils/api-request-origin-validation';
+import { transporter } from 'src/utils/email/nodemailer-transporter';
 
 const client = require('@mailchimp/mailchimp_marketing');
 
@@ -7,71 +8,40 @@ client.setConfig({
   server: process.env.MAILCHIMP_SERVER_PREFIX,
 });
 
-export async function POST(request) {
-  if (!apiRequestOriginValidation(request)) {
-    return new Response(JSON.stringify({ error: 'Invalid origin' }), {
-      status: 403,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  }
+export async function POST(request, res) {
+  // if (!apiRequestOriginValidation(request)) {
+  //   return new Response(JSON.stringify({ error: 'Invalid origin' }), {
+  //     status: 403,
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+  // }
+  
+  const { subject, html } = await request.json();
 
   try {
-    const { email } = await request.json();
-
-    console.log(`Adding ${email} to MailChimp`);
-
-    const response = await client.lists.addListMember(process.env.MAILCHIMP_LIST_ID, {
-      email_address: email,
-      status: 'subscribed',
+    // Send mail with defined transport object
+    let info = await transporter.sendMail({
+      to:'jado66@gmail.com', // list of receivers
+      subject, // Subject line
+      html, // html body
     });
 
-    console.log('Response:' + JSON.stringify(response));
+    console.log('Message sent: %s', info.messageId);
 
-    switch (response.statusCode) {
-      case undefined:
-        return new Response(JSON.stringify(response), {
-          status: 200,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-      default:
-        return new Response(JSON.stringify(response), {
-          status: response.statusCode,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-    }
-  } catch (error) {
-    console.error(error); // this will print any error that occurs
-
-    if (error.code === 'ETIMEDOUT' || error.code === 'ENOTFOUND') {
-      // Handle ETIMEDOUT error here
-      return new Response(JSON.stringify(error), {
-        status: 408,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-    }
-
-    if (error.status === 400) {
-      return new Response(JSON.stringify(error), {
-        status: 400,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-    }
-
-    return new Response(JSON.stringify(error), {
-      status: 500,
+    return new Response(JSON.stringify({ message: 'Email sent successfully' }), {
+      status: 200,
       headers: {
         'Content-Type': 'application/json',
       },
+    });
+  } catch (error) {
+    console.error(error);
+    // Send a JSON response with status code 500 (Internal Server Error) if an error occurs
+    return new Response(JSON.stringify({ message: 'Error sending email', error: error.message}), {
+      status: 500,
+      headers: {'Content-Type': 'application/json',},
     });
   }
 }

@@ -31,7 +31,7 @@ const SERVICES = [
   },
   {
     name: 'Development',
-    image: '/assets/images/webdev.jpg',
+    image: '/assets/stock-photos/webdev.jpeg',
     description: 'Phase 2',
     bullets: [
       'Custom Design',
@@ -53,7 +53,7 @@ const SERVICES = [
   },
   {
     name: 'Launch and Grow',
-    image: '/assets/images/new-product.jpg',
+    image: '/assets/stock-photos/new-product.jpeg',
     description: 'Phase 4',
     bullets: [
       'Deployment',

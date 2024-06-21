@@ -17,7 +17,10 @@ const useSendRequestForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          subject: 'New Contact Request Form: ',
+          html: '<pre>'+JSON.stringify(formData)+'</pre>'}),
+
       });
 
       if (response.status === 200) {
@@ -31,12 +34,13 @@ const useSendRequestForm = () => {
         } else if (response.status === 408) {
           setError('Request Timed Out. Looks like you are offline.');
         } else {
-          const errorMessages = JSON.parse(error.response.text);
-          setError('Error: ' + errorMessages.title);
+          const errorMessages =error;
         }
       }
     } catch (err) {
       setError('Error: ' + err.message);
+      alert('Error22: ' + err.message)
+
     }
 
     setLoading(false);
