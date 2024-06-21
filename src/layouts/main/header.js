@@ -31,11 +31,6 @@ import { envSwitch } from 'src/components/util/EnvComponentSwitch';
 // ----------------------------------------------------------------------
 const mainNav = () => {
 
-  const portfolioPage = includeInEnv('prod',{
-    title: 'Portfolio',
-    path: '/portfolio',
-  });
-
   return(
     [
       {
@@ -46,7 +41,6 @@ const mainNav = () => {
         title: 'About',
         path: '/about',
       },
-      ...(portfolioPage ? [portfolioPage] : []), // Include the Dev page if it's not null
       envSwitch({ 
         prod: { title: 'Portfolio', path: '/portfolio'}, 
         dev: { 
