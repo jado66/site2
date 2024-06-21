@@ -1,16 +1,20 @@
+'use client';
+
 import PropTypes from 'prop-types';
 
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import MarketingTeamItem from './marketing-team-item';
 import { Divider, Grid } from '@mui/material';
 import { jdBio, laraeBio } from 'src/constants/bios';
+import { useState } from 'react';
 
 // ----------------------------------------------------------------------
 
 export default function MarketingTeamAbout({ members }) {
+
+  const [laraeImage, setLaraeImage] = useState(0)
   
   const jdBioSections = jdBio.map((section, index) => (
     <Typography variant = 'subtitle1' key = {`jdBio${index}`} gutterBottom mb = {2}>
@@ -23,6 +27,10 @@ export default function MarketingTeamAbout({ members }) {
       {section}
     </Typography>
   ))
+
+  const swapImage = () => {
+    setLaraeImage(p => (p+1)%2)
+  }
 
   return (
     <Container
@@ -65,8 +73,8 @@ export default function MarketingTeamAbout({ members }) {
         <Grid md = {8} xs = {12} p = {5} display={{xs:'none', md:'block'}}>
           {laraeBioSections}
         </Grid>
-        <Grid md = {4} xs = {12} px = {{xs:5,  md:0}} mt = {{xs:5, md: 0}}>
-          <MarketingTeamItem key={members[1].id} member={members[1]} sx = {{maxHeight:{xs:'90vh', md:'auto'}}}/>
+        <Grid md = {4} xs = {12} px = {{xs:5,  md:0}} mt = {{xs:5, md: 0}} onClick = {swapImage}>
+          <MarketingTeamItem key={members[laraeImage+1].id} member={members[laraeImage+1]} sx = {{maxHeight:{xs:'90vh', md:'auto'}}}/>
         </Grid>
         <Grid md = {8} xs = {12} p = {5} display={{xs:'block', md:'none'}}>
           {laraeBioSections}

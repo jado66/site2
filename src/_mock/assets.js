@@ -113,7 +113,7 @@ export const _emails = [
 export const _fullNames = [
   'Jadon Erwin',
   'LaRae Day',
-  'Harrison Stein',
+  'LaRae Day',
   'Selina Boyer',
   'Sterling Look-Alike',
   'Lainey Davidson',
@@ -260,7 +260,7 @@ export const _phoneNumbers = [
 export const _roles = [
   'Chief Executive Officer & Principal Engineer',
   'Chief Operations Officer',
-  'Marketing Director',
+  'Chief Operations Officer',
   'UX/UI Designer',
   'Q/A Engineer',
   'Account Manager',
