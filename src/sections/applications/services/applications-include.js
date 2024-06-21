@@ -64,7 +64,7 @@ const LoginAndAccountServices = [
       'User accounts in a web application provide secure access, determine resource allocation, and facilitate personalization based on user preferences.',
     icon: '/assets/icons/ic_users.svg',
     dialgogSize: 'md',
-    hasDemo: true,
+    hasDemo: false,
     imageType: 'svg',
   },
 ];
@@ -87,7 +87,7 @@ const DataManagementServices = [
       'Automate the tracking of your business goods. Gather data on sales, orders, and stock levels to make informed decisions on what to stock up on.',
     // ' Inventory management refers to the strategic organization, tracking, and control of goods within a business. It ensures that the right amount of in-stock items are available to meet demand without excessive inventory holding. ',
     icon: '/assets/icons/ic_optimization.svg',
-    hasDemo: true,
+    hasDemo: false,
     imageType: 'svg',
   },
   {

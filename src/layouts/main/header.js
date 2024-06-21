@@ -25,31 +25,53 @@ import { RouterLink } from 'src/routes/components';
 import Iconify from 'src/components/iconify';
 import { travelPageInstructionsToast } from 'src/utils/toasts';
 import Logo from 'src/components/logo';
+import { includeInEnv } from 'src/components/util/EnvSpecificComponent';
+import { envSwitch } from 'src/components/util/EnvComponentSwitch';
 
 // ----------------------------------------------------------------------
-const mainNav = [
-  {
-    title: 'Home',
-    path: '/',
-  },
-  {
-    title: 'About',
-    path: '/about',
-  },
-  {
+const mainNav = () => {
+
+  const portfolioPage = includeInEnv('prod',{
     title: 'Portfolio',
     path: '/portfolio',
-  },
-  {
-    title: 'Example Sites',
-    children: [
-      { title: 'Travel', path: '/examples/travel' },
-      // { title: 'Education', path: '/examples/education' },
-    ],
-  },
-  { title: 'Contact', path: '/contact' },
-];
+  });
 
+  return(
+    [
+      {
+        title: 'Home',
+        path: '/',
+      },
+      {
+        title: 'About',
+        path: '/about',
+      },
+      ...(portfolioPage ? [portfolioPage] : []), // Include the Dev page if it's not null
+      envSwitch({ 
+        prod: { title: 'Portfolio', path: '/portfolio'}, 
+        dev: { 
+          title: 'Portfolio', 
+          children: [
+            { title: 'Demo Components', path: '/portfolio' }, 
+            { title: 'Example Travel Site', path: '/examples/travel' }] }
+        }),
+      envSwitch({ 
+        prod: { title: 'Example Sites',
+          children: [
+            { title: 'Travel', path: '/examples/travel' },
+            // { title: 'Education', path: '/examples/education' },
+          ]}, 
+        dev:  {
+          title: 'Blog',
+          path: '/blog',
+        }
+      }),
+      { title: 'Contact', path: '/contact' },
+
+    ]
+    
+  )
+}
 const travelNav = [
   {
     title: 'Home',
@@ -126,7 +148,7 @@ export default function Header({
 
   const mdUp = useResponsive('up', 'md');
 
-  const navData = type === 'main' ? mainNav : type === 'travel' ? travelNav : educationNav;
+  const navData = type === 'main' ? mainNav() : type === 'travel' ? travelNav : educationNav;
 
   const renderContent = (
     <>

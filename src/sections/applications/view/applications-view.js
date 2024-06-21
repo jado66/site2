@@ -30,9 +30,9 @@ export default function ApplicationsView() {
 
       <ApplicationsInclude />
 
-      <ApplicationsBenefits />
+      {/* <ApplicationsBenefits />
 
-      <ApplicationsHowItWork />
+      <ApplicationsHowItWork /> */}
     </>
   );
 }
