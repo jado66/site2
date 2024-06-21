@@ -19,7 +19,7 @@ const COLORS = ['primary', 'secondary', 'warning', 'success'];
 const SERVICES = [
   {
     name: 'Discovery and Planning',
-    image: '/assets/images/lightbulb.jpg',
+    image: '/assets/stock-photos/lightbulb.jpeg',
     description: 'Phase 1',
     bullets: [
       'Client Consultations',
@@ -42,7 +42,7 @@ const SERVICES = [
   },
   {
     name: 'Testing and Feedback',
-    image: '/assets/images/feedback.jpg',
+    image: '/assets/stock-photos/feedback.jpeg',
     description: 'Phase 3',
     bullets: [
       'Debugging',
@@ -135,7 +135,12 @@ function ServiceItem({ service, index }) {
         height: '550px',
       }}
     >
-      <CardMedia sx={{ height: 250 }} image={image} />
+      <img
+        src={image}
+        alt="description"
+       
+        
+      />
       <CardContent sx={{ p: 2, pt: 0 }}>
         <Typography
           variant="body2"

@@ -46,7 +46,7 @@ const mainNav = () => {
         dev: { 
           title: 'Portfolio', 
           children: [
-            { title: 'Demo Components', path: '/portfolio' }, 
+            { title: 'Our Services', path: '/portfolio' }, 
             { title: 'Example Travel Site', path: '/examples/travel' }] }
         }),
       envSwitch({ 

@@ -29,7 +29,7 @@ const STEPS = [
   },
   {
     name: 'Get Started',
-    image: '/assets/images/get-started.jpg',
+    image: '/assets/stock-photos/get-started.jpeg',
     content: 'After the quote is accepted, we will get started on your project',
     path: paths.marketing.services,
   },
@@ -112,7 +112,7 @@ function ServiceItem({ service, index }) {
         }),
       }}
     >
-      <CardMedia component="img" alt={name} image={image} sx={{ height: 150, mx: 'auto' }} />
+      <CardMedia component="img" alt={name} image={image} />
 
       <CardContent sx={{ px: 4, py: 5 }}>
         <Stack spacing={1} sx={{ my: 5 }}>

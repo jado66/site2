@@ -81,12 +81,17 @@ export default function MarketingTeamAbout({ members }) {
         </Grid>
 
         <Grid xs = {12} my = {6} display={{xs:'none', md:'block'}}>
-          <Divider/>
+        </Grid>
+
+        <Grid xs = {12} mb = {6} display={{xs:'none', md:'block'}}>
+          <Typography variant="h2" sx={{ textAlign: 'center' }}>
+            Our Team
+          </Typography>
         </Grid>
           
         <Grid xs = {12} display='flex' justifyContent='center' flexDirection='column'>
           <img
-            src={'/assets/images/board.jpg'}
+            src={'/assets/stock-photos/board.jpeg'}
           
             style={{borderRadius:'1em'}}
           />
@@ -96,12 +101,7 @@ export default function MarketingTeamAbout({ members }) {
             </Typography>
           </Grid>
         </Grid>
-        
-      
       </Grid>
-
-
-   
     </Container>
   );
 }

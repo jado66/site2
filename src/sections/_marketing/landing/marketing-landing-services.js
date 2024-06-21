@@ -32,7 +32,7 @@ const SERVICES = [
   {
     name: 'Data Management',
     caption: 'Database Integration',
-    icon: '/assets/images/handshake.jpg',
+    icon: '/assets/stock-photos/handshake.jpeg',
     content:
       'Any successful business manages data, whether it be inventory data, sales reports, weather forecasts, customer information, or other organized data collections. Integrating a database into your website allows you to display relevant data, and we can also provide website administrators (or users, if applicable) with the proper tools to search, filter, sort, edit, delete, and manage company data, however they see fit.',
     path: paths.marketing.services,
@@ -128,8 +128,6 @@ function ServiceItem({ service, index }) {
         }),
       }}
     >
-      <CardMedia sx={{ height: 300 }} image={icon} />
-      {/* <ImageFade>
         <img
           src={icon}
           sx={{
@@ -139,7 +137,6 @@ function ServiceItem({ service, index }) {
             color: (theme) => theme.palette[COLORS[index]].main,
           }}
         />
-      </ImageFade> */}
 
       <Stack spacing={1} sx={{ my: 5, px: 4, py: 5 }}>
         <TextMaxLine variant="h6">{name}</TextMaxLine>
