@@ -45,7 +45,7 @@ export default function MarketingLandingHero() {
           zIndex: 2,
         }}
       >
-        <Grid container columnSpacing={{ xs: 0 }} flex={1}>
+        {/* <Grid container columnSpacing={{ xs: 0 }} flex={1}>
           <Grid
             xs={12}
             sx={{
@@ -58,7 +58,7 @@ export default function MarketingLandingHero() {
             <DelayWrapper delay={18500} className = 'banner'>
               <Typography
                 variant="h1"
-                sx={{ color: 'white', mt: -14, fontWeight: 'bold', fontSize: '96px' }}
+                sx={{ color: 'white', mt: -14, fontWeight: 'bold', fontSize: '120px !important;' }}
                 textAlign="center"
                 className = 'company-name'
               >
@@ -72,7 +72,7 @@ export default function MarketingLandingHero() {
               >
                 Executive Website Development
               </Typography>
-
+ 
               <Stack
                 spacing={3}
                 direction={{ xs: 'column', sm: 'row' }}
@@ -86,7 +86,7 @@ export default function MarketingLandingHero() {
               </Stack>
             </DelayWrapper>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Container>
     </Box>
   );

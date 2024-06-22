@@ -11,8 +11,6 @@
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text; /* Standard property */
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
     text-align: center;
     margin: 0;
     padding: 20px 0;
