@@ -126,7 +126,7 @@ export default function TravelLandingIntroduce() {
           alt="cover"
           src="/assets/images/travel/travel_post_hero.jpg"
           width={1600}
-          height={mdUp ? 900 : 1600}
+          height={mdUp ? 900 : 'calc(100vh - 56px)'}
           ratio={mdUp ? '16/9' : '1/1'}
         />
       </Box>
