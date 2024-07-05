@@ -150,7 +150,7 @@ const ThirdPartyServices2 = [
       'Embed Google Maps into your website to provide location-based services and enhance user experience.',
     icon: '/assets/google.png',
     imageType: 'png',
-    hasDemo: true,
+    hasDemo: false,
   },
 ];
 
@@ -327,7 +327,12 @@ export default function ApplicationsInclude() {
           }}
           onClick={(event) => event.stopPropagation()}
         >
-          {currentDemoId === 'newsletter-subscription' && <MarketingNewsletter />}
+          {currentDemoId === 'newsletter-subscription' && (
+            <Box px = {5} sx = {{backgroundColor:'#1d2226', borderRadius:5}}>
+            <MarketingNewsletter sx = {{bgcolor:'#1d2226'}}/>
+          </Box>
+          )
+          }
           {currentDemoId === 'user-login-registration' && (
             <LoginPlusSignUpFlow handleClose={handleClose} />
           )}

@@ -14,7 +14,7 @@ import { useState } from 'react';
 
 export default function MarketingTeamAbout({ members }) {
 
-  const [laraeImage, setLaraeImage] = useState(0)
+  const [laraeImage, setLaraeImage] = useState(1)
   
   const jdBioSections = jdBio.map((section, index) => (
     <Typography variant = 'subtitle1' key = {`jdBio${index}`} gutterBottom mb = {2}>

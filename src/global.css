@@ -68,3 +68,22 @@
 .Toastify__toast-body {
   color: #ffffff !important;
 }
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards; /* Adjust the duration as needed */
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards; /* Adjust the duration as needed */
+}

@@ -20,7 +20,7 @@ const SERVICES = [
   {
     name: 'Discovery and Planning',
     image: '/assets/stock-photos/lightbulb.jpeg',
-    description: 'Phase 1',
+    description: 'PHASE 1',
     bullets: [
       'Client Consultations',
       'Discussing Needs',
@@ -32,7 +32,7 @@ const SERVICES = [
   {
     name: 'Development',
     image: '/assets/stock-photos/webdev.jpeg',
-    description: 'Phase 2',
+    description: 'PHASE 2',
     bullets: [
       'Custom Design',
       'Full-Stack Development',
@@ -43,7 +43,7 @@ const SERVICES = [
   {
     name: 'Testing and Feedback',
     image: '/assets/stock-photos/feedback.jpeg',
-    description: 'Phase 3',
+    description: 'PHASE 3',
     bullets: [
       'Debugging',
       'Product Refinement',
@@ -54,7 +54,7 @@ const SERVICES = [
   {
     name: 'Launch and Grow',
     image: '/assets/stock-photos/new-product.jpeg',
-    description: 'Phase 4',
+    description: 'PHASE 4',
     bullets: [
       'Deployment',
       'Dedicated Post-Launch Support',
@@ -132,7 +132,8 @@ function ServiceItem({ service, index }) {
     <Card
       sx={{
         position: 'relative',
-        height: '550px',
+        height: '650px',
+        
       }}
     >
       <img
@@ -142,11 +143,25 @@ function ServiceItem({ service, index }) {
         
       />
       <CardContent sx={{ p: 2, pt: 0 }}>
-        <Typography
-          variant="body2"
-          sx={{ textAlign: 'right', position: 'absolute', top: 0, right: 0, mt: 3, mr: 3 }}
-          gutterBottom
-        >
+      <Typography
+        variant="body2"
+        sx={{
+          textAlign: 'right',
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          mt: 2,
+          mr: 2,
+          px: 1.5, // Padding left and right
+          py: .75, // Padding top and bottom
+          opacity: .85,
+          bgcolor: '#33322e', // Background color
+          color: 'white', // Text color
+          borderRadius: '16px', // Rounded corners, adjust as needed
+          display: 'inline-block' // Ensure it wraps content appropriately
+        }}
+        gutterBottom
+      >
           {service.description}
         </Typography>
         <Typography variant="h5" sx={{ mt: 3, textAlign: 'center' }}>

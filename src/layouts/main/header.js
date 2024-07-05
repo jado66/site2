@@ -27,6 +27,7 @@ import { travelPageInstructionsToast } from 'src/utils/toasts';
 import Logo from 'src/components/logo';
 import { includeInEnv } from 'src/components/util/EnvSpecificComponent';
 import { envSwitch } from 'src/components/util/EnvComponentSwitch';
+import { usePathname, useRouter } from 'next/navigation';
 
 // ----------------------------------------------------------------------
 const mainNav = () => {
@@ -125,9 +126,10 @@ export default function Header({
   type = 'main',
 }) {
   const handleOpenChatbot = () => {
-    if (openChatbot) {
-      openChatbot();
-    }
+    // if (openChatbot) {
+    //   openChatbot();
+    // }
+    router.push('/contact')
   };
 
   const handleHideChatbot = () => {
@@ -135,6 +137,9 @@ export default function Header({
       hideChatbot();
     }
   };
+
+  const router = useRouter()
+  const pathname = usePathname()
 
   const theme = useTheme();
 
@@ -209,7 +214,7 @@ export default function Header({
           <SettingsButton />
         </Stack> */}
 
-        {mdUp && (
+        {mdUp && pathname.toLowerCase() !== '/contact/' && (
           <>
             {showChatbot ? (
               <Button color="inherit" variant="contained" onClick={handleHideChatbot}>
