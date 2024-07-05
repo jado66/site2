@@ -23,7 +23,7 @@ const CORE_VALUES = [
   {
     title: 'Integrity',
     // description: "Integrity is the cornerstone of every successful business, including Platinum Programming.  It serves as the bedrock of trust between our team and our clients, and it encompasses a commitment to honesty, transparency, and ethical conduct in all business dealings. Upholding integrity means adhering to moral principles even when faced with difficult decisions, maintaining consistency between words and actions, and taking responsibility for mistakes. We believe that businesses built on integrity foster long-lasting relationships with customers, employees, suppliers, and the wider community. They prioritize fairness, respect, and accountability, creating a culture of trust and credibility that forms the foundation for sustainable growth and positive impact. In a world where credibility is invaluable, integrity isn't just a choice—it's a strategic imperative for thriving in the modern marketplace.",
-    description: 'Integrity is key at Platinum Programming. It builds trust with our clients through honesty, transparency, and ethical conduct. We adhere to moral principles, maintain consistency in our actions, and take responsibility for our mistakes. This fosters long-lasting relationships and a culture of trust, forming the foundation for sustainable growth.',
+    description: 'Integrity at Platinum Programming means honesty, transparency, and ethical conduct. We adhere to moral principles, maintain consistency, and take responsibility for mistakes, fostering trust-filled relationships and sustainable growth.',
     icon: '/assets/stock-photos/integrity.jpeg',
   },
   {
