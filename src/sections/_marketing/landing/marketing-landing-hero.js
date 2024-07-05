@@ -1,20 +1,8 @@
 import Box from '@mui/material/Box';
-import Fab from '@mui/material/Fab';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import { alpha, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 
 import { useResponsive } from 'src/hooks/use-responsive';
-
-import { bgGradient } from 'src/theme/css';
-
-import Image from 'src/components/image';
-import Iconify from 'src/components/iconify';
-import withDelay, { DelayWrapper } from 'src/app/components/wrappers/withDelayWrapper';
-import withDelayWrapper from 'src/app/components/wrappers/withDelayWrapper';
 import { useState, useRef, useEffect } from 'react';
 
 
@@ -23,7 +11,6 @@ import './banner.css'
 
 export default function MarketingLandingHero() {
   const theme = useTheme();
-
   const mdUp = useResponsive('up', 'md');
 
   return (
@@ -31,6 +18,8 @@ export default function MarketingLandingHero() {
       sx={{
         overflow: 'hidden',
         position: 'relative !important',
+        width: '100%',
+        height: '100vh', // Adjust this to fit your layout needs
       }}
     >
       <VideoBackground />
@@ -45,48 +34,6 @@ export default function MarketingLandingHero() {
           zIndex: 2,
         }}
       >
-        {/* <Grid container columnSpacing={{ xs: 0 }} flex={1}>
-          <Grid
-            xs={12}
-            sx={{
-              textAlign: { xs: 'center' },
-              flex: { md: 1 },
-            }}
-            display="flex"
-            flexDirection="column"
-          >
-            <DelayWrapper delay={18500} className = 'banner'>
-              <Typography
-                variant="h1"
-                sx={{ color: 'white', mt: -14, fontWeight: 'bold', fontSize: '120px !important;' }}
-                textAlign="center"
-                className = 'company-name'
-              >
-                PLATINUM PROGRAMMING
-              </Typography>
-
-              <Typography
-                variant="overline"
-                sx={{ color: 'white', marginTop: 22 }}
-                textAlign="center"
-              >
-                Executive Website Development
-              </Typography>
- 
-              <Stack
-                spacing={3}
-                direction={{ xs: 'column', sm: 'row' }}
-                alignItems={{ xs: 'center', md: 'unset' }}
-                justifyContent={{ xs: 'center' }}
-                sx={{ mt: 5 }}
-              >
-                <Button variant="contained" color="inherit" size="large" href="/about">
-                  Learn More
-                </Button>
-              </Stack>
-            </DelayWrapper>
-          </Grid>
-        </Grid> */}
       </Container>
     </Box>
   );
@@ -124,10 +71,10 @@ const VideoBackground = () => {
         left: '50%',
         zIndex: -1,
         backgroundColor: isVideoEnded ? '#000' : 'transparent',
-        transition: 'backgroundColor 2s', // Change duration as needed
+        transition: 'background-color 2s', // Change duration as needed
       }}
     >
-      <HeroVideoComponent/>
+      <HeroVideoComponent />
     </div>
   );
 };
@@ -172,7 +119,7 @@ const HeroVideoComponent = () => {
         marginLeft: '-11.5%',
       }}
     >
-      <source src="/assets/stock-photos/platinum-programming.mp4" type="video/mp4" />
+      <source src="/assets/stock-photos/platinum-programming.webm" type="video/webm" />
     </video>
   );
 };
