@@ -13,7 +13,7 @@ export default function MarketingAboutMissionStatement() {
         py: { xs: 10, md: 10 },
       }}
     >
-      <Card sx = {{p:5, maxWidth: 800, mx:'auto'}}>
+      <Card sx = {{p: { xs: 2 , md: 5 }, maxWidth: 800, mx:'auto'}}>
       <Typography variant="h2" sx={{ textAlign: 'center' }}>
         Our Mission Statement
       </Typography>
@@ -22,8 +22,8 @@ export default function MarketingAboutMissionStatement() {
 
       <Typography
         sx={{
-          mt: 3,
-          mx: 5,
+          my: 3,
+          mx: { xs: 2 , md: 5 },
           textAlign: 'justify',
           textAlignLast: 'center'
         }}
