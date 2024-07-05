@@ -42,27 +42,22 @@ const mainNav = () => {
         title: 'About',
         path: '/about',
       },
-      envSwitch({ 
-        prod: { title: 'Portfolio', path: '/portfolio'}, 
-        dev: { 
-          title: 'Portfolio', 
-          children: [
-            { title: 'Our Services', path: '/portfolio' }, 
-            { title: 'Example Travel Site', path: '/examples/travel' }] }
-        }),
-      envSwitch({ 
-        prod: { title: 'Example Sites',
-          children: [
-            { title: 'Travel', path: '/examples/travel' },
-            // { title: 'Education', path: '/examples/education' },
-          ]}, 
-        dev:  {
-          title: 'Blog',
-          path: '/blog',
-        }
-      }),
+      { 
+        title: 'Portfolio', 
+        children: [
+          { title: 'Our Services', path: '/portfolio' }, 
+          { title: 'Example Travel Site', path: '/examples/travel' }
+        ]
+      },
+      
       { title: 'Contact', path: '/contact' },
-
+      // {...includeInEnv({ 
+      //   prod: {}, 
+      //   dev:  {
+      //     title: 'Blog',
+      //     path: '/blog',
+      //   }
+      // })},
     ]
     
   )
