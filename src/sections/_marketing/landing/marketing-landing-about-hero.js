@@ -82,7 +82,7 @@ export default function MarketingLandingAboutHero() {
         >
           <Grid xs={12} md={6} />
 
-          <Grid xs={12} md={5} pt={10}>
+          <Grid xs={12} md={5} pt={{md:10, xs:2}}>
             <Typography variant="h2">About</Typography>
 
             <Typography sx={{ mt: 3, mb: 5, color: 'white' }}>
@@ -101,9 +101,11 @@ export default function MarketingLandingAboutHero() {
               variant="contained"
               color="inherit"
               size="large"
+              fullWidth
+              href = '/portfolio'
               endIcon={<Iconify icon="carbon:chevron-right" />}
             >
-              Examples of Our Work
+              See Examples of Our Work
             </Button>
           </Grid>
         </Grid>

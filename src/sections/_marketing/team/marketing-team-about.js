@@ -62,7 +62,7 @@ export default function MarketingTeamAbout({ members }) {
           <MarketingTeamItem key={members[0].id} member={members[0]} sx = {{maxHeight:{xs:'90vh', md:'auto'}}}/>
         </Grid>
 
-        <Grid md = {8} xs = {12} p = {5}>
+        <Grid md = {8} xs = {12} p = {{xs:1, md:5}}>
           {jdBioSections}
         </Grid>
 
@@ -70,13 +70,13 @@ export default function MarketingTeamAbout({ members }) {
           <Divider/>
         </Grid>
 
-        <Grid md = {8} xs = {12} p = {5} display={{xs:'none', md:'block'}}>
+        <Grid md = {8} xs = {12} p = {{xs:1, md:5}} display={{xs:'none', md:'block'}}>
           {laraeBioSections}
         </Grid>
         <Grid md = {4} xs = {12} px = {{xs:5,  md:0}} mt = {{xs:5, md: 0}} onClick = {swapImage}>
           <MarketingTeamItem key={members[laraeImage+1].id} member={members[laraeImage+1]} sx = {{maxHeight:{xs:'90vh', md:'auto'}}}/>
         </Grid>
-        <Grid md = {8} xs = {12} p = {5} display={{xs:'block', md:'none'}}>
+        <Grid md = {8} xs = {12} p = {{xs:1, md:5}} display={{xs:'block', md:'none'}}>
           {laraeBioSections}
         </Grid>
 
