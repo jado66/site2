@@ -19,7 +19,7 @@ const COLORS = ['primary', 'secondary', 'warning', 'success'];
 const SERVICES = [
   {
     name: 'Discovery and Planning',
-    image: '/assets/stock-photos/lightbulb.jpeg',
+    image: '/assets/stock-photos/lightbulb.webp',
     description: 'PHASE 1',
     bullets: [
       'Client Consultations',
@@ -31,7 +31,7 @@ const SERVICES = [
   },
   {
     name: 'Development',
-    image: '/assets/stock-photos/webdev.jpeg',
+    image: '/assets/stock-photos/webdev.webp',
     description: 'PHASE 2',
     bullets: [
       'Custom Design',
@@ -42,7 +42,7 @@ const SERVICES = [
   },
   {
     name: 'Testing and Feedback',
-    image: '/assets/stock-photos/feedback.jpeg',
+    image: '/assets/stock-photos/feedback.webp',
     description: 'PHASE 3',
     bullets: [
       'Debugging',

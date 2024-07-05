@@ -75,7 +75,7 @@ export default function ApplicationsHero() {
         ...bgGradient({
           startColor: `${alpha(theme.palette.common.black, 0)} 0%`,
           endColor: `${theme.palette.common.black} 100%`,
-          imgUrl: '/assets/stock-photos/services.jpeg',
+          imgUrl: '/assets/stock-photos/services.webp',
         }),
         py: { xs: 20, md: 30 },
       }}

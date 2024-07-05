@@ -17,13 +17,13 @@ const COLORS = ['primary', 'secondary', 'success', 'warning'];
 const STEPS = [
   {
     name: 'Contact',
-    image: '/assets/stock-photos/contact.jpeg',
+    image: '/assets/stock-photos/contact.webp',
     content: 'Fill out the contact form below and we will get back to you within 24 hours',
     path: paths.marketing.services,
   },
   {
     name: 'Discuss Requirements',
-    image: '/assets/stock-photos/discuss.jpeg',
+    image: '/assets/stock-photos/discuss.webp',
     content: 'We will discuss your requirements and provide a quote',
     path: paths.marketing.services,
   },
@@ -35,7 +35,7 @@ const STEPS = [
   },
   {
     name: 'Constant Communication',
-    image: '/assets/stock-photos/constant.jpeg',
+    image: '/assets/stock-photos/constant.webp',
     content:
       'We will keep you updated on the progress of your project, taking your feedback into account',
     path: paths.marketing.services,
@@ -68,7 +68,7 @@ export default function GetStartedSteps() {
           <Typography variant="h2">Just 4 Easy Steps</Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
-            We have a simple 4-step process to get you started with our company, ensuring a
+            We have a simple 3-step process to get you started with our company, ensuring a
             successful partnership.
           </Typography>
         </Stack>

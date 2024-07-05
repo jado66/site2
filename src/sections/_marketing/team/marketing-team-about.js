@@ -91,7 +91,7 @@ export default function MarketingTeamAbout({ members }) {
           
         <Grid xs = {12} display='flex' justifyContent='center' flexDirection='column'>
           <img
-            src={'/assets/stock-photos/board.jpeg'}
+            src={'/assets/stock-photos/board.webp'}
           
             style={{borderRadius:'1em'}}
           />
