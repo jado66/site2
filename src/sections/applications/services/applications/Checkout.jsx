@@ -125,7 +125,7 @@ export const Checkout = ({ handleClose }) => {
     <Container
       sx={{
         position: 'relative',
-        mt: '50%',
+        mt: { xs: '475%', md: '50%' },
         pb: { xs: 8, md: 15 },
       }}
       onClick={handleClose}

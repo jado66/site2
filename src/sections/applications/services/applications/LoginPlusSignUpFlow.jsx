@@ -11,13 +11,16 @@ export const LoginPlusSignUpFlow = ({ handleClose }) => {
 
   return (
     <Stack
-      direction="row"
       alignItems="center"
       justifyContent="center"
       sx={{
+        flexDirection: {xs: 'column', md:'row'},
         height: '100%',
         width: '100% ',
         py: 3,
+        pt:{xs: 40, md:3},
+
+        px:1
       }}
       onClick={handleClose}
     >
@@ -52,8 +55,7 @@ export const LoginPlusSignUpFlow = ({ handleClose }) => {
         sx={{
           p: 4,
           width: 1,
-
-          mr: 'auto',
+          mr: { xs: '', md: 'auto' },
           flexShrink: 0,
           maxWidth: 600,
           borderRadius: 2,
