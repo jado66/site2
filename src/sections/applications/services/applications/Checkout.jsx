@@ -124,16 +124,16 @@ export const Checkout = ({ handleClose }) => {
   return (
     <Container
       sx={{
-        position: 'relative',
-        mt: { xs: '475%', md: '50%' },
+        position: 'absolute',
         pb: { xs: 8, md: 15 },
+        top: 0
       }}
       onClick={handleClose}
     >
-      <div ref={scrollRef} style={{ position: 'relative', top: '-110px' }} />
+      <div ref={scrollRef} style={{ position: 'relative'}} />
       {checkoutPage === 0 ? (
         <>
-          <Typography variant="h3" sx={{ mb: 5 }}>
+          <Typography variant="h3" sx={{ mb: 5, mt: 5 }}>
             Payment Integration
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary', mb: 5 }}>

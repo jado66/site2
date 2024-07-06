@@ -82,7 +82,7 @@ export default function MarketingLandingAboutHero() {
         >
           <Grid xs={12} md={6} />
 
-          <Grid xs={12} md={5} pt={{md:10, xs:2}}>
+          <Grid xs={12} md={5} pt={{md:10, xs:0}}>
             <Typography variant="h2">About</Typography>
 
             <Typography sx={{ mt: 3, mb: 5, color: 'white' }}>

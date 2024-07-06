@@ -68,7 +68,7 @@ export default function GetStartedSteps() {
           <Typography variant="h2">Just 4 Easy Steps</Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
-            We have a simple 3-step process to get you started with our company, ensuring a
+            We have a simple 4-step process to get you started with our company, ensuring a
             successful partnership.
           </Typography>
         </Stack>

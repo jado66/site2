@@ -75,7 +75,7 @@ export default function MarketingLandingServices() {
           }}
         >
           <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-            Customized
+            Fully Customized
           </Typography>
 
           <Typography variant="h2">Web Development</Typography>
