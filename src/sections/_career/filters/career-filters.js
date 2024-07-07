@@ -33,6 +33,8 @@ const defaultValues = {
 export default function CareerFilters() {
   const mdUp = useResponsive('up', 'md');
 
+  const { sendRequestFormByEmail } = useSendRequestForm()
+
   const mobileOpen = useBoolean();
 
   const [filters, setFilters] = useState(defaultValues);
@@ -123,7 +125,9 @@ export default function CareerFilters() {
 
   const onSubmit = async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
-    alert(JSON.stringify(filters, null, 2));
+    
+
+    sendRequestFormByEmail(filters)
     onReset();
   };
 
