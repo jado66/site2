@@ -125,8 +125,11 @@ export default function CareerFilters() {
   }, []);
 
   const onSubmit = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 500));
     
+    if (!filters.name || !filters.email || !filters.phone) {
+      toast('Name, email, and phone are required.');
+      return;
+    }
 
     sendRequestFormByEmail(filters)
 

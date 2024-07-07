@@ -24,6 +24,7 @@ import {
 } from 'src/constants/contact';
 import useSendRequestForm from 'src/utils/hooks/useSendRequestForm';
 import { Slider } from '@mui/material';
+import { toast } from 'react-toastify';
 
 // ----------------------------------------------------------------------
 
@@ -75,7 +76,7 @@ export default function MarketingLandingFreeSEO() {
     validateOnChange: true,
     validateOnBlur: true,
     onSubmit: async (values) => {
-      await sendRequestFormByEmail(values);
+      // awsait sendRequestFormByEmail(values);
     }
   });
 
@@ -90,12 +91,16 @@ export default function MarketingLandingFreeSEO() {
   const submitForm = async () => {
     const errors = await formik.validateForm();
      
-    if (Object.keys(errors).length === 0) {
-      alert("Success: " + JSON.stringify(formik.values));
-      formik.handleSubmit();
-    } else {
-      alert("Errors: " + JSON.stringify(errors));
+      
+    if (!formik.values.name || !formik.values.email || !formik.values.phoneNumber) {
+      toast('Name, email, and phone are required.');
+      return;
     }
+
+    sendRequestFormByEmail(formik.values)
+
+    toast('Request was successfully sent. We will respond in 2-3 business days.')
+    // onReset();
   }
 
   const theme = useTheme();
@@ -273,12 +278,12 @@ export default function MarketingLandingFreeSEO() {
                 variant="contained"
                 sx={{ mt: 3 }}
                 onClick={submitForm}
-                disabled={
-                  !formik.touched.name ||
-                  !formik.touched.email ||
-                  !!formik.errors.name ||
-                  !!formik.errors.email
-                }
+                // disabled={
+                //   !formik.touched.name ||
+                //   !formik.touched.email ||
+                //   !!formik.errors.name ||
+                //   !!formik.errors.email
+                // }
               >
                 Send Request
               </Button>
