@@ -99,7 +99,7 @@ export default function MarketingLandingFreeSEO() {
 
     sendRequestFormByEmail(formik.values)
 
-    toast('Request was successfully sent. We will respond in 2-3 business days.')
+    // toast('Request was successfully sent. We will respond in 2-3 business days.')
     // onReset();
   }
 
