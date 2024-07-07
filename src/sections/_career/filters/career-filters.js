@@ -17,6 +17,7 @@ import FilterKeyword from './filter-keyword';
 import FilterBenefits from './filter-benefits';
 import FilterLocation from './filter-location';
 import FilterCategories from './filter-categories';
+import { toast } from 'react-toastify';
 
 // ----------------------------------------------------------------------
 
@@ -128,6 +129,8 @@ export default function CareerFilters() {
     
 
     sendRequestFormByEmail(filters)
+
+    toast('Request was successfully sent. We will respond in 2-3 business days.')
     onReset();
   };
 
