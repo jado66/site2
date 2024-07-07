@@ -34,7 +34,6 @@ const defaultValues = {
 export default function CareerFilters() {
   const mdUp = useResponsive('up', 'md');
 
-  const { sendRequestFormByEmail } = useSendRequestForm()
 
   const mobileOpen = useBoolean();
 
