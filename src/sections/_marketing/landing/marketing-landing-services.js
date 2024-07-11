@@ -64,7 +64,7 @@ export default function MarketingLandingServices() {
       <Container
         sx={{
           pb: { xs: 5, md: 10 },
-          pt: { xs: 2, md: 4 },
+          pt: { xs: 2, md: 15 },
         }}
       > 
         <Stack
@@ -72,13 +72,17 @@ export default function MarketingLandingServices() {
           sx={{
             maxWidth: 900,
             height:{xs:'50vh', lg:'auto'},
-            mb: { xs: 4 },
+            mb: { xs: 4, md: 15 },
             mx: { xs: 'auto'},
             textAlign: { xs: 'center' },
           }}
         >
           
-          <Logo  sx = {{mt:3}} size={100}/>
+          <Stack
+            display = {{xs: 'auto', lg:'none'}}
+          >
+            <Logo stacked  sx = {{mt:3}} size={80}/>
+          </Stack>
 
           <Typography variant="h2">Custom Web Development </Typography>
 
@@ -90,7 +94,14 @@ export default function MarketingLandingServices() {
 
         
 
-        <Divider sx = {{mb:8, borderColor:'lightgray', mx:5}}/>
+        <Divider 
+          sx = {{
+            mt:{xs:0, md:15},
+            mb:{xs:6, md:15}, 
+            borderColor:'lightgray', 
+            mx:5,
+            display:{xs:'auto', md:'none'}
+          }}/>
 
         <Stack
           spacing={3}

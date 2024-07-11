@@ -165,13 +165,27 @@ export default function Header({
         <Typography
           variant="h4"
           component="div"
-          sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}
+          sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', textTransform:'uppercase', mt:'4px' }}
+          fontWeight={'bold'}
+          
         >
           {type === 'main' && (
+
             <>
-              <Logo single size={18} sx={{ mr: 1, mt: 0.4 }} />
-              Platinum Programming
+              { !mdUp ? (
+                <BlurContainer>
+                  <Logo stacked size={35} sx={{ mr: 1, mt: 0.4 }} />
+
+                </BlurContainer>
+              ):
+              <BlurContainer>
+                  <Logo stacked size={50} sx={{ mr: 1, mt: 0.4 }} />
+
+                </BlurContainer>
+
+              }
             </>
+           
           )}
           {type === 'travel' && (
             <>
@@ -218,13 +232,13 @@ export default function Header({
             ) : (
               <Button
                 sx = {{
-                  color: '#c5c5c5',
-                  backgroundColor:'black',
-                  '&:hover':{
-                    backgroundColor:'#333333',
-                  }
+                  color: '#white',
+                  // backgroundColor:'black',
+                  // '&:hover':{
+                  //   backgroundColor:'#333333',
+                  // }
                 }}
-                variant="contained"
+                variant="outlined"
                 onClick={handleOpenChatbot}
               >
                 {type === 'main' && 'Complimentary Consultation'}
@@ -248,7 +262,9 @@ export default function Header({
   );
 
   return (
-    <AppBar>
+    <AppBar
+      sx = {{maxWidth:'auto'}}
+    >
       <Toolbar
         disableGutters
         sx={{
@@ -279,6 +295,7 @@ export default function Header({
             alignItems: 'center',
             justifyContent: 'center',
           }}
+          maxWidth = 'xl'
         >
           {renderContent}
         </Container>
@@ -292,3 +309,32 @@ export default function Header({
 Header.propTypes = {
   headerOnDark: PropTypes.bool,
 };
+
+
+const BlurContainer = ({ children, sx }) => (
+  <Box style={{
+    position: 'relative',
+    display: 'inline-block'
+    
+  }}
+   
+  >
+    <Box style={{
+      position: 'absolute',
+      top: -2.5,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: -1,
+      filter: 'blur(15px)',
+      background: 'rgba(0, 0, 0, .75)',
+      borderRadius: '15%',
+      width: '100%',
+      height: '100%',
+      opacity: 1
+    }} 
+    sx = {sx}
+    />
+    {children}
+  </Box>
+);

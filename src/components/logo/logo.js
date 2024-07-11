@@ -9,7 +9,7 @@ import { RouterLink } from 'src/routes/components';
 
 // ----------------------------------------------------------------------
 
-function Logo({ single = false, size = 50, sx, imageStyle }) {
+function Logo({ single = false, stacked = false, size = 50, sx, imageStyle }) {
   const theme = useTheme();
 
   const PRIMARY_MAIN = theme.palette.primary.main;
@@ -19,6 +19,13 @@ function Logo({ single = false, size = 50, sx, imageStyle }) {
   const singleLogo = (
     <img src="/assets/logo/Logo.png" width={size * 1.97} height={size} style={imageStyle} />
   );
+
+  const stackedLogo = (
+    <img src="/assets/logo/LogoStacked.png" width={size * 4.97} height={size} style={imageStyle} />
+  );
+
+  const logoToDisplay = (single ? singleLogo : stacked ? stackedLogo : fullLogo)
+
 
   return (
     <Link
@@ -37,7 +44,7 @@ function Logo({ single = false, size = 50, sx, imageStyle }) {
           ...sx,
         }}
       >
-        {single ? singleLogo : fullLogo}
+        {logoToDisplay}
       </Box>
     </Link>
   );
