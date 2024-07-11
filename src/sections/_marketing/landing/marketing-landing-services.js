@@ -15,6 +15,7 @@ import SvgColor from 'src/components/svg-color';
 import TextMaxLine from 'src/components/text-max-line';
 import { CardMedia, Divider, Grid } from '@mui/material';
 import { ImageFade } from 'src/components/image/ImageFade';
+import Logo from 'src/components/logo';
 
 // ----------------------------------------------------------------------
 
@@ -62,15 +63,42 @@ export default function MarketingLandingServices() {
     <Box sx={{ bgcolor: 'background.neutral', overflow: 'hidden' }}>
       <Container
         sx={{
-          py: { xs: 5, md: 10 },
+          pb: { xs: 5, md: 10 },
+          pt:4
         }}
-      >
+      > 
         <Stack
           spacing={3}
           sx={{
             maxWidth: 900,
             height:{xs:'50vh', lg:'auto'},
-            my:'auto',
+            mb: { xs: 4 },
+            mx: { xs: 'auto'},
+            textAlign: { xs: 'center' },
+          }}
+        >
+          
+          <Logo  sx = {{mt:3}} size={100}/>
+
+          <Typography variant="h2">Custom Web Development </Typography>
+
+          <Typography sx={{ color: 'text.secondary' }}>
+            Our team of top-tier developers create custom web applications using the latest web
+            programming. We offer services and packages tailored to the needs of coprate partners,
+            established businesses and funded start-ups. 
+          </Typography>
+
+        </Stack>
+
+        
+
+        {/* <Divider sx = {{mb:8}}/> */}
+
+        <Stack
+          spacing={3}
+          sx={{
+            maxWidth: 900,
+            pt: 8,
             mb: { xs: 8, md: 5 },
             mx: { xs: 'auto', md: 'unset' },
             textAlign: { xs: 'center', md: 'unset' },
