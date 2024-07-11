@@ -19,7 +19,7 @@ export default function MarketingLandingHero() {
         overflow: 'hidden',
         position: 'relative !important',
         width: '100%',
-        height: '100vh', // Adjust this to fit your layout needs
+        height:{sm:'50vh', lg:'100vh'}, // Adjust this to fit your layout needs
       }}
     >
       <VideoBackground />

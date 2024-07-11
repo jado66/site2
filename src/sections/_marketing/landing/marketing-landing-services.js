@@ -69,6 +69,8 @@ export default function MarketingLandingServices() {
           spacing={3}
           sx={{
             maxWidth: 900,
+            height:{xs:'50vh', lg:'auto'},
+            my:'auto',
             mb: { xs: 8, md: 5 },
             mx: { xs: 'auto', md: 'unset' },
             textAlign: { xs: 'center', md: 'unset' },
