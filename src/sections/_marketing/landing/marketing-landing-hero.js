@@ -19,22 +19,11 @@ export default function MarketingLandingHero() {
         overflow: 'hidden',
         position: 'relative !important',
         width: '100%',
-        height:{sm:'50vh', lg:'100vh'}, // Adjust this to fit your layout needs
+        height:{xs:'50vh', lg:'100vh'}, // Adjust this to fit your layout needs
       }}
     >
       <VideoBackground />
-      <Container
-        sx={{
-          py: 15,
-          display: { md: 'flex' },
-          alignItems: { md: 'center' },
-          height: { md: `100vh` },
-          top: { md: 0 },
-          left: { md: 0 },
-          zIndex: 2,
-        }}
-      >
-      </Container>
+      
     </Box>
   );
 }
