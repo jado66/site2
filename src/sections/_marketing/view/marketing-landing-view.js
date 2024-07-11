@@ -47,7 +47,7 @@ export default function MarketingLandingView() {
   return (
     <MainLayout>
       <ScrollProgress scrollYProgress={scrollYProgress} />
-      
+{/*       
       {
         mdUp ? <MarketingLandingHero /> :  (
           <Box sx = {{w:"100%"}} display='flex' justifyContent='center' px = {5} pt = {15}  pb = {10}>
@@ -56,7 +56,9 @@ export default function MarketingLandingView() {
           
         ) 
 
-      }
+      } */}
+
+<MarketingLandingHero /> 
       
       {/* <MarketingOurClients brands={_brands} /> */}
       <MarketingLandingServices />
