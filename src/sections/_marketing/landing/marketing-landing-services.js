@@ -64,7 +64,7 @@ export default function MarketingLandingServices() {
       <Container
         sx={{
           pb: { xs: 5, md: 10 },
-          pt:4
+          pt: { xs: 2, md: 4 },
         }}
       > 
         <Stack
