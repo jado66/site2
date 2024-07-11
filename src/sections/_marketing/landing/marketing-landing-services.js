@@ -90,13 +90,13 @@ export default function MarketingLandingServices() {
 
         
 
-        <Divider sx = {{mb:8}}/>
+        <Divider sx = {{mb:8, borderColor:'lightgray', mx:5}}/>
 
         <Stack
           spacing={3}
           sx={{
             maxWidth: 900,
-            pt: 8,
+            pt: 0,
             mb: { xs: 8, md: 5 },
             mx: { xs: 'auto', md: 'unset' },
             textAlign: { xs: 'center', md: 'unset' },
