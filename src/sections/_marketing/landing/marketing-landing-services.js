@@ -82,17 +82,15 @@ export default function MarketingLandingServices() {
 
           <Typography variant="h2">Custom Web Development </Typography>
 
-          <Typography sx={{ color: 'text.secondary' }}>
-            Our team of top-tier developers create custom web applications using the latest web
-            programming. We offer services and packages tailored to the needs of coprate partners,
-            established businesses and funded start-ups. 
+          <Typography sx={{ color: 'text.secondary', maxWidth:'400px', mx:'auto' }}>
+            Platinum Programming delivers innovative and robust custom web solutions, ensuring your digital presence stands out with expert development, responsive design, and comprehensive support.
           </Typography>
 
         </Stack>
 
         
 
-        {/* <Divider sx = {{mb:8}}/> */}
+        <Divider sx = {{mb:8}}/>
 
         <Stack
           spacing={3}
@@ -112,9 +110,9 @@ export default function MarketingLandingServices() {
 
           <Typography sx={{ color: 'text.secondary' }}>
             Our team of top-tier developers create custom web applications using the latest web
-            programming. We offer services and packages tailored to the needs of coprate partners,
-            established businesses and funded start-ups. Make your prefessional website stand out
-            with the support of our highly skilled develoeprs and specialized software.
+            programming. We offer services and packages tailored to the needs of corporate partners,
+            established businesses and funded start-ups. Make your professional website stand out
+            with the support of our highly skilled developers and specialized software.
           </Typography>
         </Stack>
 

@@ -217,7 +217,13 @@ export default function Header({
               </Button>
             ) : (
               <Button
-                color={offset ? 'inherit' : 'primary'}
+                sx = {{
+                  color: '#c5c5c5',
+                  backgroundColor:'black',
+                  '&:hover':{
+                    backgroundColor:'#333333',
+                  }
+                }}
                 variant="contained"
                 onClick={handleOpenChatbot}
               >
