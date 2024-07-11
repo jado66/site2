@@ -64,7 +64,7 @@ export default function MarketingLandingServices() {
       <Container
         sx={{
           pb: { xs: 5, md: 10 },
-          pt: { xs: 2, md: 15 },
+          pt: { xs: 2, md: 5 },
         }}
       > 
         <Stack
@@ -81,12 +81,12 @@ export default function MarketingLandingServices() {
           <Stack
             display = {{xs: 'auto', lg:'none'}}
           >
-            <Logo stacked  sx = {{mt:3}} size={80}/>
+            <Logo   sx = {{mt:3}} size={80}/>
           </Stack>
 
           <Typography variant="h2">Custom Web Development </Typography>
 
-          <Typography sx={{ color: 'text.secondary', maxWidth:'400px', mx:'auto' }}>
+          <Typography sx={{ color: 'text.secondary', maxWidth:{xs:'400px', md:'800px'}, mx:'auto' }}>
             Platinum Programming delivers innovative and robust custom web solutions, ensuring your digital presence stands out with expert development, responsive design, and comprehensive support.
           </Typography>
 
