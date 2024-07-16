@@ -14,27 +14,23 @@ export default function MarketingAboutMissionStatement() {
       }}
     >
       <Card sx = {{p: { xs: 2 , md: 5 }, maxWidth: 800, mx:'auto'}}>
-      <Typography variant="h2" sx={{ textAlign: 'center' }}>
-        Our Mission Statement
-      </Typography>
+        <Typography variant="h2" sx={{ textAlign: 'center' }}>
+          Our Mission Statement
+        </Typography>
 
-      <Divider sx = {{my:2}}/>
+        <Divider sx = {{my:2}}/>
 
-      <Typography
-        sx={{
-          my: 3,
-          mx: { xs: 2 , md: 5 },
-          textAlign: 'justify',
-          textAlignLast: 'center'
-        }}
-        variant = "subtitle1"
+        <Typography
+          sx={{
+            my: 3,
+            mx: { xs: 2 , md: 5 },
+            textAlign: 'center',
+          }}
+          variant = "subtitle1"
 
-      >
-        We empower businesses with fully customized websites, tailored to their unique brand needs.  With highly skilled top-tier developers leading the way, we leverage the latest cutting-edge web technology to ensure modern and innovative web development solutions.  Our mission is to make our client partners stand out with an exceptional online presence in the digital age.  At Platinum Programming, you can expect platinum-grade products, people, and partnerships.
-      </Typography>
-
-     
-
+        >
+          We empower businesses with fully customized websites, tailored to their unique brand needs.  With highly skilled top-tier developers leading the way, we leverage the latest cutting-edge web technology to ensure modern and innovative web development solutions.  Our mission is to make our client partners stand out with an exceptional online presence in the digital age.  At Platinum Programming, you can expect platinum-grade products, people, and partnerships.
+        </Typography>
       </Card>
    
     </Container>

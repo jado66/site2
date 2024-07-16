@@ -57,7 +57,7 @@ export default function CareerTeam({ members }) {
         </Grid>
 
         <Grid xs = {3}>
-          <CareerTeamItem key={members[1].id} member={members[1]} />
+          <CareerTeamItem key={members[1].id} member={members[2]} />
         </Grid>
 
         <Grid xs = {9}>
@@ -65,7 +65,7 @@ export default function CareerTeam({ members }) {
         </Grid>
 
         <Grid xs = {3}>
-          <CareerTeamItem key={members[2].id} member={members[2]} />
+          <CareerTeamItem key={members[1].id} member={members[2]} />
         </Grid>
 
 

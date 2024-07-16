@@ -1,9 +1,10 @@
-import { Button, Card, Dialog, Divider, Grid, IconButton, Stack } from '@mui/material';
+'use client';
+import { Button, Card, Dialog, Divider, Grid, IconButton, Stack, useMediaQuery } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/system';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import SvgColor from 'src/components/svg-color';
 import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
@@ -13,6 +14,11 @@ import CheckoutView from 'src/sections/services/view/checkout-view';
 import { Checkout } from './applications/Checkout';
 import { _offices } from 'src/_mock';
 import ContactMap from 'src/components/map';
+import { GameDemo } from './applications/Game';
+import React from 'react';
+import useInCenterView from 'src/hooks/use-in-view';
+import { useResponsive } from 'src/hooks/use-responsive';
+
 
 // ----------------------------------------------------------------------
 
@@ -130,9 +136,18 @@ const ThirdPartyServices = [
     hasDemo: false,
     imageType: 'png',
   },
+ 
 ];
 
 const ThirdPartyServices2 = [
+  {
+    title: 'Custom Corporate Games',
+    demoId: 'game',
+    description: 'Create a game that matches your branding.',
+    icon: '/assets/arcade.png',
+    hasDemo: true,
+    imageType: 'png',
+  },
   {
     title: 'Lead Generation Forms',
     demoId: 'lead-integration-forms',
@@ -296,7 +311,7 @@ export default function ApplicationsInclude() {
     <Container
       sx={{
         textAlign: 'center',
-        pt: { xs: 5, md: 10 },
+        pt: { xs: 10, md: 10 },
         pb: { xs: 10, md: 15 },
       }}
     >
@@ -329,14 +344,18 @@ export default function ApplicationsInclude() {
         >
           {currentDemoId === 'newsletter-subscription' && (
             <Box px = {5} sx = {{backgroundColor:'#1d2226', borderRadius:5}}>
-            <MarketingNewsletter sx = {{bgcolor:'#1d2226'}}/>
-          </Box>
+              <MarketingNewsletter sx = {{bgcolor:'#1d2226'}}/>
+            </Box>
           )
           }
           {currentDemoId === 'user-login-registration' && (
             <LoginPlusSignUpFlow handleClose={handleClose} />
           )}
           {currentDemoId === 'payment-integration' && <Checkout handleClose={handleClose} />}
+          {currentDemoId === 'game' && (
+            <GameDemo/>
+             
+          )}
 
           {currentDemoId === 'google-maps-integration' && (
             // <Grid xs={12} md={6} lg={7} sx={{ mx: 'auto' }}>
@@ -372,7 +391,7 @@ export default function ApplicationsInclude() {
         </Box>
       </Dialog>
 
-      <Typography variant="h2">Services Include</Typography>
+      <Typography variant="h2">Our Services</Typography>
 
       <Typography
         sx={{
@@ -457,15 +476,10 @@ export default function ApplicationsInclude() {
           mt: 4,
           rowGap: 4,
           columnGap: 4,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-
-          '& > :not(style)': {
-            // Selects all direct children except those with the "style" element type, allowing us to uniformly style the children
-            minWidth: ['100%', '33.33%'],
-            maxWidth: ['100%', '33.33%'],
+          display: 'grid',
+          gridTemplateColumns: {
+            xs: 'repeat(1, 1fr)',
+            md: 'repeat(3, 1fr)',
           },
         }}
       >
@@ -499,21 +513,28 @@ export default function ApplicationsInclude() {
 
 const ServiceCard = ({ title, description, icon, hasDemo, demoId, openDemo, imageType }) => {
   const theme = useTheme();
+  const cardRef = useRef(null);
+  const isInCenterView = useInCenterView(cardRef);
+
+  const mdUp = useResponsive('up', 'md');
 
   return (
     <Card
+      ref={cardRef}
       sx={{
         p: 2,
         cursor: 'pointer',
         backgroundColor: theme.palette.grey[1000],
-        '&:hover': {
-          // Style for hover effect goes here
-          backgroundColor: theme.palette.grey[950],
-          // make slightly bigger
-          border: '1px solid white',
+        ...(isInCenterView && !mdUp? {
+          boxShadow: '0 0 0 1px white',
           transform: 'scale(1.02)',
-          transition: 'transform 0.3s',
-          // tranistion backgroundColor
+          transition: 'transform 0.3s, box-shadow 0.3s',
+        } : {}),
+        '&:hover': {
+          backgroundColor: theme.palette.grey[950],
+          boxShadow: '0 0 0 1px white',
+          transform: 'scale(1.02)',
+          transition: 'transform 0.3s, box-shadow 0.3s',
         },
       }}
       onClick={hasDemo ? () => openDemo(demoId) : undefined}
@@ -549,32 +570,12 @@ const ServiceCard = ({ title, description, icon, hasDemo, demoId, openDemo, imag
 
       <Typography sx={{ color: 'text.secondary' }}> {description} </Typography>
 
-      {hasDemo && (
+      {hasDemo ? (
         <Button variant="outlined" sx={{ mt: 3 }} onClick={() => openDemo(demoId)}>
           View Demo
         </Button>
-      )}
+      ):(<div style={{height:'25px'}}/>)  
+    }
     </Card>
   );
 };
-
-{
-  /* <Divider sx={{ my: 4 }} />
-
-<Box
-  sx={{
-    rowGap: 4,
-    columnGap: 4,
-    display: 'grid',
-    gridTemplateColumns: {
-      xs: 'repeat(1, 1fr)',
-      sm: 'repeat(2, 1fr)',
-      md: 'repeat(3, 1fr)',
-    },
-  }}
->
-  {SERVICES.map((value) => (
-    <ServiceCard key={value.title} {...value} openDemo={openDemo} />
-  ))}
-</Box> */
-}

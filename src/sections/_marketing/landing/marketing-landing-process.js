@@ -11,6 +11,7 @@ import SvgColor from 'src/components/svg-color';
 import { CardContent, CardMedia, Divider, List, ListItem } from '@mui/material';
 import { ImageFade } from 'src/components/image/ImageFade';
 import { useTheme } from '@mui/system';
+import fadeOnScrollHoc from 'src/utils/hocs/fadeOnScrollHoc';
 
 // ----------------------------------------------------------------------
 
@@ -71,7 +72,7 @@ export default function MarketingLandingProcess() {
   return (
     <Container
       sx={{
-        py: { xs: 5, md: 10 },
+        py: { xs: 10, md: 10 },
         // backgroundColor: (theme) => theme.palette.primary.darker,
         maxWidth: '100% !important',
         mx: 0,
@@ -113,7 +114,7 @@ export default function MarketingLandingProcess() {
           }}
         >
           {SERVICES.map((service, index) => (
-            <ServiceItem key={service.name} service={service} index={index} />
+            <FadingServiceItem key={service.name} service={service} index={index} />
           ))}
         </Box>
       </Container>
@@ -122,6 +123,10 @@ export default function MarketingLandingProcess() {
 }
 
 // ----------------------------------------------------------------------
+
+
+const FadingServiceItem = fadeOnScrollHoc(ServiceItem)
+
 
 function ServiceItem({ service, index }) {
   const { name, image } = service;
@@ -132,7 +137,7 @@ function ServiceItem({ service, index }) {
     <Card
       sx={{
         position: 'relative',
-        height: '650px',
+        height: {md:'650px', xs:'550px'},
         
       }}
     >

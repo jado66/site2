@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { _testimonials, _marketingPosts } from 'src/_mock';
 

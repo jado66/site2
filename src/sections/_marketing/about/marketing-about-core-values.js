@@ -41,8 +41,8 @@ export default function MarketingAboutCoreValues() {
     <Container
       sx={{
         textAlign: 'center',
-        pt: { xs: 5, md: 10 },
-        pb: { xs: 5, md: 15 },
+        pt: { xs: 10, md: 10 },
+        pb: { xs: 10, md: 10 },
       }}
     >
       <Typography variant="h2" sx={{ mb: { xs: 8, md: 10 } }}>

@@ -49,7 +49,7 @@ export default function GetStartedSteps() {
     <Box sx={{ bgcolor: 'background.neutral', overflow: 'hidden' }}>
       <Container
         sx={{
-          py: { xs: 5, md: 10 },
+          py: { xs: 10, md: 10 },
         }}
       >
         <Stack

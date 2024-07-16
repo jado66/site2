@@ -29,6 +29,7 @@ import {
   inqueryPhoneLink,
   inqueryPhoneText,
 } from 'src/constants/contact';
+import { useMediaQuery } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -58,13 +59,14 @@ export const _applications = [
 
 export default function MarketingLandingAboutHero() {
   const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <Box
       sx={{
         ...bgGradient({
           color: alpha(theme.palette.grey[900], 0),
-          imgUrl: '/assets/images/about.jpg',
+          imgUrl: isMdUp ? '/assets/images/about.jpg' : '/assets/images/aboutM.jpg',
         }),
         height: 'calc(100vh - 60px  )',
         overflow: 'hidden',

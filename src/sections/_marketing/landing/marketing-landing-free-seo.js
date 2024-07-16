@@ -107,15 +107,35 @@ export default function MarketingLandingFreeSEO() {
 
   return (
     <Box
-      sx={{
-        ...bgGradient({
-          color: alpha(theme.palette.grey[900], 0),
-          imgUrl: '/assets/images/marketing/marketing_get_free_seo.jpg',
-        }),
-        overflow: 'hidden',
-        py: { xs: 10, md: 5 },
+    sx={{
+      ...bgGradient({
+        color: alpha(theme.palette.grey[900], 0.5),
+        // imgUrl: '/assets/stock-photos/contact-us.mp4',
+      }),
+      height: '80vh',
+
+      overflow: 'hidden',
+      py: { xs: 10, md: 5 },
+      position: 'relative',
+    }}
+  >
+    {/* Video element to display the video background */}
+    <video
+      autoPlay
+      loop 
+      muted
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: 'auto',
+        height: '100%',
+        objectFit: 'cover',
+        zIndex: -1,
       }}
     >
+      <source src="/assets/stock-photos/contact-us.mp4" type="video/mp4"/>
+    </video>
       <Container>
         <Grid
           container

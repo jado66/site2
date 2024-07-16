@@ -16,6 +16,7 @@ import TextMaxLine from 'src/components/text-max-line';
 import { CardMedia, Divider, Grid } from '@mui/material';
 import { ImageFade } from 'src/components/image/ImageFade';
 import Logo from 'src/components/logo';
+import fadeOnScrollHoc from 'src/utils/hocs/fadeOnScrollHoc';
 
 // ----------------------------------------------------------------------
 
@@ -63,8 +64,8 @@ export default function MarketingLandingServices() {
     <Box sx={{ bgcolor: 'background.neutral', overflow: 'hidden' }}>
       <Container
         sx={{
-          pb: { xs: 5, md: 10 },
-          pt: { xs: 2, md: 5 },
+          pb: { xs: 10, md: 10 },
+          pt: { xs: 10, md: 10 },
         }}
       > 
         <Stack
@@ -139,7 +140,7 @@ export default function MarketingLandingServices() {
           }}
         >
           {SERVICES.map((service, index) => (
-            <ServiceItem key={service.name} service={service} index={index} />
+            <FadingServiceItem key={service.name} service={service} index={index} />
           ))}
         </Box>
       </Container>
@@ -148,6 +149,8 @@ export default function MarketingLandingServices() {
 }
 
 // ----------------------------------------------------------------------
+
+const FadingServiceItem = fadeOnScrollHoc(ServiceItem)
 
 function ServiceItem({ service, index }) {
   const { name, caption, icon, content, path } = service;
@@ -187,19 +190,6 @@ function ServiceItem({ service, index }) {
           {content}
         </Typography>
       </Stack>
-
-      {/* <IconButton
-        component={RouterLink}
-        href={path}
-        color={
-          (index === 0 && 'primary') ||
-          (index === 1 && 'secondary') ||
-          (index === 2 && 'success') ||
-          'warning'
-        }
-      >
-        <Iconify icon="carbon:direction-straight-right" />
-      </IconButton> */}
     </Card>
   );
 }

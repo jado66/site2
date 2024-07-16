@@ -71,18 +71,29 @@ export default function ApplicationsHero() {
 
   return (
     <Box
-      sx={{
-        ...bgGradient({
-          startColor: `${alpha(theme.palette.common.black, 0)} 0%`,
-          endColor: `${theme.palette.common.black} 100%`,
-          imgUrl: '/assets/stock-photos/services.webp',
-        }),
-        py: { xs: 20, md: 30 },
-      }}
+    sx={{
+      position: 'relative',
+      backgroundImage: 'url(/assets/stock-photos/services.webp)',
+      py: { xs: 10, md: 30 },
+      backgroundSize: 'cover', // Ensure background covers the container
+      backgroundPosition: 'center', // Center the background image
+      width: '100%', // Ensure width is 100%
+      height: 'auto', // Set height to auto to maintain aspect ratio
+    }}
     >
+       <Box
+        sx={{
+          position: 'absolute',
+          top: '75%',
+          left: 0,
+          right: 0,
+          bottom: '0',
+          background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)',
+        }}
+      />
       <Container>
         <Grid container spacing={3} justifyContent="center">
-          <Grid xs={12} md={8}>
+          <Grid item xs={12} md={8}>
             <Stack
               spacing={3}
               sx={{
@@ -94,7 +105,6 @@ export default function ApplicationsHero() {
               }}
             >
               <Typography variant="h1" sx={{ color: 'primary.main' }}>
-                Our Services
               </Typography>
             </Stack>
           </Grid>

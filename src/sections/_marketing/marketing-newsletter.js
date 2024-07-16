@@ -11,7 +11,7 @@ import Iconify from 'src/components/iconify';
 // ----------------------------------------------------------------------
 export default function MarketingNewsletter({ sx, ...other }) {
   return (
-    <Box sx={{ py: 8, bgcolor: 'background.neutral', ...sx }} {...other}>
+    <Box sx={{ py: 10, bgcolor: 'background.neutral', ...sx }} {...other}>
       <Container>
         <Stack
           spacing={3}

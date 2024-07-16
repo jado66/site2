@@ -58,7 +58,7 @@ export default function Footer() {
   const isHome = pathname === '/';
 
   const simpleFooter = (
-    <Container sx={{ py: 8, textAlign: 'center' }}>
+    <Container sx={{ pb: 10, textAlign: 'center' }}>
       <MarketingNewsletter />
 
       <Logo />
@@ -81,7 +81,7 @@ export default function Footer() {
       <Container
         sx={{
           overflow: 'hidden',
-          py: { xs: 8, md: 10 },
+          pb: { xs: 8, md: 10 },
         }}
       >
         <Grid container spacing={8} justifyContent={{ md: 'center' }}>
