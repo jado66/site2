@@ -75,7 +75,7 @@ export default function Footer() {
           <MarketingNewsletter sx = {{pt:2, pb:3}} />
         </Grid>
 
-        <Grid item xs={4} display = 'flex' justifyContent='center'>
+        <Grid item md={4} xs = {6} display = 'flex' justifyContent='center'>
           <Stack spacing={2} alignItems="flex-start" direction="row">
             <Stack spacing={0.5} display = 'flex' justifyContent='center'>
               <Iconify width={28} icon="carbon:mobile" sx = {{marginX:'auto'}} />
@@ -87,20 +87,7 @@ export default function Footer() {
           </Stack>
         </Grid>
 
-        <Grid item xs={4} display = 'flex' justifyContent='center'>
-          <Stack spacing={2} alignItems="flex-start" direction="row">
-            <Stack spacing={0.5}>
-              <Iconify width={28} icon="carbon:email" sx = {{marginX:'auto'}}/>
-
-              <Typography variant="h6">Email</Typography>
-              <Link color="inherit" variant="body2" href={inqueryEmailLink}>
-                {inqueryEmail}
-              </Link>
-            </Stack>
-          </Stack>
-        </Grid>
-
-        <Grid item xs={4} display = 'flex' justifyContent='center'>
+        <Grid item md={4} xs = {6} display = 'flex' justifyContent='center'>
           <Stack spacing={2} alignItems="flex-start" direction="row">
             <Stack spacing={0.5}>
               <Iconify width={28} icon="carbon:time" sx = {{marginX:'auto'}}/>
@@ -118,6 +105,20 @@ export default function Footer() {
             </Stack>
           </Stack>
         </Grid>
+        <Grid item md={4} xs = {12} display = 'flex' justifyContent='center'>
+          <Stack spacing={2} alignItems="flex-start" direction="row">
+            <Stack spacing={0.5}>
+              <Iconify width={28} icon="carbon:email" sx = {{marginX:'auto'}}/>
+
+              <Typography variant="h6">Email</Typography>
+              <Link color="inherit" variant="body2" href={inqueryEmailLink}>
+                {inqueryEmail}
+              </Link>
+            </Stack>
+          </Stack>
+        </Grid>
+
+        
     </Grid>
 
       <Typography
