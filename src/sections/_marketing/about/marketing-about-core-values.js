@@ -88,7 +88,6 @@ export default function MarketingAboutCoreValues() {
   );
 }
 
-const FadeCoreValueBox = fadeOnScrollHoc(CoreValueBox)
 
 const CoreValueBox = ({ icon, title, description }) => (
   <Box>
@@ -113,3 +112,5 @@ const CoreValueBox = ({ icon, title, description }) => (
     </Typography>
   </Box>
 );
+
+const FadeCoreValueBox = fadeOnScrollHoc(CoreValueBox)
