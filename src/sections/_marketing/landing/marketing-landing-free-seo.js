@@ -297,7 +297,7 @@ export default function MarketingLandingFreeSEO() {
             </Typography>
           </Grid>
             
-          <Grid item md={4} xs = {4} display = 'flex' justifyContent='center'>
+          <Grid item md={4} xs = {6} display = 'flex' justifyContent='center'>
             <Stack spacing={2} alignItems="flex-start" direction="row">
               <Stack spacing={0.5} display = 'flex' justifyContent='center'>
                 <Iconify width={28} icon="carbon:mobile" sx = {{marginX:'auto'}} />
@@ -310,9 +310,11 @@ export default function MarketingLandingFreeSEO() {
           </Grid>
           <Grid 
             item md={4} 
-            xs = {4} 
+            xs = {12} 
             display = 'flex' 
             justifyContent='center'
+            order={{xs:3,md:2}}
+
 
           >
             <Stack spacing={2} alignItems="flex-start" direction="row">
@@ -329,7 +331,7 @@ export default function MarketingLandingFreeSEO() {
           <Grid 
             item 
             md={4} 
-            xs = {4} 
+            xs = {6} 
             display = 'flex' 
             justifyContent='center'
             order={{xs:2,md:3}}
