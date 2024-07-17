@@ -8,13 +8,16 @@ import MarketingNewsletter from '../marketing-newsletter';
 import MarketingContactInfo from '../contact/marketing-contact-info';
 import MarketingContactForm from '../contact/marketing-contact-form';
 import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
+import GetStartedSteps from 'src/sections/get-started/landing/get-started-steps';
 
 // ----------------------------------------------------------------------
 
 export default function MarketingContactView() {
   return (
     <>
-      <MarketingLandingFreeSEO />
+          <GetStartedSteps />
+
+      <MarketingLandingFreeSEO  />
     </>
   );
 }

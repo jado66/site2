@@ -25,7 +25,14 @@ import { useEffect, useState } from 'react';
 import { SplashScreen } from 'src/components/loading-screen';
 import Logo from 'src/components/logo';
 import { Box } from '@mui/system';
-
+import MarketingTeamAbout from '../team/marketing-team-about';
+import MarketingAboutCoreValues from '../about/marketing-about-core-values';
+import MarketingAboutMissionStatement from '../about/marketing-about-mission-statement';
+import MarketingLandingAboutHero from '../landing/marketing-landing-about-hero';
+import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
+import GetStartedSteps from 'src/sections/get-started/landing/get-started-steps';
+import ApplicationsInclude from 'src/sections/applications/services/applications-include';
+import ApplicationsHero from 'src/sections/applications/services/applications-hero';
 // ----------------------------------------------------------------------
 
 export default function MarketingLandingView() {
@@ -61,9 +68,25 @@ export default function MarketingLandingView() {
     <MarketingLandingHero /> 
       
       {/* <MarketingOurClients brands={_brands} /> */}
-      <MarketingLandingServices />
-      {/* <MarketingLandingAbout /> */}
+      {/* About */}
+      <MarketingLandingAboutHero />
+
+      <MarketingLandingServices includeIntro/>
+
+      <MarketingTeamAbout members={_members} />
       <MarketingLandingProcess />
+      <MarketingAboutMissionStatement />
+      {/* <MarketingAboutOurVision /> */}
+      {/* <MarketingAboutPartnerLogos /> */}
+      <MarketingAboutCoreValues />
+
+
+      {/* <Applications /> */}
+      <ApplicationsHero/>
+      <ApplicationsInclude />
+      <GetStartedSteps />
+      <MarketingLandingFreeSEO  />
+
       {/* <MarketingLandingCaseStudies caseStudies={_caseStudies.slice(-6)} /> */}
       {/* <MarketingTeam members={_members} /> */}
       {/* <PricingMarketing plans={_pricingMarketing} /> */}
@@ -75,6 +98,7 @@ export default function MarketingLandingView() {
 
       <MarketingLandingFreeSEO /> */}
       {/* <MarketingNewsletter /> */}
+
     </MainLayout>
   );
 }

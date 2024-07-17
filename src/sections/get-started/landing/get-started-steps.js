@@ -18,26 +18,26 @@ const STEPS = [
   {
     name: 'Contact',
     image: '/assets/stock-photos/contact.webp',
-    content: 'Fill out the contact form below and we will get back to you within 24 hours',
+    content: 'Fill out the contact form below, and we will get back to you within 2 - 3 business days.',
     path: paths.marketing.services,
   },
   {
     name: 'Discuss Requirements',
     image: '/assets/stock-photos/discuss.webp',
-    content: 'We will discuss your requirements and provide a quote',
+    content: 'In a complimentary consultation, we will discuss your requirements and provide an estimate.',
     path: paths.marketing.services,
   },
   {
-    name: 'Get Started',
+    name: 'Begin Development',
     image: '/assets/stock-photos/get-started.jpeg',
-    content: 'After the quote is accepted, we will get started on your project',
+    content: 'We will draft the overall structure of your software, design user interfaces, and begin the development of your project.',
     path: paths.marketing.services,
   },
   {
     name: 'Constant Communication',
     image: '/assets/stock-photos/constant.webp',
     content:
-      'We will keep you updated on the progress of your project, taking your feedback into account',
+      'We will keep you updated on the progress of your project, implementing your feedback every step of the way.',
     path: paths.marketing.services,
   },
 ];

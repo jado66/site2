@@ -87,7 +87,14 @@ export default function Footer() {
           </Stack>
         </Grid>
 
-        <Grid item md={4} xs = {6} display = 'flex' justifyContent='center'>
+        <Grid 
+          item 
+          md={4} 
+          xs = {6} 
+          display = 'flex' 
+          justifyContent='center'
+          order={{xs:2,md:3}}
+        >
           <Stack spacing={2} alignItems="flex-start" direction="row">
             <Stack spacing={0.5}>
               <Iconify width={28} icon="carbon:time" sx = {{marginX:'auto'}}/>
@@ -105,7 +112,14 @@ export default function Footer() {
             </Stack>
           </Stack>
         </Grid>
-        <Grid item md={4} xs = {12} display = 'flex' justifyContent='center'>
+        <Grid 
+          item md={4} 
+          xs = {12} 
+          display = 'flex' 
+          justifyContent='center'
+          order={{xs:3,md:2}}
+
+        >
           <Stack spacing={2} alignItems="flex-start" direction="row">
             <Stack spacing={0.5}>
               <Iconify width={28} icon="carbon:email" sx = {{marginX:'auto'}}/>
@@ -116,10 +130,8 @@ export default function Footer() {
               </Link>
             </Stack>
           </Stack>
-        </Grid>
-
-        
-    </Grid>
+        </Grid> 
+      </Grid>
 
       <Typography
         variant="caption"

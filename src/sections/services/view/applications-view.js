@@ -8,7 +8,6 @@ import ScrollProgress from 'src/components/scroll-progress';
 import MainLayout from 'src/layouts/main';
 
 import Applications from '../services/applications';
-import ApplicationsHero from '../services/applications-hero';
 // import MarketingTestimonial from '../testimonial/marketing-testimonial';
 // import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
 import ApplicationsInclude from '../services/applications-include';
@@ -68,10 +67,7 @@ export default function ServicesView() {
       <Grid container>
         <ScrollProgress scrollYProgress={scrollYProgress} />
 
-        <Grid xs={12}>
-          <ApplicationsHero />
-        </Grid>
-
+     
         <StyledAccordion title="Data and Analytics">
           <>
             <AnalyticsTrafficSources

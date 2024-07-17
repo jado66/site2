@@ -1,11 +1,11 @@
-import ApplicationsView from 'src/sections/applications/view/applications-view';
+import ServicesView from 'src/sections/services/view/applications-view';
 
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Platinum Programming - Portfolio',
+  title: 'Platinum Programming: Services',
 };
 
 export default function MarketingServicesPage() {
-  return <ApplicationsView />;
+  return <ServicesView />;
 }

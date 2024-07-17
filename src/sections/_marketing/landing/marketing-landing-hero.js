@@ -7,6 +7,8 @@ import { useState, useRef, useEffect } from 'react';
 
 
 import './banner.css'
+import { Divider, Stack, Typography } from '@mui/material';
+import Logo from 'src/components/logo';
 // ----------------------------------------------------------------------
 
 export default function MarketingLandingHero() {
@@ -14,17 +16,61 @@ export default function MarketingLandingHero() {
   const mdUp = useResponsive('up', 'md');
 
   return (
-    <Box
-      sx={{
-        overflow: 'hidden',
-        position: 'relative !important',
-        width: '100%',
-        height:{xs:'40vh', lg:'100vh'}, // Adjust this to fit your layout needs
-      }}
-    >
-      <VideoBackground />
-      
-    </Box>
+    <>
+      <Box
+        sx={{
+          overflow: 'hidden',
+          position: 'relative !important',
+          width: '100%',
+          height:{xs:'40vh', lg:'100vh'}, // Adjust this to fit your layout needs
+        }}
+      >
+        <VideoBackground />
+        
+      </Box>
+      <Container
+        sx={{
+          pb: { xs: 10, md: 10 },
+          pt: { xs: 10, md: 10 },
+        }}
+      > 
+   
+        <Stack
+          spacing={3}
+          sx={{
+            maxWidth: 900,
+            height:{xs:'50vh', lg:'auto'},
+            mb: { xs: 4, md: 15 },
+            mx: { xs: 'auto'},
+            textAlign: { xs: 'center' },
+          }}
+        >
+          
+          <Stack
+            display = {{xs: 'auto', lg:'none'}}
+          >
+            <Logo   sx = {{mt:3}} size={80}/>
+          </Stack>
+
+          <Typography variant="h2">Custom Web Development </Typography>
+
+          <Typography sx={{ color: 'text.secondary', maxWidth:{xs:'400px', md:'800px'}, mx:'auto' }}>
+            Platinum Programming delivers innovative and robust custom web solutions, ensuring your digital presence stands out with expert development, responsive design, and comprehensive support.
+          </Typography>
+
+        </Stack> 
+
+        <Divider 
+          sx = {{
+            mt:{xs:0, md:15},
+            mb:{xs:6, md:15}, 
+            borderColor:'lightgray', 
+            mx:5,
+            display:{xs:'auto', md:'none'}
+          }}/>
+  
+      </Container>
+    </>
   );
 }
 

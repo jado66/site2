@@ -42,11 +42,15 @@ const mainNav = () => {
         title: 'About',
         path: '/about',
       },
+      {
+        title: 'Services',
+        path: '/services',
+      },
       { 
-        title: 'Portfolio', 
+        title: 'Demos', 
         children: [
-          { title: 'Our Services', path: '/portfolio' }, 
-          { title: 'Example Travel Site', path: '/examples/travel' }
+          { title: 'Service Demos', path: '/services' }, 
+          { title: 'Sample Website', path: '/examples/travel' }
         ]
       },
       

@@ -12,7 +12,13 @@ import * as Yup from 'yup';
 import { _tags } from 'src/_mock';
 import ToggleButton, { toggleButtonClasses } from '@mui/material/ToggleButton';
 import { Form, useFormik } from 'formik';
-
+import {
+  inqueryEmail,
+  inqueryEmailLink,
+  inqueryPhoneLink,
+  inqueryPhoneText,
+  businessHours
+} from 'src/constants/contact';
 import { bgGradient } from 'src/theme/css';
 
 import Iconify from 'src/components/iconify';
@@ -105,7 +111,7 @@ export default function MarketingLandingFreeSEO() {
   const FormData = (
     <>
       <Grid xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }}/>
-      <Grid xs={12} md={5} sx={{ bgcolor: { md: 'transparent', xs: '#212B36' }, px: { xs: 2, md: 0 }, mt: {xs:-2,md:0} }}>
+      <Grid xs={12} md={5} sx={{ bgcolor: { md: 'transparent', xs: '#212B36' }, px: { xs: 2, md: 4 }, mt: {xs:-2,md:0} }}>
         <Typography
           variant="h3"
           component="h2"
@@ -120,14 +126,14 @@ export default function MarketingLandingFreeSEO() {
           Complimentary Consultation
         </Typography>
         <form>
-          <Stack spacing={2.5} alignItems="flex-start">
+          <Stack spacing={2.5} alignItems="flex-start" >
             <Stack
               spacing={{ xs: 2.5, md: 2 }}
               direction={'row' }
               sx={{ width: 1 }}
             >
               
-              <TextField
+              <StyledTextField
                 name="name"
                 label="Name"
                 fullWidth
@@ -137,7 +143,7 @@ export default function MarketingLandingFreeSEO() {
                 error={formik.touched.name && Boolean(formik.errors.name)}
                 helperText={formik.touched.name && formik.errors.name}
               />
-              <TextField
+              <StyledTextField
                 name="email"
                 label="Email"
                 fullWidth
@@ -155,7 +161,7 @@ export default function MarketingLandingFreeSEO() {
               spacing={{ xs: 2.5, md: 2 }}
               sx={{ width: 1 }}
             >
-              <TextField
+              <StyledTextField
                 name="phoneNumber"
                 label="Phone number"
                 fullWidth
@@ -165,7 +171,7 @@ export default function MarketingLandingFreeSEO() {
                 error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
                 helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
               />
-              <TextField
+              <StyledTextField
                   name="company"
                   label="Company Name"
                   fullWidth
@@ -178,7 +184,7 @@ export default function MarketingLandingFreeSEO() {
             </Stack>
             
             <Stack spacing={1} sx={{ pt: 2, width: 1 }}>
-              <Typography variant="overline" sx={{ color: 'text.disabled' }}>
+              <Typography variant="overline" sx={{ color: 'white' }}>
                 Areas of Interest
               </Typography>
               <div>
@@ -192,12 +198,12 @@ export default function MarketingLandingFreeSEO() {
                       sx={{
                         py: 0.5,
                         px: 1,
+                        color:'white',
                         typography: 'body2',
                         [`&.${toggleButtonClasses.selected}`]: {
                           bgcolor: 'text.primary',
                           borderColor: 'transparent',
-                          color: (theme) =>
-                            theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
+                          color: 'white',
                           '&:hover': {
                             bgcolor: 'text.primary',
                           },
@@ -219,7 +225,7 @@ export default function MarketingLandingFreeSEO() {
                 spacing={{ xs: 2.5, md: 2 }}
                 sx={{ width: 1 }}
               >
-                <TextField
+                <StyledTextField
                   name="other"
                   label="Other Interests"
                   fullWidth
@@ -233,7 +239,7 @@ export default function MarketingLandingFreeSEO() {
             )}
             
             <Stack spacing={5} sx={{ width: 1, mt:2, display:'flex', flexDirection:'row' }}>
-              <Typography variant="overline" sx={{ color: 'text.disabled', whiteSpace:'nowrap' }}>
+              <Typography variant="overline" sx={{ color: 'white', whiteSpace:'nowrap' }}>
                 Total Budget
               </Typography>
 
@@ -241,6 +247,7 @@ export default function MarketingLandingFreeSEO() {
                 name="budget"
                 valueLabelDisplay="on"
                 max={500000}
+                min = {10000}
                 step={5000}
                 value={formik.values.budget}
                 valueLabelFormat={(value) => fCurrency(value)}
@@ -249,7 +256,7 @@ export default function MarketingLandingFreeSEO() {
               
             </Stack>
 
-            <TextField
+            <StyledTextField
               name="message"
               label="Message"
               fullWidth
@@ -279,7 +286,74 @@ export default function MarketingLandingFreeSEO() {
             Send Request
           </Button>
         </form>
+        
+        <Grid container spacing={4} mt={{xs:4, md:4}} sx = {{textAlign:'center'}}>
+          <Grid item xs = {12}>
+            <Typography 
+              variant="h3"
+              component="h2"
+            >
+              Let's Connect
+            </Typography>
+          </Grid>
+            
+          <Grid item md={4} xs = {4} display = 'flex' justifyContent='center'>
+            <Stack spacing={2} alignItems="flex-start" direction="row">
+              <Stack spacing={0.5} display = 'flex' justifyContent='center'>
+                <Iconify width={28} icon="carbon:mobile" sx = {{marginX:'auto'}} />
+                <Typography variant="h6">Call or Text</Typography>
+                <Link color="inherit" variant="body2" href={inqueryPhoneLink}>
+                  {inqueryPhoneText}
+                </Link>
+              </Stack>
+            </Stack>
+          </Grid>
+          <Grid 
+            item md={4} 
+            xs = {4} 
+            display = 'flex' 
+            justifyContent='center'
+
+          >
+            <Stack spacing={2} alignItems="flex-start" direction="row">
+              <Stack spacing={0.5}>
+                <Iconify width={28} icon="carbon:email" sx = {{marginX:'auto'}}/>
+
+                <Typography variant="h6">Email</Typography>
+                <Link color="inherit" variant="body2" href={inqueryEmailLink}>
+                  {inqueryEmail}
+                </Link>
+              </Stack>
+            </Stack>
+          </Grid> 
+          <Grid 
+            item 
+            md={4} 
+            xs = {4} 
+            display = 'flex' 
+            justifyContent='center'
+            order={{xs:2,md:3}}
+          >
+            <Stack spacing={2} alignItems="flex-start" direction="row">
+              <Stack spacing={0.5}>
+                <Iconify width={28} icon="carbon:time" sx = {{marginX:'auto'}}/>
+
+                <Typography variant="h6">Business Hours</Typography>
+                <Stack spacing={0.5} direction="row" sx = {{marginX:'auto'}}>
+                  <Typography variant="body2">8 AM</Typography>
+                  <Typography variant="body2" >-</Typography>
+                  <Typography variant="body2">4 PM</Typography>
+                  <Typography variant="body2" ></Typography>
+                  <Typography variant="body2" >PT</Typography>
+                </Stack>
+              </Stack>
+            </Stack>
+          </Grid>
+        </Grid>
+        
+        
       </Grid>
+     
     </>
   );
 
@@ -441,3 +515,20 @@ const MobileContactVideo = ({children}) => {
     </Box>
   );
 }
+
+
+const StyledTextField = styled(TextField)({
+  '& .MuiInputBase-input': {
+    color: 'white', // Text color
+  },
+  '& .MuiInputLabel-root': {
+    color: 'white', // Label color
+  },
+  '& .MuiInputBase-input::placeholder': {
+    color: 'white', // Placeholder color
+    opacity: 1, // Ensures full opacity for the placeholder text
+  },
+  '& .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'white', // Outline color
+  },
+});
