@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import { borderRadius } from '@mui/system';
 
 import SvgColor from 'src/components/svg-color';
+import fadeOnScrollHoc from 'src/utils/hocs/fadeOnScrollHoc';
 
 // ----------------------------------------------------------------------
 
@@ -86,3 +87,29 @@ export default function MarketingAboutCoreValues() {
     </Container>
   );
 }
+
+const FadeCoreValueBox = fadeOnScrollHoc(CoreValueBox)
+
+const CoreValueBox = ({ icon, title, description }) => (
+  <Box>
+    <img
+      src={icon}
+      style={{
+        height: 180,
+        width: 'auto', // This will adjust the width automatically keeping aspect ratio
+        objectFit: 'contain', // This makes sure the image is scaled properly without losing its aspect ratio
+        mx: 'auto',
+        color: 'primary.main',
+        borderRadius: '16px'
+      }}
+    />
+
+    <Typography variant="h5" sx={{ mt: 5, mb: 2 }}>
+      {title}
+    </Typography>
+
+    <Typography sx={{ color: 'text.secondary' }}> 
+      {description} 
+    </Typography>
+  </Box>
+);

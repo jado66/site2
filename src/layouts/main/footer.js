@@ -29,6 +29,14 @@ import { pageLinks, navConfig } from './config-navigation';
 import SubscribeWidget from 'src/sections/common-components/subscribe-widget';
 import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
 
+import {
+  inqueryEmail,
+  inqueryEmailLink,
+  inqueryPhoneLink,
+  inqueryPhoneText,
+  businessHours
+} from 'src/constants/contact';
+
 // ----------------------------------------------------------------------
 
 const StyledAppStoreButton = styled(Button)(({ theme }) => ({
@@ -58,10 +66,59 @@ export default function Footer() {
   const isHome = pathname === '/';
 
   const simpleFooter = (
-    <Container sx={{ pb: 10, textAlign: 'center' }}>
-      <MarketingNewsletter />
-
+    <Container sx={{ py: 10, textAlign: 'center' }}>
+      
       <Logo />
+
+      <Grid container spacing={4} mt={4}>
+        <Grid item xs = {12} display = 'flex' justifyContent='center'>
+          <MarketingNewsletter sx = {{pt:2, pb:3}} />
+        </Grid>
+
+        <Grid item xs={4} display = 'flex' justifyContent='center'>
+          <Stack spacing={2} alignItems="flex-start" direction="row">
+            <Stack spacing={0.5} display = 'flex' justifyContent='center'>
+              <Iconify width={28} icon="carbon:mobile" sx = {{marginX:'auto'}} />
+              <Typography variant="h6">Call or Text</Typography>
+              <Link color="inherit" variant="body2" href={inqueryPhoneLink}>
+                {inqueryPhoneText}
+              </Link>
+            </Stack>
+          </Stack>
+        </Grid>
+
+        <Grid item xs={4} display = 'flex' justifyContent='center'>
+          <Stack spacing={2} alignItems="flex-start" direction="row">
+            <Stack spacing={0.5}>
+              <Iconify width={28} icon="carbon:email" sx = {{marginX:'auto'}}/>
+
+              <Typography variant="h6">Email</Typography>
+              <Link color="inherit" variant="body2" href={inqueryEmailLink}>
+                {inqueryEmail}
+              </Link>
+            </Stack>
+          </Stack>
+        </Grid>
+
+        <Grid item xs={4} display = 'flex' justifyContent='center'>
+          <Stack spacing={2} alignItems="flex-start" direction="row">
+            <Stack spacing={0.5}>
+              <Iconify width={28} icon="carbon:time" sx = {{marginX:'auto'}}/>
+
+              <Typography variant="h6">Business Hours</Typography>
+              <Stack spacing={0.5} direction="row" sx = {{marginX:'auto'}}>
+
+              <Typography variant="body2">8 AM</Typography>
+              <Typography variant="body2" >-</Typography>
+              <Typography variant="body2">4 PM</Typography>
+              <Typography variant="body2" ></Typography>
+              <Typography variant="body2" >PT</Typography>
+              </Stack>
+
+            </Stack>
+          </Stack>
+        </Grid>
+    </Grid>
 
       <Typography
         variant="caption"
@@ -335,6 +392,7 @@ export function ListMobile({ list }) {
           sx={{ ml: 0.5 }}
         />
       </Typography>
+      
 
       <Collapse in={listExpand.value} unmountOnExit sx={{ width: 1 }}>
         <Stack spacing={1.5} alignItems="flex-start">
