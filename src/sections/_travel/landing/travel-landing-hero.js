@@ -42,6 +42,8 @@ export default function TravelLandingHero({ tours }) {
         display: { md: 'none' },
       },
     }),
+    initialSlide: 1, // Start from the second slide
+
   });
 
   const carouselThumb = useCarousel({
@@ -53,6 +55,8 @@ export default function TravelLandingHero({ tours }) {
     focusOnSelect: true,
     centerPadding: '0px',
     verticalSwiping: true,
+    initialSlide: 1, // Start from the second slide
+
   });
 
   useEffect(() => {

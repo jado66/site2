@@ -18,6 +18,7 @@ import { GameDemo } from './applications/Game';
 import React from 'react';
 import useInCenterView from 'src/hooks/use-in-view';
 import { useResponsive } from 'src/hooks/use-responsive';
+import { EnvSpecificComponent } from 'src/components/util/EnvSpecificComponent';
 
 
 // ----------------------------------------------------------------------
@@ -169,124 +170,34 @@ const ThirdPartyServices2 = [
   },
 ];
 
-const SERVICES = [
-  // Row A
-  // {
-  //   title: 'Newsletter Subscription',
-  //   demoId: 'newsletter-subscription',
-  //   description:
-  //     'Establish a system for periodic email updates to subscribers about new content, events, or promotions.',
-  //   // 'Set up periodic communication sent via email to a list of subscribers. Subscribers receive timely information directly in their inbox, keeping them informed about new content, events, or promotions.',
-  //   icon: '/assets/icons/ic_marketing_bullhorn.svg',
-  //   hasDemo: true,
-  // },
-  // {
-  //   title: 'Email',
-  //   demoId: 'email',
-  //   description:
-  //     'Email integrations build automated email responses to handle customer inquiries and provide support. Make marketing emails more personalized.',
-  //   icon: '/assets/icons/ic_inbox.svg',
-  //   hasDemo: false,
-  // },
-  // {
-  //   title: 'Incoming Voice Calls',
-  //   demoId: 'incoming-voice-calls',
-  //   icon: '/assets/icons/ic_customer_service.svg',
-  //   description: 'Automate incoming calls to provide customers with excellent service.',
-  //   hasDemo: false,
-  // },
-  // {
-  //   title: 'Outgoing Voice Calls',
-  //   demoId: 'outgoing-voice-calls',
-  //   description: ' Automate outgoing calls to provide proactive customer service and updates.',
-  //   icon: '/assets/icons/ic_customer_service.svg',
-  //   hasDemo: false,
-  // },
-
-  // Row B
-  // {
-  //   title: 'User Login & Registration',
-  //   demoId: 'user-login-registration',
-  //   description:
-  //     'User accounts in a web application provide secure access, determine resource allocation, and facilitate personalization based on user preferences.',
-  //   icon: '/assets/icons/ic_users.svg',
-  //   dialgogSize: 'md',
-  //   hasDemo: true,
-  // },
-
-  // {
-  //   title: 'Database Integration',
-  //   demoId: 'database-integration',
-  //   description:
-  //     'Database integration in web apps enables efficient data management by facilitating smooth database interactions for data storage, retrieval, and manipulation.',
-  //   // 'Database integration ensures that web applications interact seamlessly with databases, providing efficient data management and enhancing overall functionality. Data Storage: Web applications often need to store data, such as user profiles, product information, or transaction records. Data Retrieval: Applications retrieve data from databases based on user requests or system processes. Data Manipulation: Developers can insert, update, or delete data in the database.',
-  //   icon: '/assets/icons/ic_real_time.svg',
-  //   hasDemo: false,
-  // },
+const Examples = [
   {
-    title: 'Payment Integration',
-    demoId: 'payment-integration',
-    description:
-      'Payment API integration embeds a payment system into a software or website, allowing businesses to smoothly process payments within their platforms, like Stripe or Square.',
-    icon: '/assets/icons/ic_money.svg',
+    title: 'Example Travel Website',
+    description: 'Create a game that matches your branding.',
+    icon: '/assets/arcade.png',
     hasDemo: true,
-  },
-
-  // Row C
-
-  {
-    title: 'Social Media',
-    demoId: 'social-media',
-    description:
-      'Social media integrations develop chatbots for social media platforms to interact with customers and address their queries.',
-    icon: '/assets/icons/ic_social_media.svg',
-    hasDemo: false,
+    imageType: 'png',
   },
   {
-    title: 'AI Powered Web Chat',
-    demoId: 'ai-powered-web-chat',
-    description: 'Build a custom AI chat experience to help customers with every day tasks.',
-    icon: '/assets/icons/ic_social_media.svg',
-    hasDemo: false,
-  },
-  {
-    title: 'Lead Integration Forms',
+    title: 'Cities Strong',
     demoId: 'lead-integration-forms',
     description:
-      'Lead generation web forms, integral to CRM systems, bridge businesses and potential customers by streamlining the capture, understanding, and nurturing of leads towards sales.',
+      'Cities Strong is a 501c3 Non-Profit',
     //'Lead generation web forms are an essential component of customer relationship management (CRM) systems. They act as the bridge between businesses and potential customers. When integrated within a CRM system, these web forms streamline the process of capturing leads, understanding their needs, and nurturing them toward a sale.',
     icon: '/assets/icons/ic_agreement.svg',
     hasDemo: false,
-  },
-
-  // Row D
-  {
-    title: 'Blogs',
-    demoId: 'blogs',
-    description:
-      'A blog is an online resource where content related to specific or general topics is regularly published for a community of readers. Blogs can shift a website from static to dynamic with… Regular Updates: Unlike static websites, websites with blogs are constantly updated with fresh content. New blog posts are added at regular intervals, keeping the audience engaged. Dynamic Content: Blogs allow authors to share their thoughts, experiences, and expertise on various topics. They can include articles, tutorials, personal reflections, and more.',
-    icon: '/assets/icons/ic_social_media.svg',
-    hasDemo: false,
+    imageType: 'svg',
   },
   {
-    title: 'Course Creation',
-    demoId: 'course-creation',
+    title: 'MyHomeTown',
+    demoId: 'google-maps-integration',
     description:
-      'With the rising popularity of online courses, we can provide your website with the proper tools to publish professional virtual courses. Our software strategies take elements like user experience and structural design into consideration, so you are free to focus on creating quality content.',
-    icon: '/assets/icons/ic_creativity.svg',
-    hasDemo: false,
-  },
-
-  {
-    title: 'Tailored Services',
-    demoId: 'tailored-services',
-    description:
-      'Whatever your web development needs, we are confident in our team’s ability to provide services tailored to your company objectives. Schedule a free consultation today to discuss how we can bring your vision to life.',
-    icon: '/assets/icons/ic_chip.svg',
+      'MyHometown is a city-service organization that revitalizes ',
+    icon: '/assets/google.png',
+    imageType: 'png',
     hasDemo: false,
   },
 ];
-
 // ----------------------------------------------------------------------
 
 export default function ApplicationsInclude() {
@@ -508,25 +419,53 @@ export default function ApplicationsInclude() {
         ))}
       </Box>
 
-      <Card sx = {{p: { xs: 2 , md: 5 }, my:6, maxWidth: 800, mx:'auto'}}>
-        <Typography variant="h2" sx={{ textAlign: 'center' }}>
-          Need Something Custom?
-        </Typography>
+        <EnvSpecificComponent env = 'dev'>
+          <>
+          <Card sx = {{p: { xs: 2 , md: 5 }, my:6, maxWidth: 800, mx:'auto'}}>
+            <Typography variant="h2" sx={{ textAlign: 'center' }}>
+              Need Something Custom?
+            </Typography>
 
-        <Divider sx = {{my:2}}/>
+            <Divider sx = {{my:2}}/>
 
-        <Typography
-          sx={{
-            my: 3,
-            mx: { xs: 2 , md: 5 },
-            textAlign: 'center',
-          }}
-          variant = "subtitle1"
+            <Typography
+              sx={{
+                my: 3,
+                mx: { xs: 2 , md: 5 },
+                textAlign: 'center',
+              }}
+              variant = "subtitle1"
 
-        >
-          The possibilities are endless, and our team of experienced Engineerrs 
-        </Typography>
-      </Card>
+            >
+              The possibilities are endless, and our team of experienced Engineerrs 
+            </Typography>
+          </Card>
+
+        
+
+          <Typography variant="h3" sx={{ my: 6 }}>
+            See Us In Action 
+          </Typography>
+
+          <Box
+            sx={{
+              mt: 4,
+              rowGap: 4,
+              columnGap: 4,
+              display: 'grid',
+              gridTemplateColumns: {
+                xs: 'repeat(1, 1fr)',
+                md: 'repeat(3, 1fr)',
+              },
+            }}
+          >
+            {Examples.map((value) => (
+              <ExamplesCard key={value.title} {...value} />
+            ))}
+          </Box>
+          </>
+      </EnvSpecificComponent>
+
     </Container>
   );
 }
@@ -596,6 +535,48 @@ const ServiceCard = ({ title, description, icon, hasDemo, demoId, openDemo, imag
         </Button>
       ):(<div style={{height:'25px'}}/>)  
     }
+    </Card>
+  );
+};
+
+const ExamplesCard = ({ title, description, hasDemo, demoId, openDemo }) => {
+  const theme = useTheme();
+  const cardRef = useRef(null);
+  const isInCenterView = useInCenterView(cardRef);
+
+  const mdUp = useResponsive('up', 'md');
+
+  return (
+    <Card
+      ref={cardRef}
+      sx={{
+        p: 2,
+        cursor: 'pointer',
+        backgroundColor: theme.palette.grey[1000],
+        ...(isInCenterView && !mdUp? {
+          boxShadow: '0 0 0 1px white',
+          transform: 'scale(1.02)',
+          transition: 'transform 0.3s, box-shadow 0.3s',
+        } : {}),
+        '&:hover': {
+          backgroundColor: theme.palette.grey[950],
+          boxShadow: '0 0 0 1px white',
+          transform: 'scale(1.02)',
+          transition: 'transform 0.3s, box-shadow 0.3s',
+        },
+      }}
+      onClick={hasDemo ? () => openDemo(demoId) : undefined}
+    >
+    
+
+      <Typography variant="h5" sx={{ mt: 5, mb: 2 }}>
+        {title}
+      </Typography>
+
+      <Typography sx={{ color: 'text.secondary' }}> {description} </Typography>
+
+      
+    
     </Card>
   );
 };
