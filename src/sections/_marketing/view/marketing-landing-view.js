@@ -34,6 +34,7 @@ import GetStartedSteps from 'src/sections/get-started/landing/get-started-steps'
 import ApplicationsInclude from 'src/sections/applications/services/applications-include';
 import ApplicationsHero from 'src/sections/applications/services/applications-hero';
 import { default as VisibilitySensor } from 'react-visibility-sensor';
+import MarketingLandingTechnology from '../landing/marketing-landing-technology';
 
 // ----------------------------------------------------------------------
 
@@ -89,6 +90,7 @@ const HomePage = () => {
           <MarketingLandingAboutHero />
 
           <MarketingLandingServices includeIntro/>
+          <MarketingLandingTechnology/>
 
           <MarketingTeamAbout members={_members} />
           <MarketingLandingProcess />

@@ -11,6 +11,7 @@ import MarketingAboutMissionStatement from '../about/marketing-about-mission-sta
 import MarketingLandingProcess from '../landing/marketing-landing-process';
 import MarketingLandingServices from '../landing/marketing-landing-services';
 import GetStartedSteps from 'src/sections/get-started/landing/get-started-steps';
+import MarketingLandingTechnology from '../landing/marketing-landing-technology';
 
 // ----------------------------------------------------------------------
 
@@ -20,6 +21,7 @@ export default function MarketingAboutView() {
       <MarketingLandingAboutHero />
 
       <MarketingLandingServices />
+      <MarketingLandingTechnology/>
       <MarketingTeamAbout members={_members} />
       <MarketingLandingProcess />
       <MarketingAboutMissionStatement />
