@@ -19,7 +19,7 @@ import MarketingLandingAbout from '../landing/marketing-landing-about';
 import MarketingLandingProcess from '../landing/marketing-landing-process';
 import MarketingLandingServices from '../landing/marketing-landing-services';
 import MarketingNewsletter from '../marketing-newsletter';
-import MainLayout from 'src/layouts/main';
+import MainLayout, { useActiveSection } from 'src/layouts/main';
 import { useResponsive } from 'src/hooks/use-responsive';
 import { useEffect, useState } from 'react';
 import { SplashScreen } from 'src/components/loading-screen';
@@ -33,11 +33,24 @@ import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
 import GetStartedSteps from 'src/sections/get-started/landing/get-started-steps';
 import ApplicationsInclude from 'src/sections/applications/services/applications-include';
 import ApplicationsHero from 'src/sections/applications/services/applications-hero';
+import { default as VisibilitySensor } from 'react-visibility-sensor';
+
 // ----------------------------------------------------------------------
 
 export default function MarketingLandingView() {
+  return (
+    <MainLayout>
+      <HomePage/>
+    </MainLayout>
+  );
+}
+
+
+const HomePage = () => {
   const { scrollYProgress } = useScroll();
   const [isReady, setIsReady] = useState(false);
+
+  const { setActiveSection } = useActiveSection();
 
   const mdUp = useResponsive('up', 'md');
 
@@ -47,45 +60,69 @@ export default function MarketingLandingView() {
     }
   }, [mdUp]);
 
+  const onChangeVisibility = (visible, activeSection) => {
+    if (visible) {
+      setActiveSection(activeSection)
+    }
+  };
+
+
   if (!isReady){
     return <SplashScreen />
   }
-  
+
+
   return (
-    <MainLayout>
+
+    <>
       <ScrollProgress scrollYProgress={scrollYProgress} />
-{/*       
-      {
-        mdUp ? <MarketingLandingHero /> :  (
-          <Box sx = {{w:"100%"}} display='flex' justifyContent='center' px = {5} pt = {15}  pb = {10}>
-            <Logo size={128} />
-          </Box>
-          
-        ) 
-
-      } */}
-
-    <MarketingLandingHero /> 
       
+      <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/')} partialVisibility scrollCheck intervalCheck>
+        <MarketingLandingHero /> 
+      </VisibilitySensor>
+
       {/* <MarketingOurClients brands={_brands} /> */}
       {/* About */}
-      <MarketingLandingAboutHero />
 
-      <MarketingLandingServices includeIntro/>
+      <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/about')} partialVisibility scrollCheck intervalCheck>
+        <>
+          <MarketingLandingAboutHero />
 
-      <MarketingTeamAbout members={_members} />
-      <MarketingLandingProcess />
-      <MarketingAboutMissionStatement />
-      {/* <MarketingAboutOurVision /> */}
-      {/* <MarketingAboutPartnerLogos /> */}
-      <MarketingAboutCoreValues />
+          <MarketingLandingServices includeIntro/>
 
+          <MarketingTeamAbout members={_members} />
+          <MarketingLandingProcess />
+          <MarketingAboutMissionStatement />
+          {/* <MarketingAboutOurVision /> */}
+          {/* <MarketingAboutPartnerLogos /> */}
+          <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/about')} partialVisibility >
+            <MarketingAboutCoreValues />
+          </VisibilitySensor>
+
+        </>
+      </VisibilitySensor>
+      
+
+      <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/services')} partialVisibility scrollCheck intervalCheck >
 
       {/* <Applications /> */}
-      <ApplicationsHero/>
-      <ApplicationsInclude />
-      <GetStartedSteps />
-      <MarketingLandingFreeSEO  />
+        <>
+          <ApplicationsHero/>
+            <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/services')} partialVisibility scrollCheck intervalCheck >
+              <ApplicationsInclude />
+            </VisibilitySensor>
+
+        </>
+      </VisibilitySensor>
+
+      <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/contact')} partialVisibility scrollCheck intervalCheck>
+
+      {/* <Applications /> */}
+        <>
+          <MarketingLandingFreeSEO  />
+          <GetStartedSteps />
+        </>
+      </VisibilitySensor>
 
       {/* <MarketingLandingCaseStudies caseStudies={_caseStudies.slice(-6)} /> */}
       {/* <MarketingTeam members={_members} /> */}
@@ -98,7 +135,6 @@ export default function MarketingLandingView() {
 
       <MarketingLandingFreeSEO /> */}
       {/* <MarketingNewsletter /> */}
-
-    </MainLayout>
-  );
+    </>
+  )
 }

@@ -18,7 +18,7 @@ const STEPS = [
   {
     name: 'Contact',
     image: '/assets/stock-photos/contact.webp',
-    content: 'Fill out the contact form below, and we will get back to you within 2 - 3 business days.',
+    content: 'Fill out the contact form above, and we will get back to you within 2 - 3 business days.',
     path: paths.marketing.services,
   },
   {

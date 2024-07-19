@@ -8,15 +8,17 @@ import { usePathname } from 'src/routes/hooks';
 import { useActiveLink } from 'src/routes/hooks/use-active-link';
 
 import NavItem from './nav-item';
+import { useActiveSection } from 'src/layouts/main';
 
 // ----------------------------------------------------------------------
 
 export default function NavList({ data, depth, slotProps }) {
   const navRef = useRef(null);
 
+  const { activeSection } = useActiveSection();
+
   const pathname = usePathname();
 
-  const active = useActiveLink(data.path, !!data.children);
 
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -37,6 +39,11 @@ export default function NavList({ data, depth, slotProps }) {
     setOpenMenu(false);
   }, []);
 
+  const activeLink = useActiveLink(data.path, !!data.children);
+
+
+  const active = (pathname === '/'? activeSection === data.path : activeLink)
+
   return (
     <>
       <NavItem
@@ -55,7 +62,14 @@ export default function NavList({ data, depth, slotProps }) {
         //
         active={active}
         className={active ? 'active' : ''}
-        sx={depth === 1 ? slotProps?.rootItem : slotProps?.subItem}
+        sx={{
+          minHeight:'20px',
+          ...((depth === 1 ? slotProps?.rootItem : slotProps?.subItem) || {}),
+          ...(active && {
+            borderBottom: '2px solid', // Add the border bottom style for active state here
+            borderColor: 'primary.main', // Customize the color as needed
+          }),
+        }}
       />
 
       {!!data.children && (

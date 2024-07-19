@@ -507,6 +507,26 @@ export default function ApplicationsInclude() {
           <ServiceCard key={value.title} {...value} openDemo={openDemo} />
         ))}
       </Box>
+
+      <Card sx = {{p: { xs: 2 , md: 5 }, my:6, maxWidth: 800, mx:'auto'}}>
+        <Typography variant="h2" sx={{ textAlign: 'center' }}>
+          Need Something Custom?
+        </Typography>
+
+        <Divider sx = {{my:2}}/>
+
+        <Typography
+          sx={{
+            my: 3,
+            mx: { xs: 2 , md: 5 },
+            textAlign: 'center',
+          }}
+          variant = "subtitle1"
+
+        >
+          The possibilities are endless, and our team of experienced Engineerrs 
+        </Typography>
+      </Card>
     </Container>
   );
 }

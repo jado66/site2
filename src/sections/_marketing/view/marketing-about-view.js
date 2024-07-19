@@ -26,8 +26,9 @@ export default function MarketingAboutView() {
       {/* <MarketingAboutOurVision /> */}
       {/* <MarketingAboutPartnerLogos /> */}
       <MarketingAboutCoreValues />
-      <GetStartedSteps/>
       <MarketingLandingFreeSEO  />
+      <GetStartedSteps/>
+
     </>
   );
 }

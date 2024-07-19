@@ -15,9 +15,10 @@ import GetStartedSteps from 'src/sections/get-started/landing/get-started-steps'
 export default function MarketingContactView() {
   return (
     <>
-          <GetStartedSteps />
 
       <MarketingLandingFreeSEO  />
+      <GetStartedSteps />
+
     </>
   );
 }

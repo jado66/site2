@@ -173,10 +173,10 @@ export default function MarketingLandingAboutHero() {
             color="inherit"
             size="large"
             fullWidth
-            href='/portfolio'
+            href='/services'
             endIcon={<Iconify icon="carbon:chevron-right" />}
           >
-            See Examples of Our Work
+            View Our Services
           </Button>
         </Grid>
       </Grid>
