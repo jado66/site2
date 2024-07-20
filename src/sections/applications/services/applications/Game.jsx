@@ -1,18 +1,21 @@
 'use client';
-import { Card, Typography } from '@mui/material';
+import { Box, Card, Typography } from '@mui/material';
 import dynamic from 'next/dynamic';
 import React, { useState, useEffect } from 'react';
+import Loading from 'src/app/loading';
+import { useResponsive } from 'src/hooks/use-responsive';
 
-const maxWidth = 820;
+const maxWidth = 500;
 const maxHeight = 620;
-const margin = 0;
+const margin = 8;
 
 const cardStyleBase = {
   margin: `${margin}px`,
   backgroundColor: 'black',
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
+  maxWidth:`${maxWidth+margin*2}px`
 };
 
 const GalagaGame = dynamic(() => import('src/components/game/Galaga.jsx'), { ssr: false });
@@ -20,6 +23,17 @@ const GalagaGame = dynamic(() => import('src/components/game/Galaga.jsx'), { ssr
 export const GameDemo = () => {
     const [width, setWidth] = useState(maxWidth);
     const [height, setHeight] = useState(maxHeight);
+
+    const [isOnMobile, setOnMobile] = useState(false)
+
+    const mdUp = useResponsive('up', 'sm');
+
+    useEffect(() => {
+        if (!mdUp){
+            setOnMobile(true)
+        }
+    }, [mdUp]);
+
 
     useEffect(() => {
         const updateDimensions = () => {
@@ -45,14 +59,31 @@ export const GameDemo = () => {
         height: `${height}px`
     };
 
+    if (mdUp === null){
+        return <Loading/>
+    }
+    
     return (
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography variant='h3' textAlign='center' gutterBottom>
                 Platinum Programming Galaga
             </Typography>
-            <Card style={cardStyle}>
-                <GalagaGame />
-            </Card>
-        </div>
+
+            {
+                mdUp  ? (
+                    <Card style={cardStyle} id = 'gamewrapper'>
+                        <GalagaGame showButtons = {isOnMobile}/>
+                    </Card>
+                ):
+                (
+                <Card style={cardStyle}>
+                    <Typography>
+                        Please rotate your device
+                    </Typography>
+                </Card>
+                )
+            }
+            
+        </Box>
     );
 }

@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Phaser from 'phaser';
 import { Button } from '@mui/material';
+import Iconify from '../iconify';
+import { height } from '@mui/system';
 
 const gameContainerStyle = {
   position: 'relative',
@@ -12,23 +14,24 @@ const gameContainerStyle = {
 const buttonStyleLeft = {
   position: 'absolute',
   top: '50%',
-  left: '2.5%',
+  height:'150px',
+
+  left: '.5%',
   transform: 'translateY(-50%)',
-  padding:'.25em 1em',
   minWidth:0
 
 };
 
 const buttonStyleRight = {
   position: 'absolute',
+  height:'150px',
   top: '50%',
-  right: '2.5%',
+  right: '.5%',
   transform: 'translateY(-50%)',
-  padding:'.25em 1em',
   minWidth:0
 };
 
-const GalagaGame = () => {
+const GalagaGame = ({showButtons}) => {
   const gameRef = useRef(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [lives, setLives] = useState(1);
@@ -348,29 +351,31 @@ const GalagaGame = () => {
       )}
       
       <div ref={gameRef} style={{display:gameOver?'none':'block'}} />
-      {widthRef.current && widthRef.current < 600 && <div style={{...gameContainerStyle, display:(gameStarted && !gameOver)?'block':'none'}}>   
-        <Button
-          variant='outlined'
-          style={buttonStyleLeft}
-          onMouseDown={handleLeftButtonDown}
-          onMouseUp={handleLeftButtonUp}
-          onTouchStart={handleLeftButtonDown} // Added for touch screen compatibility
-          onTouchEnd={handleLeftButtonUp}  
-        >
-          {"←"}
-        </Button>
-        <div ref={gameRef} />
-        <Button
-          variant='outlined'
-          style={buttonStyleRight}
-          onMouseDown={handleRightButtonDown}
-          onMouseUp={handleRightButtonUp}
-          onTouchStart={handleRightButtonDown} // Added for touch screen compatibility
-          onTouchEnd={handleRightButtonUp}
-        >
-          {"→"}
-        </Button>
-      </div>}
+      {((widthRef.current && widthRef.current < 600) || showButtons) && (
+        <div style={{...gameContainerStyle, display:(gameStarted && !gameOver)?'block':'none'}}>   
+          <Button
+            variant='outlined'
+            style={buttonStyleLeft}
+            onMouseDown={handleLeftButtonDown}
+            onMouseUp={handleLeftButtonUp}
+            onTouchStart={handleLeftButtonDown} // Added for touch screen compatibility
+            onTouchEnd={handleLeftButtonUp}  
+          >
+            <Iconify icon="fa6-solid:caret-left"  />
+          </Button>
+          <div ref={gameRef} />
+          <Button
+            variant='outlined'
+            style={buttonStyleRight}
+            onMouseDown={handleRightButtonDown}
+            onMouseUp={handleRightButtonUp}
+            onTouchStart={handleRightButtonDown} // Added for touch screen compatibility
+            onTouchEnd={handleRightButtonUp}
+          >
+            <Iconify icon="fa6-solid:caret-right"  />
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
