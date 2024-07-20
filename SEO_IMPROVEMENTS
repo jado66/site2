@@ -1,0 +1,56 @@
+Web Server - Server information is the information about the software that is running on the server. This can be used to determine the technology stack of a website.
+
+Description - The description tag is an HTML tag that is used to define the description of a webpage. This tag is displayed in the search results and is used by search engines to determine the topic of a page.
+
+Title - The title tag is an HTML tag that is used to define the title of a webpage. This tag is displayed in the search results and is used by search engines to determine the topic of a page.
+
+No Image Alt - Your page has images without alt tags. This can negatively impact your page load speed and user experience.
+
+Has Render Blocking Resources - Your page has render blocking resources. This can negatively impact your page load speed and user experience.
+
+Cache Control - Your page does not have a cache control header. This can negatively impact your page load speed and user experience.
+
+Size - The size of your page is too large. This can negatively impact your page load speed and user experience.
+
+Links are not crawlable - Search engines may use href attributes on links to crawl websites. Ensure that the href attribute of anchor elements links to an appropriate destination, so more pages of the site can be discovered. Learn how to make links crawlable
+
+Image elements do not have `[alt]` attributes - Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute. Learn more about the alt attribute.
+
+Background and foreground colors do not have a sufficient contrast ratio. - Low-contrast text is difficult or impossible for many users to read. Learn how to provide sufficient color contrast.
+
+Heading elements are not in a sequentially-descending order - Properly ordered headings that do not skip levels convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. Learn more about heading order.
+
+`[user-scalable="no"]` is used in the `<meta name="viewport">` - element or the `[maximum-scale]` attribute is less than 5.
+
+Form elements do not have associated labels - Labels ensure that form controls are announced properly by assistive technologies, like screen readers. Learn more about form element labels.
+
+Browser errors were logged to the console - Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. Learn more about this errors in console diagnostic audit
+
+Missing source maps for large first-party JavaScript - Source maps translate minified code to the original source code. This helps developers debug in production. In addition, Lighthouse is able to provide further insights. Consider deploying source maps to take advantage of these benefits. Learn more about source maps.
+
+Largest Contentful Paint - 19.1 s  Largest Contentful Paint marks the time at which the largest text or image is painted. Learn more about the Largest Contentful Paint metric
+
+Properly size images - Potential savings of 40,600 KiB
+Serve images that are appropriately-sized to save cellular data and improve load time.
+
+Reduce unused JavaScript - Potential savings of 900 KiB - Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. Learn how to reduce unused JavaScript.
+
+Serve images in next-gen formats - Potential savings of 567 KiB
+Image formats like WebP and AVIF often provide better compression than PNG or JPEG, which means faster downloads and less data consumption. Learn more about modern image formats.
+
+Preconnect to required origins - Potential savings of 80 ms
+Consider adding preconnect or dns-prefetch resource hints to establish early connections to important third-party origins. Learn how to preconnect to required origins.
+
+Avoid multiple page redirects - Potential savings of 250 ms
+Redirects introduce additional delays before the page can be loaded. Learn how to avoid page redirects.
+
+No canonical link tag found on your homepage.
+
+Some Opengraph meta tags are missing.
+
+No Schema.org data found on your homepage.
+
+
+No H1 tag was found on your homepage. For the best SEO results there should be exactly one H1 tag on each page.
+
+No H2 tag was found on your homepage.
