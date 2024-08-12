@@ -5,8 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { useResponsive } from 'src/hooks/use-responsive';
 import { useState, useRef, useEffect } from 'react';
 
-
-import './banner.css'
+import './banner.css';
 import { Divider, Stack, Typography } from '@mui/material';
 import Logo from 'src/components/logo';
 // ----------------------------------------------------------------------
@@ -22,53 +21,51 @@ export default function MarketingLandingHero() {
           overflow: 'hidden',
           position: 'relative !important',
           width: '100%',
-          height:{xs:'40vh', lg:'100vh'}, // Adjust this to fit your layout needs
+          height: { xs: '40vh', lg: '100vh' }, // Adjust this to fit your layout needs
         }}
       >
         <VideoBackground />
-        
       </Box>
       <Container
         sx={{
           pb: { xs: 10, md: 10 },
           pt: { xs: 10, md: 10 },
         }}
-      > 
-   
+      >
         <Stack
           spacing={3}
           sx={{
             maxWidth: 900,
-            height:{xs:'50vh', lg:'auto'},
+            height: { xs: '50vh', lg: 'auto' },
             mb: { xs: 4, md: 15 },
-            mx: { xs: 'auto'},
+            mx: { xs: 'auto' },
             textAlign: { xs: 'center' },
           }}
         >
-          
-          <Stack
-            display = {{xs: 'auto', lg:'none'}}
-          >
-            <Logo   sx = {{mt:3}} size={80}/>
+          <Stack display={{ xs: 'auto', lg: 'none' }}>
+            <Logo sx={{ mt: 3 }} size={80} />
           </Stack>
 
           <Typography variant="h2">Custom Web Development </Typography>
 
-          <Typography sx={{ color: 'text.secondary', maxWidth:{xs:'400px', md:'800px'}, mx:'auto' }}>
-            Platinum Programming delivers innovative and robust custom web solutions, ensuring your digital presence stands out with expert development, responsive design, and comprehensive support.
+          <Typography
+            sx={{ color: 'text.secondary', maxWidth: { xs: '400px', md: '800px' }, mx: 'auto' }}
+          >
+            Platinum Programming delivers innovative custom web solutions, ensuring your digital
+            presence stands out with expert development, responsive design, and comprehensive
+            support.
           </Typography>
+        </Stack>
 
-        </Stack> 
-
-        <Divider 
-          sx = {{
-            mt:{xs:0, md:15},
-            mb:{xs:6, md:15}, 
-            borderColor:'lightgray', 
-            mx:5,
-            display:{xs:'auto', md:'none'}
-          }}/>
-  
+        <Divider
+          sx={{
+            mt: { xs: 0, md: 15 },
+            mb: { xs: 6, md: 15 },
+            borderColor: 'lightgray',
+            mx: 5,
+            display: { xs: 'auto', md: 'none' },
+          }}
+        />
       </Container>
     </>
   );
@@ -113,7 +110,6 @@ const VideoBackground = () => {
     </div>
   );
 };
-
 
 const HeroVideoComponent = () => {
   const videoRef = useRef(null);

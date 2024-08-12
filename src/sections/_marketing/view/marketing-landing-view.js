@@ -19,6 +19,7 @@ import { useResponsive } from 'src/hooks/use-responsive';
 import { useEffect, useState, Suspense, lazy } from 'react';
 import { SplashScreen } from 'src/components/loading-screen';
 import MarketingLandingHero from '../landing/marketing-landing-hero';
+import { LogoLoading } from 'src/components/loading-screen/splash-screen';
 
 // Lazy load components
 const MarketingLandingFaqs = lazy(() => import('../landing/marketing-landing-faqs'));
@@ -28,11 +29,15 @@ const MarketingLandingServices = lazy(() => import('../landing/marketing-landing
 const MarketingNewsletter = lazy(() => import('../marketing-newsletter'));
 const MarketingTeamAbout = lazy(() => import('../team/marketing-team-about'));
 const MarketingAboutCoreValues = lazy(() => import('../about/marketing-about-core-values'));
-const MarketingAboutMissionStatement = lazy(() => import('../about/marketing-about-mission-statement'));
+const MarketingAboutMissionStatement = lazy(() =>
+  import('../about/marketing-about-mission-statement')
+);
 const MarketingLandingAboutHero = lazy(() => import('../landing/marketing-landing-about-hero'));
 const MarketingLandingFreeSEO = lazy(() => import('../landing/marketing-landing-free-seo'));
 const GetStartedSteps = lazy(() => import('src/sections/get-started/landing/get-started-steps'));
-const ApplicationsInclude = lazy(() => import('src/sections/applications/services/applications-include'));
+const ApplicationsInclude = lazy(() =>
+  import('src/sections/applications/services/applications-include')
+);
 const ApplicationsHero = lazy(() => import('src/sections/applications/services/applications-hero'));
 const MarketingLandingTechnology = lazy(() => import('../landing/marketing-landing-technology'));
 
@@ -41,7 +46,7 @@ const MarketingLandingTechnology = lazy(() => import('../landing/marketing-landi
 export default function MarketingLandingView() {
   return (
     <MainLayout>
-      <HomePage/>
+      <HomePage />
     </MainLayout>
   );
 }
@@ -62,7 +67,7 @@ const HomePage = () => {
 
   const onChangeVisibility = (visible, activeSection) => {
     if (visible) {
-      setActiveSection(activeSection)
+      setActiveSection(activeSection);
     }
   };
 
@@ -74,13 +79,23 @@ const HomePage = () => {
     <>
       <ScrollProgress scrollYProgress={scrollYProgress} />
 
-      <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/')} partialVisibility scrollCheck intervalCheck>
-        <MarketingLandingHero /> 
+      <VisibilitySensor
+        onChange={(visible) => onChangeVisibility(visible, '/')}
+        partialVisibility
+        scrollCheck
+        intervalCheck
+      >
+        <MarketingLandingHero />
       </VisibilitySensor>
 
       {/* <MarketingOurClients brands={_brands} /> */}
-      <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/about')} partialVisibility scrollCheck intervalCheck>
-        <Suspense fallback={<div>Loading...</div>}>
+      <VisibilitySensor
+        onChange={(visible) => onChangeVisibility(visible, '/about')}
+        partialVisibility
+        scrollCheck
+        intervalCheck
+      >
+        <Suspense fallback={<LogoLoading />}>
           <>
             <MarketingLandingAboutHero />
             <MarketingLandingServices includeIntro />
@@ -88,26 +103,44 @@ const HomePage = () => {
             <MarketingTeamAbout members={_members} />
             <MarketingLandingProcess />
             <MarketingAboutMissionStatement />
-            <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/about')} partialVisibility>
+            <VisibilitySensor
+              onChange={(visible) => onChangeVisibility(visible, '/about')}
+              partialVisibility
+            >
               <MarketingAboutCoreValues />
             </VisibilitySensor>
           </>
         </Suspense>
       </VisibilitySensor>
 
-      <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/services')} partialVisibility scrollCheck intervalCheck >
-        <Suspense fallback={<div>Loading...</div>}>
+      <VisibilitySensor
+        onChange={(visible) => onChangeVisibility(visible, '/services')}
+        partialVisibility
+        scrollCheck
+        intervalCheck
+      >
+        <Suspense fallback={<LogoLoading />}>
           <>
             <ApplicationsHero />
-            <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/services')} partialVisibility scrollCheck intervalCheck >
+            <VisibilitySensor
+              onChange={(visible) => onChangeVisibility(visible, '/services')}
+              partialVisibility
+              scrollCheck
+              intervalCheck
+            >
               <ApplicationsInclude />
             </VisibilitySensor>
           </>
         </Suspense>
       </VisibilitySensor>
 
-      <VisibilitySensor onChange={(visible)=>onChangeVisibility(visible, '/contact')} partialVisibility scrollCheck intervalCheck >
-        <Suspense fallback={<div>Loading...</div>}>
+      <VisibilitySensor
+        onChange={(visible) => onChangeVisibility(visible, '/contact')}
+        partialVisibility
+        scrollCheck
+        intervalCheck
+      >
+        <Suspense fallback={<LogoLoading />}>
           <>
             <MarketingLandingFreeSEO />
             <GetStartedSteps />
@@ -125,5 +158,5 @@ const HomePage = () => {
       <MarketingLandingFreeSEO />
       <MarketingNewsletter /> */}
     </>
-  )
-}
+  );
+};

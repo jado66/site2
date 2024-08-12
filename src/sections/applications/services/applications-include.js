@@ -1,5 +1,14 @@
 'use client';
-import { Button, Card, Dialog, Divider, Grid, IconButton, Stack, useMediaQuery } from '@mui/material';
+import {
+  Button,
+  Card,
+  Dialog,
+  Divider,
+  Grid,
+  IconButton,
+  Stack,
+  useMediaQuery,
+} from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -19,7 +28,6 @@ import React from 'react';
 import useInCenterView from 'src/hooks/use-in-view';
 import { useResponsive } from 'src/hooks/use-responsive';
 import { EnvSpecificComponent } from 'src/components/util/EnvSpecificComponent';
-
 
 // ----------------------------------------------------------------------
 
@@ -137,7 +145,6 @@ const ThirdPartyServices = [
     hasDemo: false,
     imageType: 'png',
   },
- 
 ];
 
 const ThirdPartyServices2 = [
@@ -172,8 +179,8 @@ const ThirdPartyServices2 = [
 
 const Examples = [
   {
-    title: 'Example Travel Website',
-    description: 'Create a game that matches your branding.',
+    title: 'Example Website',
+    description: 'See what an example website for Travel might look like.',
     icon: '/assets/arcade.png',
     hasDemo: true,
     imageType: 'png',
@@ -181,8 +188,7 @@ const Examples = [
   {
     title: 'Cities Strong',
     demoId: 'lead-integration-forms',
-    description:
-      'Cities Strong is a 501c3 Non-Profit',
+    description: 'Cities Strong is a 501c3 Non-Profit',
     //'Lead generation web forms are an essential component of customer relationship management (CRM) systems. They act as the bridge between businesses and potential customers. When integrated within a CRM system, these web forms streamline the process of capturing leads, understanding their needs, and nurturing them toward a sale.',
     icon: '/assets/icons/ic_agreement.svg',
     hasDemo: false,
@@ -191,8 +197,7 @@ const Examples = [
   {
     title: 'MyHomeTown',
     demoId: 'google-maps-integration',
-    description:
-      'MyHometown is a city-service organization that revitalizes ',
+    description: 'MyHometown is a city-service organization that revitalizes ',
     icon: '/assets/google.png',
     imageType: 'png',
     hasDemo: false,
@@ -254,19 +259,15 @@ export default function ApplicationsInclude() {
           onClick={(event) => event.stopPropagation()}
         >
           {currentDemoId === 'newsletter-subscription' && (
-            <Box px = {5} sx = {{backgroundColor:'#1d2226', borderRadius:5}}>
-              <MarketingNewsletter sx = {{bgcolor:'#1d2226'}}/>
+            <Box px={5} sx={{ backgroundColor: '#1d2226', borderRadius: 5 }}>
+              <MarketingNewsletter sx={{ bgcolor: '#1d2226' }} />
             </Box>
-          )
-          }
+          )}
           {currentDemoId === 'user-login-registration' && (
             <LoginPlusSignUpFlow handleClose={handleClose} />
           )}
           {currentDemoId === 'payment-integration' && <Checkout handleClose={handleClose} />}
-          {currentDemoId === 'game' && (
-            <GameDemo/>
-             
-          )}
+          {currentDemoId === 'game' && <GameDemo />}
 
           {currentDemoId === 'google-maps-integration' && (
             // <Grid xs={12} md={6} lg={7} sx={{ mx: 'auto' }}>
@@ -419,32 +420,29 @@ export default function ApplicationsInclude() {
         ))}
       </Box>
 
-        <EnvSpecificComponent env = 'dev'>
-          <>
-          <Card sx = {{p: { xs: 2 , md: 5 }, my:6, maxWidth: 800, mx:'auto'}}>
+      <EnvSpecificComponent env="dev">
+        <>
+          <Card sx={{ p: { xs: 2, md: 5 }, my: 6, maxWidth: 800, mx: 'auto' }}>
             <Typography variant="h2" sx={{ textAlign: 'center' }}>
               Need Something Custom?
             </Typography>
 
-            <Divider sx = {{my:2}}/>
+            <Divider sx={{ my: 2 }} />
 
             <Typography
               sx={{
                 my: 3,
-                mx: { xs: 2 , md: 5 },
+                mx: { xs: 2, md: 5 },
                 textAlign: 'center',
               }}
-              variant = "subtitle1"
-
+              variant="subtitle1"
             >
-              The possibilities are endless, and our team of experienced Engineerrs 
+              The possibilities are endless, and our team of experienced Engineerrs
             </Typography>
           </Card>
 
-        
-
           <Typography variant="h3" sx={{ my: 6 }}>
-            See Us In Action 
+            See Us In Action
           </Typography>
 
           <Box
@@ -463,9 +461,8 @@ export default function ApplicationsInclude() {
               <ExamplesCard key={value.title} {...value} />
             ))}
           </Box>
-          </>
+        </>
       </EnvSpecificComponent>
-
     </Container>
   );
 }
@@ -484,11 +481,13 @@ const ServiceCard = ({ title, description, icon, hasDemo, demoId, openDemo, imag
         p: 2,
         cursor: 'pointer',
         backgroundColor: theme.palette.grey[1000],
-        ...(isInCenterView && !mdUp? {
-          boxShadow: '0 0 0 1px white',
-          transform: 'scale(1.02)',
-          transition: 'transform 0.3s, box-shadow 0.3s',
-        } : {}),
+        ...(isInCenterView && !mdUp
+          ? {
+              boxShadow: '0 0 0 1px white',
+              transform: 'scale(1.02)',
+              transition: 'transform 0.3s, box-shadow 0.3s',
+            }
+          : {}),
         '&:hover': {
           backgroundColor: theme.palette.grey[950],
           boxShadow: '0 0 0 1px white',
@@ -533,8 +532,9 @@ const ServiceCard = ({ title, description, icon, hasDemo, demoId, openDemo, imag
         <Button variant="outlined" sx={{ mt: 3 }} onClick={() => openDemo(demoId)}>
           View Demo
         </Button>
-      ):(<div style={{height:'25px'}}/>)  
-    }
+      ) : (
+        <div style={{ height: '25px' }} />
+      )}
     </Card>
   );
 };
@@ -553,11 +553,13 @@ const ExamplesCard = ({ title, description, hasDemo, demoId, openDemo }) => {
         p: 2,
         cursor: 'pointer',
         backgroundColor: theme.palette.grey[1000],
-        ...(isInCenterView && !mdUp? {
-          boxShadow: '0 0 0 1px white',
-          transform: 'scale(1.02)',
-          transition: 'transform 0.3s, box-shadow 0.3s',
-        } : {}),
+        ...(isInCenterView && !mdUp
+          ? {
+              boxShadow: '0 0 0 1px white',
+              transform: 'scale(1.02)',
+              transition: 'transform 0.3s, box-shadow 0.3s',
+            }
+          : {}),
         '&:hover': {
           backgroundColor: theme.palette.grey[950],
           boxShadow: '0 0 0 1px white',
@@ -567,16 +569,11 @@ const ExamplesCard = ({ title, description, hasDemo, demoId, openDemo }) => {
       }}
       onClick={hasDemo ? () => openDemo(demoId) : undefined}
     >
-    
-
       <Typography variant="h5" sx={{ mt: 5, mb: 2 }}>
         {title}
       </Typography>
 
       <Typography sx={{ color: 'text.secondary' }}> {description} </Typography>
-
-      
-    
     </Card>
   );
 };

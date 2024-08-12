@@ -13,23 +13,23 @@ import Iconify from 'src/components/iconify';
 const TECH_STACK = [
   {
     label: 'NextJs',
-    content: 'A powerful tool for making websites work smoothly and load quickly.',
+    content: 'An advanced framework for optimized website performance and fast loading times.',
   },
   {
     label: 'React',
-    content: 'The building blocks of our user interfaces, ensuring everything looks great!',
+    content: 'A foundational library for building modern and dynamic user interfaces.',
   },
   {
     label: 'Node.js',
-    content: 'The brain behind our server operations, making sure your requests are handled efficiently.',
+    content: 'The core of our server-side operations, ensuring efficient request handling.',
   },
   {
     label: 'MongoDB',
-    content: 'Where we securely store all the data and information you see on our site.',
+    content: 'Where we securely manage and store all site-related data and information.',
   },
   {
     label: 'MUI',
-    content: 'The style guide we use to make sure everything is visually appealing and user-friendly.',
+    content: 'The design system we employ to ensure visually appealing and intuitive interfaces.',
   },
 ];
 
@@ -55,6 +55,7 @@ export default function MarketingLandingTechnology() {
             md={5}
             sx={{
               textAlign: { xs: 'center', md: 'right' },
+              alignItems: 'center',
             }}
           >
             <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
@@ -62,20 +63,21 @@ export default function MarketingLandingTechnology() {
             </Typography>
 
             <Typography variant="h2" sx={{ my: 3 }}>
-              Tools We Use
+              Our Technology Stack
             </Typography>
-
             <Typography sx={{ color: 'text.secondary' }}>
-              At Platinum Programming, we use various amazing tools to build our projects. These technologies help us create beautiful and fast websites, much like the one you're on right now!
+              At Platinum Programming, we utilize a range of cutting-edge tools to develop our
+              projects. These technologies enable us to create efficient and visually appealing
+              websites.
             </Typography>
-            <Typography variant="h2" sx={{ my: 3 }}>
-              Built By Us
+            <Typography sx={{ color: 'text.secondary', mt: 2, mx: 'auto' }}>
+              This website was meticulously designed by our skilled team using these tools. Our
+              proficiency in these technologies ensures optimal performance and an exceptional user
+              experience.
             </Typography>
-            <Typography sx={{ color: 'text.secondary', mt: 2, mx:'auto' }}>
-            This  website was crafted by our talented team using these technologies. Our expertise in these tools ensures that we deliver top-notch performance and a smooth user experience.          </Typography>
           </Grid>
 
-            {/* TODO Add we can work with other languages and frameworks */}
+          {/* TODO Add we can work with other languages and frameworks */}
 
           <Grid xs={12} md={6}>
             <Stack spacing={5}>
@@ -93,7 +95,10 @@ export default function MarketingLandingTechnology() {
                   }
                 >
                   <Stack spacing={1} sx={{ width: 1, maxWidth: 100 }}>
-                    <Typography variant="h4" sx={{ color: 'primary.main' }}>
+                    <Typography
+                      variant="h4"
+                      sx={{ color: 'primary.main', marginTop: { md: '-20px', xs: '-36px' } }}
+                    >
                       {tech.label}
                     </Typography>
                   </Stack>
@@ -106,8 +111,6 @@ export default function MarketingLandingTechnology() {
             </Stack>
           </Grid>
         </Grid>
-
-      
       </Container>
     </Box>
   );

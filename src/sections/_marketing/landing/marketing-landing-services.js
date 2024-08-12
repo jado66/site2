@@ -67,7 +67,7 @@ export default function MarketingLandingServices() {
           pb: { xs: 10, md: 10 },
           pt: { xs: 10, md: 10 },
         }}
-      > 
+      >
         <Stack
           spacing={3}
           sx={{
@@ -82,13 +82,11 @@ export default function MarketingLandingServices() {
             Fully Customized
           </Typography>
 
-          <Typography variant="h2">Web Development</Typography>
+          <Typography variant="h2">Executive Web Development</Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
-            Our team of top-tier developers create custom web applications using the latest web
-            programming. We offer services and packages tailored to the needs of corporate partners,
-            established businesses and funded start-ups. Make your professional website stand out
-            with the support of our highly skilled developers and specialized software.
+            Our team of experienced top-tier developers are committed to providing a wide range of
+            premium features, which include, but are not limited to, the following.
           </Typography>
         </Stack>
 
@@ -114,7 +112,7 @@ export default function MarketingLandingServices() {
 
 // ----------------------------------------------------------------------
 
-const FadingServiceItem = fadeOnScrollHoc(ServiceItem)
+const FadingServiceItem = fadeOnScrollHoc(ServiceItem);
 
 function ServiceItem({ service, index }) {
   const { name, caption, icon, content, path } = service;
@@ -134,15 +132,15 @@ function ServiceItem({ service, index }) {
         }),
       }}
     >
-        <img
-          src={icon}
-          sx={{
-            width: 88,
-            height: 88,
-            mx: 'auto',
-            color: (theme) => theme.palette[COLORS[index]].main,
-          }}
-        />
+      <img
+        src={icon}
+        sx={{
+          width: 88,
+          height: 88,
+          mx: 'auto',
+          color: (theme) => theme.palette[COLORS[index]].main,
+        }}
+      />
 
       <Stack spacing={1} sx={{ my: 5, px: 4, py: 5 }}>
         <TextMaxLine variant="h6">{name}</TextMaxLine>
