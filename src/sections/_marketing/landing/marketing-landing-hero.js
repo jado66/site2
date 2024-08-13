@@ -149,6 +149,8 @@ const HeroVideoComponent = () => {
         objectFit: 'cover',
         marginLeft: '-11.5%',
       }}
+      playsInline
+      loop
     >
       <source src="/assets/stock-photos/platinum-programming.webm" type="video/webm" />
     </video>
