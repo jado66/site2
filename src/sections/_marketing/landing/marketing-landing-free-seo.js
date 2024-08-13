@@ -17,7 +17,7 @@ import {
   inqueryEmailLink,
   inqueryPhoneLink,
   inqueryPhoneText,
-  businessHours
+  businessHours,
 } from 'src/constants/contact';
 import { bgGradient } from 'src/theme/css';
 
@@ -61,7 +61,7 @@ export default function MarketingLandingFreeSEO() {
     email: Yup.string().required('Email is required').email('That is not an email'),
     name: Yup.string().required('Name is required'),
     phoneNumber: Yup.string(),
-    company: Yup.string()
+    company: Yup.string(),
   });
 
   const { loading, error, success, sendRequestFormByEmail } = useSendRequestForm();
@@ -80,59 +80,62 @@ export default function MarketingLandingFreeSEO() {
     validateOnBlur: true,
     onSubmit: async (values) => {
       // awsait sendRequestFormByEmail(values);
-    }
+    },
   });
 
   const handleServicesChange = (service) => {
-    formik.setFieldValue('services', 
+    formik.setFieldValue(
+      'services',
       formik.values.services.includes(service)
-        ? formik.values.services.filter(app => app !== service)
+        ? formik.values.services.filter((app) => app !== service)
         : [...formik.values.services, service]
     );
   };
 
   const submitForm = async () => {
     const errors = await formik.validateForm();
-     
-      
+
     if (!formik.values.name || !formik.values.email || !formik.values.phoneNumber) {
       toast('Name, email, and phone are required.');
       return;
     }
 
-    sendRequestFormByEmail(formik.values)
+    sendRequestFormByEmail(formik.values);
 
     // toast('Request was successfully sent. We will respond in 2-3 business days.')
     // onReset();
-  }
+  };
 
   const mdUp = useResponsive('up', 'md');
 
   const FormData = (
     <>
-      <Grid xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }}/>
-      <Grid xs={12} md={5} sx={{ bgcolor: { md: 'transparent', xs: '#212B36' }, px: { xs: 2, md: 4 }, mt: {xs:-2,md:0} }}>
+      <Grid xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }} />
+      <Grid
+        xs={12}
+        md={5}
+        sx={{
+          bgcolor: { md: 'transparent', xs: '#212B36' },
+          px: { xs: 2, md: 4 },
+          mt: { xs: -2, md: 0 },
+        }}
+      >
         <Typography
           variant="h3"
           component="h2"
           sx={{
             color: 'white',
             mb: { xs: 3, md: 4 },
-            mt: { xs: 0, md: 0},
+            mt: { xs: 0, md: 0 },
             textAlign: { xs: 'center', md: 'left' },
-            whiteSpace:'nowrap'
+            whiteSpace: 'nowrap',
           }}
         >
           Complimentary Consultation
         </Typography>
         <form>
-          <Stack spacing={2.5} alignItems="flex-start" >
-            <Stack
-              spacing={{ xs: 2.5, md: 2 }}
-              direction={'row' }
-              sx={{ width: 1 }}
-            >
-              
+          <Stack spacing={2.5} alignItems="flex-start">
+            <Stack spacing={{ xs: 2.5, md: 2 }} direction={'row'} sx={{ width: 1 }}>
               <StyledTextField
                 name="name"
                 label="Name"
@@ -153,14 +156,9 @@ export default function MarketingLandingFreeSEO() {
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.touched.email && formik.errors.email}
               />
-                      
             </Stack>
 
-            <Stack
-              direction={'row'}
-              spacing={{ xs: 2.5, md: 2 }}
-              sx={{ width: 1 }}
-            >
+            <Stack direction={'row'} spacing={{ xs: 2.5, md: 2 }} sx={{ width: 1 }}>
               <StyledTextField
                 name="phoneNumber"
                 label="Phone number"
@@ -172,17 +170,17 @@ export default function MarketingLandingFreeSEO() {
                 helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
               />
               <StyledTextField
-                  name="company"
-                  label="Company Name"
-                  fullWidth
-                  value={formik.values.company}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={formik.touched.company && Boolean(formik.errors.company)}
-                  helperText={formik.touched.company && formik.errors.company}
-                />     
+                name="company"
+                label="Company Name"
+                fullWidth
+                value={formik.values.company}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.company && Boolean(formik.errors.company)}
+                helperText={formik.touched.company && formik.errors.company}
+              />
             </Stack>
-            
+
             <Stack spacing={1} sx={{ pt: 2, width: 1 }}>
               <Typography variant="overline" sx={{ color: 'white' }}>
                 Areas of Interest
@@ -198,7 +196,7 @@ export default function MarketingLandingFreeSEO() {
                       sx={{
                         py: 0.5,
                         px: 1,
-                        color:'white',
+                        color: 'white',
                         typography: 'body2',
                         [`&.${toggleButtonClasses.selected}`]: {
                           bgcolor: 'text.primary',
@@ -211,11 +209,12 @@ export default function MarketingLandingFreeSEO() {
                       }}
                     >
                       {services.label}
-                      {services.iconifyIcon && <Iconify icon={services.iconifyIcon} sx={{ ml: 1.5 }} />}
+                      {services.iconifyIcon && (
+                        <Iconify icon={services.iconifyIcon} sx={{ ml: 1.5 }} />
+                      )}
                     </ToggleButton>
                   ))}
                 </Stack>
-                
               </div>
             </Stack>
 
@@ -237,9 +236,9 @@ export default function MarketingLandingFreeSEO() {
                 />
               </Stack>
             )}
-            
-            <Stack spacing={5} sx={{ width: 1, mt:2, display:'flex', flexDirection:'row' }}>
-              <Typography variant="overline" sx={{ color: 'white', whiteSpace:'nowrap' }}>
+
+            <Stack spacing={5} sx={{ width: 1, mt: 2, display: 'flex', flexDirection: 'row' }}>
+              <Typography variant="overline" sx={{ color: 'white', whiteSpace: 'nowrap' }}>
                 Total Budget
               </Typography>
 
@@ -247,13 +246,12 @@ export default function MarketingLandingFreeSEO() {
                 name="budget"
                 valueLabelDisplay="on"
                 max={500000}
-                min = {10000}
+                min={10000}
                 step={5000}
                 value={formik.values.budget}
                 valueLabelFormat={(value) => fCurrency(value)}
                 onChange={(_, newValue) => formik.setFieldValue('budget', newValue)}
               />
-              
             </Stack>
 
             <StyledTextField
@@ -286,21 +284,18 @@ export default function MarketingLandingFreeSEO() {
             Send Request
           </Button>
         </form>
-        
-        <Grid container spacing={4} mt={{xs:4, md:4}} sx = {{textAlign:'center'}}>
-          <Grid item xs = {12}>
-            <Typography 
-              variant="h3"
-              component="h2"
-            >
+
+        <Grid container spacing={4} mt={{ xs: 4, md: 4 }} sx={{ textAlign: 'center' }}>
+          <Grid item xs={12}>
+            <Typography variant="h3" component="h2">
               Let's Connect
             </Typography>
           </Grid>
-            
-          <Grid item md={4} xs = {6} display = 'flex' justifyContent='center'>
+
+          <Grid item md={4} xs={6} display="flex" justifyContent="center">
             <Stack spacing={2} alignItems="flex-start" direction="row">
-              <Stack spacing={0.5} display = 'flex' justifyContent='center'>
-                <Iconify width={28} icon="carbon:mobile" sx = {{marginX:'auto'}} />
+              <Stack spacing={0.5} display="flex" justifyContent="center">
+                <Iconify width={28} icon="carbon:mobile" sx={{ marginX: 'auto' }} />
                 <Typography variant="h6">Call or Text</Typography>
                 <Link color="inherit" variant="body2" href={inqueryPhoneLink}>
                   {inqueryPhoneText}
@@ -308,18 +303,10 @@ export default function MarketingLandingFreeSEO() {
               </Stack>
             </Stack>
           </Grid>
-          <Grid 
-            item md={4} 
-            xs = {12} 
-            display = 'flex' 
-            justifyContent='center'
-            order={{xs:3,md:2}}
-
-
-          >
+          <Grid item md={4} xs={12} display="flex" justifyContent="center" order={{ xs: 3, md: 2 }}>
             <Stack spacing={2} alignItems="flex-start" direction="row">
               <Stack spacing={0.5}>
-                <Iconify width={28} icon="carbon:email" sx = {{marginX:'auto'}}/>
+                <Iconify width={28} icon="carbon:email" sx={{ marginX: 'auto' }} />
 
                 <Typography variant="h6">Email</Typography>
                 <Link color="inherit" variant="body2" href={inqueryEmailLink}>
@@ -327,69 +314,49 @@ export default function MarketingLandingFreeSEO() {
                 </Link>
               </Stack>
             </Stack>
-          </Grid> 
-          <Grid 
-            item 
-            md={4} 
-            xs = {6} 
-            display = 'flex' 
-            justifyContent='center'
-            order={{xs:2,md:3}}
-          >
+          </Grid>
+          <Grid item md={4} xs={6} display="flex" justifyContent="center" order={{ xs: 2, md: 3 }}>
             <Stack spacing={2} alignItems="flex-start" direction="row">
               <Stack spacing={0.5}>
-                <Iconify width={28} icon="carbon:time" sx = {{marginX:'auto'}}/>
+                <Iconify width={28} icon="carbon:time" sx={{ marginX: 'auto' }} />
 
                 <Typography variant="h6">Business Hours</Typography>
-                <Stack spacing={0.5} direction="row" sx = {{marginX:'auto'}}>
+                <Stack spacing={0.5} direction="row" sx={{ marginX: 'auto' }}>
                   <Typography variant="body2">8 AM</Typography>
-                  <Typography variant="body2" >-</Typography>
+                  <Typography variant="body2">-</Typography>
                   <Typography variant="body2">4 PM</Typography>
-                  <Typography variant="body2" ></Typography>
-                  <Typography variant="body2" >PT</Typography>
+                  <Typography variant="body2"></Typography>
+                  <Typography variant="body2">PT</Typography>
                 </Stack>
               </Stack>
             </Stack>
           </Grid>
         </Grid>
-        
-        
       </Grid>
-     
     </>
   );
 
-  if (mdUp){
-    return (
-      <DesktopView>
-        {FormData}
-      </DesktopView>
-    )
-  }
-  else{
-    return(
-      <MobileContactVideo>
-        {FormData}
-      </MobileContactVideo>
-    )
+  if (mdUp) {
+    return <DesktopView>{FormData}</DesktopView>;
+  } else {
+    return <MobileContactVideo>{FormData}</MobileContactVideo>;
   }
 }
 
 const StyledSlider = styled(Slider)(({ theme }) => ({
-    'span[data-index="1"]': {
-      '& .MuiSlider-valueLabelOpen': {
-        top: 'auto',
-        bottom: -10,
-        transform: 'translateY(100%) scale(1)',
-          '&::before': {
-            transform:'translate(-50%, -290%) rotate(45deg)'
-          },
-        
-      }
-    }
+  'span[data-index="1"]': {
+    '& .MuiSlider-valueLabelOpen': {
+      top: 'auto',
+      bottom: -10,
+      transform: 'translateY(100%) scale(1)',
+      '&::before': {
+        transform: 'translate(-50%, -290%) rotate(45deg)',
+      },
+    },
+  },
 }));
 
-const DesktopView = ({children}) => {
+const DesktopView = ({ children }) => {
   const theme = useTheme();
 
   return (
@@ -421,7 +388,7 @@ const DesktopView = ({children}) => {
       >
         <source src="/assets/stock-photos/contact-us.webm" type="video/mp4" />
       </Box>
-      <Box 
+      <Box
         sx={{
           position: 'absolute',
           top: 0,
@@ -431,7 +398,7 @@ const DesktopView = ({children}) => {
           background: 'linear-gradient(to right, rgba(0, 0, 0, 0) 45%, rgba(33, 43, 54, 1) 65%)',
           zIndex: 0,
           pointerEvents: 'none',
-        }} 
+        }}
       />
       <Grid
         container
@@ -448,9 +415,9 @@ const DesktopView = ({children}) => {
       </Grid>
     </Box>
   );
-}
+};
 
-const MobileContactVideo = ({children}) => {
+const MobileContactVideo = ({ children }) => {
   const theme = useTheme();
 
   return (
@@ -476,6 +443,7 @@ const MobileContactVideo = ({children}) => {
           autoPlay
           loop
           muted
+          playsInline
           sx={{
             position: 'relative',
             top: 0,
@@ -516,8 +484,7 @@ const MobileContactVideo = ({children}) => {
       </Grid>
     </Box>
   );
-}
-
+};
 
 const StyledTextField = styled(TextField)({
   '& .MuiInputBase-input': {
