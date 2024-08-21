@@ -31,61 +31,57 @@ import { usePathname, useRouter } from 'next/navigation';
 
 // ----------------------------------------------------------------------
 const mainNav = () => {
+  return [
+    {
+      title: 'Home',
+      path: '/',
+    },
+    {
+      title: 'About',
+      path: '/about',
+    },
+    {
+      title: 'Services',
+      path: '/services',
+    },
+    {
+      title: 'Demos',
+      children: [
+        { title: 'Service Demos', path: '/services' },
+        { title: 'Sample Website', path: '/examples/travel' },
+      ],
+    },
 
-  return(
-    [
-      {
-        title: 'Home',
-        path: '/',
-      },
-      {
-        title: 'About',
-        path: '/about',
-      },
-      {
-        title: 'Services',
-        path: '/services',
-      },
-      { 
-        title: 'Demos', 
-        children: [
-          { title: 'Service Demos', path: '/services' }, 
-          { title: 'Sample Website', path: '/examples/travel' }
-        ]
-      },
-      
-      { title: 'Contact', path: '/contact' },
-      // {...includeInEnv({ 
-      //   prod: {}, 
-      //   dev:  {
-      //     title: 'Blog',
-      //     path: '/blog',
-      //   }
-      // })},
-    ]
-    
-  )
-}
+    { title: 'Contact', path: '/contact' },
+    // {...includeInEnv({
+    //   prod: {},
+    //   dev:  {
+    //     title: 'Blog',
+    //     path: '/blog',
+    //   }
+    // })},
+  ];
+};
 const travelNav = [
   {
     title: 'Home',
-    path: '/',
+    path: '/examples/travel/',
   },
   {
     title: 'Tours',
-    path: '/',
+    path: '/examples/travel/',
   },
   {
     title: 'Blog',
-    path: '/',
+    path: '/examples/travel/',
   },
   {
     title: 'Bookings',
-    path: '/',
+    path: '/examples/travel/',
   },
   {
     title: 'About Us',
-    path: '/',
+    path: '/examples/travel/',
   },
 ];
 
@@ -128,7 +124,7 @@ export default function Header({
     // if (openChatbot) {
     //   openChatbot();
     // }
-    router.push('/contact')
+    router.push('/contact');
   };
 
   const handleHideChatbot = () => {
@@ -137,8 +133,8 @@ export default function Header({
     }
   };
 
-  const router = useRouter()
-  const pathname = usePathname()
+  const router = useRouter();
+  const pathname = usePathname();
 
   const theme = useTheme();
 
@@ -169,27 +165,27 @@ export default function Header({
         <Typography
           variant="h4"
           component="div"
-          sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', textTransform:'uppercase', mt:'4px' }}
+          sx={{
+            flexGrow: 1,
+            display: 'flex',
+            alignItems: 'center',
+            textTransform: 'uppercase',
+            mt: '4px',
+          }}
           fontWeight={'bold'}
-          
         >
           {type === 'main' && (
-
             <>
-              { !mdUp ? (
+              {!mdUp ? (
                 <BlurContainer>
                   <Logo stacked size={35} sx={{ mr: 1, mt: 0.4 }} />
-
                 </BlurContainer>
-              ):
-              <BlurContainer>
+              ) : (
+                <BlurContainer>
                   <Logo stacked size={50} sx={{ mr: 1, mt: 0.4 }} />
-
                 </BlurContainer>
-
-              }
+              )}
             </>
-           
           )}
           {type === 'travel' && (
             <>
@@ -235,7 +231,7 @@ export default function Header({
               </Button>
             ) : (
               <Button
-                sx = {{
+                sx={{
                   color: '#white',
                   // backgroundColor:'black',
                   // '&:hover':{
@@ -266,9 +262,7 @@ export default function Header({
   );
 
   return (
-    <AppBar
-      sx = {{maxWidth:'auto'}}
-    >
+    <AppBar sx={{ maxWidth: 'auto' }}>
       <Toolbar
         disableGutters
         sx={{
@@ -299,7 +293,7 @@ export default function Header({
             alignItems: 'center',
             justifyContent: 'center',
           }}
-          maxWidth = 'xl'
+          maxWidth="xl"
         >
           {renderContent}
         </Container>
@@ -314,30 +308,29 @@ Header.propTypes = {
   headerOnDark: PropTypes.bool,
 };
 
-
 const BlurContainer = ({ children, sx }) => (
-  <Box style={{
-    position: 'relative',
-    display: 'inline-block'
-    
-  }}
-   
+  <Box
+    style={{
+      position: 'relative',
+      display: 'inline-block',
+    }}
   >
-    <Box style={{
-      position: 'absolute',
-      top: -2.5,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      zIndex: -1,
-      filter: 'blur(15px)',
-      background: 'rgba(0, 0, 0, .75)',
-      borderRadius: '15%',
-      width: '100%',
-      height: '100%',
-      opacity: 1
-    }} 
-    sx = {sx}
+    <Box
+      style={{
+        position: 'absolute',
+        top: -2.5,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: -1,
+        filter: 'blur(15px)',
+        background: 'rgba(0, 0, 0, .75)',
+        borderRadius: '15%',
+        width: '100%',
+        height: '100%',
+        opacity: 1,
+      }}
+      sx={sx}
     />
     {children}
   </Box>

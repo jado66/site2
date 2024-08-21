@@ -56,16 +56,6 @@ export default function MarketingLandingHero() {
             support.
           </Typography>
         </Stack>
-
-        <Divider
-          sx={{
-            mt: { xs: 0, md: 15 },
-            mb: { xs: 6, md: 15 },
-            borderColor: 'lightgray',
-            mx: 5,
-            display: { xs: 'auto', md: 'none' },
-          }}
-        />
       </Container>
     </>
   );

@@ -454,7 +454,7 @@ const MobileContactVideo = ({ children }) => {
             zIndex: 1,
           }}
         >
-          <source src="/assets/stock-photos/contact-us.webm" type="video/mp4" />
+          <source src="/assets/stock-photos/contact-us.webm" type="video/webm" />
         </Box>
         <Box
           sx={{

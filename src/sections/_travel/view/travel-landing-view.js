@@ -22,7 +22,6 @@ import { toast } from 'react-toastify';
 import { travelPageInstructionsToast } from 'src/utils/toasts';
 import { ActiveSectionProvider } from 'src/layouts/main';
 
-
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -33,11 +32,10 @@ import DialogTitle from '@mui/material/DialogTitle';
 // ----------------------------------------------------------------------
 
 export default function TravelLandingView() {
-  
   return (
     <ActiveSectionProvider>
       <TravelLayout>
-        <IntroDialog/>
+        <IntroDialog />
         <Box sx={{ position: 'relative' }}>
           <TravelLandingHero tours={_tours.slice(0, 5)} />
 
@@ -95,12 +93,12 @@ const IntroDialog = () => {
 
   return (
     <div>
-      
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Welcome!</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            You are about to see a demo site. This site is intended for demonstration purposes only.
+            This page is part of an example site, only intended to demonstrate our development
+            capabilities.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -109,5 +107,4 @@ const IntroDialog = () => {
       </Dialog>
     </div>
   );
-}
-
+};
