@@ -138,34 +138,33 @@ export default function MarketingLandingAboutHero() {
 
   const content = (
     <>
-       <Grid xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }}/>
-       <Grid 
-          xs={12} 
-          md={5} 
-          sx={{ 
-            height:{ md:'calc(100vh - 80px)', xs:'auto'},
-            display:'flex',
-            flexDirection:'column',
-            alignItems:'center',
-            p: { xs: 3, md: 8 }, mt: {xs:-2,md:0} 
-          }}
+      <Grid xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }} />
+      <Grid
+        xs={12}
+        md={5}
+        sx={{
+          height: { md: 'calc(100vh - 80px)', xs: 'auto' },
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          p: { xs: 3, md: 8 },
+          mt: { xs: -2, md: 0 },
+        }}
       >
-        <Grid
-          item
-          md = {8}
-        >
+        <Grid item md={8}>
           <Typography variant="h2">About</Typography>
 
           <Typography sx={{ mt: 3, mb: 5, color: 'white' }}>
-            If you are in the market for a cutting-edge, customized website to elevate your
-            business, you have come to the right place.
+            If you are seeking a state-of-the-art, customized website to enhance your business, you
+            have arrived at the right destination.
             <br />
             <br />
-            Platinum Programming develops custom web applications, utilizing specialized software
-            and the latest web technology. We offer services and packages tailored to the needs of
-            corporate partners, established businesses, and funded start-up companies. Take a look
-            at our work and book a free consultation today to make your professional website stand
-            out with the support of our highly skilled developers.
+            Platinum Programming specializes in developing bespoke web applications, leveraging
+            advanced software and the latest web technologies. We provide tailored services and
+            packages designed to meet the specific needs of corporate partners, established
+            enterprises, and well-funded startups. Explore our portfolio and schedule a
+            complimentary consultation today to distinguish your professional website with the
+            expertise of our highly skilled developers.
           </Typography>
 
           <Button
@@ -173,19 +172,15 @@ export default function MarketingLandingAboutHero() {
             color="inherit"
             size="large"
             fullWidth
-            href='/services'
+            href="/services"
             endIcon={<Iconify icon="carbon:chevron-right" />}
           >
-            View Our Services
+            Our Services
           </Button>
         </Grid>
       </Grid>
     </>
   );
 
-  return isMdUp ? (
-    <DesktopView>{content}</DesktopView>
-  ) : (
-    <MobileView>{content}</MobileView>
-  );
+  return isMdUp ? <DesktopView>{content}</DesktopView> : <MobileView>{content}</MobileView>;
 }

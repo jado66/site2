@@ -28,7 +28,7 @@ const SERVICES = [
     caption: 'Authentication',
     icon: '/assets/stock-photos/admin.webp',
     content:
-      'User management authentication gives you, in addition to selective team members, the tools and controls necessarily to confidently and securely manage your website. We can provide you with a login page connected to an authentication provider, a database where user information and password hashes (password backups) are stored. Authentication allows for protected pages within your website, so select sections and pages of your website can be inaccessible without login credentials. Sensitive webpages can be protected by login information only distributed to your team members with relevant roles. Website administrators can have exclusive access to different pages and functionality than general users.',
+      'User management authentication gives you, in addition to selective team members, the tools and controls necessarily to confidently and securely manage your website. We can provide you with a login page connected to an authentication provider, a database where user information and password hashes (password backups) are stored. Authentication allows for protected pages within your website, so select sections and pages of your website can be inaccessible without login credentials. Sensitive webpages can be protected by login information only distributed to your team members with relevant roles. Website administrators can have exclusive access to different pages and functionality that are not accessible to general users.',
     path: paths.marketing.services,
   },
   {
@@ -85,7 +85,7 @@ export default function MarketingLandingServices() {
           <Typography variant="h2">Executive Web Development</Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
-            Our team of experienced top-tier developers are committed to providing a wide range of
+            Our team of experienced top-tier developers is committed to providing a wide range of
             premium features, which include, but are not limited to, the following.
           </Typography>
         </Stack>
