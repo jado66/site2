@@ -79,7 +79,8 @@ const MobileView = ({ children }) => {
         }),
         height: 'auto',
         overflow: 'visible',
-        py: 5,
+        pb: 5,
+        pt: 0,
         position: 'relative',
       }}
     >

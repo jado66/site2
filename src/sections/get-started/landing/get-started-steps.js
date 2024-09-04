@@ -18,19 +18,22 @@ const STEPS = [
   {
     name: 'Contact',
     image: '/assets/stock-photos/contact.webp',
-    content: 'Fill out the contact form above, and we will get back to you within 2 - 3 business days.',
+    content:
+      'Fill out the contact form above, and we will get back to you within 2 - 3 business days.',
     path: paths.marketing.services,
   },
   {
     name: 'Discuss Requirements',
     image: '/assets/stock-photos/discuss.webp',
-    content: 'In a complimentary consultation, we will discuss your requirements and provide an estimate.',
+    content:
+      'In a complimentary consultation, we will discuss your requirements and provide an estimate.',
     path: paths.marketing.services,
   },
   {
     name: 'Begin Development',
     image: '/assets/stock-photos/get-started.jpeg',
-    content: 'We will draft the overall structure of your software, design user interfaces, and begin the development of your project.',
+    content:
+      'We will draft the overall structure of your software, design user interfaces, and begin the development of your project.',
     path: paths.marketing.services,
   },
   {
@@ -102,6 +105,7 @@ function ServiceItem({ service, index }) {
   return (
     <Card
       sx={{
+        position: 'relative',
         textAlign: 'center',
         ...(index === 1 && {
           pb: { xs: 5, md: 8 },
@@ -115,6 +119,27 @@ function ServiceItem({ service, index }) {
       <CardMedia component="img" alt={name} image={image} />
 
       <CardContent sx={{ px: 4, py: 5 }}>
+        <Typography
+          variant="body2"
+          sx={{
+            textAlign: 'right',
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            mt: 2,
+            mr: 2,
+            px: 1.5, // Padding left and right
+            py: 0.75, // Padding top and bottom
+            opacity: 0.85,
+            bgcolor: '#33322e', // Background color
+            color: 'white', // Text color
+            borderRadius: '16px', // Rounded corners, adjust as needed
+            display: 'inline-block', // Ensure it wraps content appropriately
+          }}
+          gutterBottom
+        >
+          Step {index + 1}
+        </Typography>
         <Stack spacing={1} sx={{ my: 5 }}>
           <Typography variant="h6">{name}</Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>

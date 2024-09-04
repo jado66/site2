@@ -66,15 +66,19 @@ export default function MarketingLandingFreeSEO() {
 
   const { loading, error, success, sendRequestFormByEmail } = useSendRequestForm();
 
+  const initialValues = {
+    name: '',
+    services: [],
+    email: '',
+    phoneNumber: '',
+    budget: [40000, 100000],
+    message: '',
+    company: '',
+    other: '',
+  };
+
   const formik = useFormik({
-    initialValues: {
-      name: '',
-      services: [],
-      email: '',
-      phoneNumber: '',
-      budget: [40000, 100000],
-      message: '',
-    },
+    initialValues,
     validationSchema: MarketingContactSchema,
     validateOnChange: true,
     validateOnBlur: true,
@@ -100,8 +104,10 @@ export default function MarketingLandingFreeSEO() {
       return;
     }
 
-    sendRequestFormByEmail(formik.values);
+    await sendRequestFormByEmail(formik.values);
 
+    //reset vals
+    formik.resetForm({ values: initialValues });
     // toast('Request was successfully sent. We will respond in 2-3 business days.')
     // onReset();
   };
@@ -201,7 +207,7 @@ export default function MarketingLandingFreeSEO() {
                         [`&.${toggleButtonClasses.selected}`]: {
                           bgcolor: 'text.primary',
                           borderColor: 'transparent',
-                          color: 'white',
+                          color: 'black',
                           '&:hover': {
                             bgcolor: 'text.primary',
                           },
@@ -274,6 +280,7 @@ export default function MarketingLandingFreeSEO() {
             variant="contained"
             sx={{ mt: 3 }}
             onClick={submitForm}
+            disabled={loading}
             // disabled={
             //   !formik.touched.name ||
             //   !formik.touched.email ||
@@ -288,7 +295,7 @@ export default function MarketingLandingFreeSEO() {
         <Grid container spacing={4} mt={{ xs: 4, md: 4 }} sx={{ textAlign: 'center' }}>
           <Grid item xs={12}>
             <Typography variant="h3" component="h2">
-              Let's Connect
+              Contact
             </Typography>
           </Grid>
 

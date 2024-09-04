@@ -28,7 +28,7 @@ export default function MarketingLandingHero() {
       </Box>
       <Container
         sx={{
-          pb: { xs: 10, md: 10 },
+          pb: { xs: 4, md: 10 },
           pt: { xs: 10, md: 10 },
         }}
       >

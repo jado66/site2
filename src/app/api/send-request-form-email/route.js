@@ -17,13 +17,13 @@ export async function POST(request, res) {
   //     },
   //   });
   // }
-  
+
   const { subject, html } = await request.json();
 
   try {
     // Send mail with defined transport object
     let info = await transporter.sendMail({
-      to:'jado66@gmail.com', // list of receivers
+      to: 'contact@platinumprogramming.com ', // list of receivers
       subject, // Subject line
       html, // html body
     });
@@ -39,9 +39,9 @@ export async function POST(request, res) {
   } catch (error) {
     console.error(error);
     // Send a JSON response with status code 500 (Internal Server Error) if an error occurs
-    return new Response(JSON.stringify({ message: 'Error sending email', error: error.message}), {
+    return new Response(JSON.stringify({ message: 'Error sending email', error: error.message }), {
       status: 500,
-      headers: {'Content-Type': 'application/json',},
+      headers: { 'Content-Type': 'application/json' },
     });
   }
 }
