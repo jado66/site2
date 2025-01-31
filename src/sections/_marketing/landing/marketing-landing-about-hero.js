@@ -139,20 +139,21 @@ export default function MarketingLandingAboutHero() {
 
   const content = (
     <>
-      <Grid xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }} />
+      <Grid xs={12} xl={7} md={5} sx={{ display: { xs: 'none', md: 'block' } }} />
       <Grid
         xs={12}
-        md={5}
+        md={7}
+        xl={5}
         sx={{
           height: { md: 'calc(100vh - 80px)', xs: 'auto' },
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          p: { xs: 3, md: 8 },
+          p: { xs: 3, md: 2, lg: 7 },
           mt: { xs: -2, md: 0 },
         }}
       >
-        <Grid item md={8}>
+        <Grid item md={10} lg={12}>
           <Typography variant="h2">About</Typography>
 
           <Typography sx={{ mt: 3, mb: 5, color: 'white' }}>

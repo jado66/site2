@@ -233,6 +233,7 @@ export default function Header({
               <Button
                 sx={{
                   color: '#white',
+                  textTransform: 'none',
                   // backgroundColor:'black',
                   // '&:hover':{
                   //   backgroundColor:'#333333',
@@ -241,7 +242,7 @@ export default function Header({
                 variant="outlined"
                 onClick={handleOpenChatbot}
               >
-                {type === 'main' && 'Complimentary Consultation'}
+                {type === 'main' && 'Request Quote'}
                 {type === 'travel' && 'Get Live Assistance'}
                 {type === 'education' && 'Open Chat'}
               </Button>

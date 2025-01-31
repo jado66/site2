@@ -26,7 +26,7 @@ const STEPS = [
     name: 'Discuss Requirements',
     image: '/assets/stock-photos/discuss.webp',
     content:
-      'In a complimentary consultation, we will discuss your requirements and provide an estimate.',
+      'In a complimentary consultation, we will discuss your requirements and provide a price estimate.',
     path: paths.marketing.services,
   },
   {

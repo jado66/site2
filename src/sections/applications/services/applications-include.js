@@ -435,8 +435,42 @@ export default function ApplicationsInclude() {
           }}
           variant="subtitle1"
         >
-          The possibilities are endless, and our team of experienced Engineerrs
+          The possibilities are endless, and our team of experienced developers is ready to help! We
+          can build custom features and services to meet your unique needs.
         </Typography>
+        {/* Action */}
+        <Stack
+          direction={{ xs: 'column', sm: 'row' }}
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+          sx={{ mt: 5 }}
+        >
+          <Button
+            variant="contained"
+            size="large"
+            onClick={() => {
+              // Get the element you want to scroll to
+              const targetElement = document.getElementById('complimentary-consultation');
+
+              if (targetElement) {
+                // Calculate the top position minus 64px offset
+                const headerOffset = 64;
+                const elementPosition =
+                  targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerOffset;
+
+                // Smooth scroll to the calculated position
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth',
+                });
+              }
+            }}
+          >
+            Fill out our contact form to get started
+          </Button>
+        </Stack>
       </Card>
       <EnvSpecificComponent env="dev">
         <>

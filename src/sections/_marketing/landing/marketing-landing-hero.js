@@ -6,7 +6,7 @@ import { useResponsive } from 'src/hooks/use-responsive';
 import { useState, useRef, useEffect } from 'react';
 
 import './banner.css';
-import { Divider, Stack, Typography } from '@mui/material';
+import { Button, Divider, Stack, Typography } from '@mui/material';
 import Logo from 'src/components/logo';
 // ----------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ export default function MarketingLandingHero() {
           spacing={3}
           sx={{
             maxWidth: 900,
-            height: { xs: '50vh', lg: 'auto' },
+            height: { xs: '70vh', lg: 'auto' },
             mb: { xs: 4, md: 15 },
             mx: { xs: 'auto' },
             textAlign: { xs: 'center' },
@@ -55,6 +55,32 @@ export default function MarketingLandingHero() {
             presence stands out with expert development, responsive design, and comprehensive
             support.
           </Typography>
+
+          <Button
+            variant="contained"
+            size="large"
+            sx={{ m: 3, mx: 'auto' }}
+            onClick={() => {
+              // Get the element you want to scroll to
+              const targetElement = document.getElementById('complimentary-consultation');
+
+              if (targetElement) {
+                // Calculate the top position minus 64px offset
+                const headerOffset = 64;
+                const elementPosition =
+                  targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerOffset;
+
+                // Smooth scroll to the calculated position
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth',
+                });
+              }
+            }}
+          >
+            Complimentary Consultation
+          </Button>
         </Stack>
       </Container>
     </>
