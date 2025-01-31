@@ -116,14 +116,15 @@ export default function MarketingLandingFreeSEO() {
 
   const FormData = (
     <>
-      <Grid xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }} />
+      <Grid xs={12} lg={7} md={4} sx={{ display: { xs: 'none', md: 'block' } }} />
       <Grid
         xs={12}
-        md={5}
+        md={8}
+        lg={5}
         sx={{
           bgcolor: { md: 'transparent', xs: '#212B36' },
           px: { xs: 2, md: 4 },
-          mt: { xs: -2, md: 0 },
+          mt: { xs: -2, lg: 0 },
         }}
         id="complimentary-consultation"
       >
