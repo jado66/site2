@@ -14,12 +14,14 @@ import { MotionLazy } from 'src/components/animate/motion-lazy';
 import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Analytics } from '@vercel/analytics/react';
 
 // ----------------------------------------------------------------------
 
 export const metadata = {
   title: 'Platinum Programming',
-  description:'Platinum Programming delivers top-notch web and app development with NextJs, React, and more. Our team ensures quality and efficiency using Agile/DevOps practices.',
+  description:
+    'Platinum Programming delivers top-notch web and app development with NextJs, React, and more. Our team ensures quality and efficiency using Agile/DevOps practices.',
   keywords:
     'Platinum Programming, Software Development Company, Professional Web Development, Enterprise Software Solutions, Custom Web Application Development, NextJs Development, React Web Development, Frontend Development Agency, JavaScript Professionals, Full Stack JavaScript, JS Frameworks Experts, Digital Transformation Services, Cutting Edge Technology Solutions, DevOps Practices, Agile Methodologies, High Quality Code Standards, Experienced Developers, Reliable Coding Solutions, Modern Web Technologies, Scalable Software',
   themeColor: '#000000',
@@ -73,6 +75,7 @@ export default function RootLayout({ children }) {
             </ThemeProvider>
           </SettingsProvider>
         </LocalizationProvider>
+        <Analytics />
       </body>
     </html>
   );
