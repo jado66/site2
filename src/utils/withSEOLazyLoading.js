@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { LogoLoading } from 'src/components/loading-screen/splash-screen';
 
 // Higher-order component to add SEO-friendly lazy loading
 const withSEOLazyLoading = (LazyComponent, placeholderHeight = 'h-96') => {
@@ -46,7 +47,7 @@ const withSEOLazyLoading = (LazyComponent, placeholderHeight = 'h-96') => {
         {SEOContent}
         <div ref={containerRef}>
           {isVisible ? (
-            <Suspense fallback={<LoadingPlaceholder height={placeholderHeight} />}>
+            <Suspense fallback={<LogoLoading />}>
               <LazyComponent
                 {...props}
                 onLoad={() => setIsLoaded(true)}
