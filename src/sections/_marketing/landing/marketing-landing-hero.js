@@ -1,3 +1,11 @@
+// export default function Page() {
+//   return (
+//     <ClientParent serverChildren={<ServerChild />}>
+//       {/* Other children */}
+//     </ClientParent>
+//   );
+// }
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { useTheme } from '@mui/material/styles';

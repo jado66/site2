@@ -19,13 +19,13 @@ const useSendRequestForm = () => {
         },
         body: JSON.stringify({
           subject: 'New Contact Request Form: ',
-          html: '<pre>'+JSON.stringify(formData)+'</pre>'}),
-
+          html: '<pre>' + JSON.stringify(formData) + '</pre>',
+        }),
       });
 
       if (response.status === 200) {
         setSuccess(true);
-        toast.success('Your request has been succesfully sent. We will get back to you soon.');
+        toast.success('Your request has been successfully sent. We will get back to you soon.');
       } else {
         const error = await response.json();
 
@@ -34,13 +34,12 @@ const useSendRequestForm = () => {
         } else if (response.status === 408) {
           setError('Request Timed Out. Looks like you are offline.');
         } else {
-          const errorMessages =error;
+          const errorMessages = error;
         }
       }
     } catch (err) {
       setError('Error: ' + err.message);
-      alert('Error22: ' + err.message)
-
+      alert('Error22: ' + err.message);
     }
 
     setLoading(false);

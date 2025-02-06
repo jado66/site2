@@ -20,26 +20,47 @@ import { useEffect, useState, Suspense, lazy } from 'react';
 import { SplashScreen } from 'src/components/loading-screen';
 import MarketingLandingHero from '../landing/marketing-landing-hero';
 import { LogoLoading } from 'src/components/loading-screen/splash-screen';
+import withSEOLazyLoading from 'src/utils/withSEOLazyLoading';
 
 // Lazy load components
-const MarketingLandingFaqs = lazy(() => import('../landing/marketing-landing-faqs'));
-const MarketingLandingAbout = lazy(() => import('../landing/marketing-landing-about'));
-const MarketingLandingProcess = lazy(() => import('../landing/marketing-landing-process'));
-const MarketingLandingServices = lazy(() => import('../landing/marketing-landing-services'));
-const MarketingNewsletter = lazy(() => import('../marketing-newsletter'));
-const MarketingTeamAbout = lazy(() => import('../team/marketing-team-about'));
-const MarketingAboutCoreValues = lazy(() => import('../about/marketing-about-core-values'));
-const MarketingAboutMissionStatement = lazy(() =>
-  import('../about/marketing-about-mission-statement')
+const MarketingLandingFaqs = withSEOLazyLoading(
+  lazy(() => import('../landing/marketing-landing-faqs'))
 );
-const MarketingLandingAboutHero = lazy(() => import('../landing/marketing-landing-about-hero'));
-const MarketingLandingFreeSEO = lazy(() => import('../landing/marketing-landing-free-seo'));
-const GetStartedSteps = lazy(() => import('src/sections/get-started/landing/get-started-steps'));
-const ApplicationsInclude = lazy(() =>
-  import('src/sections/applications/services/applications-include')
+const MarketingLandingAbout = withSEOLazyLoading(
+  lazy(() => import('../landing/marketing-landing-about'))
 );
-const ApplicationsHero = lazy(() => import('src/sections/applications/services/applications-hero'));
-const MarketingLandingTechnology = lazy(() => import('../landing/marketing-landing-technology'));
+const MarketingLandingProcess = withSEOLazyLoading(
+  lazy(() => import('../landing/marketing-landing-process'))
+);
+const MarketingLandingServices = withSEOLazyLoading(
+  lazy(() => import('../landing/marketing-landing-services'))
+);
+const MarketingNewsletter = withSEOLazyLoading(lazy(() => import('../marketing-newsletter')));
+const MarketingTeamAbout = withSEOLazyLoading(lazy(() => import('../team/marketing-team-about')));
+const MarketingAboutCoreValues = withSEOLazyLoading(
+  lazy(() => import('../about/marketing-about-core-values'))
+);
+const MarketingAboutMissionStatement = withSEOLazyLoading(
+  lazy(() => import('../about/marketing-about-mission-statement'))
+);
+const MarketingLandingAboutHero = withSEOLazyLoading(
+  lazy(() => import('../landing/marketing-landing-about-hero'))
+);
+const MarketingLandingFreeSEO = withSEOLazyLoading(
+  lazy(() => import('../landing/marketing-landing-free-seo'))
+);
+const GetStartedSteps = withSEOLazyLoading(
+  lazy(() => import('src/sections/get-started/landing/get-started-steps'))
+);
+const ApplicationsInclude = withSEOLazyLoading(
+  lazy(() => import('src/sections/applications/services/applications-include'))
+);
+const ApplicationsHero = withSEOLazyLoading(
+  lazy(() => import('src/sections/applications/services/applications-hero'))
+);
+const MarketingLandingTechnology = withSEOLazyLoading(
+  lazy(() => import('../landing/marketing-landing-technology'))
+);
 
 // ----------------------------------------------------------------------
 

@@ -15,6 +15,7 @@ import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Analytics } from '@vercel/analytics/react';
+import GoogleAnalytics from 'src/utils/GoogleAnalytics';
 
 // ----------------------------------------------------------------------
 
@@ -55,6 +56,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={primaryFont.className}>
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body>
         <LocalizationProvider>
           <SettingsProvider

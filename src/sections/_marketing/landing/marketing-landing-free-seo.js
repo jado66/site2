@@ -28,6 +28,7 @@ import { Divider, Slider } from '@mui/material';
 import { toast } from 'react-toastify';
 import { transform } from 'typescript';
 import { useResponsive } from 'src/hooks/use-responsive';
+import { useGoogleAdsConversion } from 'src/utils/GoogleAnalytics';
 
 // ----------------------------------------------------------------------
 
@@ -56,6 +57,8 @@ export const _services = [
 // ----------------------------------------------------------------------
 
 export default function MarketingLandingFreeSEO() {
+  const { triggerConversion } = useGoogleAdsConversion();
+
   const MarketingContactSchema = Yup.object().shape({
     services: Yup.array(),
     email: Yup.string().required('Email is required').email('That is not an email'),
@@ -105,6 +108,7 @@ export default function MarketingLandingFreeSEO() {
     }
 
     await sendRequestFormByEmail(formik.values);
+    triggerConversion();
 
     //reset vals
     formik.resetForm({ values: initialValues });
