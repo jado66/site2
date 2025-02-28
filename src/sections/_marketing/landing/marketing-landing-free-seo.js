@@ -53,9 +53,9 @@ export default function MarketingLandingFreeSEO() {
   const { loading, error, success, sendRequestFormByEmail } = useSendRequestForm();
 
   // Contact information constants
-  const inquiryEmail = 'info@company.com';
+  const inquiryEmail = 'Contact@PlatinumProgramming.com';
   const inquiryEmailLink = `mailto:${inquiryEmail}`;
-  const inquiryPhoneText = '(555) 123-4567';
+  const inquiryPhoneText = '(385) 309-1356';
   const inquiryPhoneLink = `tel:${inquiryPhoneText.replace(/[^0-9]/g, '')}`;
 
   // Service options
@@ -429,7 +429,7 @@ export default function MarketingLandingFreeSEO() {
           </AccordionSummary>
           <AccordionDetails>
             <Grid container spacing={4} sx={{ textAlign: 'center' }}>
-              <Grid item xs={6} md={4} display="flex" justifyContent="center">
+              <Grid item xs={6} display="flex" justifyContent="center">
                 <Stack spacing={1} alignItems="center">
                   <Iconify width={28} icon="carbon:mobile" sx={{ color: 'common.white' }} />
                   <Typography variant="h6" sx={{ color: 'common.white' }}>
@@ -446,7 +446,22 @@ export default function MarketingLandingFreeSEO() {
                 </Stack>
               </Grid>
 
-              <Grid item xs={6} md={4} display="flex" justifyContent="center">
+              <Grid item xs={6} display="flex" justifyContent="center">
+                <Stack spacing={1} alignItems="center">
+                  <Iconify width={28} icon="carbon:time" sx={{ color: 'common.white' }} />
+                  <Typography variant="h6" sx={{ color: 'common.white' }}>
+                    Hours
+                  </Typography>
+                  <Stack spacing={0.5} direction="row" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
+                    <Typography variant="body2">8 AM</Typography>
+                    <Typography variant="body2">-</Typography>
+                    <Typography variant="body2">4 PM</Typography>
+                    <Typography variant="body2">PT</Typography>
+                  </Stack>
+                </Stack>
+              </Grid>
+
+              <Grid item xs={12} display="flex" justifyContent="center">
                 <Stack spacing={1} alignItems="center">
                   <Iconify width={28} icon="carbon:email" sx={{ color: 'common.white' }} />
                   <Typography variant="h6" sx={{ color: 'common.white' }}>
@@ -460,21 +475,6 @@ export default function MarketingLandingFreeSEO() {
                   >
                     {inquiryEmail}
                   </Link>
-                </Stack>
-              </Grid>
-
-              <Grid item xs={12} md={4} display="flex" justifyContent="center">
-                <Stack spacing={1} alignItems="center">
-                  <Iconify width={28} icon="carbon:time" sx={{ color: 'common.white' }} />
-                  <Typography variant="h6" sx={{ color: 'common.white' }}>
-                    Hours
-                  </Typography>
-                  <Stack spacing={0.5} direction="row" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-                    <Typography variant="body2">8 AM</Typography>
-                    <Typography variant="body2">-</Typography>
-                    <Typography variant="body2">4 PM</Typography>
-                    <Typography variant="body2">PT</Typography>
-                  </Stack>
                 </Stack>
               </Grid>
             </Grid>

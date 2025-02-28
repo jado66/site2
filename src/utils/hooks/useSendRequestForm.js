@@ -18,8 +18,8 @@ const useSendRequestForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          subject: 'New Contact Request Form: ',
-          html: '<pre>' + JSON.stringify(formData) + '</pre>',
+          subject: 'New Contact Request',
+          formData: formData, // Pass the entire formData object instead of converting to string
         }),
       });
 
@@ -27,19 +27,19 @@ const useSendRequestForm = () => {
         setSuccess(true);
         toast.success('Your request has been successfully sent. We will get back to you soon.');
       } else {
-        const error = await response.json();
+        const errorData = await response.json();
 
         if (response.status === 400) {
           setError('Bad Request. Please check your form data.');
         } else if (response.status === 408) {
           setError('Request Timed Out. Looks like you are offline.');
         } else {
-          const errorMessages = error;
+          setError(`Error: ${errorData.message || 'Something went wrong'}`);
         }
       }
     } catch (err) {
       setError('Error: ' + err.message);
-      alert('Error22: ' + err.message);
+      console.error('Form submission error:', err);
     }
 
     setLoading(false);
