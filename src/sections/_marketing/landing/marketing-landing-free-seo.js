@@ -1,95 +1,98 @@
+'use client';
+
+import { useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { toast } from 'react-toastify';
+
+// MUI Components
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
+import Slider from '@mui/material/Slider';
+import ToggleButton from '@mui/material/ToggleButton';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
 import { alpha, styled, useTheme } from '@mui/material/styles';
-import { fCurrency } from 'src/utils/format-number';
-import * as Yup from 'yup';
-import { _tags } from 'src/_mock';
-import ToggleButton, { toggleButtonClasses } from '@mui/material/ToggleButton';
-import { Form, useFormik } from 'formik';
-import {
-  inqueryEmail,
-  inqueryEmailLink,
-  inqueryPhoneLink,
-  inqueryPhoneText,
-  businessHours,
-} from 'src/constants/contact';
-import { bgGradient } from 'src/theme/css';
+import { useMediaQuery } from '@mui/material';
 
+// Icons
+
+// Utils
+import { bgGradient } from 'src/theme/css'; // Assuming this is your gradient utility
 import Iconify from 'src/components/iconify';
 
-import useSendRequestForm from 'src/utils/hooks/useSendRequestForm';
-import { Divider, Slider } from '@mui/material';
-import { toast } from 'react-toastify';
-import { transform } from 'typescript';
-import { useResponsive } from 'src/hooks/use-responsive';
-import { useGoogleAdsConversion } from 'src/utils/GoogleAnalytics';
-
-// ----------------------------------------------------------------------
-
-export const _services = [
-  {
-    label: 'Chatbot',
-    iconifyIcon: 'bx:bot',
-  },
-  {
-    label: 'Email',
-    iconifyIcon: 'ic:outline-email',
-  },
-  {
-    label: 'Voice',
-    iconifyIcon: 'carbon:phone-voice',
-  },
-  {
-    label: 'SMS',
-    iconifyIcon: 'ic:outline-sms',
-  },
-  {
-    label: 'Other',
-  },
-];
-
-// ----------------------------------------------------------------------
-
 export default function MarketingLandingFreeSEO() {
-  const { triggerConversion } = useGoogleAdsConversion();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [loading, setLoading] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
 
+  // Contact information constants
+  const inquiryEmail = 'info@company.com';
+  const inquiryEmailLink = `mailto:${inquiryEmail}`;
+  const inquiryPhoneText = '(555) 123-4567';
+  const inquiryPhoneLink = `tel:${inquiryPhoneText.replace(/[^0-9]/g, '')}`;
+
+  // Service options
+  const services = [
+    { label: 'Chatbot', iconifyIcon: 'bx:bot' },
+    { label: 'Email', iconifyIcon: 'ic:outline-email' },
+    { label: 'Voice', iconifyIcon: 'carbon:phone-voice' },
+    { label: 'SMS', iconifyIcon: 'ic:outline-sms' },
+    { label: 'Other' },
+  ];
+
+  // Form validation schema
   const MarketingContactSchema = Yup.object().shape({
-    services: Yup.array(),
-    email: Yup.string().required('Email is required').email('That is not an email'),
     name: Yup.string().required('Name is required'),
-    phoneNumber: Yup.string(),
+    email: Yup.string().required('Email is required').email('That is not a valid email'),
+    phoneNumber: Yup.string().required('Phone number is required'),
     company: Yup.string(),
+    services: Yup.array(),
+    budget: Yup.array(),
+    message: Yup.string(),
+    other: Yup.string(),
   });
 
-  const { loading, error, success, sendRequestFormByEmail } = useSendRequestForm();
-
-  const initialValues = {
-    name: '',
-    services: [],
-    email: '',
-    phoneNumber: '',
-    budget: [40000, 100000],
-    message: '',
-    company: '',
-    other: '',
-  };
-
+  // Form initialization
   const formik = useFormik({
-    initialValues,
+    initialValues: {
+      name: '',
+      email: '',
+      phoneNumber: '',
+      company: '',
+      services: [],
+      budget: [40000, 100000],
+      message: '',
+      other: '',
+    },
     validationSchema: MarketingContactSchema,
-    validateOnChange: true,
-    validateOnBlur: true,
     onSubmit: async (values) => {
-      // awsait sendRequestFormByEmail(values);
+      setLoading(true);
+      try {
+        // Mock API call - replace with your actual submission logic
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        toast.success('Request was successfully sent. We will respond in 2-3 business days.');
+        formik.resetForm();
+        setActiveStep(0);
+      } catch (error) {
+        toast.error('Something went wrong. Please try again.');
+      } finally {
+        setLoading(false);
+      }
     },
   });
 
+  // Toggle service selection
   const handleServicesChange = (service) => {
     formik.setFieldValue(
       'services',
@@ -99,26 +102,26 @@ export default function MarketingLandingFreeSEO() {
     );
   };
 
-  const submitForm = async () => {
-    const errors = await formik.validateForm();
-
-    if (!formik.values.name || !formik.values.email || !formik.values.phoneNumber) {
-      toast('Name, email, and phone are required.');
-      return;
-    }
-
-    await sendRequestFormByEmail(formik.values);
-    triggerConversion();
-
-    //reset vals
-    formik.resetForm({ values: initialValues });
-    // toast('Request was successfully sent. We will respond in 2-3 business days.')
-    // onReset();
+  // Format currency for budget slider
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0,
+    }).format(value);
   };
 
-  const mdUp = useResponsive('up', 'md');
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
 
-  const FormData = (
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const steps = ['Basic Info', 'Services & Budget', 'Message'];
+
+  const FormContent = (
     <>
       <Grid xs={12} lg={7} md={4} sx={{ display: { xs: 'none', md: 'block' } }} />
       <Grid
@@ -126,9 +129,14 @@ export default function MarketingLandingFreeSEO() {
         md={8}
         lg={5}
         sx={{
-          bgcolor: { md: 'transparent', xs: '#212B36' },
+          bgcolor: { md: 'transparent', xs: 'background.paper' },
           px: { xs: 2, md: 4 },
           mt: { xs: -2, lg: 0 },
+          pb: { xs: 4, md: 0 },
+          borderRadius: { xs: 2, md: 0 },
+          boxShadow: { xs: 1, md: 0 },
+          position: 'relative',
+          zIndex: 2,
         }}
         id="complimentary-consultation"
       >
@@ -136,240 +144,330 @@ export default function MarketingLandingFreeSEO() {
           variant="h3"
           component="h2"
           sx={{
-            color: 'white',
+            color: 'common.white',
             mb: { xs: 3, md: 4 },
-            mt: { xs: 0, md: 0 },
+            mt: { xs: 3, md: 0 },
             textAlign: { xs: 'center', md: 'left' },
-            whiteSpace: 'nowrap',
+            whiteSpace: { md: 'nowrap' },
           }}
         >
           Complimentary Consultation
         </Typography>
-        <form>
+
+        <Stepper activeStep={activeStep} alternativeLabel sx={{ mb: 4 }}>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+
+        <form onSubmit={formik.handleSubmit}>
           <Stack spacing={2.5} alignItems="flex-start">
-            <Stack spacing={{ xs: 2.5, md: 2 }} direction={'row'} sx={{ width: 1 }}>
-              <StyledTextField
-                name="name"
-                label="Name"
-                fullWidth
-                value={formik.values.name}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.touched.name && Boolean(formik.errors.name)}
-                helperText={formik.touched.name && formik.errors.name}
-              />
-              <StyledTextField
-                name="email"
-                label="Email"
-                fullWidth
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
-              />
-            </Stack>
-
-            <Stack direction={'row'} spacing={{ xs: 2.5, md: 2 }} sx={{ width: 1 }}>
-              <StyledTextField
-                name="phoneNumber"
-                label="Phone number"
-                fullWidth
-                value={formik.values.phoneNumber}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
-                helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
-              />
-              <StyledTextField
-                name="company"
-                label="Company Name"
-                fullWidth
-                value={formik.values.company}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.touched.company && Boolean(formik.errors.company)}
-                helperText={formik.touched.company && formik.errors.company}
-              />
-            </Stack>
-
-            <Stack spacing={1} sx={{ pt: 2, width: 1 }}>
-              <Typography variant="overline" sx={{ color: 'white' }}>
-                Areas of Interest
-              </Typography>
-              <div>
-                <Stack direction="row" flexWrap="wrap" spacing={2}>
-                  {_services.map((services) => (
-                    <ToggleButton
-                      key={services.label}
-                      color="standard"
-                      selected={formik.values.services.includes(services.label)}
-                      onChange={() => handleServicesChange(services.label)}
-                      sx={{
-                        py: 0.5,
-                        px: 1,
-                        color: 'white',
-                        typography: 'body2',
-                        [`&.${toggleButtonClasses.selected}`]: {
-                          bgcolor: 'text.primary',
-                          borderColor: 'transparent',
-                          color: 'black',
-                          '&:hover': {
-                            bgcolor: 'text.primary',
-                          },
-                        },
-                      }}
-                    >
-                      {services.label}
-                      {services.iconifyIcon && (
-                        <Iconify icon={services.iconifyIcon} sx={{ ml: 1.5 }} />
-                      )}
-                    </ToggleButton>
-                  ))}
+            {activeStep === 0 && (
+              <>
+                <Stack
+                  spacing={{ xs: 2.5, md: 2 }}
+                  direction={{ xs: 'column', sm: 'row' }}
+                  sx={{ width: 1 }}
+                >
+                  <StyledTextField
+                    name="name"
+                    label="Name"
+                    fullWidth
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.name && Boolean(formik.errors.name)}
+                    helperText={formik.touched.name && formik.errors.name}
+                  />
+                  <StyledTextField
+                    name="email"
+                    label="Email"
+                    fullWidth
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                  />
                 </Stack>
-              </div>
-            </Stack>
 
-            {formik.values.services.includes('Other') && (
-              <Stack
-                direction={{ xs: 'column', md: 'row' }}
-                spacing={{ xs: 2.5, md: 2 }}
-                sx={{ width: 1 }}
-              >
-                <StyledTextField
-                  name="other"
-                  label="Other Interests"
-                  fullWidth
-                  value={formik.values.other}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={formik.touched.other && Boolean(formik.errors.other)}
-                  helperText={formik.touched.other && formik.errors.other}
-                />
-              </Stack>
+                <Stack
+                  spacing={{ xs: 2.5, md: 2 }}
+                  direction={{ xs: 'column', sm: 'row' }}
+                  sx={{ width: 1 }}
+                >
+                  <StyledTextField
+                    name="phoneNumber"
+                    label="Phone number"
+                    fullWidth
+                    value={formik.values.phoneNumber}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
+                    helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
+                  />
+                  <StyledTextField
+                    name="company"
+                    label="Company Name"
+                    fullWidth
+                    value={formik.values.company}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.company && Boolean(formik.errors.company)}
+                    helperText={formik.touched.company && formik.errors.company}
+                  />
+                </Stack>
+              </>
             )}
 
-            <Stack spacing={5} sx={{ width: 1, mt: 2, display: 'flex', flexDirection: 'row' }}>
-              <Typography variant="overline" sx={{ color: 'white', whiteSpace: 'nowrap' }}>
-                Total Budget
-              </Typography>
+            {activeStep === 1 && (
+              <>
+                <Stack spacing={1} sx={{ pt: 2, width: 1 }}>
+                  <Typography variant="overline" sx={{ color: 'common.white' }}>
+                    Areas of Interest
+                  </Typography>
+                  <Box>
+                    <Stack
+                      direction="row"
+                      flexWrap="wrap"
+                      spacing={0}
+                      sx={{ gap: 2, justifyContent: { xs: 'center', md: 'flex-start' } }}
+                    >
+                      {services.map((service) => (
+                        <ToggleButton
+                          key={service.label}
+                          color="standard"
+                          selected={formik.values.services.includes(service.label)}
+                          onChange={() => handleServicesChange(service.label)}
+                          sx={{
+                            py: 0.5,
+                            px: 1,
+                            color: 'common.white',
+                            typography: 'body2',
+                            borderColor: 'rgba(255, 255, 255, 0.5)',
+                            '&.Mui-selected': {
+                              bgcolor: 'common.white',
+                              borderColor: 'transparent',
+                              color: 'common.black',
+                              '&:hover': {
+                                bgcolor: 'common.white',
+                              },
+                            },
+                          }}
+                        >
+                          {service.label}
+                          {service.iconifyIcon && (
+                            <Iconify icon={service.iconifyIcon} sx={{ ml: 1.5 }} />
+                          )}
+                        </ToggleButton>
+                      ))}
+                    </Stack>
+                  </Box>
+                </Stack>
 
-              <StyledSlider
-                name="budget"
-                valueLabelDisplay="on"
-                max={500000}
-                min={10000}
-                step={5000}
-                value={formik.values.budget}
-                valueLabelFormat={(value) => fCurrency(value)}
-                onChange={(_, newValue) => formik.setFieldValue('budget', newValue)}
+                {formik.values.services.includes('Other') && (
+                  <Stack
+                    direction={{ xs: 'column', md: 'row' }}
+                    spacing={{ xs: 2.5, md: 2 }}
+                    sx={{ width: 1 }}
+                  >
+                    <StyledTextField
+                      name="other"
+                      label="Other Interests"
+                      fullWidth
+                      value={formik.values.other}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={formik.touched.other && Boolean(formik.errors.other)}
+                      helperText={formik.touched.other && formik.errors.other}
+                    />
+                  </Stack>
+                )}
+
+                <Stack
+                  spacing={1}
+                  sx={{
+                    width: 1,
+                    mt: 2,
+                    display: 'flex',
+                    flexDirection: { xs: 'column', sm: 'row' },
+                    alignItems: { xs: 'flex-start', sm: 'center' },
+                  }}
+                >
+                  <Typography
+                    variant="overline"
+                    sx={{
+                      color: 'common.white',
+                      whiteSpace: 'nowrap',
+                      mb: { xs: 1, sm: 0 },
+                    }}
+                  >
+                    Total Budget
+                  </Typography>
+
+                  <Box sx={{ width: 1, px: 1 }}>
+                    <StyledSlider
+                      name="budget"
+                      valueLabelDisplay="on"
+                      max={500000}
+                      min={10000}
+                      step={5000}
+                      value={formik.values.budget}
+                      valueLabelFormat={(value) => formatCurrency(value)}
+                      onChange={(_, newValue) => formik.setFieldValue('budget', newValue)}
+                      sx={{ mt: { xs: 3, sm: 0 } }}
+                    />
+                  </Box>
+                </Stack>
+              </>
+            )}
+
+            {activeStep === 2 && (
+              <StyledTextField
+                name="message"
+                label="Message"
+                fullWidth
+                multiline
+                rows={4}
+                value={formik.values.message}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.message && Boolean(formik.errors.message)}
+                helperText={formik.touched.message && formik.errors.message}
               />
-            </Stack>
-
-            <StyledTextField
-              name="message"
-              label="Message"
-              fullWidth
-              multiline
-              value={formik.values.message}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.message && Boolean(formik.errors.message)}
-              helperText={formik.touched.message && formik.errors.message}
-            />
+            )}
           </Stack>
 
-          <Button
-            size="large"
-            color="inherit"
-            type="button"
-            variant="contained"
-            sx={{ mt: 3 }}
-            onClick={submitForm}
-            disabled={loading}
-            // disabled={
-            //   !formik.touched.name ||
-            //   !formik.touched.email ||
-            //   !!formik.errors.name ||
-            //   !!formik.errors.email
-            // }
-          >
-            Send Request
-          </Button>
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Button
+              color="inherit"
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              sx={{ mr: 1, color: 'common.white' }}
+            >
+              Back
+            </Button>
+            <Box sx={{ flex: '1 1 auto' }} />
+            {activeStep === steps.length - 1 ? (
+              <Button
+                size="large"
+                color="inherit"
+                type="submit"
+                variant="contained"
+                sx={{
+                  bgcolor: 'common.white',
+                  color: 'common.black',
+                  '&:hover': {
+                    bgcolor: 'rgba(255, 255, 255, 0.9)',
+                  },
+                }}
+                disabled={loading}
+              >
+                Submit
+              </Button>
+            ) : (
+              <Button
+                onClick={handleNext}
+                sx={{
+                  color: 'common.white',
+                  borderColor: 'common.white',
+                  '&:hover': {
+                    borderColor: 'rgba(255, 255, 255, 0.9)',
+                    bgcolor: 'rgba(255, 255, 255, 0.1)',
+                  },
+                }}
+                variant="outlined"
+              >
+                Next
+              </Button>
+            )}
+          </Box>
         </form>
 
-        <Grid container spacing={4} mt={{ xs: 4, md: 4 }} sx={{ textAlign: 'center' }}>
-          <Grid item xs={12}>
-            <Typography variant="h3" component="h2">
-              Contact
-            </Typography>
-          </Grid>
-
-          <Grid item md={4} xs={6} display="flex" justifyContent="center">
-            <Stack spacing={2} alignItems="flex-start" direction="row">
-              <Stack spacing={0.5} display="flex" justifyContent="center">
-                <Iconify width={28} icon="carbon:mobile" sx={{ marginX: 'auto' }} />
-                <Typography variant="h6">Call or Text</Typography>
-                <Link color="inherit" variant="body2" href={inqueryPhoneLink}>
-                  {inqueryPhoneText}
-                </Link>
-              </Stack>
-            </Stack>
-          </Grid>
-          <Grid item md={4} xs={12} display="flex" justifyContent="center" order={{ xs: 3, md: 2 }}>
-            <Stack spacing={2} alignItems="flex-start" direction="row">
-              <Stack spacing={0.5}>
-                <Iconify width={28} icon="carbon:email" sx={{ marginX: 'auto' }} />
-
-                <Typography variant="h6">Email</Typography>
-                <Link color="inherit" variant="body2" href={inqueryEmailLink}>
-                  {inqueryEmail}
-                </Link>
-              </Stack>
-            </Stack>
-          </Grid>
-          <Grid item md={4} xs={6} display="flex" justifyContent="center" order={{ xs: 2, md: 3 }}>
-            <Stack spacing={2} alignItems="flex-start" direction="row">
-              <Stack spacing={0.5}>
-                <Iconify width={28} icon="carbon:time" sx={{ marginX: 'auto' }} />
-
-                <Typography variant="h6">Business Hours</Typography>
-                <Stack spacing={0.5} direction="row" sx={{ marginX: 'auto' }}>
-                  <Typography variant="body2">8 AM</Typography>
-                  <Typography variant="body2">-</Typography>
-                  <Typography variant="body2">4 PM</Typography>
-                  <Typography variant="body2"></Typography>
-                  <Typography variant="body2">PT</Typography>
+        <Accordion
+          sx={{
+            mt: 4,
+            bgcolor: 'transparent',
+            color: 'common.white',
+            '&:before': {
+              display: 'none',
+            },
+          }}
+        >
+          <AccordionSummary
+            expandIcon={<Iconify icon="akar-icons:chevron-down" sx={{ color: 'common.white' }} />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>Contact Information</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Grid container spacing={4} sx={{ textAlign: 'center' }}>
+              <Grid item xs={6} md={4} display="flex" justifyContent="center">
+                <Stack spacing={1} alignItems="center">
+                  <Iconify width={28} icon="carbon:mobile" sx={{ color: 'common.white' }} />
+                  <Typography variant="h6" sx={{ color: 'common.white' }}>
+                    Call or Text
+                  </Typography>
+                  <Link
+                    color="inherit"
+                    variant="body2"
+                    href={inquiryPhoneLink}
+                    sx={{ color: 'rgba(255, 255, 255, 0.7)' }}
+                  >
+                    {inquiryPhoneText}
+                  </Link>
                 </Stack>
-              </Stack>
-            </Stack>
-          </Grid>
-        </Grid>
+              </Grid>
+
+              <Grid item xs={6} md={4} display="flex" justifyContent="center">
+                <Stack spacing={1} alignItems="center">
+                  <Iconify width={28} icon="carbon:email" sx={{ color: 'common.white' }} />
+                  <Typography variant="h6" sx={{ color: 'common.white' }}>
+                    Email
+                  </Typography>
+                  <Link
+                    color="inherit"
+                    variant="body2"
+                    href={inquiryEmailLink}
+                    sx={{ color: 'rgba(255, 255, 255, 0.7)' }}
+                  >
+                    {inquiryEmail}
+                  </Link>
+                </Stack>
+              </Grid>
+
+              <Grid item xs={12} md={4} display="flex" justifyContent="center">
+                <Stack spacing={1} alignItems="center">
+                  <Iconify width={28} icon="carbon:time" sx={{ color: 'common.white' }} />
+                  <Typography variant="h6" sx={{ color: 'common.white' }}>
+                    Hours
+                  </Typography>
+                  <Stack spacing={0.5} direction="row" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
+                    <Typography variant="body2">8 AM</Typography>
+                    <Typography variant="body2">-</Typography>
+                    <Typography variant="body2">4 PM</Typography>
+                    <Typography variant="body2">PT</Typography>
+                  </Stack>
+                </Stack>
+              </Grid>
+            </Grid>
+          </AccordionDetails>
+        </Accordion>
       </Grid>
     </>
   );
 
-  if (mdUp) {
-    return <DesktopView>{FormData}</DesktopView>;
+  if (isMobile) {
+    return <MobileContactView>{FormContent}</MobileContactView>;
   } else {
-    return <MobileContactVideo>{FormData}</MobileContactVideo>;
+    return <DesktopContactView>{FormContent}</DesktopContactView>;
   }
 }
 
-const StyledSlider = styled(Slider)(({ theme }) => ({
-  'span[data-index="1"]': {
-    '& .MuiSlider-valueLabelOpen': {
-      top: 'auto',
-      bottom: -10,
-      transform: 'translateY(100%) scale(1)',
-      '&::before': {
-        transform: 'translate(-50%, -290%) rotate(45deg)',
-      },
-    },
-  },
-}));
-
-const DesktopView = ({ children }) => {
+const DesktopContactView = ({ children }) => {
   const theme = useTheme();
 
   return (
@@ -378,8 +476,7 @@ const DesktopView = ({ children }) => {
         ...bgGradient({
           color: alpha(theme.palette.grey[900], 0.5),
         }),
-        height: '100vh',
-        overflow: 'hidden',
+        minHeight: '100vh',
         py: 5,
         position: 'relative',
       }}
@@ -430,7 +527,7 @@ const DesktopView = ({ children }) => {
   );
 };
 
-const MobileContactVideo = ({ children }) => {
+const MobileContactView = ({ children }) => {
   const theme = useTheme();
 
   return (
@@ -439,8 +536,7 @@ const MobileContactVideo = ({ children }) => {
         ...bgGradient({
           color: alpha(theme.palette.grey[900], 0.5),
         }),
-        height: 'auto',
-        overflow: 'visible',
+        minHeight: '100vh',
         py: 5,
         position: 'relative',
       }}
@@ -449,6 +545,8 @@ const MobileContactVideo = ({ children }) => {
         sx={{
           position: 'relative',
           mb: 3,
+          height: '300px',
+          overflow: 'hidden',
         }}
       >
         <Box
@@ -461,7 +559,7 @@ const MobileContactVideo = ({ children }) => {
             position: 'relative',
             top: 0,
             left: 0,
-            height: 'auto',
+            height: '100%',
             width: '100%',
             objectFit: 'cover',
             zIndex: 1,
@@ -499,18 +597,67 @@ const MobileContactVideo = ({ children }) => {
   );
 };
 
-const StyledTextField = styled(TextField)({
+const StyledTextField = styled(TextField)(({ theme }) => ({
   '& .MuiInputBase-input': {
-    color: 'white', // Text color
+    color: theme.palette.common.white,
   },
   '& .MuiInputLabel-root': {
-    color: 'white', // Label color
+    color: theme.palette.common.white,
   },
   '& .MuiInputBase-input::placeholder': {
-    color: 'white', // Placeholder color
-    opacity: 1, // Ensures full opacity for the placeholder text
+    color: theme.palette.common.white,
+    opacity: 0.7,
   },
   '& .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'white', // Outline color
+    borderColor: 'rgba(255, 255, 255, 0.5)',
   },
-});
+  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'rgba(255, 255, 255, 0.7)',
+  },
+  '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    borderColor: theme.palette.common.white,
+  },
+  '& .MuiFormHelperText-root': {
+    color: theme.palette.error.light,
+  },
+}));
+
+const StyledSlider = styled(Slider)(({ theme }) => ({
+  color: theme.palette.common.white,
+  height: 3,
+  '& .MuiSlider-thumb': {
+    height: 14,
+    width: 14,
+    backgroundColor: theme.palette.common.white,
+    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+      boxShadow: '0 0 0 8px rgba(255, 255, 255, 0.16)',
+    },
+  },
+  '& .MuiSlider-valueLabel': {
+    fontSize: 12,
+    fontWeight: 'normal',
+    top: -6,
+    backgroundColor: 'unset',
+    color: theme.palette.common.white,
+    '&:before': {
+      display: 'none',
+    },
+    '& *': {
+      background: 'transparent',
+      color: theme.palette.common.white,
+    },
+  },
+  '& .MuiSlider-track': {
+    border: 'none',
+    height: 3,
+  },
+  '& .MuiSlider-rail': {
+    opacity: 0.5,
+    height: 3,
+  },
+  'span[data-index="1"]': {
+    '& .MuiSlider-valueLabelOpen': {
+      transform: 'translateY(-100%) scale(1)',
+    },
+  },
+}));
