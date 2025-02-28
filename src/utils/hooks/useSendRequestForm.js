@@ -25,7 +25,7 @@ const useSendRequestForm = () => {
 
       if (response.status === 200) {
         setSuccess(true);
-        toast.success('Your request has been successfully sent. We will get back to you soon.');
+        toast.success('Thank you for your submission. We will be in touch soon!');
       } else {
         const errorData = await response.json();
 
