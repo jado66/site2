@@ -29,12 +29,28 @@ import { useMediaQuery } from '@mui/material';
 // Utils
 import { bgGradient } from 'src/theme/css'; // Assuming this is your gradient utility
 import Iconify from 'src/components/iconify';
+import { useGoogleAdsConversion } from 'src/utils/GoogleAnalytics';
+import useSendRequestForm from 'src/utils/hooks/useSendRequestForm';
+
+const initialValues = {
+  name: '',
+  services: [],
+  email: '',
+  phoneNumber: '',
+  budget: [40000, 100000],
+  message: '',
+  company: '',
+  other: '',
+};
 
 export default function MarketingLandingFreeSEO() {
+  const { triggerConversion } = useGoogleAdsConversion();
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const [loading, setLoading] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
+
+  const { loading, error, success, sendRequestFormByEmail } = useSendRequestForm();
 
   // Contact information constants
   const inquiryEmail = 'info@company.com';
@@ -76,21 +92,27 @@ export default function MarketingLandingFreeSEO() {
       other: '',
     },
     validationSchema: MarketingContactSchema,
-    onSubmit: async (values) => {
-      setLoading(true);
-      try {
-        // Mock API call - replace with your actual submission logic
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        toast.success('Request was successfully sent. We will respond in 2-3 business days.');
-        formik.resetForm();
-        setActiveStep(0);
-      } catch (error) {
-        toast.error('Something went wrong. Please try again.');
-      } finally {
-        setLoading(false);
-      }
-    },
+    onSubmit: async (values) => {},
   });
+
+  const submitForm = async () => {
+    const errors = await formik.validateForm();
+
+    if (!formik.values.name || !formik.values.email || !formik.values.phoneNumber) {
+      toast('Name, email, and phone are required.');
+      return;
+    }
+
+    await sendRequestFormByEmail(formik.values);
+    triggerConversion();
+
+    //reset vals
+    formik.resetForm({ values: initialValues });
+
+    setActiveStep(0);
+    // toast('Request was successfully sent. We will respond in 2-3 business days.')
+    // onReset();
+  };
 
   // Toggle service selection
   const handleServicesChange = (service) => {
@@ -354,7 +376,8 @@ export default function MarketingLandingFreeSEO() {
               <Button
                 size="large"
                 color="inherit"
-                type="submit"
+                type="button"
+                onClick={submitForm}
                 variant="contained"
                 sx={{
                   bgcolor: 'common.white',
@@ -365,11 +388,12 @@ export default function MarketingLandingFreeSEO() {
                 }}
                 disabled={loading}
               >
-                Submit
+                {loading ? 'Sending...' : 'Submit'}
               </Button>
             ) : (
               <Button
                 onClick={handleNext}
+                type="button"
                 sx={{
                   color: 'common.white',
                   borderColor: 'common.white',
